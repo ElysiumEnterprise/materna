@@ -1,0 +1,154 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth\,wght.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    font-family: "Fredoka";
+
+}
+.container-conteudo{
+    display: flex;
+    min-width: 100%;
+    height: 100%;
+ 
+}
+
+.cont-form{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.box-form{
+    display: flex;
+    width: 400px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+}
+.cont-head{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.cont-back{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.cont-head .cont-titulo{
+    width: 100%;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.cont-head .cont-titulo h2{
+    font-size: 60px;
+   
+    color: #F26699;
+    text-align: center;
+    font-weight: normal;
+}
+.cont-back a img{
+    width: 50px;
+}
+.cont-btn{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.cont-btn button{
+    min-width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.cont-btn button:hover{
+   
+    background-color: #ff6c91;
+
+}
+
+.slider-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.slider-form section{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.slider-form section form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+form .input-group {
+    margin-bottom: 15px;
+}
+form .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+form .input-group input {
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #F26699;
+    outline: none;
+}
+form button{
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.box-img{
+    background-color: #F26699;
+    color: white;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+}
