@@ -1,0 +1,225 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Fredoka';
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.primeiro-container {
+    background-color: #F26699;
+    color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 500px;
+    margin-bottom: 50px;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.logo p {
+    font-size: 18px;
+}
+
+.segundo-container {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    min-height: 600px;
+    margin-bottom: 15px;
+    padding: 12%;
+
+    
+    
+}
+
+.login h2 {
+    font-size: 60px;
+    margin-bottom: 60px;
+    color: #F26699;
+    text-align: center;
+    font-weight: normal;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column ;
+    position: relative;
+    height: 80px;
+    line-height: 40px;
+}
+
+form .input-group .cont-input{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
+form  .cont-input label .icon-input{
+    width: 30px;
+    margin-right: 5px;
+}
+
+.icon-input{
+    display: flex;
+}
+
+input {
+    width: 100%;
+}
+
+.animated-input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.animated-input:focus {
+    border-bottom: 4px solid #F26699;
+    transform: scale(1.04);
+}
+
+input:focus, input:valid{
+    border: none;
+    border-bottom: 2px solid #F26699;
+    
+}
+
+form .regras-senha{
+    position: relative;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 0px;
+    height: 0px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    opacity: 1;
+    overflow: hidden;
+    transition: height 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+form .regras-senha.active{
+    opacity: 1;
+    padding: 10px;
+    height: 180px;
+}
+
+form .regras-senha>div{
+    margin: 15px 10px;
+    font-weight: 400;
+    color: #9b143a;
+}
+
+form .regras-senha>div>span.active{
+    color:#409b0c
+}
+
+.cont-btn{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.icon-senha{
+    width: 36px;
+    height: 30px;
+}
+
+button:hover {
+    background-color: #F88AC5;
+}
+
+.forgot-password,
+.create-account {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover{
+    color: #5e5e5e;
+}
+
+.forgot-password{
+    font-weight: 500;
+}
+
+.create-account span {
+    text-decoration: underline;
+    font-weight: 500;
+    color: #F26699;
+}
+
+.create-account:hover span {
+    color: #F88AC5;
+}
+
+@media screen and (max-width: 1000px){
+
+    .primeiro-container{
+        display: none;
+    }
+    
+}

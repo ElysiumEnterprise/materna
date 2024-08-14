@@ -1,0 +1,129 @@
+@font-face {
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+font-family: "Inter";
+src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+.cont-notificacoes{
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    padding: 10px;
+    flex-direction: column;
+}
+.cont-titulo{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.cont-titulo h2{
+    font-family: 'Fredoka';
+    font-size: 30px;
+    font-weight: normal;
+    text-align: start;
+    color: #f26699;
+}
+
+.cont-explication{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+}
+
+.cont-explication p{
+    font-family: 'Fredoka';
+    font-size: 40px;
+    font-weight: normal;
+    text-align: center;
+    color: #003366;
+}
+.cont-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: start;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    min-width: 50%;
+    min-height: 150px ;
+    padding: 15px 15px;
+    align-items: start;
+    margin-top: 10px;
+    box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
+    -webkit-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
+    -moz-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
+    transition: 0.5s ease-in-out;
+    background-color: rgb(246, 246, 246);
+}
+
+.card:hover{
+    margin-bottom: 10px;
+    transform: scale(1.05);
+}
+
+ .card .cont-header{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+ }
+ .card .cont-header .cont-titulo{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+ }
+ .card .cont-header small{
+    font-family: 'Inter';
+    color: #003366;
+    font-weight: bold;
+ }
+
+
+ .card .cont-header .cont-icon-close{
+    display: flex;
+    width:100%;
+    justify-content: end;
+    align-items: end;
+ }
+ .card .cont-header .cont-icon-close button{
+    border-style: none;
+    border:none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+ }
+ .card .cont-header .cont-icon-close button>i{
+    width: 20%;
+ }
+ .card .cont-header .cont-icon-close button>i:hover{
+    color:#451a2a
+ }
+ .card .cont-desc{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: start;
+    align-items: center;
+ }
+ .card .cont-desc p{
+    font-family:'Inter';
+    font-weight: normal;
+    color: black;
+    text-align: justify;
+ }

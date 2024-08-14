@@ -1,0 +1,187 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Fredoka';
+    background-color: #F26699;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo{
+    width: 150px;
+}
+
+.img-logo {
+    width: 150px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-senha{
+    text-align: center;
+    font-size: 24px;
+    color: #003366;
+    font-family: 'Fredoka';
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    overflow: hidden;
+    width: 440px;
+    max-width: 100%;
+    padding: 30px;
+    height: 340px;
+}
+
+.txt p{
+    margin-top: 20px;
+    font-family: "Fredoka";
+}
+
+.email{
+    font-size: 18px;
+}
+
+.card-form{
+    margin-top: 40px;
+}
+
+.input-group {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.input-group .cont-erro{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+}
+
+.input-group .error{
+    color:#bf093d;
+}
+
+input {
+    width: 90%;
+    font-family: 'Fredoka';
+}
+
+.animated-input {
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #F26699;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    font-family: 'Fredoka';
+}
+
+.txt{
+    text-align: center;
+    margin-top: 14px;
+    font-family: 'Fredoka';
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+form section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 70px;
+}
+
+.btn-cod{
+    width: 140px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background-color: #F26699;
+    color: #fff;
+    font-weight: 550;
+    font-size: 14px;
+    font-family: 'Fredoka';
+    cursor: pointer;
+}
+
+.btn-cancel{
+    width: 140px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background-color: #e4e4e4;
+    font-weight: 550;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Fredoka';
+    color: #868586;
+
+}
+
+.btn-cod:hover{
+    background-color: #F88AC5;
+}
+
+.btn-cancel:hover{
+    background-color: #d9d4d4;
+}
+
+.animated-input:focus {
+    border-bottom: 4px solid #F26699;
+    
+    transform: scale(1.04);
+}
+
+input:focus, input:valid{
+    border: none;
+    border-bottom: 2px solid #F26699;
+    
+}
