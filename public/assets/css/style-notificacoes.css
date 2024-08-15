@@ -12,6 +12,7 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     width: 100%;
     min-height: 100%;
     padding: 10px;
+    background-color: white;
     flex-direction: column;
 }
 .cont-titulo{

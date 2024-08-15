@@ -9,21 +9,22 @@
 body {
     display: flex; 
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     min-height: 100vh;
     
     background-color: #e3e9f7;
 }
 
-
 header{
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 65px;
+    background-color: #ffb6c1;
+    justify-content: start;
+    align-items: start;
+    z-index: 3;
     position: fixed;
-    background-color: #f26699;
+    
 }
+
 
 main {
     display: flex;
@@ -33,20 +34,11 @@ main {
    /* grid-template-columns: repeat(3, 2fr);*/
     /*padding: 20px;*/
     /*position: fixed;*/
-    
-    padding-left: calc(82px + 20px);
+    padding: 0;
+    z-index:2 ;
+    /*padding-left: calc(62px + 20px);*/
 }
 
-.nav-lateral{
-    display: flex;
-   justify-content: start;
-   align-items: center;
-    position: fixed;
-    z-index: 1;
-}
-.nav-lateral h1{
-    padding-left: 20%;
-}
 #sidebar {
     display: flex;
     flex-direction: column;
@@ -204,4 +196,68 @@ main {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-top:70px ;
+    padding-left: calc(62px + 20px);
+}
+main .nav-header-conteudo{
+    display:flex;
+    padding: 0;
+    flex-direction: row;
+    width: 100%;
+    height:80px;
+    z-index: 1;
+    background-color: #ff007f;
+    position: fixed;
+}
+.nav-header-conteudo .nav-top{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    
+    align-items: center;
+}
+.nav-header-conteudo .nav-top .cont-nav-titulo{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+}
+.nav-header-conteudo .nav-top .cont-nav-titulo h1{
+    padding-left: 90px;
+    font-family: 'Fredoka';
+    color: white;
+}
+.nav-header-conteudo .nav-top .cont-buscador{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: end;
+    
+    align-items: center;
+}
+.nav-header-conteudo .nav-top .cont-buscador form {
+    min-width: 400px;
+    background-color: #f26699;
+    border-radius: 50px 50px;
+}
+.nav-header-conteudo .nav-top .cont-buscador form input, input::-webkit-input-placeholder{
+    width: 90%;
+    padding: 10px;
+    font-family: "Inter";
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+.nav-header-conteudo .nav-top .cont-buscador form input:focus{
+    outline: none;
+}
+.nav-header-conteudo .nav-top .cont-buscador form button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.nav-header-conteudo .nav-top .cont-buscador form button i{
+    color: white;
 }

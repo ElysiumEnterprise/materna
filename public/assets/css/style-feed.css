@@ -8,24 +8,33 @@
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
 .cont-feed{
-    display: 'grid';
-    grid-template-columns: repeat(2);
+    display: flex;
     width: 100%;
+   flex-direction: row;
     height: 100%;
-    padding-left: 100px;
-    justify-content: center;
-    align-items: center;
+    margin-top: 10px;
+    background-color: white;
+    
 }
 .cont-post{
     display: flex;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
-    max-width: 400px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.card-post{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
     justify-content: center;
     align-items: center;
     background-color: white;
     padding: 10px 10px;
 }
-.cont-post .post-head{
+.card-post .post-head{
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -34,23 +43,23 @@
     margin-bottom: 10px;
 }
 
-.cont-post .post-head img{
+.card-post .post-head img{
     width: 10%;
     border-radius: 50%;
     margin-right: 5px;
 }
-.cont-post .post-head small{
+.card-post .post-head small{
     font-family: "Inter";
     font-weight: bold;
 }
-.cont-post .conteudo-post{
+.card-post .conteudo-post{
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
-.cont-post .conteudo-post .cont-arquivo{
+.card-post .conteudo-post .cont-arquivo{
     display: flex;
     width: 100%;
     margin-bottom: 10px;
@@ -58,17 +67,23 @@
     align-items: center;
     min-height: 200px;
 }
-.cont-post .conteudo-post .cont-arquivo img{
+.card-post .conteudo-post .cont-arquivo img{
     width: 100%;
 }
 
-.cont-post .conteudo-post .cont-icons{
+.card-post .conteudo-post .cont-icons {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
     width: 100%;
 }
-.cont-post .conteudo-post .cont-icons .icons-principais{
+.card-post .conteudo-post .cont-icons button{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.card-post .conteudo-post .cont-icons .icons-principais{
     display: flex;
     width: 30%;
     flex-direction: row;
@@ -77,38 +92,124 @@
     gap: 20px;
     align-items: start;
 }
-.cont-post .conteudo-post .cont-icons .icons-principais i{
-    width:20%;
+.card-post .conteudo-post .cont-icons .icons-principais i{
+    font-size:20px;
 }
 
-.cont-post .conteudo-post .cont-icons .icon-salvos{
+.card-post .conteudo-post .cont-icons .icon-salvos{
     display: flex;
     width: 70%;
     justify-content: end;
     align-items: end;
 }
-.cont-post .conteudo-post .cont-legenda{
+.card-post .conteudo-post .cont-icons .icon-salvos i{
+    font-size:20px;
+}
+.card-post .conteudo-post .cont-legenda{
     display: flex;
     width: 100%;
     align-items: center;
     margin-bottom: 10px;
 }
-.cont-post .conteudo-post .cont-legendenda small{
+.card-post .conteudo-post .cont-legendenda small{
     font-family: 'Inter';
     font-weight: bolder;
 }
-.cont-post span{
+.card-post span{
     font-family: 'Inter';
     font-weight: normal;
 }
-.cont-post .conteudo-post .cont-num-comentarios{
+.card-post .conteudo-post .cont-num-comentarios{
     display: flex;
     width: 100%;
     justify-content: start;
     align-items: center;
 }
-.cont-post .conteudo-post .cont-num-comentarios small{
+.card-post .conteudo-post .cont-num-comentarios small{
     font-family: 'Inter';
     color: rgb(118, 118, 118);
 }
 
+/*Parte de Tranding*/
+
+.cont-tipo-feed{
+   
+    display: flex;
+    flex-direction: column;
+    width: 40% ;
+    min-height: 100vh;
+    justify-content: start;
+    align-items: center;
+    padding: 20px;
+    border-left: 1px black solid;
+}
+
+.cont-tipo-feed .cont-link-feed{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cont-tipo-feed .cont-link-feed a{
+    text-decoration: none;
+    color: #f26699;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Inter";
+    transition: all 0.2s ease-in-out;
+}
+.cont-tipo-feed .cont-link-feed a:hover{
+    color: #be255d;
+    transform: scale(1.04);
+    text-decoration: underline ;
+}
+.cont-tipo-feed .cont-assuntos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: end;
+    justify-content: end;
+}
+.cont-tipo-feed .cont-assuntos h5{
+    font-family: 'Inter';
+    text-align: center;
+    color: rgb(207, 207, 207);
+    font-size: 14px;
+}
+.cont-tipo-feed .cont-assuntos .card-assunto{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+    background-color: rgb(246, 246, 246);
+    box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
+    -webkit-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
+    -moz-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
+    transition: 0.5s ease-in-out;
+    margin-top: 10px;
+    border-radius: 20px 0px 2px 20px / 20px 0px 2px 20px;
+    transition: 0.5s ease-in-out;
+    padding: 20px;
+    cursor: pointer;
+}
+.cont-tipo-feed .cont-assuntos .card-assunto:hover{
+    margin-bottom: 10px;
+    transform: scale(1.05);
+}
+.cont-tipo-feed .cont-assuntos .card-assunto h4{
+    
+    font-family: 'Inter';
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cont-tipo-feed .cont-assuntos .card-assunto i{
+    font-size: 20px;
+}

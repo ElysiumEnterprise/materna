@@ -10,81 +10,100 @@
     <title>Home</title>
 </head>
 <body>
-    <section class="nav-lateral">
-        <nav id="sidebar">
-            <div id="sidebar_content">
-                <div id="user">
-                    <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" alt="Avatar">
+    <header>
         
-                    <p id="user_infos">
-                        <span class="item-description">
-                            Julia
-                        </span>
-                        <span class="item-description">
-                            Mãe de dois
-                        </span>
-                    </p>
+            <nav id="sidebar">
+                <div id="sidebar_content">
+                    <div id="user">
+                        <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" alt="Avatar">
+            
+                        <p id="user_infos">
+                            <span class="item-description">
+                                Julia
+                            </span>
+                            <span class="item-description">
+                                Mãe de dois
+                            </span>
+                        </p>
+                    </div>
+            
+                    <ul id="side_items">
+                        <li class="side-item active">
+                            <a href="#">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #ffb6c1;"></i>
+                                <span class="item-description">
+                                    Explorar
+                                </span>
+                            </a>
+                        </li>
+            
+                        <li class="side-item">
+                            <a href="#">
+                                <i class="fa-solid fa-envelope" style="color: #ffb6c1;"></i>
+                                <span class="item-description">
+                                    Mensagens
+                                </span>
+                            </a>
+                        </li>
+            
+                        <li class="side-item">
+                            <a href="#">
+                                <i class="fa-solid fa-face-smile" style="color: #ffb6c1;"></i>
+                                <span class="item-description">
+                                    Cominidades
+                                </span>
+                            </a>
+                        </li>
+            
+                        <li class="side-item">
+                            <a href="/home/notificacoes">
+                                <i class="fa-solid fa-bell"  style="color: #ffb6c1;"></i>
+                                <span class="item-description">
+                                    Notificações
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+            
+                    <button type="button" id="open_btn">
+                        <i id="chevron_right" class="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
         
-                <ul id="side_items">
-                    <li class="side-item active">
-                        <a href="#">
-                        <i class="fa-solid fa-magnifying-glass" style="color: #ffb6c1;"></i>
-                            <span class="item-description">
-                                Explorar
-                            </span>
-                        </a>
-                    </li>
-        
-                    <li class="side-item">
-                        <a href="#">
-                            <i class="fa-solid fa-envelope" style="color: #ffb6c1;"></i>
-                            <span class="item-description">
-                                Mensagens
-                            </span>
-                        </a>
-                    </li>
-        
-                    <li class="side-item">
-                        <a href="#">
-                            <i class="fa-solid fa-face-smile" style="color: #ffb6c1;"></i>
-                            <span class="item-description">
-                                Cominidades
-                            </span>
-                        </a>
-                    </li>
-        
-                    <li class="side-item">
-                        <a href="/home/notificacoes">
-                            <i class="fa-solid fa-bell"  style="color: #ffb6c1;"></i>
-                            <span class="item-description">
-                                Notificações
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-        
-                <button type="button" id="open_btn">
-                    <i id="chevron_right" class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
+                <div id="logout">
+                    <button id="logout_btn">
+                        <i class="fa-solid fa-gear" style="color: #ffb6c1;"></i>
+                        <span class="item-description">
+                            Configuraçoes
+                        </span>
+                    </button>
+                </div>
+            </nav>
+            
+            
+    </header>
     
-            <div id="logout">
-                <button id="logout_btn">
-                    <i class="fa-solid fa-gear" style="color: #ffb6c1;"></i>
-                    <span class="item-description">
-                        Configuraçoes
-                    </span>
-                </button>
-            </div>
-        </nav>
-    </section>
     <main>
-        
-        
-        <section class="conteudo-home">
-            @yield('cont-home')
+        <section class='nav-header-conteudo'>
+            <nav class='nav-top'>
+                <div class="cont-nav-titulo">
+                    <h1>Materna</h1>
+                </div>
+                <div class="cont-buscador">
+                    <form action="" method="post">
+                        <input type="search" name="item-search" id="item-search" placeholder="Procure aqui...">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass" ></i></button>
+                    </form>
+                </div>
+                
+            </nav>
         </section>
+        <div class="conteudo-home">
+            @yield('cont-home')
+        </div>
+        
+        
+        
     </main>
     
    
