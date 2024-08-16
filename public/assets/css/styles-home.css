@@ -40,6 +40,7 @@ main {
 }
 
 #sidebar {
+    padding-top: 5.6%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -50,6 +51,7 @@ main {
     transition: all .5s;
     min-width: 82px;
     z-index: 1;
+    position: fixed;
 }
 
 #sidebar_content {
@@ -125,6 +127,7 @@ main {
 #logout {
     border-top: 1px solid #e3e9f7;
     padding: 12px;
+    margin-bottom: 20px;
 }
 
 #logout_btn {
@@ -169,13 +172,13 @@ main {
 }
 
 .item-description {
-    width: 0px;
+    width: 200px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 14px;
-    transition: width .6s;
-    height: 0px;
+ 
+ 
 }
 
 #sidebar.open-sidebar {
@@ -190,6 +193,9 @@ main {
 #sidebar.open-sidebar .side-item a {
     justify-content: flex-start;
     gap: 14px;
+}
+#sidebar.open-sidebar .side-item a span{
+    display: flex;
 }
 .conteudo-home{
     display:flex;
@@ -206,7 +212,7 @@ main .nav-header-conteudo{
     width: 100%;
     height:80px;
     z-index: 1;
-    background-color: #ff007f;
+    background-color: #f26699;
     position: fixed;
 }
 .nav-header-conteudo .nav-top{
@@ -239,7 +245,7 @@ main .nav-header-conteudo{
 }
 .nav-header-conteudo .nav-top .cont-buscador form {
     min-width: 400px;
-    background-color: #f26699;
+    background-color: #be3c74;
     border-radius: 50px 50px;
 }
 .nav-header-conteudo .nav-top .cont-buscador form input, input::-webkit-input-placeholder{

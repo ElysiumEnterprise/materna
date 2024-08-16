@@ -12,7 +12,13 @@
 <body>
     <header>
         
-            <nav id="sidebar">
+            
+            
+            
+    </header>
+    
+    <main>
+    <nav id="sidebar">
                 <div id="sidebar_content">
                     <div id="user">
                         <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" alt="Avatar">
@@ -79,11 +85,6 @@
                     </button>
                 </div>
             </nav>
-            
-            
-    </header>
-    
-    <main>
         <section class='nav-header-conteudo'>
             <nav class='nav-top'>
                 <div class="cont-nav-titulo">

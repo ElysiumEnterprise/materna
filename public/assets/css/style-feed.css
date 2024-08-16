@@ -141,7 +141,7 @@
     justify-content: start;
     align-items: center;
     padding: 20px;
-    border-left: 1px black solid;
+    border-left: 1px rgba(0, 0, 0, 0.077) solid;
 }
 
 .cont-tipo-feed .cont-link-feed{
