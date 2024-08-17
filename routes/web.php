@@ -34,3 +34,7 @@ Route::get('/home/notificacoes', function(){
 Route::get('/home/feed', function(){
     return view('home.feed');
 });
+
+Route::get('/dashboard/home', function(){
+    return view('dashboard-adm.dashboard-home');
+});
