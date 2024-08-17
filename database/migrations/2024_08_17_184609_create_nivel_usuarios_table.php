@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->bigIncrements('idUsuario');
-            $table->string('nome');
-            $table->date('dtNasc');
-            $table->string('email')->unique();
-            $table->string('senha');
-            $table->string('nivelUsuario');
+        Schema::create('nivel_usuarios', function (Blueprint $table) {
+            $table->bigIncrements('idNivelUsuario');
+            $table->string('descNivel')->unique();
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('nivel_usuarios');
     }
 };
