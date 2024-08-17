@@ -1,9 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@font-face {
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+font-family: "Inter";
+src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -12,7 +20,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     
-    background-color: #e3e9f7;
+    background-color: white;
 }
 
 header{
@@ -34,13 +42,13 @@ main {
    /* grid-template-columns: repeat(3, 2fr);*/
     /*padding: 20px;*/
     /*position: fixed;*/
-    padding: 0;
+  
     z-index:2 ;
     /*padding-left: calc(62px + 20px);*/
 }
 
 #sidebar {
-    padding-top: 5.6%;
+    padding-top: 6.0%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -177,7 +185,7 @@ main {
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 14px;
- 
+    padding-left: 20px;
  
 }
 
@@ -230,10 +238,8 @@ main .nav-header-conteudo{
     height: 100%;
     align-items: center;
 }
-.nav-header-conteudo .nav-top .cont-nav-titulo h1{
-    padding-left: 90px;
-    font-family: 'Fredoka';
-    color: white;
+.nav-header-conteudo .nav-top .cont-nav-titulo img{
+    width: 30%;
 }
 .nav-header-conteudo .nav-top .cont-buscador{
     display: flex;

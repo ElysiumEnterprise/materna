@@ -11,7 +11,11 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     display: flex;
     width: 100%;
     min-height: 100%;
-    padding: 10px;
+    
+    margin-top:3.05%;
+    margin-bottom:3.05%;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     flex-direction: column;
 }
@@ -19,8 +23,8 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     display: flex;
     width: 100%;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
 }
 
 .cont-titulo h2{
@@ -34,8 +38,8 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 .cont-explication{
     display: flex;
     width: 100%;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
 }
 
 .cont-explication p{
@@ -51,7 +55,7 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
 }
 .card{
     display: flex;

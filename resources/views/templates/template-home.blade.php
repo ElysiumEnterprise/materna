@@ -35,7 +35,7 @@
             
                     <ul id="side_items">
                         <li class="side-item active">
-                            <a href="#">
+                            <a href="/home/feed">
                             <i class="fa-solid fa-magnifying-glass" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Explorar
@@ -88,7 +88,7 @@
         <section class='nav-header-conteudo'>
             <nav class='nav-top'>
                 <div class="cont-nav-titulo">
-                    <h1>Materna</h1>
+                    <img src="{{url('assets/img/logo/Logo-Materna-Branco.png')}}" alt="Imagem logo materna" class="img-logo">
                 </div>
                 <div class="cont-buscador">
                     <form action="" method="post">
