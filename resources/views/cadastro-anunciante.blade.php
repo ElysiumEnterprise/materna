@@ -37,8 +37,8 @@
                         </div>
                         <div class="slider-form">
                         <section class="cadastro-anunciante">
-                            <form action="" method="post" class="form-anunciante">
-                                
+                            <form action="{{route('form-cadastro.anunciante')}}" method="post" class="form-anunciante">
+                                @csrf
                                 <div class="input-group">
 
                                     <label for="nomeAnunciante"><span class="errorAnunciante"></span></label>
@@ -49,7 +49,7 @@
                                             <img src="{{url('assets/img/icons/icon-user.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="text" name="nomeAnuciante" id="nomeAnunciante" placeholder="Digite seu nome">
+                                        <input type="text" name="nomeAnunciante" id="nomeAnunciante" placeholder="Digite seu nome">
                                     </div>
                                 </div>
 
@@ -75,7 +75,7 @@
                                             <img src="{{url('assets/img/icons/icon-user.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="text" name="cnpjAnuciante" id="cnpjAnunciante" placeholder="Digite seu CNPJ">
+                                        <input type="text" name="cnpjAnunciante" id="cnpjAnunciante" placeholder="Digite seu CNPJ">
                                     </div>
                                 </div>
 

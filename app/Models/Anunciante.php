@@ -5,18 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Anunciante extends Model
 {
 
-    protected $table = 'usuarios';
-    
-    protected $fillable = [
-        'nome',
-        'dtNasc',
-        'email',
-        'senha',
-        'idNivelUsuario'
-    ];
+    protected $table = 'anunciantes';
+
+    protected $fillable = ['cnpjAnunciante', 'nomeAnunciante'];
     /**
      * 
      * Verificando se o id é auto-incrementado
@@ -24,9 +18,7 @@ class Usuario extends Model
         *@var bool;
      * 
      */
-    
-    
-
     public $incremeting = true;
+    
     use HasFactory;
 }

@@ -6,24 +6,49 @@ use Illuminate\Http\Request;
 
 use App\Models\Usuario;
 use App\Models\TelefoneUser;
+use App\Models\Anunciante;
 
 class CadastroController extends Controller
 {
 
-    public function cadastrarCliente(Request $request){
+    public function cadastrar_cliente(Request $request){
         $usuario = Usuario::create([
             'nome' => $request->nomeCliente,
             'email'=> $request->emailCliente,
             'senha'=> $request->senhaCliente,
             'dtNasc'=> $request->dtCliente,
-            'nivelUsuario'=> 'Cliente',
+            'idNivelUsuario'=> 1,
         ]);
 
         TelefoneUser::create([
-            'idUsuario'=> $usuario,
+            'idUsuario'=> $usuario->id,
             'numTelefone' => $request->telCliente
         ]);
 
         echo 'Cadastro feito com sucesso';
+    }
+
+    public function cadastrar_anunciante(Request $request){
+
+        $usuario = Usuario::create([
+            'nome' => $request->nomeAnunciante,
+            'email'=> $request->emailAnunciante,
+            'senha'=> $request->senhaAnunciante,
+            'dtNasc'=> $request->dtAnunciante,
+            'idNivelUsuario'=> 3,
+        ]);
+
+        TelefoneUser::create([
+            'idUsuario'=> $usuario->id,
+            'numTelefone' => $request->telAnunciante
+        ]);
+
+        Anunciante::create([
+            'nomeAnunciante'=>$request->nomeAnunciante,
+            'cnpjAnunciante'=>$request->cnpjAnunciante,
+        ]);
+
+        echo 'Cadastro realizado com sucesso';
+
     }
 }

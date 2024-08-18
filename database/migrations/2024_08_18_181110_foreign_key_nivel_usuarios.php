@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nivel_usuarios', function (Blueprint $table) {
-            $table->id('idNivelUsuario');
-            $table->string('descNivel');
-            $table->timestamps();
+        Schema::table('usuarios', function (Blueprint $table) {
+            $table->unsignedBigInteger('idNivelUsuario');
+            $table->foreign('idNivelUsuario')->references('idNivelUsuario')->on('nivel_usuarios');
         });
     }
 
@@ -23,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //Schema::dropIfExists('nivel_usuarios');
+        Schema::table('usuarios', function (Blueprint $table) {
+            //
+        });
     }
 };

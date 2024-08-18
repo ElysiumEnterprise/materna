@@ -16,13 +16,13 @@ let passUpperValidAnunciante=false;
 
 //Const para mostrar os erros no HTML atráves do span:
 
-const errorSpanAnunciante= document.querySelectorAll('.errorCliente');
+const errorSpanAnunciante= document.querySelectorAll('.errorAnunciante');
 
 //Função de Validar Cadastro de Usuário Cliente
 
 formAnunciante.addEventListener('submit', (event)=>{
     event.preventDefault();
-    alert('estou aqui')
+   
     //Verificação de nome:
     if (nomeAnunciante.value==='') {
         errorSpanAnunciante[0].innerHTML="(Preencha esse campo)"
@@ -159,10 +159,10 @@ senhaAnunciante.addEventListener('keyup', function(){
     //Verfiricar se a senha tem no mínimo 8 caracteres
     if(senhaAnunciante.value.length>=8){
         regra_caracter.classList.add('active')
-        Anunciante=true;
+        passCaracter8ValidAnuncianteAnunciante=true;
     }else{
         regra_caracter.classList.remove('active');
-        Anunciante=false
+        passCaracter8ValidAnuncianteAnunciante=false
     }
     //Verficar se a senha tem números
     if (/[0-9]/.test(senhaAnunciante.value)) {
@@ -173,7 +173,7 @@ senhaAnunciante.addEventListener('keyup', function(){
         passNumbValidAnuciante=false;
     }
     //Verificar se a senha tem a caracteres especiais
-    if(/[^A-Za-z0-9]/.test(senhaCliente.value)){
+    if(/[^A-Za-z0-9]/.test(senhaAnunciante.value)){
         regra_carcter_special.classList.add('active');
         passCaracterSpecialValidAnunciante=true
     }else{

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CadastroController;
 
 Route::get('/', function () {
     return view('index');
@@ -37,4 +38,11 @@ Route::get('/home/feed', function(){
 
 Route::get('/dashboard/home', function(){
     return view('dashboard-adm.dashboard-home');
+});
+
+//Formulário de cadastro
+
+Route::prefix('form-cadastro')->group(function(){
+    Route::post('cadastro-cliente', [CadastroController::class, 'cadastrar_cliente'])->name('form-cadastro.cliente');
+    Route::post('cadastro-anunciante', [CadastroController::class, 'cadastrar_anunciante'])->name('form-cadastro.anunciante');
 });
