@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Perfil extends Model
 {
-    protected $table = 'telefone_users';
+    protected $table = 'perfils';
     
     protected $fillable = [
         'idUsuario',
@@ -15,7 +15,18 @@ class Perfil extends Model
         'nickname',
         'biography',
         'qtddSeguidores',
-        'qtddSeguindo'
+        'qtddSeguindo',
     ];
+     /**
+     * 
+     * Verificando se o id é auto-incrementado
+
+        *@var bool;
+     * 
+     */
+    
+    
+
+     public $incremeting = true;
     use HasFactory;
 }

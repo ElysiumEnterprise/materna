@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\PerfilController;
 
 Route::get('/', function () {
     return view('index');
@@ -40,9 +41,16 @@ Route::get('/dashboard/home', function(){
     return view('dashboard-adm.dashboard-home');
 });
 
+Route::get('/home/configuracoes', function(){
+    return view('home.configuracoes.configuracoes-gerais');
+});
+
 //Formulário de cadastro
 
 Route::prefix('form-cadastro')->group(function(){
     Route::post('cadastro-cliente', [CadastroController::class, 'cadastrar_cliente'])->name('form-cadastro.cliente');
     Route::post('cadastro-anunciante', [CadastroController::class, 'cadastrar_anunciante'])->name('form-cadastro.anunciante');
 });
+
+Route::get('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'editar'])->name('perfil.editar');
+Route::put('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'update'])->name('perfil.update');

@@ -21,16 +21,17 @@ class CadastroController extends Controller
             'idNivelUsuario'=> 1,
         ]);
 
+        Perfil::create([
+            'idUsuario'=>$usuario->id,
+            'nickname'=>$usuario->nome,
+        ]);
+
         TelefoneUser::create([
             'idUsuario'=> $usuario->id,
             'numTelefone' => $request->telCliente
         ]);
 
-        Perfil::create([
-            'idUsuario'=>$usuario->id,
-            'nickname'=>$request->nomeCliente,
-            
-        ]);
+        
         return view('/home/feed');
     }
 
