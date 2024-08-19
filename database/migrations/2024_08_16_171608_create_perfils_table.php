@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id('idPerfil');
             $table->unsignedBigInteger('idUsuario');
             $table->foreign('idUsuario')->references('idUsuario')->on('usuarios');
-            
-            $table->binary('foto');
+            $table->binary('foto')->nullable();
             $table->string('nickname');
-            $table->string('biography');
-            $table->bigInteger('qtddSeguidores');
-            $table->bigInteger('qtddSeguindo');
+            $table->string('biography')->default('Olá, muito prazer! Seja bem vindo(a) ao meur perfil');
+            $table->bigInteger('qtddSeguidores')->default(0);
+            $table->bigInteger('qtddSeguindo')->default(0);
             $table->timestamps();
         });
     }

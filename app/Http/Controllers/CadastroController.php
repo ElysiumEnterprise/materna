@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\TelefoneUser;
 use App\Models\Anunciante;
+use App\Models\Perfil;
 
 class CadastroController extends Controller
 {
@@ -25,7 +26,12 @@ class CadastroController extends Controller
             'numTelefone' => $request->telCliente
         ]);
 
-        echo 'Cadastro feito com sucesso';
+        Perfil::create([
+            'idUsuario'=>$usuario->id,
+            'nickname'=>$request->nomeCliente,
+            
+        ]);
+        return view('/home/feed');
     }
 
     public function cadastrar_anunciante(Request $request){
@@ -48,7 +54,7 @@ class CadastroController extends Controller
             'cnpjAnunciante'=>$request->cnpjAnunciante,
         ]);
 
-        echo 'Cadastro realizado com sucesso';
+        return view('/home/feed');
 
     }
 }
