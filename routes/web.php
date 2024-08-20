@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('index');
@@ -33,11 +34,11 @@ Route::get('/home/notificacoes', function(){
     return view('home.notificacoes');
 });
 
-Route::get('/home/feed', function(){
+Route::get('/home/feed/{idPerfil}', function(){
     return view('home.feed');
 });
 
-Route::get('/dashboard/home', function(){
+Route::get('/dashboard/home/', function(){
     return view('dashboard-adm.dashboard-home');
 });
 
@@ -51,6 +52,8 @@ Route::prefix('form-cadastro')->group(function(){
     Route::post('cadastro-cliente', [CadastroController::class, 'cadastrar_cliente'])->name('form-cadastro.cliente');
     Route::post('cadastro-anunciante', [CadastroController::class, 'cadastrar_anunciante'])->name('form-cadastro.anunciante');
 });
+
+Route::post('login',[LoginController::class, 'logarUsuario'])->name('form-logar');
 
 Route::get('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'editar'])->name('perfil.editar');
 Route::put('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'update'])->name('perfil.update');

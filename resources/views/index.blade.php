@@ -24,8 +24,8 @@
         <div class="segundo-container">
             <div class="login">
                 <h2>Login</h2>
-                <form id="formulario" action="" method="post">
-                    
+                <form id="formulario" action="{{route('form-logar')}}" method="post">
+                    @csrf
                     <div class="input-group">
                         <label for="email"><span id="erroEmail" class="erro"></span></label>
                         <div class="cont-input">

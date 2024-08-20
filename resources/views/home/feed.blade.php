@@ -10,7 +10,9 @@
     
 @section('cont-home')
     <div class="cont-feed">
+        
         <div class="cont-post">
+       
             <section class="card-post">
                 <div class="post-head">
                     

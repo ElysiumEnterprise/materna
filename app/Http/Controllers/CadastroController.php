@@ -21,7 +21,7 @@ class CadastroController extends Controller
             'idNivelUsuario'=> 1,
         ]);
 
-        Perfil::create([
+        $perfil = Perfil::create([
             'idUsuario'=>$usuario->id,
             'nickname'=>$usuario->nome,
         ]);
@@ -32,7 +32,7 @@ class CadastroController extends Controller
         ]);
 
         
-        return view('/home/feed');
+        return view('/home/feed', compact('perfil'));
     }
 
     public function cadastrar_anunciante(Request $request){
