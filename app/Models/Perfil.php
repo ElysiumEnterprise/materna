@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Perfil extends Model
 {
     protected $table = 'perfils';
+
+    protected $primaryKey = 'idPerfil';
+    protected $keyType = 'string'; 
     
     protected $fillable = [
         'idUsuario',

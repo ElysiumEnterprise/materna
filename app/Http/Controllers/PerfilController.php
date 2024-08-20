@@ -10,6 +10,7 @@ class PerfilController extends Controller
     public function editar($idPerfil){
         
         
+        
         if (!$perfil = Perfil::where('idPerfil', $idPerfil)->first()){
           return redirect()->back();  
         }
@@ -22,10 +23,12 @@ class PerfilController extends Controller
     }
 
     public function update(Request $request, $idPerfil){
-        if (!$perfil = Perfil::where('idPerfil', $idPerfil)->first()){
-            return redirect()->back();  
-        }
 
+        
+        
+        $perfil = Perfil::findOrFail($idPerfil);
+
+        
         $perfil->update($request->all());
 
         return redirect()->route('perfil.editar')->with('message', 'Perfil atualizado com sucesso');

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ExclusaoController;
 
 Route::get('/', function () {
     return view('index');
@@ -57,3 +58,5 @@ Route::post('login',[LoginController::class, 'logarUsuario'])->name('form-logar'
 
 Route::get('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'editar'])->name('perfil.editar');
 Route::put('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'update'])->name('perfil.update');
+
+Route::delete('home/configuracoes/editar-conta/{idPerfil}', [ExclusaoController::class, 'destroy'])->name('profile.destroy');

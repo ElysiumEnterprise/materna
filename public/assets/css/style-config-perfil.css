@@ -8,3 +8,29 @@
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
 
+.cont-editar-perfil{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.cont-editar-perfil form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.cont-editar-perfil form .input-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
