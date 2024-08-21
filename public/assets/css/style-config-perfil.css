@@ -12,7 +12,8 @@
     display: flex;
     width: 100%;
     height: 100%;
-    
+    margin-top:3.05%;
+    margin-bottom:3.05%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -21,16 +22,156 @@
 .cont-editar-perfil form{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 400px;
     height: 100%;
     align-items: center;
     justify-content: center;
 }
+.cont-editar-perfil h1{
+    font-family: 'Fredoka';
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center;
+    color: #f26699;
+}
 .cont-editar-perfil form .input-group{
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+   
+}
+
+.cont-editar-perfil form .input-group{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column ;
+    
+}
+.cont-editar-perfil form .input-group .cont-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+.cont-editar-perfil form .input-group .cont-img label{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.cont-editar-perfil form .input-group .label-img img{
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+}
+.cont-editar-perfil form .input-group label{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    font-family: 'inter';
+    font-weight: bold;
+    text-align: center;
+    color: #003366;
+    
+}
+
+.cont-editar-perfil form .input-group .input-file{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    
+}
+.cont-editar-perfil form .input-group input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    border-bottom: 2px solid #F26699;
+}
+
+.cont-editar-perfil form .input-group input:focus{
+    border-bottom: 4px solid #F26699;
+    transform: scale(1.04);
+}
+.cont-editar-perfil form .input-group textarea{
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 2px #f26699 solid;
+    border-radius: 10px ;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+.cont-editar-perfil form .input-group textarea:focus{
+    border: 4px solid #F26699;
+    transform: scale(1.04);
+    outline:none;
+}
+
+.cont-editar-perfil form input[type='submit']{
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cont-editar-perfil form input[type='submit']:hover{
+    background-color: #dc437b;
+    transform: scale(1.04);
+}
+.cont-destroy-perfil{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+}
+
+.cont-destroy-perfil h2{
+    font-family: 'Fredoka';
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center;
+    color: #d02b39;
+}
+.cont-destroy-perfil form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+.cont-destroy-perfil form button{
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d02b39;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
 }

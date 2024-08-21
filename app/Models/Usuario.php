@@ -10,6 +10,10 @@ class Usuario extends Model
 
     protected $table = 'usuarios';
     
+    protected $primaryKey = 'idUsuario';
+    public $incremeting = true;
+    protected $keyType = 'int';
+
     protected $fillable = [
         'nome',
         'dtNasc',
@@ -25,8 +29,6 @@ class Usuario extends Model
      * 
      */
     
-    
 
-    public $incremeting = true;
     use HasFactory;
 }

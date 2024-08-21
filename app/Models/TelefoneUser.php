@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TelefoneUser extends Model
 {
     protected $table = 'telefone_users';
+   
+    protected $primaryKey = 'idTelefone';
+    public $incremeting = true;
+    protected $keyType = 'int'; 
     
     protected $fillable = [
         'idUsuario',

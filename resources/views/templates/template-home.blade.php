@@ -77,12 +77,12 @@
                 </div>
         
                 <div id="logout">
-                    <button id="logout_btn">
+                    <a href="{{route('perfil.config', 4)}}" id="logout_btn">
                         <i class="fa-solid fa-gear" style="color: #ffb6c1;"></i>
                         <span class="item-description">
                             Configuraçoes
                         </span>
-                    </button>
+                    </a>
                 </div>
             </nav>
         <section class='nav-header-conteudo'>

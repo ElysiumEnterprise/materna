@@ -2,16 +2,31 @@
 
 <!-- Links CSS-->
 
-@section('link-css')
-
+@section('links-css')
+    <link rel="stylesheet" href="{{url('assets/css/style-config-gerais.css')}}">
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
 
 @section('cont-home')
     <div class="cont-config-gerais">
+        <h1>Configurações</h1>
         <div class="cont-item-config">
-            <a href="/configurações/editar-conta/1"></a>
+            <section class="card-config">
+                <a href="{{route('perfil.editar', 4)}}">
+                <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" class="pefil-logo img-fluid" alt="Foto de perfil">
+                    <div class="cont-desc-config">
+                    <small class="txt-nickname">{{$perfil->nickname}}</small>
+                    <h6 class="txt-item">Configurar Conta</h6>
+                    </div>
+                </a>
+            </section>
+            
+        </div>
+        <div class="cont-logout">
+            <form action="" method="post">
+                <input type="submit" value="Sair">
+            </form>
         </div>
     </div>
 @endsection

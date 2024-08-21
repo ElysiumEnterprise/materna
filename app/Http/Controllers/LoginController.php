@@ -12,7 +12,7 @@ class LoginController extends Controller
         if(!$usuario=Usuario::where('email', 'like', $request->email)->where('senha', 'like', $request->senha)){
             return redirect()->back();
         }else{
-            $perfil = Perfil::where('idUsuario', $usuario->id);
+            $perfil = Perfil::where('idUsuario', $usuario->idUsuario);
 
             return view('home.feed', compact('perfil'));
         }

@@ -10,11 +10,12 @@ class Perfil extends Model
     protected $table = 'perfils';
 
     protected $primaryKey = 'idPerfil';
-    protected $keyType = 'string'; 
+    public $incremeting = true;
+    protected $keyType = 'int'; 
     
     protected $fillable = [
         'idUsuario',
-        'foto',
+        'fotoPerfil',
         'nickname',
         'biography',
         'qtddSeguidores',
@@ -30,6 +31,6 @@ class Perfil extends Model
     
     
 
-     public $incremeting = true;
+     
     use HasFactory;
 }

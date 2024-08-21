@@ -1,0 +1,63 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+.cont-config-gerais{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height:100%;
+    justify-content: center;
+    align-items: center;
+    padding-left:10%;
+    margin-top:3.05%;
+    margin-bottom:3.05%;
+   
+}
+
+.cont-config-gerais h1{
+    font-family: 'Fredoka';
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center;
+    color: #f26699;
+}
+.cont-config-gerais .cont-item-config{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cont-config-gerais .cont-item-config .card-config{
+    display: flex;
+    width: 700px;
+    height: 150px;
+    flex-direction: row;
+    
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(246, 246, 246);
+    border-radius: 20px;
+    
+}
+.cont-config-gerais .cont-item-config .card-config a{
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+}
+.cont-config-gerais .cont-item-config .card-config img{
+    width: 15%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.cont-config-gerais .cont-item-config .card-config

@@ -8,7 +8,7 @@ use App\Http\Controllers\ExclusaoController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 
 Route::get('/cadastro-user', function(){
@@ -56,7 +56,8 @@ Route::prefix('form-cadastro')->group(function(){
 
 Route::post('login',[LoginController::class, 'logarUsuario'])->name('form-logar');
 
+Route::get('/home/configuracoes/{idPerfil}', [PerfilController::class, 'config'])->name('perfil.config');
 Route::get('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'editar'])->name('perfil.editar');
 Route::put('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'update'])->name('perfil.update');
 
-Route::delete('home/configuracoes/editar-conta/{idPerfil}', [ExclusaoController::class, 'destroy'])->name('profile.destroy');
+Route::delete('home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'destroy'])->name('profile.destroy');
