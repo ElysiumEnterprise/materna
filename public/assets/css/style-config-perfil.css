@@ -48,6 +48,8 @@
     display: flex;
     width: 100%;
     height: auto;
+    justify-content: start;
+    align-items: center;
     flex-direction: column ;
     
 }
@@ -63,6 +65,34 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+.cont-editar-perfil form .input-group .cont-mudar-img{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.cont-editar-perfil form .input-group .cont-mudar-img .btnImg{
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    font-family: 'Inter';
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.cont-editar-perfil form .input-group .cont-mudar-img small{
+    
+    font-family: 'inter';
+    font-weight: bold;
+    text-align: center;
+    color: #003366;
 }
 .cont-editar-perfil form .input-group .label-img img{
     width: 40%;
@@ -81,13 +111,23 @@
     
 }
 
-.cont-editar-perfil form .input-group .input-file{
-    border: none;
-    background-color: transparent;
-    outline: none;
-    
+.cont-editar-perfil form .input-group .cont-error{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
 }
-.cont-editar-perfil form .input-group input{
+
+.cont-editar-perfil form .input-group .cont-error .errorMessage{
+    color: #d02b39;
+    font-size: 14px;
+    text-align: start;
+}
+.cont-editar-perfil form .input-group .input-file{
+    display: none;
+}
+
+.cont-editar-perfil form .input-group .input-edit{
     width: 100%;
     padding: 10px;
     border: none;
@@ -97,7 +137,7 @@
     border-bottom: 2px solid #F26699;
 }
 
-.cont-editar-perfil form .input-group input:focus{
+.cont-editar-perfil form .input-group .input-edit:focus{
     border-bottom: 4px solid #F26699;
     transform: scale(1.04);
 }

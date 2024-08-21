@@ -13,7 +13,7 @@
         <h1>Configurações</h1>
         <div class="cont-item-config">
             <section class="card-config">
-                <a href="{{route('perfil.editar', 4)}}">
+                <a href="{{route('perfil.editar', $perfil->idPerfil)}}">
                 <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" class="pefil-logo img-fluid" alt="Foto de perfil">
                     <div class="cont-desc-config">
                     <small class="txt-nickname">{{$perfil->nickname}}</small>

@@ -39,7 +39,7 @@
                                 @csrf
                                 <div class="input-group">
                                     
-                                    <label for=""><span class="errorCliente"></span></label>
+                                    <label for=""><span class="errorCliente">@error('nomeCliente'){{$message}}@enderror</span></label>
                                     <div class="cont-input">
                                     
                                         <label for="nomeCliente">
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="input-group">
 
-                                    <label for="dtCliente"><span class="errorCliente"></span></label>
+                                    <label for="dtCliente"><span class="errorCliente">@error('dtCliente'){{$message}}@enderror</span></label>
                                     
                                     <div class="cont-input">
 
@@ -68,7 +68,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for=""><span class="errorCliente"></span></label>
+                                    <label for=""><span class="errorCliente">@error('emailCliente'){{$message}}@enderror</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="emailCliente">
                                             <img src="{{url('assets/img/icons/icon-email.png')}}" alt="" class="img-fluid icon-input">
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="input-group">
-                                    <span class="errorCliente"></span>
+                                    <span class="errorCliente">@error('telCliente'){{$message}}@enderror</span>
                                     <div class="cont-input">
                                         <label class="label-icon" for="telCliente">
                                             <img src="{{url('assets/img/icons/icon-tel.png')}}" alt="" class="img-fluid icon-input">
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="input-group">
-                                    <span class="errorCliente"></span>
+                                    <span class="errorCliente">@error('senhaCliente'){{$message}}@enderror</span>
                                     <div class="cont-input">
                                         <label class="label-icon" for="senhaCliente">
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">

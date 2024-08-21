@@ -24,16 +24,27 @@
                 
                     </label>
                 </div>
+                <div class="cont-mudar-img">
+                    <label for="imgPerfil" class="btnImg">Alterar Foto</label>
+                    <small class="nomeArquivo">Nenhum arquivo selecionado</small>
+                    <input type="file" class="input-file" name="imgPerfil" id="imgPerfil">
+                </div>
                 
-                <label for="imgPerfil">Mudar imagem do perfil</label>
-                <input type="file" class="input-file" name="imgPerfil" id="imgPerfil">
             </div>
             <div class="input-group">
                 <label for="nickname">Mudar nome de usuário</label>
-                <input type="text" name="nickname" id="nickname" value='{{$perfil->nickname}}'>
+                <div class="cont-error">
+                    <small class="errorMessage">@error('nickname'){{$message}}@enderror</small>
+                </div>
+                
+                <input type="text" class="input-edit" name="nickname" id="nickname" value='{{$perfil->nickname}}'>
             </div>
             <div class="input-group">
                 <label for="bio">Mudar Biografia</label>
+                <div class="cont-error">
+                    <small class="errorMessage"> @error('bio'){{$message}}@enderror</small>
+                </div>
+                
                 <textarea name="bio" id="bio" res>{{$perfil->biography}}</textarea>
             </div>
             <input type="submit" value="Mudar">
@@ -50,4 +61,8 @@
 
     
 
+@endsection
+
+@section('scripts')
+    <script src="{{url('assets/js/home/editar-perfil.js')}}"></script>
 @endsection

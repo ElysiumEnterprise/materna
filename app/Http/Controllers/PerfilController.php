@@ -36,6 +36,18 @@ class PerfilController extends Controller
 
     public function update(Request $request, $idPerfil){
         
+        //validação dos campos
+        $request->validate(
+            [
+                'nickname' => 'required||max:255|min:5', //Requer o campo, ao menos 5 caracteres e no máximo 255 caracteres
+                'bio' => 'required||max:255', //Requer o campo e deve ser um e-mail no formato correto
+                
+            ],
+            [
+                'nickname.required'=> 'Preencha esse campo corretamente!',//Criamos uma mensagem personalizada para quando o tipo required não for satisfeito
+                'bio.required'=>"Preencha o campo de biografia corretamente!",
+            ]
+        );
         $perfil = Perfil::findOrFail($idPerfil);
 
         //Atualização da imagem

@@ -107,7 +107,7 @@
         
     </main>
     
-   
+   @yield('scripts')
     <script src="{{url('assets/js/home/script.js')}}"></script>
    
 </body>
