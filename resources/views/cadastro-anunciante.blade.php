@@ -41,7 +41,7 @@
                                 @csrf
                                 <div class="input-group">
 
-                                    <label for="nomeAnunciante"><span class="errorAnunciante"></span></label>
+                                    <label for="nomeAnunciante"><span class="errorAnunciante">@error('nomeAnunciante'){{$message}}@enderror</span></label>
 
                                     <div class="cont-input">
 
@@ -55,7 +55,7 @@
 
                                 <div class="input-group">
 
-                                    <label for="dtAnunciante"><span class="errorAnunciante"></span></label>
+                                    <label for="dtAnunciante"><span class="errorAnunciante">@error('dtAnunciante'){{$message}}@enderror</span></label>
 
                                     <div class="cont-input">
 
@@ -69,7 +69,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for="cnpjAnunciante"><span class="errorAnunciante"></span></label>
+                                    <label for="cnpjAnunciante"><span class="errorAnunciante">@error('cnpjAnunciante'){{$message}}@enderror</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="cnpjAnunciante">
                                             <img src="{{url('assets/img/icons/icon-user.png')}}" alt="" class="img-fluid icon-input">
@@ -80,7 +80,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for="emailAnunciante"><span class="errorAnunciante"></span></label>
+                                    <label for="emailAnunciante"><span class="errorAnunciante">@error('emailAnunciante'){{$message}}@enderror{{session('error')}}</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="emailAnunciante">
                                             <img src="{{url('assets/img/icons/icon-email.png')}}" alt="" class="img-fluid icon-input">
@@ -91,7 +91,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for="telAnunciante"><span class="errorAnunciante"></span></label>
+                                    <label for="telAnunciante"><span class="errorAnunciante">@error('telAnunciante'){{$message}}@enderror</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="telAnunciante">
                                             <img src="{{url('assets/img/icons/icon-tel.png')}}" alt="" class="img-fluid icon-input">
@@ -102,7 +102,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for="senhaAnunciante"><span class="errorAnunciante"></span></label>
+                                    <label for="senhaAnunciante"><span class="errorAnunciante">@error('senhaAnunciante'){{$message}}@enderror</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="senhaAnunciante">
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">

@@ -27,26 +27,26 @@
                 <form id="formulario" action="{{route('form-logar')}}" method="post">
                     @csrf
                     <div class="input-group">
-                        <label for="email"><span id="erroEmail" class="erro"></span></label>
+                        <label for="email"><span id="erroEmail" class="erro">@error('email'){{$message}}{{session('error')}}@enderror</span></label>
                         <div class="cont-input">
                             
                             <label for="email">
                                 <img src="{{url('assets/img/icons/icon-email.png')}}" class="icon-input" alt="Icone de senha">
                             </label>
                             
-                            <input type="text" id="email" class="animated-input" placeholder="Digite seu email">
+                            <input type="text" id="email" name="email" class="animated-input" placeholder="Digite seu email">
                         </div>
                         
                         
                     </div>
 
                     <div class="input-group">
-                        <label for="senha"><span id="erroSenha" class="erro"></span></label>
+                        <label for="senha"><span id="erroSenha" class="erro">@error('senha'){{$message}}@enderror</span></label>
                         <div class="cont-input">
                             <label for="senha">
                                 <img src="{{url('assets/img/icons/icon-password.png')}}" class="icon-input" alt="Icone de senha">
                             </label>
-                            <input type="password" id="senha" class="animated-input" placeholder="Digite sua senha">
+                            <input type="password" id="senha" name="senha" class="animated-input" placeholder="Digite sua senha">
                         </div>
                         
                     </div>

@@ -42,7 +42,7 @@ class CadastroController extends Controller
 
         $exist=Usuario::where('email', $request->emailCliente)->exists();
             if($exist){
-                return redirect()->back()->with('message', "Email já existente!");
+                return redirect()->back()->with('error', "Email já existente!");
             }
             
         
@@ -104,9 +104,9 @@ class CadastroController extends Controller
             ]
         );
         
-        $exist=Usuario::where('email', $request->emailCliente)->exists();
+        $exist=Usuario::where('email', $request->emailAnunciante)->exists();
         if($exist){
-            return redirect()->back()->with('message', "Email já existente!");
+            return redirect()->back()->with('error', "Email já existente!");
         }else{
             $usuario = Usuario::create([
                 'nome' => $request->nomeAnunciante,
@@ -117,7 +117,7 @@ class CadastroController extends Controller
             ]);
     
             TelefoneUser::create([
-                'idUsuario'=> $usuario->idAnunciante,
+                'idUsuario'=> $usuario->idUsuario,
                 'numTelefone' => $request->telAnunciante
             ]);
     
@@ -125,8 +125,12 @@ class CadastroController extends Controller
                 'nomeAnunciante'=>$request->nomeAnunciante,
                 'cnpjAnunciante'=>$request->cnpjAnunciante,
             ]);
-    
-            return view('/home/feed');
+
+            $perfil = Perfil::create([
+                'idUsuario'=>$usuario->idUsuario,
+                'nickname'=>$usuario->nome,
+            ]);
+            return view('/home/feed', compact('perfil'));
         }
 
         

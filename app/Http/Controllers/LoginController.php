@@ -9,12 +9,42 @@ use App\Models\Perfil;
 class LoginController extends Controller
 {
     public function logarUsuario(Request $request){
-        if(!$usuario=Usuario::where('email', 'like', $request->email)->where('senha', 'like', $request->senha)){
+
+        $request->validate(
+            [
+                'email'=>'required||email',
+                'senha'=>'required||min:8',
+            ],
+            [
+                'email.required'=>'Preencha esse campo!',
+                'email.email'=>"Email inválido",
+                'senha.required'=>"Preencha esse campo",
+                'senha.min'=>'A senha deve conter 8 caracteres!',
+            ]
+            );
+        $exist=Usuario::where('email', $request->email)->exists();
+        if($exist){
+            if($usuario = Usuario::where('email', $request->email)->where('senha', $request->senha)->first()){
+                echo 'Achou meu usuário';
+                $perfil = Perfil::where('idUsuario', $usuario->idUsuario);
+            }
+
+            
+
+
+            
+            //return redirect()->view('home.feed', compact('perfil'));
+            
+        }else{
+            return redirect()->back()->with('error', "Email já existente!");
+            
+        }
+        /*if(!$usuario=Usuario::where('email', 'like', $request->email)->where('senha', 'like', $request->senha)){
             return redirect()->back();
         }else{
             $perfil = Perfil::where('idUsuario', $usuario->idUsuario);
 
             return view('home.feed', compact('perfil'));
-        }
+        }*/
     }
 }

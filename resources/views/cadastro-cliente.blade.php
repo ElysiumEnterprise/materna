@@ -68,7 +68,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for=""><span class="errorCliente">@error('emailCliente'){{$message}}@enderror</span></label>
+                                    <label for=""><span class="errorCliente">@error('emailCliente'){{$message}}@enderror{{session('error')}}</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="emailCliente">
                                             <img src="{{url('assets/img/icons/icon-email.png')}}" alt="" class="img-fluid icon-input">
