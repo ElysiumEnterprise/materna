@@ -25,8 +25,10 @@ class LoginController extends Controller
         $exist=Usuario::where('email', $request->email)->exists();
         if($exist){
             if($usuario = Usuario::where('email', $request->email)->where('senha', $request->senha)->first()){
-                echo 'Achou meu usuário';
                 $perfil = Perfil::where('idUsuario', $usuario->idUsuario);
+                return view('home.feed', compact('perfil'));
+            }else{
+                return redirect()->back()->with('error', 'Email ou senha incorreto!');
             }
 
             
@@ -36,7 +38,7 @@ class LoginController extends Controller
             //return redirect()->view('home.feed', compact('perfil'));
             
         }else{
-            return redirect()->back()->with('error', "Email já existente!");
+            return redirect()->back()->with('error', "Email não encontrado!");
             
         }
         /*if(!$usuario=Usuario::where('email', 'like', $request->email)->where('senha', 'like', $request->senha)){

@@ -26,7 +26,11 @@
                 <h2>Login</h2>
                 <form id="formulario" action="{{route('form-logar')}}" method="post">
                     @csrf
+                    <div class="cont-error-geral">
+                        <small>{{session('error')}}</small>
+                    </div>
                     <div class="input-group">
+                        
                         <label for="email"><span id="erroEmail" class="erro">@error('email'){{$message}}{{session('error')}}@enderror</span></label>
                         <div class="cont-input">
                             
