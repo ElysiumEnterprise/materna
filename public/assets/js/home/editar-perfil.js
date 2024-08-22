@@ -1,5 +1,7 @@
 const div_nome_arquivo = document.querySelector('.nomeArquivo');
 const file = document.querySelector('#imgPerfil');
+const modal = document.querySelector('.modal-excluir');
+const div_modal = document.querySelector('.cont-box-modal');
 
 file.addEventListener('change', function(event) {
     
@@ -12,3 +14,13 @@ file.addEventListener('change', function(event) {
     }
 
 })
+
+function abrirModal(){
+    modal.show();
+    div_modal.classList.add('active')
+}
+
+function fecharModal(){
+    modal.close();
+    div_modal.classList.remove('active')
+}

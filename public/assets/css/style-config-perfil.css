@@ -34,6 +34,13 @@
     text-align: center;
     color: #f26699;
 }
+.cont-editar-perfil h2{
+    font-family: 'Fredoka';
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    color: #f26699;
+}
 .cont-editar-perfil form .input-group{
     display: flex;
     width: 100%;
@@ -192,7 +199,7 @@
     text-align: center;
     color: #d02b39;
 }
-.cont-destroy-perfil form{
+.cont-destroy-perfil {
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -200,7 +207,7 @@
     align-items: center;
     justify-content: center;
 }
-.cont-destroy-perfil form button{
+.cont-destroy-perfil  button{
     justify-content: center;
     align-items: center;
     width: 50%;
@@ -214,4 +221,128 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
+}
+.modal form button[type='submit']{
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d02b39;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    outline: none;
+}
+.cont-box-modal{
+    display: block;
+    width: 100%;
+    min-height:100%;
+    justify-content: center;
+    align-items: center;
+}
+.cont-box-modal.active{
+    position: fixed;         /* Cover the whole screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    z-index: 1000; /* Ensure it is on top */
+}
+.modal-excluir{
+    width: 600px; /* Ajuste o tamanho conforme necessário */
+    border: solid 1px #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    top: 50%; /* Posiciona o topo do modal no meio da tela */
+    left: 50%; /* Posiciona a esquerda do modal no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta o modal para que o centro esteja no meio da tela */
+    max-width: 90%; /* Adapta o modal em telas menores */
+    max-height: 80%; /* Adapta a altura do modal em telas menores */
+    overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+    
+}
+
+.modal-excluir .cont-modal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.modal-excluir .cont-modal h1{
+    font-family: 'Fredoka';
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    color: #f26699;
+}
+
+.modal-excluir .cont-modal .cont-desc{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-excluir .cont-modal .cont-desc p{
+    font-family: 'Fredoka';
+    
+    font-weight: normal;
+    text-align: center;
+    color: #003366;
+}
+.modal-excluir .cont-modal .cont-btn-escolha {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-excluir .cont-modal .cont-btn-escolha form button, .modal-excluir .cont-modal .cont-btn-escolha button{
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d02b39;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.modal-excluir .cont-modal .cont-btn-escolha button{
+    background-color: #a0a0a0;
+    color: white;
+}
+.modal-excluir .cont-modal .cont-btn-escolha form button:hover, .cont-destroy-perfil  button:hover{
+    background-color: #9f101c;
+    transform: scale(1.04);
+}
+
+.modal-excluir .cont-modal .cont-btn-escolha button:hover{
+    background-color: #817f7f;
+    transform: scale(1.04);
+
+}
+
+.modal-excluir .cont-modal .cont-btn-escolha form button:active, .modal-excluir .cont-modal .cont-btn-escolha button, .cont-destroy-perfil  button{
+    border: none;
+    outline: none;
 }

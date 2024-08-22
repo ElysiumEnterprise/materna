@@ -9,8 +9,28 @@
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
 
 @section('cont-home')
+    <div class="cont-box-modal">
+        <dialog class='modal-excluir'>
+            <div class="cont-modal">
+                <h1>Tem Certeza?</h1>
+                <div class="cont-desc">
+                    <p>Voce perderá todos os seus dados, como postagens, comentários, mensagens e outros dados!</p>
+                </div>
+                <div class="cont-btn-escolha">
+                    <form action="{{ route('profile.destroy', $perfil->idPerfil) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Excluir Perfil</button>
+                    </form>
+                    <button type="button" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </div>
+        </dialog>
+    </div>
     <div class='cont-editar-perfil'>
+    
         <h1>Editar Perfil: {{$perfil->nickname}}</h1>
+        <h2>{{session('message')}}</h2>
         <form action="{{route('perfil.update',$perfil->idPerfil)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -34,7 +54,7 @@
             <div class="input-group">
                 <label for="nickname">Mudar nome de usuário</label>
                 <div class="cont-error">
-                    <small class="errorMessage">@error('nickname'){{$message}}@enderror</small>
+                    <small class="errorMessage">@error('nickname'){{$message}}@enderror{{session('errorNickname')}}</small>
                 </div>
                 
                 <input type="text" class="input-edit" name="nickname" id="nickname" value='{{$perfil->nickname}}'>
@@ -51,14 +71,15 @@
         </form>
         <div class="cont-destroy-perfil">
             <h2>Excluir Perfil</h2>
-        <form action="{{ route('profile.destroy', $perfil->idPerfil) }}" method="POST">
+        <!--<form action="{{ route('profile.destroy', $perfil->idPerfil) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit">Excluir Perfil</button>
-        </form>
+        </form>-->
+        <button type="button" onclick="abrirModal()">Excluir Perfil</button>
         </div>
     </div>
-
+    
     
 
 @endsection

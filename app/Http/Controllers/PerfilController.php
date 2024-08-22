@@ -6,6 +6,7 @@ use App\Models\Perfil;
 use App\Models\Usuario;
 use App\Models\TelefoneUser;
 use App\Models\Anunciante;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -40,18 +41,25 @@ class PerfilController extends Controller
         $request->validate(
             [
                 'nickname' => 'required||max:255|min:5', //Requer o campo, ao menos 5 caracteres e no máximo 255 caracteres
-                'bio' => 'required||max:255', //Requer o campo e deve ser um e-mail no formato correto
+                'bio' => 'max:255', //Requer o campo e deve ser um e-mail no formato correto
                 
             ],
             [
                 'nickname.required'=> 'Preencha esse campo corretamente!',//Criamos uma mensagem personalizada para quando o tipo required não for satisfeito
-                'bio.required'=>"Preencha o campo de biografia corretamente!",
+                'bio.max' => 'O bio atingiu o limite de 255 caracteres',
             ]
         );
+
+        $exist=Perfil::where('nickname', $request->nickname)->exists();
+        if($exist){
+            return redirect()->back()->with('errorNickname', 'Esse nome de usuário já existe!');
+        }
+
         $perfil = Perfil::findOrFail($idPerfil);
 
         //Atualização da imagem
         if($request->hasFile('imgPerfil') && $request->file('imgPerfil')->isValid()){
+
 
             $requestImage = $request->imgPerfil;
 
@@ -63,6 +71,7 @@ class PerfilController extends Controller
             /*$request->imgPerfil = $imgName;*/
             $perfil->fotoPerfil = $imgName;
         }
+
         $perfil->biography=$request->bio;
         $perfil->update($request->all());
 
@@ -73,14 +82,16 @@ class PerfilController extends Controller
         $perfil = Perfil::findOrFail($idPerfil);
 
         $idUsuario = $perfil->idUsuario;
+
+        /*$usuario = Usuario::with(['telefone_users', 'perfils'])->find($idPerfil);*/
         
         $tel = TelefoneUser::findOrFail($idUsuario);
 
         $usuario = Usuario::findOrFail($idUsuario);
 
-        /*// Deletar a foto de perfil se existir
-        if ($user->foto) {
-            Storage::delete($user->foto);
+        // Deletar a foto de perfil se existir
+        /*if (Storage::exists($perfil->fotoPerfil) && $perfil->fotoPerfil!='user-icon-default.png') {
+            Storage::delete($perfil->fotoPerfil);
         }
 */
         // Excluir o usuário do banco de dados

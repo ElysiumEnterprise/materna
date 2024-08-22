@@ -204,7 +204,7 @@ input:focus, input:valid{
 
 form .regras-senha{
     position: relative;
-    top: 0px;
+    
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -219,8 +219,8 @@ form .regras-senha{
 
 form .regras-senha.active{
     opacity: 1;
-    padding: 10px;
-    height: 180px;
+    
+    height: 200px;
 }
 
 form .regras-senha>div{

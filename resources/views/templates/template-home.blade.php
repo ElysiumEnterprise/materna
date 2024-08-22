@@ -20,22 +20,25 @@
     <main>
     <nav id="sidebar">
                 <div id="sidebar_content">
-                    <div id="user">
-                        <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" alt="Avatar">
-            
-                        <p id="user_infos">
-                            <span class="item-description">
-                                Julia
-                            </span>
-                            <span class="item-description">
-                                Mãe de dois
-                            </span>
-                        </p>
-                    </div>
+                    <a href="">
+                        <div id="user">
+                            <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" alt="Avatar">
+                
+                            <p id="user_infos">
+                                <span class="item-description">
+                                    Julia
+                                </span>
+                                <span class="item-description">
+                                    Mãe de dois
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                    
             
                     <ul id="side_items">
                         <li class="side-item active">
-                            <a href="/home/feed">
+                            <a href="/home/feed{idPerfil}">
                             <i class="fa-solid fa-magnifying-glass" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Explorar
@@ -44,7 +47,7 @@
                         </li>
             
                         <li class="side-item">
-                            <a href="#">
+                            <a href="/home/mensagens">
                                 <i class="fa-solid fa-envelope" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Mensagens

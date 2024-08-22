@@ -48,7 +48,7 @@
                                             
                                         
                                         
-                                        <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Digite seu nome">
+                                        <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Digite seu nome" value='{{old("nomeCliente")}}'>
                                     </div>
                                 
                                 </div>
@@ -62,7 +62,7 @@
                                             <img src="{{url('assets/img/icons/icon-calendar.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="date" name="dtCliente" id="dtCliente" min="1924-01-01" placeholder="Digite sua data de nascimento">
+                                        <input type="date" name="dtCliente" id="dtCliente" min="1924-01-01" placeholder="Digite sua data de nascimento" value='{{old("dtCliente")}}'>
 
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                             <img src="{{url('assets/img/icons/icon-email.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="email" name="emailCliente" id="emailCliente" placeholder="Digite seu email">
+                                        <input type="email" name="emailCliente" id="emailCliente" placeholder="Digite seu email" value='{{old("emailCliente")}}'>
                                     </div>
                                 </div>
                                 <div class="input-group">
@@ -84,7 +84,7 @@
                                             <img src="{{url('assets/img/icons/icon-tel.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="tel" name="telCliente" id="telCliente" placeholder="Digite seu telefone">
+                                        <input type="tel" name="telCliente" id="telCliente" placeholder="Digite seu telefone" value='{{old("telCliente")}}'>
                                     </div>
                                 </div>
                                 <div class="input-group">
@@ -94,7 +94,7 @@
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="senhaCliente" id="senhaCliente" placeholder="Crie uma senha">
+                                        <input type="password"  name="senhaCliente" id="senhaCliente" placeholder="Crie uma senha" value='{{old("senhaCliente")}}'>
                                         
                                     </div>
                                     

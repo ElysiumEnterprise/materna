@@ -94,6 +94,11 @@ form .input-group .cont-input{
     width: 100%;
     
 }
+form .input-group label span{
+    color: #d02b39;
+    font-size: 14px;
+    text-align: start;
+}
 form  .cont-input label .icon-input{
     width: 30px;
     margin-right: 5px;
@@ -128,7 +133,7 @@ input:focus, input:valid{
 
 form .regras-senha{
     position: relative;
-    top: 0px;
+    
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -143,12 +148,12 @@ form .regras-senha{
 
 form .regras-senha.active{
     opacity: 1;
-    padding: 10px;
-    height: 180px;
+    
+    height: 150px;
 }
 
 form .regras-senha>div{
-    margin: 15px 10px;
+    margin: 10px 10px;
     font-weight: 400;
     color: #9b143a;
 }
@@ -222,4 +227,17 @@ button:hover {
         display: none;
     }
     
+}
+
+.cont-error-geral{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.cont-error-geral small{
+    color: #d02b39;
+    font-size: 14px;
+    text-align: start;
 }

@@ -38,7 +38,7 @@
                                 <img src="{{url('assets/img/icons/icon-email.png')}}" class="icon-input" alt="Icone de senha">
                             </label>
                             
-                            <input type="text" id="email" name="email" class="animated-input" placeholder="Digite seu email">
+                            <input type="text" id="email" name="email" class="animated-input" placeholder="Digite seu email" .value="{{old('email')}}">
                         </div>
                         
                         
@@ -50,7 +50,7 @@
                             <label for="senha">
                                 <img src="{{url('assets/img/icons/icon-password.png')}}" class="icon-input" alt="Icone de senha">
                             </label>
-                            <input type="password" id="senha" name="senha" class="animated-input" placeholder="Digite sua senha">
+                            <input type="password" id="senha" name="senha" class="animated-input" placeholder="Digite sua senha" value="{{old('senha')}}">
                         </div>
                         
                     </div>

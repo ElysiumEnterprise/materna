@@ -61,3 +61,7 @@ Route::get('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::cla
 Route::put('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'update'])->name('perfil.update');
 
 Route::delete('home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'destroy'])->name('profile.destroy');
+
+Route::get('/home/mensagens', function(){
+    return view('home.mensagens');
+});

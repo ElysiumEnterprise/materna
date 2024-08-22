@@ -49,7 +49,7 @@
                                             <img src="{{url('assets/img/icons/icon-user.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="text" name="nomeAnunciante" id="nomeAnunciante" placeholder="Digite seu nome">
+                                        <input type="text" name="nomeAnunciante" id="nomeAnunciante" placeholder="Digite seu nome" value='{{old("nomeAnunciante")}}'>
                                     </div>
                                 </div>
 
@@ -63,7 +63,7 @@
                                             <img src="{{url('assets/img/icons/icon-calendar.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="date" name="dtAnunciante" id="dtAnunciante" min="1924-01-01" >
+                                        <input type="date" name="dtAnunciante" id="dtAnunciante" min="1924-01-01" value="{{old('dtAnunciante')}}">
 
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                             <img src="{{url('assets/img/icons/icon-user.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="text" name="cnpjAnunciante" id="cnpjAnunciante" placeholder="Digite seu CNPJ">
+                                        <input type="text" name="cnpjAnunciante" id="cnpjAnunciante" placeholder="Digite seu CNPJ" value="{{old('cnpjAnunciante')}}">
                                     </div>
                                 </div>
 

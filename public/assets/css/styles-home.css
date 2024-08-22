@@ -65,7 +65,10 @@ main {
 #sidebar_content {
     padding: 12px;
 }
-
+#sidebar_content a{
+    text-decoration: none;
+    outline: none;
+}
 #user {
     display: flex;
     align-items: center;
@@ -83,6 +86,9 @@ main {
 #user_infos {
     display: flex;
     flex-direction: column;
+}
+#user_infos span{
+    color: #f26699;
 }
 
 #user_infos span:last-child {
@@ -136,6 +142,10 @@ main {
     border-top: 1px solid #e3e9f7;
     padding: 12px;
     margin-bottom: 20px;
+}
+#logout a{
+    text-decoration: none;
+    outline: none;
 }
 
 #logout_btn {
