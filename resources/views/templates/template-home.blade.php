@@ -131,27 +131,28 @@
                     @csrf
                     <section class="cont-img-post">
                         <div class="input-group">
+                        <label for="imgArquivo" class="btnImg">Adicionar Arquivo</label>
                             <label for="imgArquivo">
-                                <img src="{{url('assets/img/img-home/teste.jpeg')}}" alt="Arquivo do Post">
+                                <img src="{{url('assets/img/img-home/teste.jpeg')}}" class="img-fluid imgArquivo" alt="Arquivo do Post">
                             </label>
-                            <label for="imgArquivo" class="btnImg">Adicionar Arquivo</label>
+                            
                             <input type="file" name="imgArquivo" id="imgArquivo">
                         </div>    
                     </section>
                     <section class="section-info">
                         <div class="cont-perfil">
-                            <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" alt="Avatar">
+                            <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" class='img-fluid' alt="Avatar">
                             <small>Julia</small>
                         </div>
                         <div class="cont-desc">
-                            <div class="cont-input-group">
+                            <div class="input-group">
                                 <label for="descPost">Descrição da Postagem</label>
                                 <textarea name="descPost" id="descPost" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                         <div class="cont-categoria">
                             <div class="input-group">
-                                <label for="">Gravidez</label>
+                                <label for="categoriaPost">Gravidez</label>
                                 <input type="checkbox" name="categoriaPost" id="categoriaPost" value="Gravidez">
                             </div>
                             <div class="input-group">

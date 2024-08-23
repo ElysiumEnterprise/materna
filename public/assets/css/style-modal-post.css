@@ -28,11 +28,8 @@
 }
 
 .box-modal-post{
-    display: block;
-    width: 100%;
-    min-height:100%;
-    justify-content: center;
-    align-items: center;
+    display: none;
+    
 }
 
 .box-modal-post.active{
@@ -48,14 +45,13 @@
     z-index: 1000;
 }
 
-.modal-post{
-    display: grid;
-
-    grid-template-columns: repeat(2,2fr);
-    width: 800px; /* Ajuste o tamanho conforme necessário */
+.box-modal-post .modal-post{
+    
+    width: 900px; /* Ajuste o tamanho conforme necessário */
     border: solid 1px #ccc;
     border-radius: 8px;
     padding: 20px;
+    
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     justify-content: center;
@@ -67,4 +63,140 @@
     max-height: 80%; /* Adapta a altura do modal em telas menores */
     overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
 }
+.modal-post .cont-modal-post .cont-header-modal{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
 
+.modal-post .cont-modal-post{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-post .cont-modal-post .cont-header-modal button{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.modal-post .cont-header-modal button i{
+    font-size: 20px;
+}
+.modal-post .cont-modal-post .cont-header-modal button:focus{
+    border: none;
+    outline: none;
+}
+.modal-post .cont-modal-post .cont-header-modal button:active{
+    border: none;
+    outline: none;
+}
+.modal-post form {
+    display: flex;
+    width: 100%;
+    flex-direction:row ;
+    justify-content: space-around;
+    align-items: start;
+}
+.modal-post form .cont-img-post{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-right: 20px;
+    align-items: start;
+}
+
+.modal-post form .cont-img-post .input-group{
+    display: flex;
+    flex-direction: column ;
+    
+}
+
+.modal-post form .cont-img-post .input-group .btnImg{
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    font-family: 'Inter';
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.modal-post form .cont-img-post .input-group .btnImg:hover{
+    background-color: #cc5379;
+    transform: scale(1.05);
+}
+.modal-post form .cont-img-post .input-group input[type='file']{
+    display: none;
+}
+.modal-post form .imgArquivo{
+    width: 100%;
+}
+
+.modal-post form .section-info{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: start;
+}
+
+.modal-post form .section-info .cont-perfil{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+}
+
+.modal-post form .section-info .cont-perfil img{
+    width: 10%;
+}
+.modal-post form .section-info .cont-perfil small{
+    font-family: 'Inter';
+    margin-left: 10px;
+    color: #ff85ab;
+    font-size: 20px;
+    font-weight: bold;
+}
+.modal-post form .section-info .cont-desc{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.modal-post form .input-group{
+    display: flex;
+    width: 100%;
+    flex-direction: column ;
+}
+.modal-post form  label{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    font-family: 'inter';
+    font-weight: bold;
+    text-align: center;
+    color: #003366;
+}
+.modal-post form textarea{
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 2px #f26699 solid;
+    border-radius: 10px ;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+.modal-post form textarea:focus{
+    border: 4px solid #F26699;
+    transform: scale(1.04);
+    outline:none;
+}
