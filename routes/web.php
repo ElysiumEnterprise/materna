@@ -47,6 +47,11 @@ Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');
 });
 
+Route::get('/home/comunidades/{idPerfil}', function(){
+    return view('home.comunidades');
+});
+
+
 //Formulário de cadastro
 
 Route::prefix('form-cadastro')->group(function(){
