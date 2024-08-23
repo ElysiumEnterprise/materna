@@ -16,10 +16,10 @@
             <section class="card-post">
                 <div class="post-head">
                     
-                        <img src="{{url('assets/img/img-home/avatar.jpg')}}" class="img-fluid foto-perfil" alt="">
+                        <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg')}}" class="img-fluid foto-perfil" alt="">
                     
                     
-                        <small>Juliana</small>
+                        <small>Daniela</small>
                     
                 </div>
                 <div class="conteudo-post">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="cont-legenda">
-                        <small>Juliana <span>Legenda aqui</span></small>
+                        <small>Daniela <span>Mais um final de semana cuidando de meus filhos</span></small>
                     </div>
                     <div class="cont-num-comentarios">
                         <small>Ver todos os 10 comentários</small>

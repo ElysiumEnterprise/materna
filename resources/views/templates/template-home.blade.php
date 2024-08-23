@@ -147,21 +147,21 @@
                         <div class="cont-desc">
                             <div class="input-group">
                                 <label for="descPost">Descrição da Postagem</label>
-                                <textarea name="descPost" id="descPost" cols="30" rows="10"></textarea>
+                                <textarea name="descPost" id="descPost" cols="30" rows="10" placeholder='Digite sua descrição...'></textarea>
                             </div>
                         </div>
                         <div class="cont-categoria">
                             <div class="input-group">
-                                <label for="categoriaPost">Gravidez</label>
-                                <input type="checkbox" name="categoriaPost" id="categoriaPost" value="Gravidez">
+                                <label for="gravidez" class='label-checkbox'>Gravidez</label>
+                                <input type="checkbox" name="categoriaPost" id="gravidez" value="Gravidez">
                             </div>
                             <div class="input-group">
-                                <label for="">Primeiros cuidados</label>
-                                <input type="checkbox" name="categoriaPost" id="categoriaPost" value="Primeiro cuidados">
+                                <label for="primeiro-cuidados" class='label-checkbox'>Primeiros cuidados</label>
+                                <input type="checkbox" name="categoriaPost" id="primeiro-cuidados" value="Primeiro cuidados">
                             </div>
                             <div class="input-group">
-                                <label for="">Mãe Solos</label>
-                                <input type="checkbox" name="categoriaPost" id="categoriaPost" value="Gravidez">
+                                <label for="maes-solos" class='label-checkbox'>Mãe Solos</label>
+                                <input type="checkbox" name="categoriaPost" id="maes-solos" value="Mães Solos">
                             </div>
                         </div>
                         <div class="cont-btn-criar-post">
