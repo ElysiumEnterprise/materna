@@ -29,7 +29,9 @@ class Perfil extends Model
      * 
      */
     
-    
+    public function usuarios(){
+        return $this->belongsTo(Usuario::class, 'idUsuario');
+    }
 
      
     use HasFactory;

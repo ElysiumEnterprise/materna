@@ -91,7 +91,7 @@
                 </div>
         
                 <div id="logout">
-                    <a href="{{route('perfil.config', 4)}}" id="logout_btn">
+                    <a href="{{route('perfil.config', 6)}}" id="logout_btn">
                         <i class="fa-solid fa-gear" style="color: #ffb6c1;"></i>
                         <span class="item-description">
                             Configuraçoes

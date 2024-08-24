@@ -21,6 +21,14 @@
                     </div>
                 </a>
             </section>
+            <section class="card-config">
+                <a href="{{route('user.edit', 10)}}">
+                <img src="{{asset('assets/img/foto-perfil/user-icon-default.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
+                    <div class="cont-desc-config">
+                    <h6 class="txt-item">Editar Usuário</h6>
+                    </div>
+                </a>
+            </section>
             
         </div>
         <div class="cont-logout">

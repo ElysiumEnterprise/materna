@@ -5,6 +5,7 @@ use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ExclusaoController;
+use App\Http\Controllers\UsuarioController;
 
 Route::get('/', function () {
     return view('index');
@@ -68,11 +69,19 @@ Route::prefix('form-cadastro')->group(function(){
 
 Route::post('login',[LoginController::class, 'logarUsuario'])->name('form-logar');
 
+//Configurações 
 Route::get('/home/configuracoes/{idPerfil}', [PerfilController::class, 'config'])->name('perfil.config');
+
+//Editar a conta
 Route::get('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'editar'])->name('perfil.editar');
 Route::put('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'update'])->name('perfil.update');
 
 Route::delete('home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'destroy'])->name('profile.destroy');
+
+//Editar o usuario
+
+Route::get('/home/configuracoes/editar-usuario/{idUser}', [UsuarioController::class, 'edit'])->name('user.edit');
+Route::put('/home/configuracoes/editar-usuario/{idUser}', [UsuarioController::class, 'update'])->name('user.update');
 
 Route::get('/home/mensagens', function(){
     return view('home.mensagens');

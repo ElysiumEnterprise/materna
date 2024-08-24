@@ -17,5 +17,9 @@ class TelefoneUser extends Model
         'idUsuario',
         'numTelefone'
     ];
+
+    public function usuarios(){
+        return $this->belongsTo(Usuario::class,'idUsuario');
+    }
     use HasFactory;
 }
