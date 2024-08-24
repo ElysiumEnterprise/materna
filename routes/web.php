@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
@@ -86,3 +87,14 @@ Route::put('/home/configuracoes/editar-usuario/{idUser}', [UsuarioController::cl
 Route::get('/home/mensagens', function(){
     return view('home.mensagens');
 });
+
+// caso o usuário não esteja autenticado, ele seja redirecionado para a página de login.
+
+Route::get('/index', [LoginController::class, 'index'])->name('index');
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('/index',[LoginController::class, 'index'])->name('index');
+});
+
+// verificar se o usuario esta logado 
+
