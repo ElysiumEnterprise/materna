@@ -42,5 +42,8 @@ class Usuario extends Model
         return $this->belongsTo(NivelUsuario::class, 'idNivelUser');
     }
     
+    public function anunciantes(){
+        return $this->hasOne(Anunciante::class, 'idUsuario');
+    }
     use HasFactory;
 }

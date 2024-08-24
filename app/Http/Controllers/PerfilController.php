@@ -79,26 +79,26 @@ class PerfilController extends Controller
     }
     public function destroy($idPerfil){
         // Encontrar o usuário pelo ID
-        $perfil = Perfil::findOrFail($idPerfil);
+       /* $perfil = Perfil::findOrFail($idPerfil);
 
         $idUsuario = $perfil->idUsuario;
 
-        /*$usuario = Usuario::with(['telefone_users', 'perfils'])->find($idPerfil);*/
+        $usuario = Usuario::with(['telefone_users', 'perfils'])->find($idPerfil);
         
         $tel = TelefoneUser::findOrFail($idUsuario);
 
         $usuario = Usuario::findOrFail($idUsuario);
 
         // Deletar a foto de perfil se existir
-        /*if (Storage::exists($perfil->fotoPerfil) && $perfil->fotoPerfil!='user-icon-default.png') {
+        if (Storage::exists($perfil->fotoPerfil) && $perfil->fotoPerfil!='user-icon-default.png') {
             Storage::delete($perfil->fotoPerfil);
         }
-*/
+
         // Excluir o usuário do banco de dados
         $perfil->delete();
         $tel->delete();
         $usuario->delete();
 
-        
+        */
     }
 }

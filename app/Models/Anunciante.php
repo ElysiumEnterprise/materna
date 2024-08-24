@@ -10,6 +10,10 @@ class Anunciante extends Model
 
     protected $table = 'anunciantes';
 
+    protected $primaryKey = 'idAnunciante';
+    public $incremeting = true;
+    protected $keyType = 'int'; 
+
     protected $fillable = ['cnpjAnunciante', 'nomeAnunciante'];
     /**
      * 
@@ -18,7 +22,9 @@ class Anunciante extends Model
         *@var bool;
      * 
      */
-    public $incremeting = true;
-    
+   
+    public function usuarios(){
+        return $this->belongsTo(Usuario::class, 'idUsuario');
+    }
     use HasFactory;
 }

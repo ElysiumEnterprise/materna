@@ -29,6 +29,14 @@ class Perfil extends Model
      * 
      */
     
+
+     protected static function boot(){
+        parent::boot();
+
+        static::deleting(function($perfil){
+            $perfil->usuarios->delete();
+        });
+     }
     public function usuarios(){
         return $this->belongsTo(Usuario::class, 'idUsuario');
     }
