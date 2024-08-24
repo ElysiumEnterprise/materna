@@ -48,10 +48,10 @@ Route::get('/dashboard/home/', function(){
 Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');
 });
-Route::get('home/perfil-user', function(){
+Route::get('/home/perfil-user', function(){
     return view('home.perfil');
 });
-Route::get('home/perfil-anunciante', function(){
+Route::get('/home/perfil-anunciante', function(){
     return view('home.perfilAnunciante');
 });
 
