@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\TelefoneUser;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
+
+    public function show(){
+
+        $user = Auth::user();
+
+        
+    }
+    
     public function edit($idUser){
         if (!$usuario = Usuario::where('idUsuario', $idUser)->first()){
             return redirect()->back();  
@@ -27,17 +36,22 @@ class UsuarioController extends Controller
 
             [
                 'nome' => 'required||max:255|min:10', //Requer o campo, ao menos 5 caracteres e no máximo 255 caracteres
-                'senha' => 'required||min:8', //Requer o campo e deve ser um e-mail no formato correto
+                //'senha' => 'required||min:8', //Requer o campo e deve ser um e-mail no formato correto
                 'telefone'=>'required||regex:/^\(\d{2}\)\d{4,5}-\d{4}$/',
+                'dt' => 'required||before:today',
                 'email'=>'required||email',
+                
             ],
             [
                 'nome.required'=> 'Preencha esse campo corretamente!',//Criamos uma mensagem personalizada para quando o tipo required não for satisfeito
                 'nome.max'=>'O campo atingiu o limite de caracteres!',
                 'nome.min'=>'Nome inválido',
+                
+                'dt.required'=>'Preencha esse campo!',
+                'dt.before'=>'Data inválida',
 
-                'senha.required'=>'Preencha esse campo corretamente',
-                'senha.min'=>'A senha não tem no mínimo 8 caracteres',
+                /*'senha.required'=>'Preencha esse campo corretamente',
+                'senha.min'=>'A senha não tem no mínimo 8 caracteres',*/
 
                 'telefone.required'=>'Preencha esse campo!',
                 'telefone.regex'=>'Tipo de telefone inválido',
@@ -68,7 +82,8 @@ class UsuarioController extends Controller
 
         $usuario->nome=$request->nome;
         $usuario->email=$request->email;
-        $usuario->senha=$request->senha;
+        $usuario->dtNasc= $request->dt;
+        //$usuario->senha=Hash::make($request->senha);
         $usuario->save();
 
         $telefone = TelefoneUser::where('idUsuario', $idUser)->first();

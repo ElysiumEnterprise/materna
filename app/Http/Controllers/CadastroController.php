@@ -8,6 +8,9 @@ use App\Models\Usuario;
 use App\Models\TelefoneUser;
 use App\Models\Anunciante;
 use App\Models\Perfil;
+use Illuminate\Auth\AuthManager;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CadastroController extends Controller
 {
@@ -50,7 +53,7 @@ class CadastroController extends Controller
             $usuario = Usuario::create([
                 'nome' => $request->nomeCliente,
                 'email'=> $request->emailCliente,
-                'senha'=> $request->senhaCliente,
+                'senha'=> Hash::make($request->senhaCliente),
                 'dtNasc'=> $request->dtCliente,
                 'idNivelUsuario'=> 1,
             ]);
@@ -64,9 +67,12 @@ class CadastroController extends Controller
                 'idUsuario'=> $usuario->idUsuario,
                 'numTelefone' => $request->telCliente
             ]);
-    
             
-            return view('/home/feed', compact('perfil'));
+            Auth::login($usuario);
+
+            return redirect()->intended('/home/feed');
+            
+            //return view('/home/feed', compact('perfil'));
         }
 
         
@@ -111,7 +117,7 @@ class CadastroController extends Controller
             $usuario = Usuario::create([
                 'nome' => $request->nomeAnunciante,
                 'email'=> $request->emailAnunciante,
-                'senha'=> $request->senhaAnunciante,
+                'senha'=> Hash::make($request->senhaAnunciante),
                 'dtNasc'=> $request->dtAnunciante,
                 'idNivelUsuario'=> 3,
             ]);
@@ -122,15 +128,19 @@ class CadastroController extends Controller
             ]);
     
             Anunciante::create([
+                'idUsuario'=>$usuario->idUsuario,
                 'nomeAnunciante'=>$request->nomeAnunciante,
                 'cnpjAnunciante'=>$request->cnpjAnunciante,
             ]);
 
-            $perfil = Perfil::create([
+            Perfil::create([
                 'idUsuario'=>$usuario->idUsuario,
                 'nickname'=>$usuario->nome,
             ]);
-            return view('/home/feed', compact('perfil'));
+
+            Auth::login($usuario);
+
+            return redirect()->intended('/home/feed');
         }
 
         

@@ -95,14 +95,14 @@
     align-items: center;
 }
 
-.cont-logout form{
+.cont-logout .btn{
     display: flex;
     width: 300px;
     justify-content: center;
     align-items: center;
 }
 
-.cont-logout form input[type="submit"]{
+.cont-logout a{
     justify-content: center;
     align-items: center;
     width: 50%;
@@ -113,12 +113,13 @@
     font-family: 'Fredoka';
     color: white;
     font-size: 1rem;
+    text-decoration:none;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
 }
 
-.cont-logout form input[type="submit"]:hover{
+.cont-logout a:hover{
     background-color: #dc437b;
     transform: scale(1.04);
 }

@@ -9,14 +9,20 @@ use App\Models\Anunciante;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PerfilController extends Controller
 {
     
 
 
-    public function show($idPerfil){
+    public function show(){
+        $user = Auth::user();
 
+        $perfil = $user->perfils;
+
+        
     }
 
     public function config($idPerfil){
@@ -50,7 +56,7 @@ class PerfilController extends Controller
             ]
         );
 
-        $exist=Perfil::where('nickname', $request->nickname)->exists();
+        $exist=Perfil::where('nickname', $request->nickname)->where('idPerfil', '!=', $idPerfil)->exists();
         if($exist){
             return redirect()->back()->with('errorNickname', 'Esse nome de usuário já existe!');
         }
@@ -78,6 +84,37 @@ class PerfilController extends Controller
         return redirect()->route('perfil.editar', $perfil )->with('message', 'Perfil atualizado com sucesso');
     }
     public function destroy($idPerfil){
+
+        DB::beginTransaction();
+
+        try{
+            $perfil = Perfil::findOrFail($idPerfil);
+            $usuario = Usuario::findOrFail($perfil->idUsuario);
+            $telefone = TelefoneUser::findOrFail($usuario->idUsuario);
+            //$anunciante = Anunciante::findOrFail($usuario->idUsuario);
+            if($perfil){
+                $perfil->delete();
+            }
+
+            if($telefone){
+                $telefone->delete();
+            }
+
+            if($anunciante = Anunciante::where('idUsuario', $usuario->idUsuario)->exists()){
+                $anunciante->delete();
+            }
+
+            if($usuario){
+                $usuario->delete();
+            }
+
+            return redirect('/');
+
+            
+        }catch(\Exception $e){
+            DB::rollBack();
+            return response()->json(['error'=>'Erro ao excluir perfil:'.$e->getMessage()],500);
+        }
         // Encontrar o usuário pelo ID
        /* $perfil = Perfil::findOrFail($idPerfil);
 
@@ -100,5 +137,9 @@ class PerfilController extends Controller
         $usuario->delete();
 
         */
+
+        $perfil = Perfil::findOrFail($idPerfil);
+
+        $perfil->delete();
     }
 }

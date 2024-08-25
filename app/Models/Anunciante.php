@@ -14,7 +14,7 @@ class Anunciante extends Model
     public $incremeting = true;
     protected $keyType = 'int'; 
 
-    protected $fillable = ['cnpjAnunciante', 'nomeAnunciante'];
+    protected $fillable = ['cnpjAnunciante', 'nomeAnunciante', 'idUsuario'];
     /**
      * 
      * Verificando se o id é auto-incrementado

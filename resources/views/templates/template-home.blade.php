@@ -1,3 +1,8 @@
+            @php
+                $user = Auth::user();
+
+                $perfil = $user->perfils;
+            @endphp
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,6 +16,9 @@
     <title>Home</title>
 </head>
 <body>
+            
+
+            
     <header>
         
             
@@ -23,14 +31,14 @@
                 <div id="sidebar_content">
                     <a href="">
                         <div id="user">
-                            <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" alt="Avatar">
+                            <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" id="user_avatar" alt="Avatar">
                 
                             <p id="user_infos">
                                 <span class="item-description">
-                                    Julia
+                                    {{$user->nome}}
                                 </span>
                                 <span class="item-description">
-                                    Mãe de dois
+                                    {{$perfil->biography}}
                                 </span>
                             </p>
                         </div>
@@ -39,7 +47,7 @@
             
                     <ul id="side_items">
                         <li class="side-item active">
-                            <a href="/home/feed{idPerfil}">
+                            <a href="{{route('home.feed')}}">
                             <i class="fa-solid fa-magnifying-glass" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Explorar
@@ -91,7 +99,7 @@
                 </div>
         
                 <div id="logout">
-                    <a href="{{route('perfil.config', 6)}}" id="logout_btn">
+                    <a href="{{route('perfil.config', $perfil->idPerfil)}}" id="logout_btn">
                         <i class="fa-solid fa-gear" style="color: #ffb6c1;"></i>
                         <span class="item-description">
                             Configuraçoes

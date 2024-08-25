@@ -34,13 +34,14 @@
                 
                 <input type="email" name="email" id="email" value='{{$usuario->email}}'>
             </div>
+
             <div class="input-group">
-                <label for="senha">Mudar Senha</label>
+                <label for="dt">Data de Nascimento</label>
                 <div class="cont-error">
-                    <small class="errorMessage"> @error('senha'){{$message}}@enderror</small>
+                <input type="date" name="dt" id="dt" min="1924-01-01" placeholder="Digite sua data de nascimento" value='{{$usuario->dtNasc}}'>
                 </div>
-                <input type="password" name="senha" id="senha" value='{{$usuario->senha}}'>                
             </div>
+            
             @foreach($usuario->telefone_users as $telefone)
                 <div class="input-group">
                     <label for="telefone">Mudar Telefone</label>

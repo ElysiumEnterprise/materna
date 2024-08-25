@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Notifications\Notifiable;
 
-
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-
+     use Notifiable;
+     
     protected $table = 'usuarios';
     
     protected $primaryKey = 'idUsuario';
@@ -30,8 +33,8 @@ class Usuario extends Model
      * 
      */
     
-    public function perfils(){
-        return $this->hasMany(Perfil::class, 'idUsuario');
+    public function perfils():HasOne{
+        return $this->hasOne(Perfil::class, 'idUsuario');
     }
 
     public function telefone_users(){
@@ -44,6 +47,14 @@ class Usuario extends Model
     
     public function anunciantes(){
         return $this->hasOne(Anunciante::class, 'idUsuario');
+    }
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword(){
+        return $this->senha;
     }
     use HasFactory;
 }

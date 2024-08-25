@@ -12,7 +12,7 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-
+//Cadastro e login
 Route::get('/cadastro-user', function(){
     return view('cadastro-cliente');
 });
@@ -21,6 +21,11 @@ Route::get('/cadastro-anunciante', function(){
     return view('cadastro-anunciante');
 });
 
+Route::post('login',[LoginController::class, 'logarUsuario'])->name('form-logar');
+
+Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+
+//Redefinição de senha
 Route::get('/senha', function(){
     return view('senha');
 });
@@ -37,11 +42,11 @@ Route::get('/home/notificacoes', function(){
     return view('home.notificacoes');
 });
 
-Route::get('/home/feed/{idPerfil}', function(){
+Route::get('/home/feed', function(){
     return view('home.feed');
-});
+})->name('home.feed');
 
-Route::get('/dashboard/home/', function(){
+Route::get('/dashboard/home', function(){
     return view('dashboard-adm.dashboard-home');
 });
 
@@ -68,7 +73,7 @@ Route::prefix('form-cadastro')->group(function(){
     Route::post('cadastro-anunciante', [CadastroController::class, 'cadastrar_anunciante'])->name('form-cadastro.anunciante');
 });
 
-Route::post('login',[LoginController::class, 'logarUsuario'])->name('form-logar');
+
 
 //Configurações 
 Route::get('/home/configuracoes/{idPerfil}', [PerfilController::class, 'config'])->name('perfil.config');
@@ -87,6 +92,8 @@ Route::put('/home/configuracoes/editar-usuario/{idUser}', [UsuarioController::cl
 Route::get('/home/mensagens', function(){
     return view('home.mensagens');
 });
+
+
 
 // caso o usuário não esteja autenticado, ele seja redirecionado para a página de login.
 

@@ -1,3 +1,9 @@
+@php
+    $user = Auth::user();
+
+    $perfil = $user->perfils;
+@endphp
+
 @extends('templates.template-home')
 
 <!-- Links CSS-->
@@ -78,8 +84,11 @@
                         <br>
                         <br>
                         <div class="chat__messages">
-                            <img src="{{url('assets/img/img-home/avatar.jpg')}}" class="img-fluid3" >
-                            <div class="message__self">Oi tudo bem?</div>
+                            <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" class="img-fluid3" >
+                            
+                            <div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span>
+                            Oi tudo bem?
+                        </div>
                             <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg')}}" class="img-fluid5" >
                             <div class="message__other">
                                 <span class="message__sender">@carla_fernanda</span>

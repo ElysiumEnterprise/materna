@@ -1,7 +1,9 @@
 @extends('templates.template-home')
 
 <!-- Links CSS-->
-
+@php
+    $user= Auth::user();
+@endphp
 @section('links-css')
     <link rel="stylesheet" href="{{url('assets/css/style-config-gerais.css')}}">
 @endsection
@@ -22,7 +24,7 @@
                 </a>
             </section>
             <section class="card-config">
-                <a href="{{route('user.edit', 10)}}">
+                <a href="{{route('user.edit', $user)}}">
                 <img src="{{asset('assets/img/foto-perfil/user-icon-default.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
                     <div class="cont-desc-config">
                     <h6 class="txt-item">Editar Usuário</h6>
@@ -32,9 +34,10 @@
             
         </div>
         <div class="cont-logout">
-            <form action="" method="post">
-                <input type="submit" value="Sair">
-            </form>
+            <div class="btn">
+                <a href="{{route('logout')}}">Sair</a>
+            </div>
+            
         </div>
     </div>
 @endsection
