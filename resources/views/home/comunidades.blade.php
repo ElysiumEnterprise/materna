@@ -3,8 +3,9 @@
 <!-- Links CSS-->
 
 @section('links-css')
-    <link rel="stylesheet" href="{{url('assets/css/style-comunidades.css')}}">
-    
+    <link rel="stylesheet" href="{{url('assets/css/style-comunidades.css')}}"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
@@ -12,11 +13,35 @@
 @section('cont-home')
     <div class="cont-feed">
     <div class="linha-vertical"></div>
-        
-        <div class="cont-post">
 
+        <span class="material-symbols-outlined"  ;>
+        arrow_left_alt
+        </span> 
+
+        <div class="cont-post">
+           <div class="vamosver">
+
+            <div class="teste">
+                    <a><h1 class="comun">Comunidades</h1></a>   
+            </div>
+            <div class="sla">
+                <span class="material-symbols-outlined" >
+                    search
+                </span>
+            </div>
+            <div class="gato">
+                <span class="material-symbols-outlined">
+                person_add
+                </span>
+            </div>
+            
+           </div>
+           
             <section class="card-post">
-            <a><h1 class="comun">Comunidades</h1></a>    
+          
+               
+     
+
                 <div class="post-head">
                     
                         <img src="{{url('assets/img/img-home/avatar.jpg')}}" class="img-fluid foto-perfil" alt="">
@@ -92,7 +117,7 @@
 
         <section class="cont-tipo-feed">
             <div class="cont-link-feed">
-                <a href="">Chats</a>    
+                <a href="">Comunidades do momento</a>    
             </div>
             <div class="cont-assuntos">
                 <section class='card-assunto'>

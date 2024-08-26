@@ -219,8 +219,23 @@
 }
 .linha-vertical {
     width: 2px; /* Largura da linha */
-    height: 1700px; /* Altura da linha */
+    height: 1705px; /* Altura da linha */
     background-color: rgb(230, 229, 229); /* Cor da linha */
     margin: 20px; /* Espaçamento ao redor */
     padding: 5%;
+}
+.vamosver{
+    white-space: 20px;
+    flex-direction: row;
+    display: flex;
+    padding-top: 1%;
+}
+.teste{
+    padding-right: 120%;
+    align-items:start ;
+}
+.sla{
+    display:flex ;
+    flex-direction: row;
+    padding-right: 15%;
 }

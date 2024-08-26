@@ -68,7 +68,7 @@
                             <a href="#">
                                 <i class="fa-solid fa-face-smile" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
-                                    Cominidades
+                                    Comunidades
                                 </span>
                             </a>
                         </li>

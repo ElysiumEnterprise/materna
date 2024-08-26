@@ -61,7 +61,7 @@ Route::get('/home/perfil-anunciante', function(){
 });
 
 
-Route::get('/home/comunidades/{idPerfil}', function(){
+Route::get('/home/comunidades', function(){
     return view('home.comunidades');
 });
 
