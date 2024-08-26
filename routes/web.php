@@ -6,7 +6,9 @@ use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ExclusaoController;
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\UsuarioController;
+use App\Models\Usuario;
 
 Route::get('/', function () {
     return view('index');
@@ -42,9 +44,9 @@ Route::get('/home/notificacoes', function(){
     return view('home.notificacoes');
 });
 
-Route::get('/home/feed', function(){
-    return view('home.feed');
-})->name('home.feed');
+Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('home.feed');
+
+//Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('feed');
 
 Route::get('/dashboard/home', function(){
     return view('dashboard-adm.dashboard-home');
@@ -55,7 +57,7 @@ Route::get('/home/configuracoes', function(){
 });
 Route::get('/home/perfil-user', function(){
     return view('home.perfil');
-});
+})->name('perfil');
 Route::get('/home/perfil-anunciante', function(){
     return view('home.perfilAnunciante');
 });
@@ -82,7 +84,8 @@ Route::get('/home/configuracoes/{idPerfil}', [PerfilController::class, 'config']
 Route::get('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'editar'])->name('perfil.editar');
 Route::put('/home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'update'])->name('perfil.update');
 
-Route::delete('home/configuracoes/editar-conta/{idPerfil}', [PerfilController::class, 'destroy'])->name('profile.destroy');
+Route::delete('home/configuracoes/editar-conta/{idPerfil}', [UsuarioController::class, 'destroy'])->name('user.destroy');
+
 
 //Editar o usuario
 

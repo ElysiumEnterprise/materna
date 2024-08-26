@@ -18,11 +18,11 @@ class PerfilController extends Controller
 
 
     public function show(){
+
         $user = Auth::user();
 
         $perfil = $user->perfils;
 
-        
     }
 
     public function config($idPerfil){
@@ -85,61 +85,6 @@ class PerfilController extends Controller
     }
     public function destroy($idPerfil){
 
-        DB::beginTransaction();
-
-        try{
-            $perfil = Perfil::findOrFail($idPerfil);
-            $usuario = Usuario::findOrFail($perfil->idUsuario);
-            $telefone = TelefoneUser::findOrFail($usuario->idUsuario);
-            //$anunciante = Anunciante::findOrFail($usuario->idUsuario);
-            if($perfil){
-                $perfil->delete();
-            }
-
-            if($telefone){
-                $telefone->delete();
-            }
-
-            if($anunciante = Anunciante::where('idUsuario', $usuario->idUsuario)->exists()){
-                $anunciante->delete();
-            }
-
-            if($usuario){
-                $usuario->delete();
-            }
-
-            return redirect('/');
-
-            
-        }catch(\Exception $e){
-            DB::rollBack();
-            return response()->json(['error'=>'Erro ao excluir perfil:'.$e->getMessage()],500);
-        }
-        // Encontrar o usuário pelo ID
-       /* $perfil = Perfil::findOrFail($idPerfil);
-
-        $idUsuario = $perfil->idUsuario;
-
-        $usuario = Usuario::with(['telefone_users', 'perfils'])->find($idPerfil);
         
-        $tel = TelefoneUser::findOrFail($idUsuario);
-
-        $usuario = Usuario::findOrFail($idUsuario);
-
-        // Deletar a foto de perfil se existir
-        if (Storage::exists($perfil->fotoPerfil) && $perfil->fotoPerfil!='user-icon-default.png') {
-            Storage::delete($perfil->fotoPerfil);
-        }
-
-        // Excluir o usuário do banco de dados
-        $perfil->delete();
-        $tel->delete();
-        $usuario->delete();
-
-        */
-
-        $perfil = Perfil::findOrFail($idPerfil);
-
-        $perfil->delete();
     }
 }

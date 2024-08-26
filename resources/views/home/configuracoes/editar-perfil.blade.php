@@ -2,6 +2,9 @@
 
 <!-- Links CSS-->
 
+@php
+    $user = Auth::user();
+@endphp
 @section('links-css')
     <link rel="stylesheet" href="{{url('assets/css/style-config-perfil.css')}}">
 @endsection
@@ -17,7 +20,7 @@
                     <p>Voce perderá todos os seus dados, como postagens, comentários, mensagens e outros dados!</p>
                 </div>
                 <div class="cont-btn-escolha">
-                    <form action="{{ route('profile.destroy', $perfil->idPerfil) }}" method="POST">
+                    <form action="{{ route('user.destroy', $user->idUsuario) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Excluir Perfil</button>
@@ -71,11 +74,7 @@
         </form>
         <div class="cont-destroy-perfil">
             <h2>Excluir Perfil</h2>
-        <!--<form action="{{ route('profile.destroy', $perfil->idPerfil) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Excluir Perfil</button>
-        </form>-->
+        
         <button type="button" onclick="abrirModal()">Excluir Perfil</button>
         </div>
     </div>
