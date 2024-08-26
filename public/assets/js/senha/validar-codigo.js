@@ -29,8 +29,9 @@ form_codigo.addEventListener('submit', (event)=>{
     location.href='/nova-senha';
 })
 
-btnCancelCodigo.addEventListener('click', function(){
-    location.href='/senha';
+btnCancelCodigo.addEventListener('click', (event)=>{
+    event.preventDefault();
+    location.href='/';
 })
 
 //Função para validar código
