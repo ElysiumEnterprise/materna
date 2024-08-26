@@ -10,7 +10,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="{{url('assets/img/logo/Logo-Materna-Branco.png')}}" alt="Imagem logo materna" class="img-logo">
+                <a href="/"><img src="{{url('assets/img/logo/Logo-Materna-Branco.png')}}" alt="Imagem logo materna" class="img-logo"></a>
             </div>
         </nav>
     </header>
@@ -39,13 +39,16 @@
                             
                             <input type="text" id="codigo" name="codigo" class="animated-input" placeholder="XXX-XXX-XX" >
                         </div>
+
                         <div class="link-cod">
                             <a href="#" class="reenvio-cod">Reenviar código</a>
                         </div>
+
                         <div class="btn">
                             <button type="submit" class="btn-confirm">Confirmar</button>
-                            <button class="btn-cancel">Cancelar</button>
+                            <a class="link-btn" href="/" ><button class="btn-cancel">Cancelar</button></a>
                         </div>
+
                     </form>
                 </div>
 

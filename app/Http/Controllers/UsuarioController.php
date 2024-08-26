@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anunciante;
 use App\Models\TelefoneUser;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
@@ -97,6 +98,25 @@ class UsuarioController extends Controller
     }
 
     public function destroy($idUser){
-        
+        $user = Usuario::with(['telefone_users', 'perfils'])->find($idUser);
+        $exist = Anunciante::where('idUsuario', $idUser)->exists();
+        if($exist){
+            $anunciante = Anunciante::where('idUsuario', $idUser);
+            $anunciante->delete();
+        }
+        if($user){
+            //Deletar telefones associado
+            $user->telefone_users()->delete();
+
+            //Deletar perfil
+
+            $user->perfils()->delete();
+
+            //Deletar usuário
+
+            $user->delete();
+
+            return redirect('/');
+        }
     }
 }

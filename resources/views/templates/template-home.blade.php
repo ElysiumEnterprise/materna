@@ -29,13 +29,13 @@
     <main>
     <nav id="sidebar">
                 <div id="sidebar_content">
-                    <a href="">
+                    <a href="{{route('perfil')}}">
                         <div id="user">
                             <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" id="user_avatar" alt="Avatar">
                 
                             <p id="user_infos">
                                 <span class="item-description">
-                                    {{$user->nome}}
+                                    Pumpers
                                 </span>
                                 <span class="item-description">
                                     {{$perfil->biography}}
@@ -47,7 +47,7 @@
             
                     <ul id="side_items">
                         <li class="side-item active">
-                            <a href="{{route('home.feed')}}">
+                            <a href="/home/feed">
                             <i class="fa-solid fa-magnifying-glass" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Explorar
@@ -149,8 +149,8 @@
                     </section>
                     <section class="section-info">
                         <div class="cont-perfil">
-                            <img src="{{url('assets/img/img-home/avatar.jpg')}}" id="user_avatar" class='img-fluid' alt="Avatar">
-                            <small>Julia</small>
+                            <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" id="user_avatar" class='img-fluid' alt="Avatar">
+                            <small>{{$perfil->nickname}}</small>
                         </div>
                         <div class="cont-desc">
                             <div class="input-group">

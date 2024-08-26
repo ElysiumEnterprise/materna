@@ -9,7 +9,24 @@
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
 
 @section('cont-home')
-   
+<div class="cont-box-modal">
+        <dialog class='modal-excluir'>
+            <div class="cont-modal">
+                <h1>Tem Certeza?</h1>
+                <div class="cont-desc">
+                    <p>Voce perderá todos os seus dados, como postagens, comentários, mensagens e outros dados!</p>
+                </div>
+                <div class="cont-btn-escolha">
+                    <form action="{{ route('user.destroy', $usuario->idUsuario) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Excluir Perfil</button>
+                    </form>
+                    <button type="button" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </div>
+        </dialog>
+    </div>
     <div class='cont-editar-perfil'>
     
         <h1>Editar Usuario: {{$usuario->nome}}</h1>
@@ -54,10 +71,16 @@
                 @endforeach
             <input type="submit" value="Mudar">
         </form>
+        <div class="cont-destroy-perfil">
+            <h2>Excluir Perfil</h2>
         
+        <button type="button" onclick="abrirModal()">Excluir Perfil</button>
+        </div>
     </div>
     
     
 
 @endsection
-
+@section('scripts')
+    <script src="{{url('assets/js/home/editar-perfil.js')}}"></script>
+@endsection

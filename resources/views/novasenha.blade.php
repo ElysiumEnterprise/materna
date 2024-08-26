@@ -10,7 +10,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="{{url('assets/img/logo/Logo-Materna-Branco.png')}}" alt="Imagem logo materna" class="img-logo">
+                <a href="/"><img src="{{url('assets/img/logo/Logo-Materna-Branco.png')}}" alt="Imagem logo materna" class="img-logo"></a>
             </div>
         </nav>
     </header>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="btn">
                             <button type="submit" class="btn-confirm">Confirmar</button>
-                            <button type="button" class="btn-cancel">Cancelar</button>
+                            <a href="/"><button type="button" class="btn-cancel">Cancelar</button></a>
                         </div>
                     </form>
                 </div>
