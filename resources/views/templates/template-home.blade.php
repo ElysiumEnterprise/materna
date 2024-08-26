@@ -35,7 +35,7 @@
                 
                             <p id="user_infos">
                                 <span class="item-description">
-                                    {{$user->nome}}
+                                    Pumpers
                                 </span>
                                 <span class="item-description">
                                     {{$perfil->biography}}
