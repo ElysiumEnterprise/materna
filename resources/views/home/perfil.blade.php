@@ -8,10 +8,7 @@
     $perfil = $user->perfils;
 @endphp
 @section('links-css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="{{url('assets/css/style-perfil.css')}}">
 @endsection
 
@@ -26,7 +23,7 @@
             <div class="col-7">
                 <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
                     <div class="col-8 col-lg-5">
-                        <h2 class="username">Pumpers</h2>
+                        <h2 class="username">{{$user->nome}}</h2>
                     </div>
                     
                 <div class="row">
@@ -47,9 +44,8 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p class="profile-desc">Escritora| Programadora </p>
-                        <p class="profile-desc">Casada | Mãe de dois</p>
-                        <p class="profile-desc">Viajante| Amo comida boa </p>
+                        <p class="profile-desc">{{$perfil->biography}}</p>
+                        
                     </div>
                 </div>
             </div>

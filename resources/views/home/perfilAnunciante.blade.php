@@ -3,7 +3,8 @@
 <!-- Links CSS-->
 
 @section('links-css')
-    <link rel="stylesheet" href="{{url('assets/css/style-perfil.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/style-feed.css')}}">
+    
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->

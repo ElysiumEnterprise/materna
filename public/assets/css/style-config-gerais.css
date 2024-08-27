@@ -62,9 +62,11 @@
     justify-content: start;
 }
 .cont-config-gerais .cont-item-config .card-config img{
-    width: 15%;
+    width: 80px;
+    height: 80px;
     margin-right: 20px;
-    border-radius: 50%;
+    border-radius: 100%;
+    object-fit: fill;
 }
 .cont-config-gerais .cont-item-config .card-config .cont-desc-config{
     display: flex;

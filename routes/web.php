@@ -58,6 +58,7 @@ Route::get('/home/configuracoes', function(){
 Route::get('/home/perfil-user', function(){
     return view('home.perfil');
 })->name('perfil');
+
 Route::get('/home/perfil-anunciante', function(){
     return view('home.perfilAnunciante');
 });

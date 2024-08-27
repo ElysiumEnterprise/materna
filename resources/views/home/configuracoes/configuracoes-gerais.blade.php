@@ -19,7 +19,7 @@
                 <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" class="pefil-logo img-fluid" alt="Foto de perfil">
                     <div class="cont-desc-config">
                     <small class="txt-nickname">{{$perfil->nickname}}</small>
-                    <h6 class="txt-item">Configurar Conta</h6>
+                    <h6 class="txt-item">Configurar Perfil</h6>
                     </div>
                 </a>
             </section>

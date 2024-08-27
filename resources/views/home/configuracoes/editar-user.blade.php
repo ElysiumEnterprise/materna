@@ -29,7 +29,7 @@
     </div>
     <div class='cont-editar-perfil'>
     
-        <h1>Editar Usuario: {{$usuario->nome}}</h1>
+        <h1>Editar Usuário: {{$usuario->nome}}</h1>
         <h2>{{session('sucess')}}</h2>
         <form action="{{route('user.update',$usuario->idUsuario)}}" method="POST">
             @csrf
@@ -72,7 +72,7 @@
             <input type="submit" value="Mudar">
         </form>
         <div class="cont-destroy-perfil">
-            <h2>Excluir Perfil</h2>
+            <h2>Excluir Conta</h2>
         
         <button type="button" onclick="abrirModal()">Excluir Perfil</button>
         </div>

@@ -7,38 +7,9 @@
     font-family: "Inter";
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
-.body {
-    background-color: #fafafa;
-  }
+
   
   
-  .nav-container {
-    padding-left: 25% !important; 
-    padding-right: 25% !important;
-  }
-  
-  @media screen and (max-width: 1605px) {
-    .nav-container {
-        padding-left: 20% !important; 
-        padding-right: 20% !important;
-    }
-  }
-  
-  @media screen and (max-width: 992px) {
-    .nav-container {
-        padding-left: 5% !important; 
-        padding-right: 5% !important;
-    }
-  }
-  
-  .img-nav {
-    border-radius: 100%;
-    -o-border-radius: 100%;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%; 
-    max-width:30px; 
-    max-height:25px;
-  }
   
   .img-profile {
     border-radius: 100%;
@@ -47,7 +18,7 @@
     -moz-border-radius: 100%; 
     width:200px; 
     height:200px;
-    object-fit: cover;
+    object-fit: fill;
   }
   
   .username {
@@ -134,3 +105,9 @@
   .btn {
     padding: .100rem .50rem !important;
   }
+
+  .container{
+    display: flex;
+    padding-left: 12%;
+  }
+  

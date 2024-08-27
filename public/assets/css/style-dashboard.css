@@ -331,7 +331,7 @@ main .insights h3{
 
 main .insights .progress{
     position: relative;
-    width: 92px;
+    width: 80px;
     height: 92px;
     border-radius: 50%;
 }
@@ -352,13 +352,13 @@ main .insights svg circle{
 }
 
 main .insights .sales svg circle{
-    stroke-dashoffset: -30;
+    stroke-dashoffset: -140;
     stroke-dasharray: 200;
 }
 
 main .insights .expenses svg circle{
-    stroke-dashoffset: 20;
-    stroke-dasharray: 80;
+    stroke-dashoffset: 110;
+    stroke-dasharray: 200;
 }
 
 main .insights .income svg circle{

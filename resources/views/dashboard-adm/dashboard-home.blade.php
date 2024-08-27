@@ -35,10 +35,6 @@
                     <h3>Clientes</h3>
                 </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">receipt_long</span>
-                    <h3>Pedidos</h3>
-                </a>
 
                 <a href="#">
                     <span class="material-icons-sharp">insights</span>
@@ -51,10 +47,6 @@
                     <span class="message-count">15</span>
                 </a>
 
-                <a href="#">
-                    <span class="material-icons-sharp">inventory</span>
-                    <h3>Produtos</h3>
-                </a>
 
                 <a href="#">
                     <span class="material-icons-sharp">report_gmailerrorred</span>
@@ -89,8 +81,8 @@
                     <div class="middle">
                         
                         <div class="left">
-                            <h3 class="titulo-card">Vendas Totais</h3>
-                            <h1>$25,00</h1>
+                            <h3 class="titulo-card">Cadastros</h3>
+                            <h1>89</h1>
                         </div>
 
                         <div class="progress">
@@ -98,9 +90,6 @@
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
 
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
                         </div>
                     </div>
 
@@ -111,8 +100,8 @@
                     <span class="material-icons-sharp">bar_chart</span>
                     <div class="middle">
                         <div class="left">
-                            <h3 class="titulo-card">Despesas Totais</h3>
-                            <h1>$15,90</h1>
+                            <h3 class="titulo-card">Postagens</h3>
+                            <h1>267</h1>
                         </div>
 
                         <div class="progress">
@@ -120,9 +109,7 @@
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
 
-                            <div class="number">
-                                <p>62%</p>
-                            </div>
+
                         </div>
                     </div>
 
@@ -133,8 +120,8 @@
                     <span class="material-icons-sharp">stacked_line_chart</span>
                     <div class="middle">
                         <div class="left">
-                            <h3 class="titulo-card">Renda Total</h3>
-                            <h1>$10,00</h1>
+                            <h3 class="titulo-card">Anúncios</h3>
+                            <h1>13</h1>
                         </div>
 
                         <div class="progress">
@@ -142,9 +129,6 @@
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
 
-                            <div class="number">
-                                <p>44%</p>
-                            </div>
                         </div>
                     </div>
 
@@ -276,42 +260,7 @@
                 </div>
             </div>
 
-            <div class="sales-analytics">
-                <h2>Análise de vendas</h2>
-
-                <div class="item online">
-                    <div class="icon">
-                        <span class="material-icons-sharp">shopping_cart</span>
-                    </div>
-
-                    <div class="right">
-                        <div class="info">
-                            <h3 class="txt-card">Pedidos online</h3>
-                            <small class="text-muted">Últimas 24 horas</small>
-                        </div>
-
-                        <h5 class="success">+21%</h5>
-                        <h3 class="num">6745</h3>
-                    </div>
-                </div>
-
-               
-
-                <div class="item online">
-                    <div class="icon">
-                        <span class="material-icons-sharp">shopping_cart</span>
-                    </div>
-
-                    <div class="right">
-                        <div class="info">
-                            <h3 class="txt-card">Novos clientes</h3>
-                            <small class="text-muted">Últimas 24 horas</small>
-                        </div>
-
-                        <h5 class="success">+23%</h5>
-                        <h3 class="num">3856</h3>
-                    </div>
-                </div>
+            
 
                 
 

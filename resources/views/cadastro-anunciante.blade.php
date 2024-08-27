@@ -49,7 +49,7 @@
                                             <img src="{{url('assets/img/icons/icon-user.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="text" name="nomeAnunciante" id="nomeAnunciante" placeholder="Digite seu nome" value='{{old("nomeAnunciante")}}'>
+                                        <input type="text" name="nomeAnunciante" id="nomeAnunciante" placeholder="Digite o nome da empresa" value='{{old("nomeAnunciante")}}'>
                                     </div>
                                 </div>
 

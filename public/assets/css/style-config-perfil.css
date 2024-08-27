@@ -102,9 +102,10 @@
     color: #003366;
 }
 .cont-editar-perfil form .input-group .label-img img{
-    width: 40%;
-    height: 40%;
-    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+    border-radius: 100%;
 }
 .cont-editar-perfil form .input-group label{
     display: flex;
