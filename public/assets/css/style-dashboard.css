@@ -357,13 +357,13 @@ main .insights .sales svg circle{
 }
 
 main .insights .expenses svg circle{
-    stroke-dashoffset: 110;
+    stroke-dashoffset: 100;
     stroke-dasharray: 200;
 }
 
 main .insights .income svg circle{
-    stroke-dashoffset: 35;
-    stroke-dasharray: 100;
+    stroke-dashoffset: 1000;
+    stroke-dasharray: 200;
 }
 
 main .insights .progress .number{
