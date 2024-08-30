@@ -143,14 +143,34 @@
                 <form action="" method="post" enctype="multipart/form-data">
                     @csrf
                     <section class="cont-img-post">
-                        <div class="input-group">
-                        <label for="imgArquivo" class="btnImg">Adicionar Arquivo</label>
-                            <label for="imgArquivo">
-                                <img src="{{url('assets/img/img-home/teste.jpeg')}}" class="img-fluid imgArquivo" alt="Arquivo do Post">
-                            </label>
+                       
+                        <label for="imgArquivo" id='drag-area'>
+                            <input type="file" name="imgArquivo" id="imgArquivo" hidden accept="image/*">
+                            <div class="img-view">
+                                <div class="icon">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                               </div>
+                               <h5>Araste e solte aqui sua imagem ou clique aqui</h5>
+                            </div>
+                        </label>
+                            <!--<div class="drag-area">
+                                <div class="img-view">
+                                <div class="icon">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                               </div>
+                               
+                               <h5>Araste e solte seu arquivo aqui</h5>
+                               <span>ou</span>
+                               <label for="imgArquivo" class="btnImg">Adicionar Arquivo</label>
+                               <input type="file" name="imgArquivo" id="imgArquivo" hidden accept="image/*">
+                                </div>
+                               
+                            </div>
+                            -->
                             
-                            <input type="file" name="imgArquivo" id="imgArquivo">
-                        </div>    
+                            
+                            
+                          
                     </section>
                     <section class="section-info">
                         <div class="cont-perfil">
