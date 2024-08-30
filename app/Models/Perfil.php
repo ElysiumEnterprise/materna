@@ -47,6 +47,8 @@ class Perfil extends Model
         return $this->belongsTo(Usuario::class, 'idUsuario');
     }
 
-     
+    public function postagems(){
+        return $this->hasMany(Postagem::class, 'idPerfil');
+    }
     use HasFactory;
 }

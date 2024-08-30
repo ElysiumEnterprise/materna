@@ -2,6 +2,7 @@
                 $user = Auth::user();
 
                 $perfil = $user->perfils;
+
             @endphp
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -144,8 +145,8 @@
                     @csrf
                     <section class="cont-img-post">
                        
-                        <label for="imgArquivo" id='drag-area'>
-                            <input type="file" name="imgArquivo" id="imgArquivo" hidden accept="image/*">
+                        <label for="imgPost" id='drag-area'>
+                            <input type="file" name="imgPost" id="imgPost" hidden accept="image/*">
                             <div class="img-view">
                                 <div class="icon">
                                     <i class="fa-solid fa-cloud-arrow-up"></i>
