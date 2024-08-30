@@ -150,7 +150,7 @@
                                 <div class="icon">
                                     <i class="fa-solid fa-cloud-arrow-up"></i>
                                </div>
-                               <h5>Araste e solte aqui sua imagem ou clique aqui</h5>
+                               <h5>Araste e solte aqui seu aqruivo ou clique aqui</h5>
                             </div>
                         </label>
                             <!--<div class="drag-area">
