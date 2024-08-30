@@ -33,7 +33,7 @@
                 <div class="cont-mudar-img">
                     <label for="imgPerfil" class="btnImg">Alterar Foto</label>
                     <small class="nomeArquivo">Nenhum arquivo selecionado</small>
-                    <input type="file" class="input-file" name="imgPerfil" id="imgPerfil">
+                    <input type="file" class="input-file" name="imgPerfil" hidden accept="image/*" id="imgPerfil">
                 </div>
                 
             </div>
@@ -60,4 +60,8 @@
     
     
 
+@endsection
+
+@section('scripts')
+    <script src="{{url('assets/js/home/editar-perfil.js')}}"></script>
 @endsection
