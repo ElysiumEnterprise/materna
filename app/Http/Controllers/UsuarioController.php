@@ -23,9 +23,13 @@ class UsuarioController extends Controller
         if (!$usuario = Usuario::where('idUsuario', $idUser)->first()){
             return redirect()->back();  
         }
-            $usuario= Usuario::with('telefone_users')->findOrFail($idUser);   
+            $usuario= Usuario::with('telefone_users')->findOrFail($idUser);
+
+            //Verificar se o usuário é anunciante
             
-            return view('home.configuracoes.editar-user',compact('usuario'));
+            $hasAnunciante = $usuario->anunciantes()->exists();
+            
+            return view('home.configuracoes.editar-user',compact('usuario', 'hasAnunciante'));
         
           
     }
@@ -33,17 +37,14 @@ class UsuarioController extends Controller
     public function update(Request $request, $idUser){
         //validação dos campos
 
-        $request->validate(
-
-            [
+        $rules =[
                 'nome' => 'required||max:255|min:10', //Requer o campo, ao menos 5 caracteres e no máximo 255 caracteres
                 //'senha' => 'required||min:8', //Requer o campo e deve ser um e-mail no formato correto
                 'telefone'=>'required||regex:/^\(\d{2}\)\d{4,5}-\d{4}$/',
                 'dt' => 'required||before:today',
                 'email'=>'required||email',
-                
-            ],
-            [
+             ];
+        $messages = [
                 'nome.required'=> 'Preencha esse campo corretamente!',//Criamos uma mensagem personalizada para quando o tipo required não for satisfeito
                 'nome.max'=>'O campo atingiu o limite de caracteres!',
                 'nome.min'=>'Nome inválido',
@@ -59,12 +60,19 @@ class UsuarioController extends Controller
 
                 'email.required'=>'Preencha esse campo corretamente!',
                 'email.email'=>'Email inválido',
-                
-            ]
-
+            ];
             
-        );
-        //Verificar se existe um email existente no banco
+            if($request->has('hasAnuciante') && $request->input('hasAnunciante')){
+                $rules['cnpj'] = 'required|min:14'; // Campo adicional para anunciantes
+                $messages['cnpj.required'] = 'Preencha esse campo!';
+                $messages['cnpj.min'] = 'Tipo de CNPJ é inválido!';
+            }
+            
+        $request->validate($rules, $messages);
+
+        $usuario = Usuario::findOrFail($idUser);
+
+        //Verificar se existe um email e telfone existente no banco
         
         $existEmail = Usuario::where('email', $request->email)->where('idUsuario', "!=", $idUser)->exists();
         $existTel = TelefoneUser::where('numTelefone', $request->telefone)->where('idUsuario', "!=", $idUser)->exists();
@@ -77,10 +85,33 @@ class UsuarioController extends Controller
             return redirect()->back()->with('errorTel', 'Telefone já cadastrado!');
         }
 
+
+        //Verificar se há o campo de CNPJ caso o usuário seja anunciante
+        if ($request->has('cnpj')) {
+            $existCNPJ = Anunciante::where('cnpjAnunciante', $request->cnpj)->where('idUsuario', '!=', $idUser)->exists();
+
+            if ($existCNPJ) {
+                return redirect()->back()->with('errorCNPJ', 'CNPJ já cadastrado!');
+            }else{
+                $anunciante = Anunciante::where('idUsuario', $idUser)->first();
+
+                $anunciante->nomeAnunciante=$request->nome;
+                $anunciante->cnpjAnunciante = $request->cnpj;
+
+                $anunciante->save();
+            }
+
+        }
+       
+
+        
         //Fazer o update
         
-        $usuario = Usuario::findOrFail($idUser);
+        
 
+        //Verficar se o usuário é anunciante
+
+       
         $usuario->nome=$request->nome;
         $usuario->email=$request->email;
         $usuario->dtNasc= $request->dt;

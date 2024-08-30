@@ -53,12 +53,25 @@
             </div>
 
             <div class="input-group">
-                <label for="dt">Data de Nascimento</label>
+                @if($hasAnunciante)
+                    <label for="dt">Alterar data de fundação</label>
+                @else
+                    <label>Alterar data de nascimento</label>
+                @endif
                 <div class="cont-error">
                 <input type="date" name="dt" id="dt" min="1924-01-01" placeholder="Digite sua data de nascimento" value='{{$usuario->dtNasc}}'>
                 </div>
             </div>
-            
+            @if($hasAnunciante)
+            <div class="input-group">
+                <label for="email">Mudar CNPJ</label>
+                <div class="cont-error">
+                    <small class="errorMessage">@error('cnpj'){{$message}}@enderror{{session('errorCNPJ')}}</small>
+                </div>
+                
+                <input type="text" name="cnpj" id="cnpj" value='{{$usuario->anunciantes->cnpjAnunciante}}'>
+            </div>
+            @endif
             @foreach($usuario->telefone_users as $telefone)
                 <div class="input-group">
                     <label for="telefone">Mudar Telefone</label>
