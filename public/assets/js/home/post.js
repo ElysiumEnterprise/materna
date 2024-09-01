@@ -1,7 +1,7 @@
 //Variável para pegar a imagem do usuário;
 
 const dropArea = document.querySelector('#drag-area');
-const fileImg = document.querySelector('#imgArquivo');
+const fileImg = document.querySelector('#imgPost');
 const imgView = document.querySelector('.img-view');
 
 const modalPost = document.querySelector('.modal-post');
@@ -12,7 +12,7 @@ const categorias_selecionadas = document.querySelectorAll('input[type="checkbox"
 
 categorias_selecionadas.forEach(checkbox=>{
 
-    const label = document.querySelector(`label[for="{$checkbox.id}"]`);
+    const label = document.querySelector(`label[for="${checkbox.id}"]`);
 
     checkbox.addEventListener('change', function(){
         //Se a checkbox estiver marcado, sua respectiva label irá mudar

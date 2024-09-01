@@ -154,20 +154,7 @@
                                <h5>Arraste e solte aqui seu arquivo ou clique aqui</h5>
                             </div>
                         </label>
-                            <!--<div class="drag-area">
-                                <div class="img-view">
-                                <div class="icon">
-                                    <i class="fa-solid fa-cloud-arrow-up"></i>
-                               </div>
-                               
-                               <h5>Araste e solte seu arquivo aqui</h5>
-                               <span>ou</span>
-                               <label for="imgArquivo" class="btnImg">Adicionar Arquivo</label>
-                               <input type="file" name="imgArquivo" id="imgArquivo" hidden accept="image/*">
-                                </div>
-                               
-                            </div>
-                            -->
+                            
                             
                             
                             
@@ -187,8 +174,8 @@
                         <div class="cont-categoria">
                             @foreach($categorias as $categoria)
                             <div class="input-group">
-                                <label for="gravidez" class='label-checkbox'>{{$categoria->nomeCategoria}}</label>
-                                <input type="checkbox" name="categoriaPost" id="gravidez" value="{{$categoria->idCategoria}}">
+                                <label for="{{$categoria->idCategoria}}" class='label-checkbox'>{{$categoria->nomeCategoria}}</label>
+                                <input type="checkbox" name="categoriaPost" id="{{$categoria->idCategoria}}" value="{{$categoria->idCategoria}}">
                             </div>
                            
                             @endforeach

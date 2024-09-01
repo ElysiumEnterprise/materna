@@ -280,19 +280,14 @@
     transform: scale(1.05);
 }
 .modal-post form .cont-categoria .label-active{
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
+    
     background-color: #ff85ab;
-    font-family: 'Inter';
-    color: white;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
+    
+}
+
+.modal-post form .cont-categoria .label-active:hover{
+    background-color: #d5527b;
+    transform: scale(1.05);
 }
 .modal-post form .cont-categoria input[type='checkbox']{
     display: none;
