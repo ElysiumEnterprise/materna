@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Categoria;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Compartilha categorias com todas as views
+        View::composer('*', function ($view) {
+            $view->with('categorias', Categoria::all());
+        });
     }
 }

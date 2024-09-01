@@ -70,7 +70,8 @@
     min-height: 200px;
 }
 .card-post .conteudo-post .cont-arquivo img{
-    width: 100%;
+    width: 400px;
+    object-fit: fill;
 }
 
 .card-post .conteudo-post .cont-icons {

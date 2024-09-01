@@ -185,18 +185,13 @@
                             </div>
                         </div>
                         <div class="cont-categoria">
+                            @foreach($categorias as $categoria)
                             <div class="input-group">
-                                <label for="gravidez" class='label-checkbox'>Gravidez</label>
-                                <input type="checkbox" name="categoriaPost" id="gravidez" value="Gravidez">
+                                <label for="gravidez" class='label-checkbox'>{{$categoria->nomeCategoria}}</label>
+                                <input type="checkbox" name="categoriaPost" id="gravidez" value="{{$categoria->idCategoria}}">
                             </div>
-                            <div class="input-group">
-                                <label for="primeiro-cuidados" class='label-checkbox'>Primeiros cuidados</label>
-                                <input type="checkbox" name="categoriaPost" id="primeiro-cuidados" value="Primeiro cuidados">
-                            </div>
-                            <div class="input-group">
-                                <label for="maes-solos" class='label-checkbox'>Mãe Solos</label>
-                                <input type="checkbox" name="categoriaPost" id="maes-solos" value="Mães Solos">
-                            </div>
+                           
+                            @endforeach
                         </div>
                         <div class="cont-btn-criar-post">
                             <button type="submit">Postar</button>

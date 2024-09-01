@@ -1,5 +1,6 @@
 const form_senha = document.querySelector('.form-confirm-senha');
 
+
 const nova_senha = document.getElementById('novasenha');
 const confirm_senha = document.getElementById('confirm-senha');
 

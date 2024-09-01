@@ -60,7 +60,7 @@
                 </div>
                 <div class="conteudo-post">
                     <div class="cont-arquivo">
-                        <img src="{{url('assets/img/img-home/teste.jpeg')}}" class="img-fluid img-arquivo" alt="">
+                        <img src="{{url('assets/img/img-home/teste-2.png')}}" class="img-fluid img-arquivo" alt="">
                     </div>
                     <div class="cont-icons">
                         <div class="icons-principais">
