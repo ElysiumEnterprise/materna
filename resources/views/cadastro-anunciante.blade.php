@@ -37,6 +37,7 @@
                         </div>
                         <div class="slider-form">
                         <section class="cadastro-anunciante">
+                            
                             <form action="{{route('form-cadastro.anunciante')}}" method="post" class="form-anunciante">
                                 @csrf
                                 <div class="input-group">
