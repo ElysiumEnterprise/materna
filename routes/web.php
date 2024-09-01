@@ -7,8 +7,11 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ExclusaoController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UsuarioController;
+use App\Mail\TestMail;
 use App\Models\Usuario;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('index');
@@ -31,6 +34,8 @@ Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 Route::get('/senha', function(){
     return view('senha');
 });
+
+Route::post('/senha', [ResetPasswordController::class, 'sendResetLinkEmail'])->name('senha.email');
 
 Route::get('/codigo', function(){
     return view('codigo');

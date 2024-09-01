@@ -33,7 +33,9 @@
 
                 
                 <div class="card-form">
-                    <form action="" method="post"class="form-email">
+                    <form action="{{route('senha.email')}}" method="post"class="form-email">
+
+                    @csrf
                         <section class="section-email">
                             <div class="input-group">
                                 <div class="cont-error">
