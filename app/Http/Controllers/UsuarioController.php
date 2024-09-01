@@ -66,6 +66,7 @@ class UsuarioController extends Controller
                 $rules['cnpj'] = 'required|min:14'; // Campo adicional para anunciantes
                 $messages['cnpj.required'] = 'Preencha esse campo!';
                 $messages['cnpj.min'] = 'Tipo de CNPJ é inválido!';
+               
             }
             
         $request->validate($rules, $messages);
@@ -87,23 +88,29 @@ class UsuarioController extends Controller
 
 
         //Verificar se há o campo de CNPJ caso o usuário seja anunciante
+     
         if ($request->has('cnpj')) {
-            $existCNPJ = Anunciante::where('cnpjAnunciante', $request->cnpj)->where('idUsuario', '!=', $idUser)->exists();
-
+            $existCNPJ = Anunciante::where('cnpjAnunciante', $request->cnpj)
+                                   ->where('idUsuario', '<>', $idUser)
+                                   ->exists();
+        
             if ($existCNPJ) {
-                return redirect()->back()->with('errorCNPJ', 'CNPJ já cadastrado!');
-            }else{
+                return redirect()->back()->with('errorCNPJ', 'CNPJ inválido! Este CNPJ já está cadastrado.');
+            } else {
                 $anunciante = Anunciante::where('idUsuario', $idUser)->first();
-
-                $anunciante->nomeAnunciante=$request->nome;
-                $anunciante->cnpjAnunciante = $request->cnpj;
-
-                $anunciante->save();
+        
+                if ($anunciante) {
+                    $anunciante->nomeAnunciante = $request->nome;
+                    $anunciante->cnpjAnunciante = $request->cnpj;
+                    $anunciante->save();
+        
+                    return redirect()->back()->with('sucesso', 'Dados atualizados com sucesso!');
+                } else {
+                    return redirect()->back()->with('error', 'Anunciante não encontrado! Por favor, verifique seus dados.');
+                }
             }
-
         }
-       
-
+        
         
         //Fazer o update
         

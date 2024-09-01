@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Anunciante extends Model
 {
 
+    
+
     protected $table = 'anunciantes';
 
     protected $primaryKey = 'idAnunciante';
@@ -26,5 +28,5 @@ class Anunciante extends Model
     public function usuarios(){
         return $this->belongsTo(Usuario::class, 'idUsuario');
     }
-    use HasFactory;
+     use HasFactory;
 }
