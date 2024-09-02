@@ -37,20 +37,22 @@
                         <p class="profile-datas"><strong>{{$perfil->qtddSeguindo}}</strong> seguindo</p>
                     </div>
                 </div>
-                <div class="row">
+                
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
                     <div class="col-12">
                         <h1 class="name">Bio</h1>
                 
                 </div>
-                <div class="row">
+                
+            </div>
+            <div class="row">
                     <div class="col-12">
                         <p class="profile-desc">{{$perfil->biography}}</p>
                         
                     </div>
                 </div>
-            </div>
-            <div class="col-2"></div>
-        </div>
     </div>
       
                          
