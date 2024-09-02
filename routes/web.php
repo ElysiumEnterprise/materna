@@ -35,15 +35,15 @@ Route::get('/senha', function(){
     return view('senha');
 });
 
-Route::post('/senha', [ResetPasswordController::class, 'sendResetLinkEmail'])->name('senha.email');
+Route::post('/senha', [ResetPasswordController::class, 'sendResetLinkEmail'])->name('password.reset');
 
 Route::get('/codigo', function(){
     return view('codigo');
 });
 
-Route::get('/nova-senha', function(){
-    return view('novasenha');
-});
+Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('passord.reset');
+
+Route::post('/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 Route::get('/home/notificacoes', function(){
     return view('home.notificacoes');

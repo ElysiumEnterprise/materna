@@ -33,7 +33,7 @@
 
                 
                 <div class="card-form">
-                    <form action="{{route('senha.email')}}" method="post"class="form-email">
+                    <form action="{{route('password.reset')}}" method="post"class="form-email">
 
                     @csrf
                         <section class="section-email">

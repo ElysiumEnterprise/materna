@@ -71,7 +71,7 @@
                         </li>
             
                         <li class="side-item">
-                            <a href="#">
+                            <a href="/home/comunidades">
                                 <i class="fa-solid fa-face-smile" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Comunidades

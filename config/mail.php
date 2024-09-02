@@ -110,7 +110,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'elysium.business01@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', '${APP_NAME}'),
+        'name' => env('MAIL_FROM_NAME', 'Materna'),
     ],
 
 ];

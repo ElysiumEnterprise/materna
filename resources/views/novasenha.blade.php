@@ -32,12 +32,24 @@
                 </div>
 
                 <div class="card-form">
-                    <form action="" method="post" class="form-confirm-senha">
+                    <form action="{{route('password.update')}}" method="post" class="form-confirm-senha">
+    
+                        @csrf
+
+                        <input type="hidden" id="token" name="token" value="{{ $token }}">
+                        
                         <div class="input-group">
                             <div class="cont-erro">
-                                <span class="erorrSenha error"></span>
+                                <span class="errorEmail error">@error('email'){{$message}}@enderror</span>
                             </div>
-                            <input type="password" id="novasenha" name="novasenha" class="animated-input" placeholder="Crie uma nova senha">
+                            
+                            <input type="email" name="email" id="email" class="animated-input" placeholder="Digite seu email" value="{{old('email')}}">
+                        </div>
+                        <div class="input-group">
+                            <div class="cont-erro">
+                                <span class="erorrSenha error">@error('password') {{$message}}@enderror</span>
+                            </div>
+                            <input type="password" id="password" name="password" class="animated-input" placeholder="Crie uma nova senha" value="">
                             <div class="regras-senha">
                                 <div class="senha-numeros">
                                     <span class="txt-regra-numb">Precisa conter números</span>
@@ -53,12 +65,13 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="input-group">
                             <div class="cont-erro">
-                                <span class="errorSenha error"></span>
+                                <span class="errorSenha error">@error('password') {{$message}}@enderror</span>
                             </div>
-                            <input type="password" id="confirm-senha" name="confirm-senha" class="animated-input" placeholder="Confirme a senha">
+                            
+                            <input type="password" id="password-confirm" name="password-confirm" class="animated-input" placeholder="Confirme a senha">
                         </div>
                         <div class="link">
                             <a href="#" class="link-senha">Não consegue redefinir sua senha?</a>
@@ -75,5 +88,6 @@
         </div>
         
     </main>
+    <script src="{{url('assets/js/senha/validar-senha.js')}}"></script>
 </body>
 </html>

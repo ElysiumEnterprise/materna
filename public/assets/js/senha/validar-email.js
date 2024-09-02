@@ -42,7 +42,7 @@ form_email.addEventListener('submit', (event)=>{
     }
 
     form_email.submit();
-    location.href = '/codigo'
+    
 })
 
 

@@ -54,7 +54,7 @@ main{
     width: 440px;
     max-width: 100%;
     padding: 20px;
-    height: 360px;
+   height: auto;
 }
 
 .txt p{
@@ -93,8 +93,9 @@ main{
     align-items: start;
 }
 
-.input-group .error{
+.input-group .cont-erro .error{
     color:#bf093d;
+    font-family: 'Inter';
 }
 
 input {
