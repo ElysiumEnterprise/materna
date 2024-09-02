@@ -90,13 +90,13 @@ class UsuarioController extends Controller
         //Verificar se há o campo de CNPJ caso o usuário seja anunciante
      
         if ($request->has('cnpj')) {
-            $existCNPJ = Anunciante::where('cnpjAnunciante', $request->cnpj)
-                                   ->where('idUsuario', '<>', $idUser)
-                                   ->exists();
+            $existCNPJ = Anunciante::where('cnpjAnunciante', $request->cnpj)->where('idUsuario', '!=', $idUser)->exists();
         
             if ($existCNPJ) {
+              
                 return redirect()->back()->with('errorCNPJ', 'CNPJ inválido! Este CNPJ já está cadastrado.');
             } else {
+                // Encontra o anunciante associado ao usuário
                 $anunciante = Anunciante::where('idUsuario', $idUser)->first();
         
                 if ($anunciante) {
@@ -104,8 +104,9 @@ class UsuarioController extends Controller
                     $anunciante->cnpjAnunciante = $request->cnpj;
                     $anunciante->save();
         
-                    return redirect()->back()->with('sucesso', 'Dados atualizados com sucesso!');
+                    return redirect()->back()->with('success', 'Dados atualizados com sucesso!');
                 } else {
+                    // Redireciona de volta com uma mensagem de erro se o anunciante não for encontrado
                     return redirect()->back()->with('error', 'Anunciante não encontrado! Por favor, verifique seus dados.');
                 }
             }
