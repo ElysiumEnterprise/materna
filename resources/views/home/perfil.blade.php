@@ -8,8 +8,12 @@
     $perfil = $user->perfils;
 @endphp
 @section('links-css')
-    
+
+
     <link rel="stylesheet" href="{{url('assets/css/style-perfil.css')}}">
+
+    
+    
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
@@ -37,44 +41,40 @@
                         <p class="profile-datas"><strong>{{$perfil->qtddSeguindo}}</strong> seguindo</p>
                     </div>
                 </div>
-                
-            <div class="col-2"></div>
-        </div>
-        <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <h1 class="name">Bio</h1>
                 
                 </div>
-                
-            </div>
-            <div class="row">
+                <div class="row">
                     <div class="col-12">
                         <p class="profile-desc">{{$perfil->biography}}</p>
                         
                     </div>
                 </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
     </div>
       
                          
                     <!-- Stories-->
                      
-    <div style="padding-top: 0px;">
-        <div class="row">
-            <div class="col-2"> <canvas id="myCrl"></canvas></div>
-            <div class="col-2"> <canvas id="myCrl1"></canvas></div>
-            <div class="col-2"> <canvas id="myCrl2"></canvas></div>
-        </div>
-    </div>
-    <div style="padding-bottom: 40px;">
-        <div class="row">
-            <div class="col-2 stories"> Familia</div>
-            <div class="col-2 stories"> Receitas</div>
-            <div class="col-2 stories"> Trabalho</div>
-        </div>
-    </div>
-
-                    <!-- Line-->
-        <hr size="3" width="100%" color="#EEEEEE" style="margin: 0%;">
+                    <div style="padding-top: 0px;">
+                              <div class="row">
+                                  <div class="col-2"> <canvas id="myCrl"></canvas></div>
+                                  <div class="col-2"> <canvas id="myCrl1"></canvas></div>
+                                  <div class="col-2"> <canvas id="myCrl2"></canvas></div>
+                              </div>
+                          </div>
+                          <div style="padding-bottom: 40px;">
+                              <div class="row">
+                                  <div class="col-2 stories"> Familia</div>
+                                  <div class="col-2 stories"> Receitas</div>
+                                  <div class="col-2 stories"> Trabalho</div>
+                              </div>
+                          </div>
+      
 
 
             
@@ -126,7 +126,7 @@
               var crl = document.getElementById('myCrl').getContext('2d');
       
               crl.beginPath();
-              crl.arc(90, 100, 40, 0, 2 * Math.PI);
+              crl.arc(80, 100, 40, 0, 2 * Math.PI);
               crl.fillStyle = '#00ACC1';
               crl.fill();
               crl.linewidth = 5;
@@ -136,7 +136,7 @@
               var crl1 = document.getElementById('myCrl1').getContext('2d');
       
               crl1.beginPath();
-              crl1.arc(90, 100, 40, 0, 2 * Math.PI);
+              crl1.arc(80, 100, 40, 0, 2 * Math.PI);
               crl1.fillStyle = '#F8BBD0';
               crl1.fill();
               crl1.linewidth = 5;
@@ -146,7 +146,7 @@
               var crl2 = document.getElementById('myCrl2').getContext('2d');
       
               crl2.beginPath();
-              crl2.arc(90, 100, 40, 0, 2 * Math.PI);
+              crl2.arc(70, 100, 40, 0, 2 * Math.PI);
               crl2.fillStyle = '#E91E63';
               crl2.fill();
               crl2.linewidth = 5;
