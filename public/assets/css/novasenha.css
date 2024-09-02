@@ -127,6 +127,7 @@ form .regras-senha.active{
 form .regras-senha>div{
     margin: 15px 10px;
     font-weight: 400;
+    font-family: 'Inter';
     color: #9b143a;
 }
 form .regras-senha>div>span.active{

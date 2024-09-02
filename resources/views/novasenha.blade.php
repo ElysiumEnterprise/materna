@@ -50,7 +50,9 @@
                                 <span class="erorrSenha error">@error('password') {{$message}}@enderror</span>
                             </div>
                             <input type="password" id="password" name="password" class="animated-input" placeholder="Crie uma nova senha" value="{{old('password')}}">
-                            <div class="regras-senha">
+                            
+                        </div>
+                        <div class="regras-senha">
                                 <div class="senha-numeros">
                                     <span class="txt-regra-numb">Precisa conter números</span>
                                 </div>
@@ -63,7 +65,6 @@
                                 <div class="senha-carcter-especiais">
                                     <span class="txt-regra-caracter-special">Precisa conter caracteres speciais</span>
                                 </div>
-                            </div>
                         </div>
                         
                         <div class="input-group">
