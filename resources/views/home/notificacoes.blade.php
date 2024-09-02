@@ -19,7 +19,7 @@
             <section class="card">
                 <div class="cont-header">
                     <div class="cont-titulo">
-                        <small class="titulo-card">Maria de Luisa</small>
+                        <small class="titulo-card">Larissa Fátima Machado</small>
                     </div>
                     <div class="cont-icon-close">
                         <button type="button"><i class="fa-regular fa-circle-xmark"></i></button>
@@ -27,7 +27,7 @@
                     
                 </div>
                 <div class="cont-desc">
-                    <p>Aqui terá a descrição da notificação</p>
+                    <p>Comentou na sua publicação</p>
                 </div>
             </section>
             <section class="card">
@@ -40,21 +40,7 @@
                     </div>
                 </div>
                 <div class="cont-desc">
-                    <p>Aqui terá a descrição da notificação</p>
-                </div>
-            </section>
-            <section class="card">
-                <div class="cont-header">
-                    <div class="cont-titulo">
-                        <small class="titulo-card">Maria de Luisa</small>
-                    </div>
-                    <div class="cont-icon-close">
-                        <button type="button"><i class="fa-regular fa-circle-xmark"></i></button>
-                    </div>
-                    
-                </div>
-                <div class="cont-desc">
-                    <p>Aqui terá a descrição da notificação</p>
+                    <p>Acabou de compartilhar uma nova postagem</p>
                 </div>
             </section>
             <section class="card">
@@ -68,7 +54,21 @@
                     
                 </div>
                 <div class="cont-desc">
-                    <p>Aqui terá a descrição da notificação</p>
+                    <p>Enviou uma nova mensagem</p>
+                </div>
+            </section>
+            <section class="card">
+                <div class="cont-header">
+                    <div class="cont-titulo">
+                        <small class="titulo-card">Joana de Oliveira Lima</small>
+                    </div>
+                    <div class="cont-icon-close">
+                        <button type="button"><i class="fa-regular fa-circle-xmark"></i></button>
+                    </div>
+                    
+                </div>
+                <div class="cont-desc">
+                    <p>Curtiu sua publicação</p>
                 </div>
             </section>
         </div>

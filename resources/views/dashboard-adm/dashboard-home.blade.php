@@ -1,3 +1,8 @@
+@php
+
+    $user = Auth::user();
+
+@endphp
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -58,7 +63,7 @@
                     <h3>Configurações</h3>
                 </a>
 
-                <a href="#">
+                <a href="{{route('logout')}}">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
@@ -210,12 +215,12 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p><b>Manu</b></p>
+                        <p><b>{{$user->nome}}</b></p>
                         <small class="text-muted">Adm</small>
                     </div>
 
                     <div class="profile-photo">
-                        <img src="{{url('assets/img/Dashboard/icon-perfil.jpg')}}">
+                        <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}">
                     </div>
                 </div>
             </div>
