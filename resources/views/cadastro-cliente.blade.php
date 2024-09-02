@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="input-group">
-                                    <span class="errorCliente">@error('telCliente'){{$message}}@enderror</span>
+                                    <span class="errorCliente">@error('telCliente'){{$message}}@enderror{{session('errorTel')}}</span>
                                     <div class="cont-input">
                                         <label class="label-icon" for="telCliente">
                                             <img src="{{url('assets/img/icons/icon-tel.png')}}" alt="" class="img-fluid icon-input">

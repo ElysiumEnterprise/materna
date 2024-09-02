@@ -50,6 +50,11 @@ class CadastroController extends Controller
             
         
         else{
+            $exist=TelefoneUser::where('numTelefone', $request->telCliente)->exists();
+
+            if($exist){
+                return redirect()->back()->with('errorTel', "Telefone já existente!");
+            }
             $usuario = Usuario::create([
                 'nome' => $request->nomeCliente,
                 'email'=> $request->emailCliente,
@@ -126,6 +131,11 @@ class CadastroController extends Controller
         if($exist){
             return redirect()->back()->with('error', "Email já existente!");
         }else{
+            $exist=TelefoneUser::where('numTelefone', $request->telAnunciante)->exists();
+
+            if($exist){
+                return redirect()->back()->with('errorTel', "Telefone já existente!");
+            }
             $usuario = Usuario::create([
                 'nome' => $request->nomeAnunciante,
                 'email'=> $request->emailAnunciante,

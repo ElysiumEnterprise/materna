@@ -93,7 +93,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for="telAnunciante"><span class="errorAnunciante">@error('telAnunciante'){{$message}}@enderror</span></label>
+                                    <label for="telAnunciante"><span class="errorAnunciante">@error('telAnunciante'){{$message}}@enderror{{session('errorTel')}}</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="telAnunciante">
                                             <img src="{{url('assets/img/icons/icon-tel.png')}}" alt="" class="img-fluid icon-input">
