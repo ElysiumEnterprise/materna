@@ -47,6 +47,8 @@ main{
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px #0000001a;

@@ -19,8 +19,7 @@
     <main>
         <div class="card">
 
-            <div class="card-content"
-            >
+            <div class="card-content">
                 <div class="title">
                     <h3 class="title-senha">Alterar senha</h3>
                 </div>
@@ -31,7 +30,9 @@
                     </p>
                 </div>
 
-                
+                <div class="cont-status">
+                    <h6>{{session('status')}}</h6>
+                </div>
                 <div class="card-form">
                     <form action="{{route('password.reset')}}" method="post"class="form-email">
 
@@ -39,10 +40,10 @@
                         <section class="section-email">
                             <div class="input-group">
                                 <div class="cont-error">
-                                    <span class="errorEmail error"></span>
+                                    <span class="errorEmail error">{{session('email')}}</span>
                                 </div>
                                 
-                                <input type="email" id="email" name="email" class="animated-input" placeholder="Digite seu email">
+                                <input type="email" id="email" name="email" class="animated-input" placeholder="Digite seu email" value="{{old('email')}}">
 
                                 <div class="btn">
                                     <button type="submit" class="btn-cod envio-email">Enviar código</button>

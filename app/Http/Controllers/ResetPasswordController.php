@@ -42,7 +42,7 @@ class ResetPasswordController extends Controller
             }
         );
 
-        return $response == Password::RESET_LINK_SENT ? back()->with('status', _($response)): back()->withErrors(['email'=>_($response)]);
+        return $response == Password::RESET_LINK_SENT ? back()->with('status', _('Verifique seu email!')): back()->withErrors(['email'=>_($response)]);
     }
 
 
@@ -51,14 +51,22 @@ class ResetPasswordController extends Controller
         $request->validate(
             [
                 'email'=> 'required|email',
-                'password'=>'required|min:8',
+                'password'=>'required|confirmed|min:8',
                 'token'=>'required',
+            ],
+
+            [
+                'email.required'=> 'Preencha esse campo!',
+                'email.email'=> 'Email inválido!',
+                'password.required'=>'Preencha esse campo!',
+                'password.min'=> 'A senha precisa conter no mínimo 8 caracteres!',
+                'password.confirmed'=>'A senhas não são iguais!'
             ]
         );
         
         $response = Password::reset(
 
-            $request->only('email', 'password', 'password-confirm' , 'token'),
+            $request->only('email', 'password', 'password_confirmation' , 'token'),
 
             function ($usuarios, $senha){
                 $usuarios->senha=Hash::make($senha);

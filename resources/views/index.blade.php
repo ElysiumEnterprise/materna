@@ -24,6 +24,9 @@
         <div class="segundo-container">
             <div class="login">
                 <h2>Login</h2>
+                <div class="cont-status">
+                    <h4>{{session('status')}}</h4>
+                </div>
                 <form id="formulario" action="{{route('form-logar')}}" method="post">
                     @csrf
                     <div class="cont-error-geral">

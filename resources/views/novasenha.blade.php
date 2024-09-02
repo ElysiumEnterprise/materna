@@ -49,7 +49,7 @@
                             <div class="cont-erro">
                                 <span class="erorrSenha error">@error('password') {{$message}}@enderror</span>
                             </div>
-                            <input type="password" id="password" name="password" class="animated-input" placeholder="Crie uma nova senha" value="">
+                            <input type="password" id="password" name="password" class="animated-input" placeholder="Crie uma nova senha" value="{{old('password')}}">
                             <div class="regras-senha">
                                 <div class="senha-numeros">
                                     <span class="txt-regra-numb">Precisa conter números</span>
@@ -71,7 +71,7 @@
                                 <span class="errorSenha error">@error('password') {{$message}}@enderror</span>
                             </div>
                             
-                            <input type="password" id="password-confirm" name="password-confirm" class="animated-input" placeholder="Confirme a senha">
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="animated-input" placeholder="Confirme a senha" value="{{old('password_confirmation')}}">
                         </div>
                         <div class="link">
                             <a href="#" class="link-senha">Não consegue redefinir sua senha?</a>

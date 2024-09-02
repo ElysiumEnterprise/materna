@@ -48,6 +48,8 @@ main{
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px #0000001a;
@@ -55,7 +57,7 @@ main{
     width: 440px;
     max-width: 100%;
     padding: 30px;
-    height: 340px;
+    height: auto;
 }
 
 .txt p{
@@ -69,6 +71,20 @@ main{
 
 .card-form{
     margin-top: 40px;
+}
+
+.cont-status {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-status h6{
+    font-family: 'Inter';
+    color: #003366;
+    font-size: 30px;
 }
 
 .input-group {
@@ -92,6 +108,7 @@ main{
 
 .input-group .error{
     color:#bf093d;
+    font-family: 'Inter';
 }
 
 input {
