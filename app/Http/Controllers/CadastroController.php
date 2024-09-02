@@ -110,6 +110,18 @@ class CadastroController extends Controller
             ]
         );
         
+        if ($request->has('cnpjAnunciante')) {
+            $existCNPJ = Anunciante::where('cnpjAnunciante', $request->cnpjAnunciante)->exists();
+            
+            if ($existCNPJ) {
+              
+                return redirect()->back()->with('errorCNPJ', 'CNPJ inválido! Este CNPJ já está cadastrado.');
+            } 
+        }
+
+
+
+
         $exist=Usuario::where('email', $request->emailAnunciante)->exists();
         if($exist){
             return redirect()->back()->with('error', "Email já existente!");
@@ -147,3 +159,4 @@ class CadastroController extends Controller
 
     }
 }
+

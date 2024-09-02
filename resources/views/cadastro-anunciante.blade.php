@@ -71,7 +71,7 @@
                                 </div>
 
                                 <div class="input-group">
-                                    <label for="cnpjAnunciante"><span class="errorAnunciante">@error('cnpjAnunciante'){{$message}}@enderror</span></label>
+                                    <label for="cnpjAnunciante"><span class="errorAnunciante">@error('cnpjAnunciante'){{$message}}@enderror{{session('errorCNPJ')}}</span></label>
                                     <div class="cont-input">
                                         <label class="label-icon" for="cnpjAnunciante">
                                             <img src="{{url('assets/img/icons/icon-user.png')}}" alt="" class="img-fluid icon-input">
