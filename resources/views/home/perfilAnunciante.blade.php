@@ -87,26 +87,19 @@
         </div>
 
         <section class="cont-tipo-feed">
-            <div class="cont-link-feed">
-                <a href="">Para Você</a>
-                <a href="">Tranding</a>
-            </div>
+           
             <div class="cont-assuntos">
-                <h5>Assuntos da Comunidades</h5>
+                <h5>Informações sobre Anúncios</h5>
                 <section class='card-assunto'>
-                    <h4>Mãe Solo</h4>
+                    <h4>Alcances</h4>
                     <i class="fa-solid fa-ellipsis"></i>
                 </section>
                 <section class='card-assunto'>
-                    <h4>Gravidez</h4>
+                    <h4>Renda geral</h4>
                     <i class="fa-solid fa-ellipsis"></i>
                 </section>
                 <section class='card-assunto'>
-                    <h4>Receitas</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
-                </section>
-                <section class='card-assunto'>
-                    <h4>Adolescência</h4>
+                    <h4>Análise Geral do Anúncio</h4>
                     <i class="fa-solid fa-ellipsis"></i>
                 </section>
             </div>
