@@ -172,7 +172,13 @@ form .input-group .cont-input{
     flex-direction: row;
     width: 100%;
 }
-
+form .input-group i{
+    position: absolute;
+    right: 3%;
+    font-size: 25px;
+    color: #F26699;
+    cursor: pointer;
+}
 form  .cont-input label .icon-input{
     width: 30px;
     margin-right: 5px;

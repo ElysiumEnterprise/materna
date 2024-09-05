@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materna - Login</title>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{url('assets/css/style-index.css')}}">
     
     
@@ -54,7 +54,8 @@
                             <label for="senha">
                                 <img src="{{url('assets/img/icons/icon-password.png')}}" class="icon-input" alt="Icone de senha">
                             </label>
-                            <input type="password" id="senha" name="senha" class="animated-input" placeholder="Digite sua senha" value="{{old('senha')}}">
+                            <input type="password" id="senha" name="senha" class="animated-input" placeholder="Digite sua senha" value="{{old('senha')}}" >
+                            <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
                         </div>
                         
                     </div>
@@ -91,7 +92,7 @@
 
     <script src="{{url('assets/js/validacao/validar-login.js')}}"></script>
     <script src="{{url('assets/js/carousel.js')}}"></script>
-
+    <script src="{{url('assets/js/senha/show-hidden-password.js')}}"></script>
     
 </body>
 </html>
