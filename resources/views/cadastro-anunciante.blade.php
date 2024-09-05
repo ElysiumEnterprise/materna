@@ -113,6 +113,7 @@
                                         <input type="password"  name="senhaAnunciante" id="senhaAnunciante" placeholder="Crie uma sennha">
                                     </div>
                                 </div>
+
                                 <div class="regras-senha">
                                     <div class="senha-numeros">
                                         <span class="txt-regra-numb">Precisa conter números</span>
@@ -125,6 +126,17 @@
                                     </div>
                                     <div class="senha-carcter-especiais">
                                         <span class="txt-regra-caracter-special">Precisa conter caracteres speciais</span>
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label for="senhaAnunciante"><span class="errorAnunciante">@error('senhaAnunciante'){{$message}}@enderror</span></label>
+                                    <div class="cont-input">
+                                        <label class="label-icon" for="senhaAnunciante">
+                                            <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
+                                        </label>
+                                        
+                                        <input type="password"  name="senhaAnunciante" id="senhaAnunciante" placeholder="Confirme a sennha">
                                     </div>
                                 </div>
                                 <button type="submit">Criar</button>

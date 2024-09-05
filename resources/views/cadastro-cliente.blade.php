@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materna - Cadastro</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{url('assets/css/style-cadastro.css')}}">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -69,6 +71,7 @@
 
                                 <div class="input-group">
                                     <label for=""><span class="errorCliente">@error('emailCliente'){{$message}}@enderror{{session('error')}}</span></label>
+
                                     <div class="cont-input">
                                         <label class="label-icon" for="emailCliente">
                                             <img src="{{url('assets/img/icons/icon-email.png')}}" alt="" class="img-fluid icon-input">
@@ -76,6 +79,7 @@
                                         
                                         <input type="email" name="emailCliente" id="emailCliente" placeholder="Digite seu email" value='{{old("emailCliente")}}'>
                                     </div>
+
                                 </div>
                                 <div class="input-group">
                                     <span class="errorCliente">@error('telCliente'){{$message}}@enderror{{session('errorTel')}}</span>
@@ -87,6 +91,7 @@
                                         <input type="tel" name="telCliente" id="telCliente" placeholder="Digite seu telefone" value='{{old("telCliente")}}'>
                                     </div>
                                 </div>
+
                                 <div class="input-group">
                                     <span class="errorCliente">@error('senhaCliente'){{$message}}@enderror</span>
                                     <div class="cont-input">
@@ -99,6 +104,9 @@
                                     </div>
                                     
                                 </div>
+
+                                
+
                                 <div class="regras-senha">
                                     <div class="senha-numeros">
                                         <span class="txt-regra-numb">Precisa conter números</span>
@@ -112,6 +120,19 @@
                                     <div class="senha-carcter-especiais">
                                         <span class="txt-regra-caracter-special">Precisa conter caracteres speciais</span>
                                     </div>
+                                </div>
+
+                                <div class="input-group">
+                                <span class="errorCliente">@error('senhaCliente'){{$message}}@enderror</span>
+                                    <div class="cont-input">
+                                        <label class="label-icon" for="senhaCliente">
+                                            <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
+                                        </label>
+                                        
+                                        <input type="password"  name="senhaCliente" id="senhaCliente" placeholder="Confirme a senha" value='{{old("senhaCliente")}}'>
+                                        
+                                    </div>
+                                    
                                 </div>
                                 <button type="submit">Criar</button>
                             </form>
