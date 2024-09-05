@@ -7,6 +7,7 @@
     font-family: "Inter";
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
+
 .cont-feed{
     display: flex;
     width: 100%;
@@ -16,6 +17,7 @@
     background-color: white;
     
 }
+
 .cont-post{
     display: flex;
     width: 100%;
@@ -25,6 +27,7 @@
     align-items: center;
     background-color: white;
 }
+
 .card-post{
     display: flex;
     flex-direction: column;
@@ -34,6 +37,7 @@
     background-color: white;
     padding: 10px 10px;
 }
+
 .card-post .post-head{
     display: flex;
     flex-direction: row;
@@ -50,10 +54,12 @@
     object-fit: fill;
     margin-right: 5px;
 }
+
 .card-post .post-head small{
     font-family: "Inter";
     font-weight: bold;
 }
+
 .card-post .conteudo-post{
     display: flex;
     flex-direction: column;
@@ -61,6 +67,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .card-post .conteudo-post .cont-arquivo{
     display: flex;
     width: 100%;
@@ -69,6 +76,7 @@
     align-items: center;
     min-height: 200px;
 }
+
 .card-post .conteudo-post .cont-arquivo img{
     width: 400px;
     object-fit: fill;
@@ -80,12 +88,14 @@
     margin-bottom: 10px;
     width: 100%;
 }
+
 .card-post .conteudo-post .cont-icons button{
     outline: none;
     border: none;
     background-color: transparent;
     cursor: pointer;
 }
+
 .card-post .conteudo-post .cont-icons .icons-principais{
     display: flex;
     width: 30%;
@@ -95,6 +105,7 @@
     gap: 20px;
     align-items: start;
 }
+
 .card-post .conteudo-post .cont-icons .icons-principais i{
     font-size:20px;
 }
@@ -105,29 +116,35 @@
     justify-content: end;
     align-items: end;
 }
+
 .card-post .conteudo-post .cont-icons .icon-salvos i{
     font-size:20px;
 }
+
 .card-post .conteudo-post .cont-legenda{
     display: flex;
     width: 100%;
     align-items: center;
     margin-bottom: 10px;
 }
+
 .card-post .conteudo-post .cont-legendenda small{
     font-family: 'Inter';
     font-weight: bolder;
 }
+
 .card-post span{
     font-family: 'Inter';
     font-weight: normal;
 }
+
 .card-post .conteudo-post .cont-num-comentarios{
     display: flex;
     width: 100%;
     justify-content: start;
     align-items: center;
 }
+
 .card-post .conteudo-post .cont-num-comentarios small{
     font-family: 'Inter';
     color: rgb(118, 118, 118);
@@ -136,7 +153,6 @@
 /*Parte de Tranding*/
 
 .cont-tipo-feed{
-   
     display: flex;
     flex-direction: column;
     width: 40% ;
@@ -164,11 +180,11 @@
     font-family: "Inter";
     transition: all 0.2s ease-in-out;
 }
+
 .cont-tipo-feed .cont-link-feed a:hover{
     color: #be255d;
-    transform: scale(1.04);
-    text-decoration: underline ;
 }
+
 .cont-tipo-feed .cont-assuntos{
     display: flex;
     flex-direction: column;
@@ -177,40 +193,49 @@
     align-items: end;
     justify-content: end;
 }
+
 .cont-tipo-feed .cont-assuntos h5{
     font-family: 'Inter';
     text-align: center;
-    color: rgb(207, 207, 207);
+    color: #cfcfcf;
     font-size: 14px;
 }
-.cont-tipo-feed .cont-assuntos .card-assunto{
+
+.teste{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    width: 100%;
+}
+
+.card-assunto{
     display: flex;
     width: 100%;
-    justify-content: space-between;
     align-items: center;
-    min-height: 80px;
-    background-color: rgb(246, 246, 246);
-    box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    -webkit-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    -moz-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    transition: 0.5s ease-in-out;
+    justify-content: space-between;
+    min-height: 65px;
     margin-top: 10px;
-    border-radius: 20px 0px 2px 20px / 20px 0px 2px 20px;
-    transition: 0.5s ease-in-out;
-    padding: 20px;
-    cursor: pointer;
 }
-.cont-tipo-feed .cont-assuntos .card-assunto:hover{
-    margin-bottom: 10px;
-    transform: scale(1.05);
-}
-.cont-tipo-feed .cont-assuntos .card-assunto h4{
-    
+
+
+.link-card{
+    text-decoration: none;
     font-family: 'Inter';
     color: black;
-    text-align: center;
     font-size: 18px;
+    
+}
+
+.txt-card-assunto{
+    font-family: 'Inter';
+    color: #000;
+    font-size: 16px;
     font-weight: bold;
+    
+}
+
+.txt-card-assunto:hover{
+    color: #373737;
 }
 
 .cont-tipo-feed .cont-assuntos .card-assunto i{

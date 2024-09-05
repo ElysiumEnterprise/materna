@@ -4,9 +4,10 @@
 }
 
 @font-face{
-font-family: "Inter";
-src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
+
 * {
     margin: 0;
     padding: 0;
