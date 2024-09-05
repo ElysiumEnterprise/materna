@@ -30,7 +30,7 @@
                         <div class="icons-principais">
 
                             <button type="button"><i class="fa-regular fa-heart"></i></button>
-                            <button type="button"><i class="fa-regular fa-comment"></i></button>
+                            <button type="button"><i class="fa-regular fa-message"></i></button>
                             <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
                             
                         </div>
@@ -88,28 +88,54 @@
         </div>
 
         <section class="cont-tipo-feed">
+
             <div class="cont-link-feed">
-                <a href="">Para Você</a>
-                <a href="">Tranding</a>
+                <a href="#">Para Você</a>
+                <a href="#">Tranding</a>
             </div>
+
             <div class="cont-assuntos">
                 <h5>Assuntos da Comunidades</h5>
+
                 <section class='card-assunto'>
-                    <h4>Mãe Solo</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="teste">
+                    <i class="fa-solid fa-circle-info icon"></i>
+                    <div class="texto-card">
+                        <a href="#" class="link-card"><h4 class="txt-card-assunto">Adolescência</h4></a>
+                    </div>
+                    </div>
+                    
+                    
                 </section>
+
                 <section class='card-assunto'>
-                    <h4>Gravidez</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="teste">
+                    <i class="fa-solid fa-circle-info icon"></i>
+                    <div class="texto-card">
+                        <a href="#" class="link-card"><h4 class="txt-card-assunto">Gravidez</h4></a>
+                    </div>
+                    </div>
+                    
                 </section>
+
                 <section class='card-assunto'>
-                    <h4>Receitas</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                <div class="teste">
+                    <i class="fa-solid fa-circle-info icon"></i>
+                    <div class="texto-card">
+                        <a href="#" class="link-card"><h4 class="txt-card-assunto">Mães Solo</h4></a>
+                    </div>
+                    </div>
                 </section>
+
                 <section class='card-assunto'>
-                    <h4>Adolescência</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                <div class="teste">
+                    <i class="fa-solid fa-circle-info icon"></i>
+                    <div class="texto-card">
+                        <a href="#" class="link-card"><h4 class="txt-card-assunto">Receitas</h4></a>
+                    </div>
+                    </div>
                 </section>
+
             </div>
         </section>
     </div>
