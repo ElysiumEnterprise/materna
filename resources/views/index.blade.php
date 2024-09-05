@@ -6,7 +6,6 @@
     <title>Materna - Login</title>
     
     <link rel="stylesheet" href="{{url('assets/css/style-index.css')}}">
-
     
     
 </head>
@@ -14,10 +13,12 @@
 
     <div class="container">
         <div class="primeiro-container">
-            <div class="logo">
-                <img src="{{url('assets/img/logo/img-container.png')}}" alt="Materna Logo">
-                
-                <p>Entre na sua conta ou crie uma para acessar a rede social</p>
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img class="img-carousel" src="{{url('assets/img/slidee.png')}}" alt="Imagem 1">
+                    <img class="img-carousel" src="{{url('assets/img/slidee.png')}}" alt="Imagem 2">
+                    <img class="img-carousel" src="{{url('assets/img/slide2.png')}}" alt="Imagem 3">
+                </div>
             </div>
         </div>
         
@@ -86,6 +87,11 @@
         </div>
     </div>
 
+    
+
     <script src="{{url('assets/js/validacao/validar-login.js')}}"></script>
+    <script src="{{url('assets/js/carousel.js')}}"></script>
+
+    
 </body>
 </html>
