@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esqueci a senha</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{url('assets/css/novasenha.css')}}">
 </head>
 <body>
@@ -50,7 +51,7 @@
                                 <span class="erorrSenha error">@error('password') {{$message}}@enderror</span>
                             </div>
                             <input type="password" id="password" name="password" class="animated-input" placeholder="Crie uma nova senha" value="{{old('password')}}">
-                            
+                            <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
                         </div>
                         <div class="regras-senha">
                                 <div class="senha-numeros">
@@ -73,6 +74,7 @@
                             </div>
                             
                             <input type="password" id="password_confirmation" name="password_confirmation" class="animated-input" placeholder="Confirme a senha" value="{{old('password_confirmation')}}">
+                            <i class="bi bi-eye-slash btn-show-pass-confirm" onclick="mostrarConfirmarSenha()"></i>
                         </div>
                         <div class="link">
                             <a href="#" class="link-senha">Não consegue redefinir sua senha?</a>

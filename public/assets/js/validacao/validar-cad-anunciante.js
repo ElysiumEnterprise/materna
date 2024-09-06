@@ -205,3 +205,28 @@ function validarData(dataNasc) {
         return true
     }
 }
+//Mostrar senha
+function mostrarSenha() {
+    var inputPass = document.querySelector('#senhaAnunciante')
+    var btnShowPass = document.querySelector('.btn-show-pass')
+
+    if(inputPass.type === 'password'){
+        inputPass.setAttribute('type', 'text');
+        btnShowPass.classList.replace('bi-eye-slash', 'bi-eye');
+    }else{
+        inputPass.setAttribute('type', 'password')
+        btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
+    }
+}
+function mostrarConfirmarSenha() {
+    var inputPass = document.querySelector('#password_confirmation')
+    var btnShowPass = document.querySelector('.btn-show-pass-confirm')
+
+    if(inputPass.type === 'password'){
+        inputPass.setAttribute('type', 'text');
+        btnShowPass.classList.replace('bi-eye-slash', 'bi-eye');
+    }else{
+        inputPass.setAttribute('type', 'password')
+        btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
+    }
+}

@@ -23,7 +23,7 @@ class CadastroController extends Controller
                 'emailCliente' => 'required||email', //Requer o campo e deve ser um e-mail no formato correto
                 'dtCliente' => 'required||before_or_equal:today',
                 'telCliente'=> 'required||regex:/^\(\d{2}\)\d{4,5}-\d{4}$/',
-                'senhaCliente'=>'required||min:8'
+                'senhaCliente'=>'required||min:8|confirmed'
             ],
             [
                 'nomeCliente.required'=> 'Preencha esse campo!',//Criamos uma mensagem personalizada para quando o tipo required não for satisfeito
@@ -39,7 +39,7 @@ class CadastroController extends Controller
 
                 'senhaCliente.required' => 'Preencha esse campo',
                 'senhaCliente.min'=> "Essa senha precisa conter 8 caracteres!",
-                              
+                'senhaCliente.confirmed' => 'As senhas não são iguais'            
             ]
         );
 
@@ -91,7 +91,7 @@ class CadastroController extends Controller
                 'emailAnunciante' => 'required||email', //Requer o campo e deve ser um e-mail no formato correto
                 'dtAnunciante' => 'required||before_or_equal:today',
                 'telAnunciante'=> 'required||regex:/^\(\d{2}\)\d{4,5}-\d{4}$/',
-                'senhaAnunciante'=>'required||min:8',
+                'senhaAnunciante'=>'required||min:8|confirmed',
                 'cnpjAnunciante'=>'required||min:14'
             ],
             [
@@ -108,6 +108,7 @@ class CadastroController extends Controller
 
                 'senhaAnunciante.required' => 'Preencha esse campo',
                 'senhaAnunciante.min'=> "Essa senha precisa conter 8 caracteres!",
+                'senhaAnunciante.confirmed'=> "As senhas não são iguais!",
 
                 'cnpjAnunciante.required'=>'Preencha esse campo!',
                 'cnpjAnunciante.min'=>"Formato de cnpj inválido!",

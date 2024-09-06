@@ -126,12 +126,12 @@
                                 <div class="input-group">
                                 <span class="errorCliente">@error('senhaCliente'){{$message}}@enderror</span>
                                     <div class="cont-input">
-                                        <label class="label-icon" for="senhaCliente">
+                                        <label class="label-icon" for="password_confirmation">
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="senhaCliente" id="senhaCliente" placeholder="Confirme a senha" value='{{old("senhaCliente")}}'>
-                                        <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
+                                        <input type="password"  name="password_confirmation" id="password_confirmation" placeholder="Confirme a senha" value='{{old("senhaCliente")}}'>
+                                        <i class="bi bi-eye-slash btn-show-pass-confirm" onclick="mostrarConfirmarSenha()"></i>
                                     </div>
                                     
                                 </div>

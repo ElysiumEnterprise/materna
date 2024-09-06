@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materna - Cadastro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url('assets/css/style-cadastro.css')}}">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -111,6 +112,7 @@
                                         </label>
                                         
                                         <input type="password"  name="senhaAnunciante" id="senhaAnunciante" placeholder="Crie uma sennha">
+                                        <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
                                     </div>
                                 </div>
 
@@ -132,11 +134,12 @@
                                 <div class="input-group">
                                     <label for="senhaAnunciante"><span class="errorAnunciante">@error('senhaAnunciante'){{$message}}@enderror</span></label>
                                     <div class="cont-input">
-                                        <label class="label-icon" for="senhaAnunciante">
+                                        <label class="label-icon" for="password_confirmation">
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="senhaAnunciante" id="senhaAnunciante" placeholder="Confirme a sennha">
+                                        <input type="password"  name="password_confirmation" id="password_confirmation" placeholder="Confirme a sennha">
+                                        <i class="bi bi-eye-slash btn-show-pass-confirm" onclick="mostrarConfirmarSenha()"></i>
                                     </div>
                                 </div>
                                 <button type="submit">Criar</button>

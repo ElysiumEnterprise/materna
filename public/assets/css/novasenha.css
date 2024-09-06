@@ -104,7 +104,13 @@ input {
     font-family: 'Fredoka';
     width: 90%;
 }
-
+form .input-group i{
+    position: absolute;
+    right: 3%;
+    font-size: 25px;
+    color: #F26699;
+    cursor: pointer;
+}
 form .regras-senha{
     position: relative;
     top: 0px;

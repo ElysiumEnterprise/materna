@@ -219,8 +219,8 @@ function mostrarSenha() {
     }
 }
 function mostrarConfirmarSenha() {
-    var inputPass = document.querySelector('#senha')
-    var btnShowPass = document.querySelector('.btn-show-pass')
+    var inputPass = document.querySelector('#password_confirmation')
+    var btnShowPass = document.querySelector('.btn-show-pass-confirm')
 
     if(inputPass.type === 'password'){
         inputPass.setAttribute('type', 'text');
