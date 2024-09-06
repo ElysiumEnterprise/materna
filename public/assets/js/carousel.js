@@ -12,7 +12,7 @@ function autoSlide() {
     carouselSlide.style.transform = `translateX(${-size * counter}px)`;
 }
 
-setInterval(autoSlide, 4600); // Muda o slide a cada 3 segundos
+setInterval(autoSlide, 3000); // Muda o slide a cada 3 segundos
 
 // Ajusta o tamanho da imagem ao redimensionar a janela
 window.addEventListener('resize', () => {
