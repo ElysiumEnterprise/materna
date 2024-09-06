@@ -150,13 +150,13 @@
                 </div>
 
                 <div class="cont-carousel">
-                    <div class="carousel-container">
-                        <div class="carousel-slide">
-                            <img class="img-carousel" src="{{url('assets/img/slidee.png')}}" alt="Imagem 1">
-                            <img class="img-carousel" src="{{url('assets/img/slidee.png')}}" alt="Imagem 2">
-                            <img class="img-carousel" src="{{url('assets/img/slide2.png')}}" alt="Imagem 3">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <img class="img-carousel" src="{{url('assets/img/teste-2.png')}}" alt="Imagem 1">
+                                <img class="img-carousel" src="{{url('assets/img/slide2.png')}}" alt="Imagem 2">
+                                <img class="img-carousel" src="{{url('assets/img/slide3.png')}}" alt="Imagem 3">
+                            </div>
                         </div>
-                    </div>
                 </div>
 
             </div>
