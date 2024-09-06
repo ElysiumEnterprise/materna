@@ -34,35 +34,22 @@ body, html {
     text-align: center;
 }
 
-.logo img {
-    width: 500px;
-    margin-bottom: 50px;
-}
-
-.logo h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.logo p {
-    font-size: 18px;
-}
-
 .carousel-container {
     width: 100%;
     height: 100%;
-    max-width: 800px;
+    max-width: 900px;
     overflow: hidden;
 }
 
 .carousel-slide {
+    height: 100%;
     display: flex;
     width: 300%;
     transition: transform 0.4s ease-in-out;
 }
 
 .carousel-slide img {
-    width: 36%;
+    width: 35%;
     height: auto;
 }
 
