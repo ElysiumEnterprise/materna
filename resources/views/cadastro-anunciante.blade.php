@@ -152,8 +152,8 @@
                 <div class="cont-carousel">
                         <div class="carousel-container">
                             <div class="carousel-slide">
-                                <img class="img-carousel" src="{{url('assets/img/teste-2.png')}}" alt="Imagem 1">
-                                <img class="img-carousel" src="{{url('assets/img/slide2.png')}}" alt="Imagem 2">
+                                <img class="img-carousel" src="{{url('assets/img/slide1.png')}}" alt="Imagem 1">
+                                <img class="img-carousel" src="{{url('assets/img/slide2-final.png')}}" alt="Imagem 2">
                                 <img class="img-carousel" src="{{url('assets/img/slide3.png')}}" alt="Imagem 3">
                             </div>
                         </div>
