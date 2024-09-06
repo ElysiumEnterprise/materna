@@ -75,7 +75,7 @@ body{
 }
 
 .cont-head .cont-titulo h2{
-    font-size: 40px;
+    font-size: 45px;
     color: #F26699;
     text-align: center;
     font-weight: normal;
@@ -98,7 +98,7 @@ body{
     border: none;
     border-radius: 10px;
     background-color: #8c898a;
-    color: white;
+    color: #ffffff;
     font-size: 1rem;
     cursor: pointer;
     text-decoration: none;
@@ -253,20 +253,20 @@ form button:hover{
     background-color: #F88AC5;
 }
 
-.box-img{
-    position: fixed;
-    background-color: #F26699;
-    color: white;
-    height: 100vh;
-    width: 50%;
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    max-width: 670px;
+    overflow: hidden;
 }
 
-.box-img img{
-    width: 500px;
+.carousel-slide {
+    display: flex;
+    width: 300%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 38%;
+    height: auto;
 }

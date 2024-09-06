@@ -31,13 +31,14 @@ body{
 }
 
 .img-logo {
-    width: 150px;
+    width: 200px;
 }
 
 main{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 75vh;
 }
 
 .title-senha{
