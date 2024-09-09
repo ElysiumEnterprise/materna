@@ -47,9 +47,9 @@
             </div>
             <div class="input-group">
                 <label for="imgCapa">Adicionar capa de perfil</label>
-                <label for="imgCapa" id='drag-area'>
+                <label for="imgCapa" id='drag-area-banner'>
                     <input type="file" name="imgCapa" id="imgCapa" hidden accept="image/*">
-                    <div class="img-view">
+                    <div class="img-view-banner">
                         <div class="icon">
                             <i class="fa-solid fa-cloud-arrow-up"></i>
                         </div>

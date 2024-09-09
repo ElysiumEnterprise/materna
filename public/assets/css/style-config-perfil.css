@@ -50,11 +50,12 @@
     flex-direction: column ;
    
 }
-.cont-editar-perfil form .input-group #drag-area{
+
+.cont-editar-perfil form .input-group #drag-area-banner{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 200px;
     border: 6px;
     align-items: center;
     justify-content: center;
@@ -62,15 +63,27 @@
     cursor: pointer;
 }
 
-.cont-editar-perfil form .input-group #drag-area .icon i{
+.cont-editar-perfil form .input-group #drag-area-banner .icon i{
     font-size: 50px;
     color: #F26699;
 }
-.cont-editar-perfil form .input-group #drag-area .img-view{
+.cont-editar-perfil form .input-group #drag-area-banner h5{
+    font-weight: bold;
+     color: #003366;
+     font-family: 'Inter';
+ }
+ .cont-editar-perfil form .input-group #drag-area-banner span{
+    font-size: 20px;
+    color: #F26699;
+    font-family: 'Inter';
+}
+.cont-editar-perfil form .input-group #drag-area-banner .img-view-banner{
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

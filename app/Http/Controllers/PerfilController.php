@@ -77,6 +77,20 @@ class PerfilController extends Controller
             /*$request->imgPerfil = $imgName;*/
             $perfil->fotoPerfil = $imgName;
         }
+        
+        if($request->hasFile('imgCapa') && $request->file('imgCapa')->isValid()){
+
+            $requestImage = $request->imgCapa;
+
+            $extension = $requestImage->extension();
+
+            $imgName = md5($requestImage->getClientOriginalName().strtotime('now')).".".$extension;
+
+            $requestImage->move(public_path('assets/img/banners-perfils'), $imgName);
+
+            $perfil->bannerPerfil = $imgName;
+
+        }
 
         $perfil->biography=$request->bio;
         $perfil->update($request->all());
