@@ -46,6 +46,18 @@
                 <input type="text" class="input-edit" name="nickname" id="nickname" value='{{$perfil->nickname}}'>
             </div>
             <div class="input-group">
+                <label for="imgCapa">Adicionar capa de perfil</label>
+                <label for="imgCapa" id='drag-area'>
+                    <input type="file" name="imgCapa" id="imgCapa" hidden accept="image/*">
+                    <div class="img-view">
+                        <div class="icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h5>Arraste e solte aqui sua imagem ou clique aqui</h5>
+                    </div>
+                </label>
+            </div>
+            <div class="input-group">
                 <label for="bio">Mudar Biografia</label>
                 <div class="cont-error">
                     <small class="errorMessage"> @error('bio'){{$message}}@enderror</small>
