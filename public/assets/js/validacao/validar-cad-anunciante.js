@@ -3,7 +3,7 @@
 const formAnunciante = document.querySelector(".form-anunciante");
 const nomeAnunciante = document.querySelector("#nomeAnunciante");
 const emailAnunciante = document.querySelector("#emailAnunciante");
-const senhaAnunciante = document.querySelector("#senhaAnunciante");
+const senhaAnunciante = document.querySelector("#password");
 const dtAnunciante = document.querySelector("#dtAnunciante");
 const telAnunciante = document.querySelector("#telAnunciante");
 const cnpjAnunciante = document.querySelector("#cnpjAnunciante");
@@ -207,7 +207,7 @@ function validarData(dataNasc) {
 }
 //Mostrar senha
 function mostrarSenha() {
-    var inputPass = document.querySelector('#senhaAnunciante')
+    var inputPass = document.querySelector('#password')
     var btnShowPass = document.querySelector('.btn-show-pass')
 
     if(inputPass.type === 'password'){

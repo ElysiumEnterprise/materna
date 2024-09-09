@@ -23,7 +23,7 @@ class CadastroController extends Controller
                 'emailCliente' => 'required||email', //Requer o campo e deve ser um e-mail no formato correto
                 'dtCliente' => 'required||before_or_equal:today',
                 'telCliente'=> 'required||regex:/^\(\d{2}\)\d{4,5}-\d{4}$/',
-                'senhaCliente'=>'required||min:8|confirmed'
+                'password'=>'required||min:8|confirmed'
             ],
             [
                 'nomeCliente.required'=> 'Preencha esse campo!',//Criamos uma mensagem personalizada para quando o tipo required não for satisfeito
@@ -37,9 +37,9 @@ class CadastroController extends Controller
                 'telCliente.required'=>"Preencha esse campo",
                 'telCliente.regex'=>'Essa telefone está em um formato inválido!',
 
-                'senhaCliente.required' => 'Preencha esse campo',
-                'senhaCliente.min'=> "Essa senha precisa conter 8 caracteres!",
-                'senhaCliente.confirmed' => 'As senhas não são iguais'            
+                'password.required' => 'Preencha esse campo',
+                'password.min'=> "Essa senha precisa conter 8 caracteres!",
+                'password.confirmed' => 'As senhas não são iguais'            
             ]
         );
 
@@ -58,7 +58,7 @@ class CadastroController extends Controller
             $usuario = Usuario::create([
                 'nome' => $request->nomeCliente,
                 'email'=> $request->emailCliente,
-                'senha'=> Hash::make($request->senhaCliente),
+                'senha'=> Hash::make($request->password),
                 'dtNasc'=> $request->dtCliente,
                 'idNivelUsuario'=> 1,
             ]);
@@ -91,7 +91,7 @@ class CadastroController extends Controller
                 'emailAnunciante' => 'required||email', //Requer o campo e deve ser um e-mail no formato correto
                 'dtAnunciante' => 'required||before_or_equal:today',
                 'telAnunciante'=> 'required||regex:/^\(\d{2}\)\d{4,5}-\d{4}$/',
-                'senhaAnunciante'=>'required||min:8|confirmed',
+                'password'=>'required||min:8|confirmed',
                 'cnpjAnunciante'=>'required||min:14'
             ],
             [
@@ -106,9 +106,9 @@ class CadastroController extends Controller
                 'telAnunciante.required'=>"Preencha esse campo",
                 'telCliente.regex'=>'Essa telefone está em um formato inválido!',
 
-                'senhaAnunciante.required' => 'Preencha esse campo',
-                'senhaAnunciante.min'=> "Essa senha precisa conter 8 caracteres!",
-                'senhaAnunciante.confirmed'=> "As senhas não são iguais!",
+                'password.required' => 'Preencha esse campo',
+                'password.min'=> "Essa senha precisa conter 8 caracteres!",
+                'password.confirmed'=> "As senhas não são iguais!",
 
                 'cnpjAnunciante.required'=>'Preencha esse campo!',
                 'cnpjAnunciante.min'=>"Formato de cnpj inválido!",
@@ -140,7 +140,7 @@ class CadastroController extends Controller
             $usuario = Usuario::create([
                 'nome' => $request->nomeAnunciante,
                 'email'=> $request->emailAnunciante,
-                'senha'=> Hash::make($request->senhaAnunciante),
+                'senha'=> Hash::make($request->password),
                 'dtNasc'=> $request->dtAnunciante,
                 'idNivelUsuario'=> 3,
             ]);

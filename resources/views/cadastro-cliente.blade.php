@@ -99,7 +99,7 @@
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="senhaCliente" id="senhaCliente" placeholder="Crie uma senha" value='{{old("senhaCliente")}}'>
+                                        <input type="password"  name="password" id="password" placeholder="Crie uma senha" value='{{old("senhaCliente")}}'>
                                         <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
                                         
                                     </div>

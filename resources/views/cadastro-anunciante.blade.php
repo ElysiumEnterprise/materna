@@ -111,7 +111,7 @@
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="senhaAnunciante" id="senhaAnunciante" placeholder="Crie uma sennha">
+                                        <input type="password"  name="password" id="password" placeholder="Crie uma sennha">
                                         <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
                                     </div>
                                 </div>

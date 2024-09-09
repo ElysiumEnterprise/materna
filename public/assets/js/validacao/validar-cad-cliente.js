@@ -3,7 +3,7 @@
 const formCliente = document.querySelector(".form-cliente");
 const nomeCliente = document.querySelector("#nomeCliente");
 const emailCliente = document.querySelector("#emailCliente");
-const senhaCliente = document.querySelector("#senhaCliente");
+const senhaCliente = document.querySelector("#password");
 const dtCliente = document.querySelector("#dtCliente");
 const telCliente = document.querySelector("#telCliente");
 
@@ -207,7 +207,7 @@ function validarData(dataNasc) {
 
 //Mostrar senha
 function mostrarSenha() {
-    var inputPass = document.querySelector('#senhaCliente')
+    var inputPass = document.querySelector('#password')
     var btnShowPass = document.querySelector('.btn-show-pass')
 
     if(inputPass.type === 'password'){
