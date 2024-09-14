@@ -23,6 +23,9 @@
         </div>
         
         <div class="segundo-container">
+            <div class="cont-img-mobile">
+                <img src="{{url('assets/img/logo/Logo-Materna.png')}}" class="img-fluid img-logo-mobile" alt="Logo da Materna">
+            </div>
             <div class="login">
                 <h2>Login</h2>
                 <div class="cont-status">

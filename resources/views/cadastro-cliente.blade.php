@@ -18,6 +18,13 @@
                 
                 <div class="cont-form">
                     <div class="box-form">
+                        <div class="cont-img-mobile">
+                            <a href="/" >
+                                <img src="{{url('assets/img/icons/icon-back.png')}}" alt="Botão voltar a tela de login">
+                            </a>
+                            <img src="{{url('assets/img/logo/Logo-Materna.png')}}" class="img-fluid img-logo-mobile" alt="Logo da Materna">
+
+                        </div>
                         <div class="cont-back">
                             <a href="/" >
                                 <img src="{{url('assets/img/icons/icon-back.png')}}" alt="Botão voltar a tela de login">

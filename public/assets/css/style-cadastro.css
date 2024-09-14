@@ -30,10 +30,19 @@ body{
 .container-conteudo{
     display: flex;
     min-width: 100%;
+   
+    justify-content: center;
+    align-items: center;
     height: 100vh;
  
 }
+.cont-img-mobile{
+    display: none;
+}
 
+.cont-img-mobile img{
+    width: 40%;
+}
 .cont-form{
     display: flex;
     width: 50%;
@@ -269,4 +278,25 @@ form button:hover{
 .carousel-slide img {
     width: 30%;
     height: auto;
+}
+@media screen and (max-width: 1000px){
+
+    .cont-carousel{
+        display: none;
+    }
+    .container-conteudo{
+        flex-direction: column;
+    }
+    .cont-img-mobile{
+        display: flex;
+        width: 100%;
+        height: 300px;
+        padding-top: 10%;
+        justify-content: start;
+        align-items: center;
+    }
+    .cont-back{
+        display: none;
+    }
+    
 }
