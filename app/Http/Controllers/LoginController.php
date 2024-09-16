@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Usuario;
-use App\Models\Perfil;
+
 
 class LoginController extends Controller
 {
+
+    public function goLoginADM(){
+        return view('login-adm');
+    }
+
     public function logarUsuario(Request $request){
 
         $request->validate(
@@ -44,7 +48,8 @@ class LoginController extends Controller
             }else if($usuario->idNivelUsuario==3){
                 return redirect()->intended('/home/perfil-anunciante');
             }else{
-                return redirect()->intended('/dashboard/home');
+                Auth::logout();
+                return redirect()->back()->with(['status' => 'Opa! Você é um ADM!', 'message' => 'Clique aqui para logar na sua área!', 'link' => '/login-adm']);
             }
             
             

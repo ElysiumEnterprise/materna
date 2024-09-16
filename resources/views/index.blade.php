@@ -6,8 +6,6 @@
     <title>Materna - Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{url('assets/css/style-index.css')}}">
-    
-    
 </head>
 <body>
 
@@ -30,6 +28,7 @@
                 <h2>Login</h2>
                 <div class="cont-status">
                     <h4>{{session('status')}}</h4>
+                    <a href="{{session('link')}}">{{session('message')}}</a>
                 </div>
                 <form id="formulario" action="{{route('form-logar')}}" method="post">
                     @csrf

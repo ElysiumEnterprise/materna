@@ -92,6 +92,7 @@ body, html {
 }
 .cont-status {
     display: flex;
+    flex-direction: column;
     width: 100%;
     margin-top: 10px;
     justify-content: center;
@@ -103,6 +104,20 @@ body, html {
     font-family: 'Inter';
     color: #003366;
     font-size: 20px;
+}
+
+.cont-status a{
+    color: #F26699;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    transition: all ease-in-out 0.2s;
+}
+
+.cont-status a:hover{
+    color: #b1416a;
+    transform: scale(1.04);
 }
 
 .input-group {

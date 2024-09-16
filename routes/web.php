@@ -32,9 +32,7 @@ Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
 //Login de ADM
 
-Route::get('/login-adm', function(){
-    return view('login-adm');
-});
+Route::get('/login-adm', [LoginController::class, 'goLoginADM'])->name('go.login.adm');
 
 Route::post('/login-adm', [LoginController::class, 'logarADM'])->name('form.logar.adm');
 
