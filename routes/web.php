@@ -30,6 +30,14 @@ Route::post('login',[LoginController::class, 'logarUsuario'])->name('form-logar'
 
 Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
+//Login de ADM
+
+Route::get('/login-adm', function(){
+    return view('login-adm');
+});
+
+Route::post('/login-adm', [LoginController::class, 'logarADM'])->name('form.logar.adm');
+
 //Redefinição de senha
 Route::get('/senha', function(){
     return view('senha');

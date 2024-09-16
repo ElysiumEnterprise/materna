@@ -1,0 +1,221 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    font-family: 'Fredoka';
+    background-color: #F26699;
+}
+header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+}
+.navbar {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+ 
+    
+}
+
+.logo{
+    display:flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    
+}
+.logo a{
+    text-decoration: none;
+    outline: none;
+   
+}
+
+.logo a span{
+    color: white;
+    font-size: 20px;
+    
+    font-weight: bold;
+}
+.img-logo {
+    width: 300px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.cont-conteudo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-form{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    overflow: hidden;
+    width: 440px;
+    max-width: 100%;
+    padding: 30px;
+    height: auto;
+}
+
+.cont-form form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-status {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-status h6{
+    font-family: 'Inter';
+    color: #003366;
+    font-size: 30px;
+}
+
+.cont-status a{
+    color: #F26699;
+    font-size: 20px;
+    outline: none;
+    text-decoration: none;
+    transition: all ease-in-out 0.2s;
+}
+
+.cont-status a:hover{
+    color: #b1416a;
+    transform: scale(1.04);
+}
+
+.input-group {
+   display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    line-height: 40px;
+    
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.input-group .cont-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+form .input-group i{
+    position: absolute;
+    right: 3%;
+    font-size: 25px;
+    color: #F26699;
+    cursor: pointer;
+}
+form  .cont-input label .icon-input{
+    width: 30px;
+    margin-right: 5px;
+}
+form .erro{
+    color: #F26699;
+    font-weight: bold;
+    font-family: 'Inter';
+}
+.icon-input{
+    display: flex;
+}
+.input-group .cont-erro{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: start;
+}
+
+.input-group .error{
+    color:#bf093d;
+    font-family: 'Inter';
+}
+
+input {
+    width: 100%;
+    height: auto;
+    font-family: 'Fredoka';
+}
+.animated-input {
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #F26699;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    font-family: 'Fredoka';
+}
+
+.cont-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 70px;
+}
+
+.cont-btn button{
+    width: 140px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background-color: #F26699;
+    color: #fff;
+    font-weight: 550;
+    font-size: 14px;
+    font-family: 'Fredoka';
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+
+.cont-btn button:hover{
+    background-color: #F88AC5;
+}

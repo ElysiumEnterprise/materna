@@ -65,6 +65,41 @@ class LoginController extends Controller
         }
     }
 
+    public function logarADM(Request $request){
+        
+        $request->validate(
+            [
+                'email' => 'required||email',
+                'senha' => 'required||min:8',
+            ],
+            [
+                'email.required' => 'Preencha esse campo!',
+                'email.email' => 'Email inválido!',
+
+                'senha.required' => 'Preencha esse campo!',
+                'senha.min' => 'A senha deve conter no mínimo 8 caracteres!'
+            ]
+        );
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->senha,
+        ];
+
+        if (Auth::attempt($credentials)) {
+            $usuario = Auth::user();
+            
+            if ($usuario->idNivelUsuario==2) {
+                return redirect()->intended('/dashboard/home');
+            }else {
+                Auth::logout();
+                return redirect()->back()->with(['status'=> 'Opa, você não é um ADM!', 'message' => 'Clique aqui para logar na sua área!' , 'link'=>'/']);
+            }
+        }else{
+            return redirect()->back()->with(['status'=> 'Email ou senha inválidos!']);
+        }
+    }
+
     public function logout(){
         Auth::logout();
 
