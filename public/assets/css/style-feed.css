@@ -38,6 +38,10 @@
     padding: 10px 10px;
 }
 
+.txt-perfil{
+    font-size: 18px;
+}
+
 .card-post .post-head{
     display: flex;
     flex-direction: row;
