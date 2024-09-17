@@ -160,11 +160,11 @@
     text-align: center;
     font-family: "Inter";
     transition: all 0.2s ease-in-out;
+    display: flex;
+
 }
 .cont-tipo-feed .cont-link-feed a:hover{
     color: #be255d;
-    transform: scale(1.04);
-    text-decoration: underline ;
 }
 .cont-tipo-feed .cont-assuntos{
     display: flex;
@@ -234,8 +234,9 @@
     padding-right: 120%;
     align-items:start ;
 }
-.sla{
-    display:flex ;
-    flex-direction: row;
-    padding-right: 15%;
+
+
+.icons{
+    display: flex;
+    gap: 15px;
 }
