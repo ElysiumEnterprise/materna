@@ -180,26 +180,19 @@
     color: rgb(207, 207, 207);
     font-size: 14px;
 }
+
+
 .cont-tipo-feed .cont-assuntos .card-assunto{
     display: flex;
     width: 100%;
-    justify-content: space-between;
     align-items: center;
-    min-height: 80px;
-    background-color: rgb(246, 246, 246);
-    box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    -webkit-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    -moz-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    transition: 0.5s ease-in-out;
+    justify-content: space-between;
+    min-height: 65px;
     margin-top: 10px;
-    border-radius: 20px 0px 2px 20px / 20px 0px 2px 20px;
-    transition: 0.5s ease-in-out;
-    padding: 20px;
-    cursor: pointer;
+
 }
 .cont-tipo-feed .cont-assuntos .card-assunto:hover{
     margin-bottom: 10px;
-    transform: scale(1.05);
 }
 .cont-tipo-feed .cont-assuntos .card-assunto h4{
     
@@ -235,8 +228,22 @@
     align-items:start ;
 }
 
+.teste-icon{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    width: 100%;
+}
+
 
 .icons{
     display: flex;
     gap: 15px;
+}
+
+.link-card{
+    text-decoration: none;
+    font-family: 'Inter';
+    color: black;
+    font-size: 18px;
 }

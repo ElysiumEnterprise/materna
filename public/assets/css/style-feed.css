@@ -182,7 +182,7 @@
     font-weight: bold;
     text-align: center;
     font-family: "Inter";
-    transition: all 0.2s ease-in-out;;
+    transition: all 0.2s ease-in-out;
 }
 
 .cont-tipo-feed .cont-link-feed a:hover{
