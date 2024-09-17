@@ -36,7 +36,14 @@
     background-color: #ffffff;
     color:  #f26699;
     font-family: 'Fredoka';
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 20px;
 }
+
+
 
 .chat{
     width: 100%;
@@ -66,7 +73,14 @@
     font-weight: 500;
     margin-bottom: 15px;
     line-height: 22px;
+    margin-top: 10px;
 
+}
+
+.mensagens{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .message__self{
@@ -92,16 +106,18 @@
     align-self: flex-start;
     display: flex;
     flex-direction: row;
+    margin-top: 6px;
+    gap: 10px;
 }
 
 
 .chat__form{
-    background-color: #d4d3d3;
-    padding: 5px 10px;
+    background-color: #f0f0f0;
+    padding: 8px 10px;
     display: flex;
     align-items:center;
     position: fixed;
-    bottom: 0;
+    bottom: 18px;
     width: 44%;
     border-radius: 10px 10px 10px 10px;
 
@@ -112,7 +128,7 @@
     padding: 10px;
     border-radius: 8px;
     flex-grow: 1;
-    background-color: #d4d3d3;
+    background-color: #f0f0f0;
     outline: none;
     color: #000000;
     font-size: 1rem;
@@ -122,7 +138,7 @@
 .chat__button{
     border: none;
     background: none;
-    color: #f2f2f2;
+    color: #f26699;
     cursor: pointer;
 
 }

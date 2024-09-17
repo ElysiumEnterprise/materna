@@ -271,14 +271,15 @@ form button:hover{
 .carousel-slide {
     height: 100%;
     display: flex;
-    width: 350%;
+    width: 330%;
     transition: transform 0.4s ease-in-out;
 }
 
 .carousel-slide img {
-    width: 30%;
+    width: 34%;
     height: auto;
 }
+
 @media screen and (max-width: 1000px){
 
     .cont-carousel{
