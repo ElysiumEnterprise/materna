@@ -19,7 +19,7 @@
                         <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg')}}" class="img-fluid foto-perfil" alt="">
                     
                     
-                        <small>Daniela</small>
+                        <small class="txt-perfil">Daniela</small>
                     
                 </div>
                 <div class="conteudo-post">
@@ -55,7 +55,7 @@
                         <img src="{{url('assets/img/img-home/avatar.jpg')}}" class="img-fluid foto-perfil" alt="">
                     
                     
-                        <small>Juliana</small>
+                        <small class="txt-perfil">Juliana</small>
                     
                 </div>
                 <div class="conteudo-post">
