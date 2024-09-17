@@ -22,20 +22,29 @@
            <div class="vamosver">
 
             <div class="teste">
-                    <a><h1 class="comun">Comunidades</h1></a>   
+                    <a>
+                        <h1 class="comun">Comunidades</h1>
+                    </a>   
             </div>
-            <div class="sla">
+
+            <div class="icons">
+
+            <div class="icon1">
                 <span class="material-symbols-outlined" >
                     search
                 </span>
             </div>
-            <div class="gato">
+
+            <div class="icon2">
                 <span class="material-symbols-outlined">
                 person_add
                 </span>
             </div>
+
+            </div>
             
            </div>
+           
            
             <section class="card-post">
           
@@ -116,9 +125,11 @@
         </div>
 
         <section class="cont-tipo-feed">
+
             <div class="cont-link-feed">
-                <a href="">Comunidades do momento</a>    
+                <a href="#">Comunidades do momento</a>    
             </div>
+
             <div class="cont-assuntos">
                 <section class='card-assunto'>
                     <h4>Mãe Solo</h4>
