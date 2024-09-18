@@ -11,7 +11,6 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     display: flex;
     width: 100%;
     min-height: 100%;
-    
     margin-top:3.05%;
     margin-bottom:3.05%;
     justify-content: center;
@@ -19,6 +18,7 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     background-color: white;
     flex-direction: column;
 }
+
 .cont-titulo{
     display: flex;
     width: 100%;
@@ -29,7 +29,7 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 
 .cont-titulo h2{
     font-family: 'Fredoka';
-    font-size: 30px;
+    font-size: 36px;
     font-weight: normal;
     text-align: start;
     color: #f26699;
@@ -44,11 +44,12 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 
 .cont-explication p{
     font-family: 'Fredoka';
-    font-size: 40px;
+    font-size: 30px;
     font-weight: normal;
     text-align: center;
     color: #003366;
 }
+
 .cont-card{
     display: flex;
     flex-direction: column;
@@ -57,6 +58,7 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     justify-content: space-between;
     align-items: center;
 }
+
 .card{
     display: flex;
     flex-direction: column;
@@ -66,16 +68,14 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     padding: 15px 15px;
     align-items: start;
     margin-top: 10px;
-    box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    -webkit-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    -moz-box-shadow: 0px 21px 17px -9px rgba(0,0,0,0.46);
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
     background-color: rgb(246, 246, 246);
+    cursor: pointer;
 }
 
 .card:hover{
-    margin-bottom: 10px;
-    transform: scale(1.05);
+    margin-bottom: 6px;
+    transform: scale(1.00);
 }
 
  .card .cont-header{
