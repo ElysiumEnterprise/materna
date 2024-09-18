@@ -44,7 +44,7 @@ body, html {
 .carousel-slide {
     height: 100%;
     display: flex;
-    width: 300%;
+    width: 290%;
     transition: transform 0.4s ease-in-out;
 }
 
@@ -279,10 +279,13 @@ button:hover {
         display: flex;
         width: 100%;
         height: 300px;
-        padding-top: 20%;
-        justify-content: center;
+        margin: 15px;
+        padding: 10px;
+        justify-content: flex-start;
         align-items: center;
     }
+
+    
     
 }
 
@@ -293,6 +296,7 @@ button:hover {
     align-items: center;
     margin-bottom: 10px;
 }
+
 .cont-error-geral small{
     color: #d02b39;
     font-size: 14px;

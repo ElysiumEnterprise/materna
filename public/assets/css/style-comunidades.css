@@ -159,7 +159,6 @@
     font-weight: bold;
     text-align: center;
     font-family: "Inter";
-    transition: all 0.2s ease-in-out;
     display: flex;
 
 }
@@ -191,11 +190,14 @@
     margin-top: 10px;
 
 }
-.cont-tipo-feed .cont-assuntos .card-assunto:hover{
-    margin-bottom: 10px;
+
+
+
+.cont-tipo-feed .cont-assuntos .card-assunto i{
+    font-size: 20px;
 }
-.cont-tipo-feed .cont-assuntos .card-assunto h4{
-    
+
+.txt-card-assunto{
     font-family: 'Inter';
     color: black;
     text-align: center;
@@ -203,9 +205,10 @@
     font-weight: bold;
 }
 
-.cont-tipo-feed .cont-assuntos .card-assunto i{
-    font-size: 20px;
+.txt-card-assunto:hover{
+    color: #515151;
 }
+
 .comun{
     font-family: 'Fredoka';
     color: #f26699; 
