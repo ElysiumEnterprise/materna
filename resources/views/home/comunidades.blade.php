@@ -132,27 +132,43 @@
 
             <div class="cont-assuntos">
 
-            <section class='card-assunto'>
+
+                <section class='card-assunto'>
                     <div class="teste-icon">
-                    <i class="fa-solid fa-circle-info icon"></i>
-                    <div class="texto-card">
-                        <a href="#" class="link-card"><h4 class="txt-card-assunto">Adolescência</h4></a>
-                    </div>
+                        <i class="fa-solid fa-circle-info icon"></i>
+                        <div class="texto-card">
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Adolescência</h4></a>
+                        </div>
                     </div>
                 </section>
 
                 <section class='card-assunto'>
-                    <h4>Gravidez</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="teste-icon">
+                        <i class="fa-solid fa-circle-info icon"></i>
+                        <div class="texto-card">
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Gravidez</h4></a>
+                        </div>
+                    </div>
                 </section>
+
                 <section class='card-assunto'>
-                    <h4>Receitas</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="teste-icon">
+                        <i class="fa-solid fa-circle-info icon"></i>
+                        <div class="texto-card">
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Receitas</h4></a>
+                        </div>
+                    </div>
                 </section>
+
                 <section class='card-assunto'>
-                    <h4>Adolescência</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="teste-icon">
+                        <i class="fa-solid fa-circle-info icon"></i>
+                        <div class="texto-card">
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Mãe solo</h4></a>
+                        </div>
+                    </div>
                 </section>
+
             </div>
         </section>
     </div>
