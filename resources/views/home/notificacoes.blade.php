@@ -12,9 +12,11 @@
         <div class="cont-titulo">
             <h2>Notificações</h2>
         </div>
+
         <div class="cont-explication">
             <p>As suas notificações aparecem aqui</p>
         </div>
+
         <div class="cont-card">
             <section class="card">
                 <div class="cont-header">
@@ -26,10 +28,13 @@
                     </div>
                     
                 </div>
+
                 <div class="cont-desc">
                     <p>Comentou na sua publicação</p>
                 </div>
+
             </section>
+
             <section class="card">
                 <div class="cont-header">
                     <div class="cont-titulo">
@@ -39,10 +44,13 @@
                         <button type="button"><i class="fa-regular fa-circle-xmark"></i></button>
                     </div>
                 </div>
+
                 <div class="cont-desc">
                     <p>Acabou de compartilhar uma nova postagem</p>
                 </div>
+
             </section>
+            
             <section class="card">
                 <div class="cont-header">
                     <div class="cont-titulo">
