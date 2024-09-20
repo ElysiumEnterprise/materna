@@ -39,15 +39,16 @@
 
 .cont-config-gerais .cont-item-config .card-config{
     display: flex;
-    width: 700px;
-    height: 120px;
+    width: 600px;
+    height: 100px;
     flex-direction: row;
     align-items: center;
     padding: 14px;
     background-color: #f6f6f6;
     border-radius: 20px;
     transition: all 0.2s ease-in-out;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .cont-config-gerais .cont-item-config .card-config:hover{
