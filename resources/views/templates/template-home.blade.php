@@ -97,6 +97,16 @@
                             </button>
                             
                         </li>
+
+                        <li class="side-item" onclick="abrirModalPost()">
+                            <button type="button" onclick="abrirModalPost()">
+                            <i class="fa-solid fa-floppy-disk" style="color: #ffb6c1"></i>
+                                <span class="item-description">
+                                    Itens Salvos
+                                </span>
+                            </button>
+                            
+                        </li>
                     </ul>
             
                     <button type="button" id="open_btn">
