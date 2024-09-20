@@ -23,11 +23,57 @@
                     </div>
                 </a>
             </section>
+
             <section class="card-config">
                 <a href="{{route('user.edit', $user)}}">
                 <img src="{{asset('assets/img/foto-perfil/user-icon-default.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
                     <div class="cont-desc-config">
                     <h6 class="txt-item">Editar Usuário</h6>
+                    </div>
+                </a>
+            </section>
+
+            <section class="card-config">
+                <a href="{{route('user.edit', $user)}}">
+                <img src="{{asset('assets/img/cadeado.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
+                    <div class="cont-desc-config">
+                    <h6 class="txt-item">Privacidade e Segurança</h6>
+                    </div>
+                </a>
+            </section>
+
+            <section class="card-config">
+                <a href="{{route('user.edit', $user)}}">
+                <img src="{{asset('assets/img/notificacao.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
+                    <div class="cont-desc-config">
+                    <h6 class="txt-item">Permissões e Notificações</h6>
+                    </div>
+                </a>
+            </section>
+
+            <section class="card-config">
+                <a href="{{route('user.edit', $user)}}">
+                <img src="{{asset('assets/img/atividade.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
+                    <div class="cont-desc-config">
+                    <h6 class="txt-item">Atividade</h6>
+                    </div>
+                </a>
+            </section>
+
+            <section class="card-config">
+                <a href="{{route('user.edit', $user)}}">
+                <img src="{{asset('assets/img/info.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
+                    <div class="cont-desc-config">
+                    <h6 class="txt-item">Sobre</h6>
+                    </div>
+                </a>
+            </section>
+
+            <section class="card-config">
+                <a href="{{route('user.edit', $user)}}">
+                <img src="{{asset('assets/img/ajuda.png')}}" class="pefil-logo img-fluid" alt="Foto de perfil">
+                    <div class="cont-desc-config">
+                    <h6 class="txt-item">Ajuda</h6>
                     </div>
                 </a>
             </section>
