@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{url('assets/css/styles-home.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style-modal-post.css')}}">
     @yield('links-css')
-    <title>Home</title>
+    <title>Materna - Rede Social</title>
 </head>
 <body>
             
