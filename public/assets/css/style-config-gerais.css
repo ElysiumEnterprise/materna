@@ -40,7 +40,7 @@
 .cont-config-gerais .cont-item-config .card-config{
     display: flex;
     width: 700px;
-    height: 150px;
+    height: 120px;
     flex-direction: row;
     align-items: center;
     padding: 14px;
@@ -64,10 +64,10 @@
 }
 
 .cont-config-gerais .cont-item-config .card-config img{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin-right: 20px;
-    border-radius: 100%;
+    /*border-radius: 100%;*/
     object-fit: fill;
 }
 
