@@ -79,8 +79,8 @@ Route::get('/home/comunidades', function(){
     return view('home.comunidades');
 });
 
-Route::get('/preferencias', function(){
-    return view('preferencias');
+Route::get('/home/preferencias', function(){
+    return view('home.preferencias');
 });
 
 
