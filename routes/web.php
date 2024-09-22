@@ -79,6 +79,10 @@ Route::get('/home/comunidades', function(){
     return view('home.comunidades');
 });
 
+Route::get('/preferencias', function(){
+    return view('preferencias');
+});
+
 
 //Formulário de cadastro
 
