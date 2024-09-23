@@ -83,6 +83,10 @@ Route::get('/home/preferencias', function(){
     return view('home.preferencias');
 });
 
+Route::get('/home/salvos', function(){
+    return view('home.salvos');
+});
+
 
 //Formulário de cadastro
 
