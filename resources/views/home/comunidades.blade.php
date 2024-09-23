@@ -14,10 +14,6 @@
     <div class="cont-feed">
     <div class="linha-vertical"></div>
 
-        <span class="material-symbols-outlined"  ;>
-        arrow_left_alt
-        </span> 
-
         <div class="cont-post">
            <div class="vamosver">
 
@@ -29,17 +25,17 @@
 
             <div class="icons">
 
-            <div class="icon1">
-                <span class="material-symbols-outlined" >
-                    search
-                </span>
-            </div>
+                <div class="icon1">
+                    <span class="material-symbols-outlined" >
+                        search
+                    </span>
+                </div>
 
-            <div class="icon2">
-                <span class="material-symbols-outlined">
-                person_add
-                </span>
-            </div>
+                <div class="icon2">
+                    <span class="material-symbols-outlined">
+                    person_add
+                    </span>
+                </div>
 
             </div>
             
@@ -66,7 +62,7 @@
                     <div class="cont-icons">
                         <div class="icons-principais">
 
-                            <button type="button"><i class="fa-regular fa-heart"></i></button>
+                            <button type="button"><i class="fa-regular fa-heart"></i></button>  
                             <button type="button"><i class="fa-regular fa-comment"></i></button>
                             <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
                             
@@ -168,6 +164,22 @@
                         </div>
                     </div>
                 </section>
+
+                <section class='card-assunto'>
+                    <div class="teste-icon">
+                        <i class="fa-solid fa-circle-info icon"></i>
+                        <div class="texto-card">
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Lazer</h4></a>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="linha"></div>
+
+                <div class="anuncios">
+                    <img src="{{url('assets/img/foto-perfil/1b8de8ad259433a134b6159043c17f33.png')}}" alt="Imagem de anúncio" class="img-anuncio">
+                    <img src="{{url('assets/img/jj.jpg')}}" alt="Imagem de anúncio" class="img-anuncio">
+                </div>
 
             </div>
         </section>
