@@ -48,6 +48,7 @@
     border-radius: 50%;
     margin-right: 5px;
 }
+
 .card-post .post-head small{
     font-family: "Inter";
     font-weight: bold;
@@ -77,6 +78,8 @@
     margin-bottom: 10px;
     width: 100%;
 }
+
+
 .card-post .conteudo-post .cont-icons button{
     outline: none;
     border: none;
@@ -249,4 +252,22 @@
     font-family: 'Inter';
     color: black;
     font-size: 18px;
+}
+
+.linha{
+    width: 100%;
+    border-bottom: #cfcfcf solid 1px;
+    margin-top: 20px;
+}
+
+.anuncios{
+    display: block;
+    margin: auto;
+    width: 350px;
+}
+
+.img-anuncio{
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 20px
 }
