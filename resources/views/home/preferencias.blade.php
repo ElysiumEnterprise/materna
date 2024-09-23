@@ -6,10 +6,21 @@
     <title>preferencias de conteudo</title>
     <!-- Link do CSS 'style-preferencias.css' -->
     <link rel="stylesheet" href="{{ asset('assets/css/style-preferencias.css') }}">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/"><img src="{{url('assets/img/logo/Logo-Materna-Branco.png')}}" alt="Imagem logo materna" class="img-logo"></a>
+            </div>
+        </nav>
+    </header>
+
+   
 
     <div class="pre">
     <h2> Escolha opções que deseja ver no seu feed =D </h2>
@@ -92,5 +103,8 @@
         </button>
     
     </div>
+
+    
+  
 </body>
 </html>

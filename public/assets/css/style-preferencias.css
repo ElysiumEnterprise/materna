@@ -8,15 +8,27 @@
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
 
-body{
-   margin: 0;
-   padding: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 100vh;
 
+header{
+    background-color: #F26699;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo{
+    width: 150px;
+}
+
+.img-logo {
+    width: 200px;
+}
+
+
+
 .pre h2 {
     font-size: 20px;
     margin-bottom: 20px;
