@@ -90,12 +90,15 @@
         <section class="cont-tipo-feed">
 
             <div class="cont-link-feed">
-                <a href="#">Para Você</a>
                 <a href="#">Tranding</a>
+                <a href="#">Dicas</a>
             </div>
 
             <div class="cont-assuntos">
-                <h5>Assuntos da Comunidades</h5>
+                
+                <div class="assuntos">
+                <h5 class="txt-assuntos">Assuntos das Comunidades</h5>
+                </div>
 
                 <section class='card-assunto'>
                     <div class="teste">
@@ -135,6 +138,25 @@
                     </div>
                     </div>
                 </section>
+
+                <section class='card-assunto'>
+                <div class="teste">
+                    <i class="fa-solid fa-circle-info icon"></i>
+                    <div class="texto-card">
+                        <a href="#" class="link-card"><h4 class="txt-card-assunto">Lazer</h4></a>
+                    </div>
+                    </div>
+                </section>
+
+                <div class="linha"></div>
+
+                <div class="anuncios">
+                    <img src="{{url('assets/img/foto-perfil/1b8de8ad259433a134b6159043c17f33.png')}}" alt="Imagem de anúncio" class="img-anuncio">
+                    <img src="{{url('assets/img/foto-perfil/1b8de8ad259433a134b6159043c17f33.png')}}" alt="Imagem de anúncio" class="img-anuncio">
+                    <img src="{{url('assets/img/foto-perfil/1b8de8ad259433a134b6159043c17f33.png')}}" alt="Imagem de anúncio" class="img-anuncio">
+                    
+                </div>
+            </div>
 
             </div>
         </section>
