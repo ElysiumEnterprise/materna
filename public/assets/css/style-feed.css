@@ -167,6 +167,15 @@
     border-left: 1px rgba(0, 0, 0, 0.077) solid;
 }
 
+.assuntos{
+    display: block;
+    margin: auto;
+}
+
+.txt-assuntos{
+    font-size: 25px;
+}
+
 .cont-tipo-feed .cont-link-feed{
     display: flex;
     flex-direction: row;
@@ -202,7 +211,7 @@
     font-family: 'Inter';
     text-align: center;
     color: #cfcfcf;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .teste{
@@ -225,7 +234,7 @@
 .link-card{
     text-decoration: none;
     font-family: 'Inter';
-    color: black;
+    color: #000000;
     font-size: 18px;
     
 }
@@ -244,4 +253,21 @@
 
 .cont-tipo-feed .cont-assuntos .card-assunto i{
     font-size: 20px;
+}
+
+.linha{
+    width: 100%;
+    border-bottom: #cfcfcf solid 1px;
+}
+
+.anuncios{
+    display: block;
+    margin: auto;
+    width: 350px;
+}
+
+.img-anuncio{
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 20px
 }
