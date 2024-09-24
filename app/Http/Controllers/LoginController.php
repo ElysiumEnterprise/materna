@@ -44,13 +44,26 @@ class LoginController extends Controller
             $usuario = Auth::user();
 
             if($usuario->idNivelUsuario==1){
+
+                // AQUI INICIO PARA CONTEUDO
+
+                if ($usuario->primeiro_login) {
+                    return redirect()->route('preferencias'); // Redireciona para a tela de preferências
+                } else {
+
+                // FIM MUDANÇA
+
                 return redirect()->intended('/home/feed');
+                }
+
+
             }else if($usuario->idNivelUsuario==3){
                 return redirect()->intended('/home/perfil-anunciante');
             }else{
                 Auth::logout();
                 return redirect()->back()->with(['status' => 'Opa! Você é um ADM!', 'message' => 'Clique aqui para logar na sua área!', 'link' => '/login-adm']);
             }
+
             
             
          }
