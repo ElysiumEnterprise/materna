@@ -75,7 +75,7 @@ class CadastroController extends Controller
             
             Auth::login($usuario);
 
-            return redirect()->intended('/home/feed');
+            return redirect()->intended('/');
             
             //return view('/home/feed', compact('perfil'));
         }
