@@ -130,3 +130,15 @@ Route::middleware(['auth'])->group(function() {
 
 // verificar se o usuario esta logado 
 
+
+
+Route::get('/preferencias', function () {
+    return view('preferencias'); // Certifique-se de que o arquivo está na pasta correta
+})->name('preferencias');
+
+// routes/web.php
+// routes/web.php
+Route::post('/salvar-conteudo', [ConteudoController::class, 'salvarConteudo'])->name('salvarConteudo');
+
+
+

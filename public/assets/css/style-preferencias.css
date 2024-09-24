@@ -60,18 +60,25 @@ header{
     display: none;
 }
 
-.container div label span{
+.container div label span {
     position: relative;
     display: inline-block;
-    background: #ffb6c1;
+    
     padding: 15px 30px;
-    color: #fff;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 5);
+    color: #F26699;
+   
     border-radius: 30px;
     font-size: 20px;
     transition: 0.5s;
     user-select: none;
     overflow: hidden;
+    border: 2px solid #ff85ab; /* Aqui está a borda */
+
+    transition: color 0.3s; /* Transição suave para a cor */
+}
+
+.container div label span:hover{
+    background: rgba(255, 255, 255, 0.1); /* Leve destaque ao passar o mouse */
 }
 
 .container div label span:before{
@@ -84,8 +91,14 @@ header{
    
 }
 
+.container div label input[type="checkbox"]:checked + span {
+    color: #fff; /* Muda a cor da letra para branco */
+    animation: pulse 0.5s; /* Animação de pulso ao clicar */
+}
+
 .container div label input[type="checkbox"]:checked ~ span{
     background: #FF007f;
+    color: #fff;
 }
 
 .cont-btn{
@@ -111,4 +124,19 @@ button {
     cursor: pointer;
     margin-top: 20px;
     
+}
+
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

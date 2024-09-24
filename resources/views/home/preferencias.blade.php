@@ -23,74 +23,74 @@
    
 
     <div class="pre">
-    <h2> Escolha opções que deseja ver no seu feed =D </h2>
+    <h2> Escolha 1 opção do que deseja ver no seu feed =D </h2>
     <div class="container">
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="maes_solo">
                 <span>Mães Solo</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="adolescencia">
                 <span>Adolescência</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="entretenimento">
                 <span>Entretenimento</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="receitas">
                 <span>Receitas</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="depressao">
                 <span>Depressão</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="alimentacao">
                 <span>Alimentação</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="passeios">
                 <span>Passeios</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="bebe">
                 <span>bebê</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name="" type="checkbox" name="preferencias[]" value="pos_parto">
                 <span>Pós Parto</span>
             </label>
         </div>
 
         <div>
             <label>
-                <input type="checkbox" name="">
+                <input type="checkbox" name=""type="checkbox" name="preferencias[]" value="saude_mental">
                 <span>Saúde Mental</span>
             </label>
         </div>
