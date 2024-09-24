@@ -31,16 +31,20 @@
         </div>
         <div class="cont-lista-users">
             <div class="cont-filtro">
-                <button type="button">Todos</button>
-                <button type="button">Mães</button>
-                <button type="button">Anunciante</button>
+                <button type="button" id="btn-todos">Todos</button>
+                <button type="button" id="btn-cliente">Mães</button>
+                <button type="button" id="btn-anunciante">Anunciante</button>
                 <div class="cont-buscador">
-                    <form action="" method="post">
+                    <form action="{{route('buscar-usuario')}}" method="post">
                         <input type="search" name="buscador" id="buscador">
-                        <button type="submit"></button>
+                        <button type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
+            <div class="cont-status">
+                <h4>{{session('message')}}</h4>
+            </div>
+            @if($users != null || $users != false)
 
             <div class="lista-user">
                 @foreach($users as $user)
@@ -53,8 +57,12 @@
                 </a>
                 @endforeach
             </div>
-            
+            @endif
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{url('assets/js/dashboard/script-filtro-clientes.js')}}"></script>
 @endsection
 

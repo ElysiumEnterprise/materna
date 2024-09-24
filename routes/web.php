@@ -58,13 +58,21 @@ Route::get('/home/notificacoes', function(){
 Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('home.feed');
 
 //Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('feed');
+
 //Dashboard
 Route::get('/dashboard/home', function(){
     return view('dashboard-adm.dashboard-home');
 });
 
-Route::get('/dashboard/clientes', [UsuarioController::class, 'show'])->name('clientes.adm');
+Route::get('/dashboard/usuarios', [UsuarioController::class, 'show'])->name('usuarios.adm');
+
+Route::get('/dashboard/anunciantes', [UsuarioController::class, 'showAnunciantes'])->name('anunciantes.adm');
+
+Route::get('/dashboard/clientes', [UsuarioController::class, 'showCliente'])->name('clientes.adm');
 //
+
+Route::post('/dashboard/usuarios', [UsuarioController::class, 'buscarUsuario'])->name('buscar-usuario');
+
 Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');
 });

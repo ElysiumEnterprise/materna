@@ -22,13 +22,24 @@ class UsuarioController extends Controller
     }
 
     public function showCliente(){
-        $user = Usuario::all()->where('idNivelUsuario', '!=', 3)->where('idNivelUsuario', '!=', 2);
-        return view('dashboard-adm.clientes-adm', compact('user'));
+        $users = Usuario::all()->where('idNivelUsuario', '!=', 3)->where('idNivelUsuario', '!=', 2);
+        return view('dashboard-adm.clientes-adm', compact('users'));
     }
 
     public function showAnunciantes(){
-        $user = Usuario::where('idNivelUsuario', '!=', 1)->where('idNivelUsuario', '!=', 2);
-        return redirect()->route('show.users.anunciante.adm', compact('user'));
+        $users = Usuario::all()->where('idNivelUsuario', '!=', 1)->where('idNivelUsuario', '!=', 2);
+        return view('dashboard-adm.clientes-adm', compact('users'));
+    }
+
+    public function buscarUsuario(Request $request){
+
+        $users = Usuario::all()->where('nome', 'LIKE', '%'.$request->buscador.'%')->where('idNivelUsuario', '!=', 2);
+
+        if($users->isEmpty()){
+            return redirect()->back()->with('message', 'Usuário não encontrado');
+        }else{
+            return view('dashboard-adm.clientes-adm', compact('users'));
+        }
     }
     
     public function edit($idUser){
