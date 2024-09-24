@@ -13,15 +13,26 @@ use Illuminate\Support\Facades\log;
 class UsuarioController extends Controller
 {
 
+
     public function show(){
 
-        $user = Auth::user();
-
+        $users = Usuario::with('perfils')->where('idNivelUsuario', '!=', 2)->get();
+        return view('dashboard-adm.clientes-adm', compact('users'));
         
+    }
+
+    public function showCliente(){
+        $user = Usuario::all()->where('idNivelUsuario', '!=', 3)->where('idNivelUsuario', '!=', 2);
+        return view('dashboard-adm.clientes-adm', compact('user'));
+    }
+
+    public function showAnunciantes(){
+        $user = Usuario::where('idNivelUsuario', '!=', 1)->where('idNivelUsuario', '!=', 2);
+        return redirect()->route('show.users.anunciante.adm', compact('user'));
     }
     
     public function edit($idUser){
-        if (!$usuario = Usuario::where('idUsuario', $idUser)->first()){
+        if (!$usuario = Usuario::all()->where('idUsuario', $idUser)->first()){
             return redirect()->back();  
         }
             $usuario= Usuario::with('telefone_users')->findOrFail($idUser);

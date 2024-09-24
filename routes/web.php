@@ -58,11 +58,13 @@ Route::get('/home/notificacoes', function(){
 Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('home.feed');
 
 //Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('feed');
-
+//Dashboard
 Route::get('/dashboard/home', function(){
     return view('dashboard-adm.dashboard-home');
 });
 
+Route::get('/dashboard/clientes', [UsuarioController::class, 'show'])->name('clientes.adm');
+//
 Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');
 });
