@@ -266,6 +266,7 @@ form button:hover{
     height: 100%;
     max-width: 880px;
     overflow: hidden;
+    
 }
 
 .carousel-slide {
@@ -276,8 +277,8 @@ form button:hover{
 }
 
 .carousel-slide img {
-    width: 34%;
-    height: auto;
+    width: 26%;
+    height: 30%;
 }
 
 @media screen and (max-width: 1000px){
