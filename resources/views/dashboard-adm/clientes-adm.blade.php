@@ -35,28 +35,32 @@
                 <button type="button" id="btn-cliente">Mães</button>
                 <button type="button" id="btn-anunciante">Anunciante</button>
                 <div class="cont-buscador">
-                    <form action="{{route('buscar-usuario')}}" method="post">
+                    <form action="{{route('buscar.usuario')}}" method="post">
+                        @csrf
                         <input type="search" name="buscador" id="buscador">
                         <button type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
-            <div class="cont-status">
-                <h4>{{session('message')}}</h4>
-            </div>
-            @if($users != null || $users != false)
-
-            <div class="lista-user">
-                @foreach($users as $user)
-                <a href="{{$user->idUsuario}}">
-                <div class="card-user">
-                    <img src="{{url('assets/img/foto-perfil/'.$user->perfils->fotoPerfil)}}" class="img-fluid">
-                    <h1>{{$user->nome}}</h1>
-                    <h1>{{$user->perfils->nickname}}</h1>
+           
+            @if($users->isNotEmpty())
+                <div class="lista-user">
+                    @foreach($users as $user)
+                    <a href="{{$user->idUsuario}}">
+                        <div class="card-user">
+                            <img src="{{ url('assets/img/foto-perfil/' . $user->perfils->fotoPerfil) }}" class="img-fluid">
+                            <h1>{{ $user->nome }}</h1>
+                            <h1>{{ $user->perfils->nickname }}</h1>
+                        </div>
+                    </a>
+            @endforeach
                 </div>
-                </a>
-                @endforeach
-            </div>
+            @else
+                @if(session('message'))
+                    <p>{{ session('message') }}</p>
+                @else
+                    <p>Nenhum usuário encontrado.</p>
+                @endif
             @endif
         </div>
     </div>

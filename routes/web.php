@@ -71,7 +71,7 @@ Route::get('/dashboard/anunciantes', [UsuarioController::class, 'showAnunciantes
 Route::get('/dashboard/clientes', [UsuarioController::class, 'showCliente'])->name('clientes.adm');
 //
 
-Route::post('/dashboard/usuarios', [UsuarioController::class, 'buscarUsuario'])->name('buscar-usuario');
+Route::post('/dashboard/usuarios', [UsuarioController::class, 'buscarUsuario'])->name('buscar.usuario');
 
 Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');

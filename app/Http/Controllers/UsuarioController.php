@@ -17,7 +17,7 @@ class UsuarioController extends Controller
     public function show(){
 
         $users = Usuario::with('perfils')->where('idNivelUsuario', '!=', 2)->get();
-        return view('dashboard-adm.clientes-adm', compact('users'));
+        return view('dashboard-adm.clientes-adm');
         
     }
 
@@ -33,10 +33,10 @@ class UsuarioController extends Controller
 
     public function buscarUsuario(Request $request){
 
-        $users = Usuario::all()->where('nome', 'LIKE', '%'.$request->buscador.'%')->where('idNivelUsuario', '!=', 2);
+        $users = Usuario::where('nome', 'LIKE', '%'.$request->buscador.'%')->where('idNivelUsuario', '!=', 2)->get();
 
         if($users->isEmpty()){
-            return redirect()->back()->with('message', 'Usuário não encontrado');
+            return redirect()->route('usuarios.adm')->with('message', 'Usuário não encontrado');
         }else{
             return view('dashboard-adm.clientes-adm', compact('users'));
         }
