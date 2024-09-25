@@ -30,15 +30,23 @@
                 </div>
         </div>
         <div class="cont-lista-users">
+            <div class="cont-titulo">
+                <h3>Usuários Cadastrados no Sistema</h3>
+            </div>
+            
+            <hr>
             <div class="cont-filtro">
-                <button type="button" id="btn-todos">Todos</button>
-                <button type="button" id="btn-cliente">Mães</button>
-                <button type="button" id="btn-anunciante">Anunciante</button>
+                <div class="cont-buttons">
+                    <button type="button" id="btn-todos">Todos</button>
+                    <button type="button" id="btn-cliente">Mães</button>
+                    <button type="button" id="btn-anunciante">Anunciante</button>
+                </div>
+                
                 <div class="cont-buscador">
                     <form action="{{route('buscar.usuario')}}" method="post">
                         @csrf
-                        <input type="search" name="buscador" id="buscador">
-                        <button type="submit">Buscar</button>
+                        <input type="search" name="buscador" id="buscador" placeholder="Procure aqui...">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass" ></i></button>
                     </form>
                 </div>
             </div>
@@ -46,15 +54,22 @@
             @if($users->isNotEmpty())
                 <div class="lista-user">
                     @foreach($users as $user)
-                    <a href="{{$user->idUsuario}}">
-                        <div class="card-user">
-                            <img src="{{ url('assets/img/foto-perfil/' . $user->perfils->fotoPerfil) }}" class="img-fluid">
-                            <h1>{{ $user->nome }}</h1>
-                            <h1>{{ $user->perfils->nickname }}</h1>
-                        </div>
-                    </a>
-            @endforeach
+                    <section class="card-user">
+                        <a href="{{$user->idUsuario}}">
+                            <div class="cont-img">
+                                <img src="{{ url('assets/img/foto-perfil/' . $user->perfils->fotoPerfil) }}" class="img-fluid">
+                                
+                            </div>
+                            <div class="cont-info-user">
+                                <h1>{{ $user->nome }}</h1>
+                                <h1>{{ $user->perfils->nickname }}</h1>
+                            </div>
+                        </a>
+                    </section>
+                    <hr>
+                    @endforeach
                 </div>
+
             @else
                 @if(session('message'))
                     <p>{{ session('message') }}</p>

@@ -1,0 +1,256 @@
+@font-face {
+    font-family: "Fredoka";
+    src: url("../fonts/Fredoka-VariableFont_wdth\,wght.ttf");
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-VariableFont_opsz\,wght.ttf");
+}
+
+:root{
+    --color-primary: #F26699;
+    --color-danger: #fd5462;
+    --color-succes: #41f1b6;
+    --color-warning: #ffa927;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: #848bc82e;
+    --color-dark-variant: #677483;
+    --color-primary-variant: #111e88;
+    --color-background: #f6f6f9;
+    --color-toggler: #dce1eb;
+
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 4rem 5rem var(--color-light);
+}
+
+.cont-clientes{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 20px;
+}
+.cont-card-num-cadastro{
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.cont-card-num-cadastro > div{
+
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    transition: all 300ms ease;
+}
+.cont-card-num-cadastro > div:hover{
+    transform: scale(1.02);
+}
+
+.cont-card-num-cadastro > div span{
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+.cont-card-num-cadastro > div.expenses span{
+    background: var(--color-danger);
+}
+.cont-card-num-cadastro> div.income span{
+    background: var(--color-succes);
+}
+.cont-card-num-cadastro > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cont-card-num-cadastro h3{
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+.cont-card-num-cadastro .progress{
+    position: relative;
+    width: 80px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+.cont-card-num-cadastro svg{
+    width: 7rem;
+    height: 7rem;
+}
+
+.cont-card-num-cadastro svg circle{
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+.cont-card-num-cadastro .sales{
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+.cont-card-num-cadastro .sales svg circle{
+    stroke-dashoffset: -140;
+    stroke-dasharray: 200;
+}
+
+.cont-card-num-cadastro .expenses svg circle{
+    stroke-dashoffset: 100;
+    stroke-dasharray: 200;
+}
+
+.cont-card-num-cadastro .income svg circle{
+    stroke-dashoffset: 1000;
+    stroke-dasharray: 200;
+}
+
+.cont-card-num-cadastro .progress .number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-card-num-cadastro small{
+    margin-top: 1rem;
+    display: block;
+}
+
+.cont-lista-users{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    border: 10px;
+    padding: 30px;
+}
+
+.cont-titulo{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: start;
+    align-items: center;
+}
+
+.cont-titulo h3{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-dark);
+    text-align: start;
+}
+
+.cont-filtro{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+.cont-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    justify-content: start;
+    align-items: start;
+}
+.cont-filtro .cont-buttons > button{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    min-width:90px;
+    height: 50px;
+    background-color: var(--color-primary);
+    text-align: center;
+    color: var(--color-white);
+    font-family: 'Fredoka';
+    font-size: 14px;
+    font-weight: bold;
+    margin: 20px;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+.cont-filtro .cont-buttons > button:hover{
+    background-color: #9e375d ;
+    transform: scale(1.04);
+}
+.cont-buscador{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: end;
+    
+    align-items: center;
+}
+
+.cont-buscador form{
+    min-width: 400px;
+    background-color: var(--color-primary);
+    border-radius: 50px 50px;
+}
+.cont-buscador form input, input::-webkit-input-placeholder{
+    width: 90%;
+    padding: 10px;
+    font-family: "Inter";
+    background-color: transparent;
+    color: var(--color-white);
+    border: none;
+    cursor: text;
+}
+.cont-buscador form input:focus{
+    outline: none;
+}
+.cont-buscador form button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.cont-buscador form button i{
+    color: var(--color-white);
+}
+
+.lista-user{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.card-user{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    
+}
