@@ -262,23 +262,39 @@ form button:hover{
 }
 
 .carousel-container {
-    width: 100%;
-    height: 100%;
-    max-width: 880px;
-    overflow: hidden;
-    
+    position: relative;
+    max-width: 800px;
+    margin: auto;
 }
 
 .carousel-slide {
-    height: 100%;
-    display: flex;
-    width: 330%;
-    transition: transform 0.4s ease-in-out;
+    display: none;
 }
 
 .carousel-slide img {
-    width: 26%;
-    height: 30%;
+    width: 120%;
+    height: 100%;
+
+}
+
+.carousel-text {
+    text-align: center;
+    padding: 10px;
+    background-color: #f26699bc;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 3.5s;
+}
+
+@keyframes fade {
+    from { opacity: 2 } 
+    to { opacity: 1 }
 }
 
 @media screen and (max-width: 1000px){
