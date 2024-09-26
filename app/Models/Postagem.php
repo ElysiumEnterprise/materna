@@ -10,7 +10,7 @@ class Postagem extends Model
     protected $table = 'postagems';
 
     protected $primaryKey = 'idPostagem';
-    protected $incrementing = true;
+    protected $incremeting = true;
     protected $keyType = 'int';
 
     /**

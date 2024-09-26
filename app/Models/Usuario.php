@@ -41,8 +41,8 @@ class Usuario extends Authenticatable
         return $this->hasMany(TelefoneUser::class, 'idUsuario');
     }
 
-    public function nivel_users(){
-        return $this->belongsTo(NivelUsuario::class, 'idNivelUser');
+    public function nivel_usuarios(){
+        return $this->belongsTo(NivelUsuario::class, 'idNivelUsuario');
     }
     
     public function anunciantes(){
@@ -55,6 +55,9 @@ class Usuario extends Authenticatable
      */
     public function getAuthPassword(){
         return $this->senha;
+    }
+    public function denuncias(){
+        return $this->hasMany(Denuncia::class, 'idUsuario');
     }
     use HasFactory;
 }

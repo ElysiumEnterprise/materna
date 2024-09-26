@@ -20,8 +20,8 @@ class Denuncia extends Model
         'detalheDenuncia'
     ];
 
-    public function perfils(){
-        return $this->belongsTo(Perfil::class, 'idPerfil');
+    public function usuarios(){
+        return $this->belongsTo(Usuario::class, 'idUsuario');
     }
     use HasFactory;
 }

@@ -12,7 +12,7 @@ class InfoUserController extends Controller
 
     public function goInfoUserADM($idUser){
 
-        $user = Usuario::with(['perfils', 'telefone_users', 'perfils.postagems', 'perfils.denuncias', 'nivel_usuarios'])->where('idUsuario', $idUser)->first();
+        $user = Usuario::with(['perfils', 'telefone_users', 'perfils.postagems', 'denuncias', 'nivel_usuarios'])->where('idUsuario', $idUser)->first();
         
         
         return view('dashboard-adm.info-cliente-adm', compact('user'));

@@ -41,8 +41,6 @@ class Perfil extends Model
         return $this->belongsToMany(Categoria::class, 'categoria_perfils', 'idCategoria', 'idPerfil');;
     }
 
-    public function denuncias(){
-        return $this->hasMany(Denuncia::class, 'idPerfil');
-    }
+    
     use HasFactory;
 }

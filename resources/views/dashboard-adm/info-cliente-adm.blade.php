@@ -14,7 +14,7 @@
                 <img src="{{ url('assets/img/foto-perfil/'. $user->perfils->fotoPerfil) }}" class="img-fluid">
             </div>
             <div class="cont-nome">
-                <h2>Nome do Usuário: {{$user->nome}}</h2>
+                <h2>Nome: {{$user->nome}}</h2>
                 <h3>Nickname: {{$user->perfils->nickname}}</h3>
             </div>
             <div class="cont-acoes-user">
@@ -24,31 +24,32 @@
 
         <div class="cont-info-user">
             <div class="cont-num-user">
-                <div class="cont-dados">
+                
                     <h5>Publicações: {{$user->perfils->postagems->count()}}</h5>
-                    <h5>Denúncias: {{$user->perfils->denuncias->count()}}</h5>
-                    <h5>Data e Horário de Criação da Conta: {{$user->created_at}}</h5>
-                </div>
+                    <h5>Denúncias: {{$user->denuncias->count()}}</h5>
+                    <h5>Cadastrado em: {{$user->created_at}}</h5>
+               
             </div>
 
             <div class="cont-tipo-conta">
-                <h2>Tipo da Conta: {{$user->nivel_usuarios->descNivel}}</h2>
+                <h2>Tipo da Conta:</h2>
+                <h3>{{$user->nivel_usuarios->descNivel}}</h3>
             </div>
 
             <div class="cont-contato">
                 <h2>Contatos</h2>
                 <div class="cont-desc-contato">
-                    <p>{{$user->email}}</p>
+                    <h3>{{$user->email}}</h3>
 
                     @foreach($user->telefone_users as $telefone)
-                        <p>{{$telefone->numTelefone}}</p>
+                        <h3>{{$telefone->numTelefone}}</h3>
                     @endforeach
                 </div>
             </div>
 
             <div class="cont-info-denuncias">
                 <h2>Denúncias</h2>
-                @if($user->perfils->denuncias->isEmpty())
+                @if($user->denuncias->isEmpty())
                 <div class="cont-status">
                     <i class="fa-solid fa-circle-exclamation"></i>
                     <p>Esse usuário não tem denúncias</p>
@@ -58,7 +59,7 @@
                         <div class="cont-filtro-denuncias">
                             <button type="button"></button>
                         </div>
-                        @foreach($user->perfils->denuncias as $denuncia)
+                        @foreach($user->denuncias as $denuncia)
                             <section class="card-denuncia">
                                 <div class="cont-header-denuncia">
                                     <h3>Motivo: {{$denuncia->motivoDenuncia}}</h3>
