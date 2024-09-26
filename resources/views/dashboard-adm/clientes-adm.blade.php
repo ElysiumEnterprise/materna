@@ -3,6 +3,7 @@
 <!-- Links CSS-->
 
 @section('link-css')
+
     <link rel="stylesheet" href="{{url('assets/css/clientes-adm.css')}}">
 @endsection
 
@@ -50,33 +51,40 @@
                     </form>
                 </div>
             </div>
-           
+            <div class="lista-user">
             @if($users->isNotEmpty())
-                <div class="lista-user">
+                
                     @foreach($users as $user)
                     <section class="card-user">
-                        <a href="{{$user->idUsuario}}">
+                        <a href="{{route('info.user', $user->idUsuario)}}">
                             <div class="cont-img">
                                 <img src="{{ url('assets/img/foto-perfil/' . $user->perfils->fotoPerfil) }}" class="img-fluid">
                                 
                             </div>
                             <div class="cont-info-user">
                                 <h1>{{ $user->nome }}</h1>
-                                <h1>{{ $user->perfils->nickname }}</h1>
+                                
                             </div>
                         </a>
                     </section>
                     <hr>
                     @endforeach
-                </div>
+                
 
             @else
                 @if(session('message'))
+                <div class="cont-status">
+                    <i class="fa-solid fa-circle-exclamation"></i>
                     <p>{{ session('message') }}</p>
+                </div>
                 @else
-                    <p>Nenhum usuário encontrado.</p>
+                <div class="cont-status">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <p>Usuário não encontrado</p>
+                </div>
                 @endif
             @endif
+            </div>
         </div>
     </div>
 @endsection

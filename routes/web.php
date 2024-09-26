@@ -7,6 +7,7 @@ use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ExclusaoController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UsuarioController;
 use App\Mail\TestMail;
@@ -72,6 +73,10 @@ Route::get('/dashboard/clientes', [UsuarioController::class, 'showCliente'])->na
 //
 
 Route::post('/dashboard/usuarios', [UsuarioController::class, 'buscarUsuario'])->name('buscar.usuario');
+
+//Informações do usuário
+
+Route::get('/dashboard/info-usuario/{idPerfil}', [InfoUserController::class, 'goInfoUserADM'])->name('info.user');
 
 Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');
