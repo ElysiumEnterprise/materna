@@ -12,24 +12,8 @@
     <div class="container">
         <div class="primeiro-container">
             
-        <div class="carousel-container">
-            
-                    <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 1">
-                        <div class="carousel-text">Texto</div>
-                    </div>
-
-                    <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/chat.png')}}" alt="Slide 2">
-                        <div class="carousel-text">Texto</div>
-                    </div>
-
-                    <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 3">
-                        <div class="carousel-text">Texto</div>
-                    </div>
-
-                </div>
+        <img src="{{url('assets/img/logo/img-container.png')}}" alt="" class="img-container1">
+        
         </div>
         
         <div class="segundo-container">
