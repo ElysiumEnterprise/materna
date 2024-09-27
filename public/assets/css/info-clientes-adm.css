@@ -161,6 +161,13 @@
 .cont-info-user  h2{
     margin-top: 20px;
 }
+
+.cont-info-user .cont-info-denuncias{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .modal form button[type='submit']{
     justify-content: center;
     align-items: center;
