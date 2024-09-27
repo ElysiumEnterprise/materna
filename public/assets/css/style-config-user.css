@@ -219,7 +219,7 @@
 .cont-destroy-perfil  button{
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 60%;
     padding: 10px;
     border: none;
     border-radius: 10px;
@@ -247,6 +247,7 @@
     margin-top: 20px;
     outline: none;
 }
+
 .cont-box-modal{
     display: block;
     width: 100%;
@@ -266,6 +267,7 @@
     align-items: center;     /* Vertically center */
     z-index: 1000; /* Ensure it is on top */
 }
+
 .modal-excluir{
     width: 600px; /* Ajuste o tamanho conforme necessário */
     border: solid 1px #ccc;
