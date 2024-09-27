@@ -103,12 +103,18 @@
                     
 
                         <form class="chat__form">
-                            <span class="material-symbols-outlined">
+                            <div class="icons-chat">
+
+                            <span class="material-symbols-outlined icon">
                                 sentiment_satisfied
                                 </span>
-                            <span class="material-symbols-outlined">
+
+                            <span class="material-symbols-outlined icon">
                                 text_fields
                                 </span>
+
+                                </div>
+
                             <input type="text" class="chat__input" required />
                             <button type="submit" class="chat__button">
                                 <span class="material-symbols-outlined">

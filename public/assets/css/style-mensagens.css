@@ -143,9 +143,19 @@
 
 }
 
+.icons-chat{
+    display: flex;
+    gap: 12px;
+}
+
+.icon{
+    cursor: pointer;
+}
+
 .chat__button> span{
     font-size: 1.8rem;
 }
+
 .message__sender{
     display: block;
     margin-bottom: 15px;

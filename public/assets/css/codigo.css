@@ -37,6 +37,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 75vh;
 }
 
 .title-senha{
@@ -47,14 +48,16 @@ main{
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px #0000001a;
     overflow: hidden;
     width: 440px;
     max-width: 100%;
-    padding: 20px;
-    height: 340px;
+    padding: 30px;
+    height: auto;
 }
 
 .txt p{

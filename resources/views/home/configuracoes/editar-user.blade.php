@@ -85,7 +85,7 @@
             <input type="submit" value="Mudar">
         </form>
         <div class="cont-destroy-perfil">
-            <h2>Excluir Conta</h2>
+            
         
         <button type="button" onclick="abrirModal()">Excluir Perfil</button>
         </div>

@@ -162,7 +162,7 @@
                     </div>
 
                     <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 3">
+                        <img src="{{url('assets/img/feliz.png')}}" alt="Slide 3">
                         <div class="carousel-text">Texto</div>
                     </div>
 
