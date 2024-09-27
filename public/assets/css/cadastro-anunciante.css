@@ -1,0 +1,320 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opszwght.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    font-family: "Fredoka";
+
+}
+
+.container-fluid{
+    margin: 0;
+    padding: 0;
+}
+
+.container-conteudo{
+    display: flex;
+    min-width: 100%;
+   
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+ 
+}
+.cont-img-mobile{
+    display: none;
+}
+
+.cont-img-mobile img{
+    width: 40%;
+}
+.cont-form{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-form{
+    display: flex;
+    width: 400px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.cont-head{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-back{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cont-head .cont-titulo{
+    width: 100%;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-head .cont-titulo h2{
+    font-size: 45px;
+    color: #F26699;
+    text-align: center;
+    font-weight: normal;
+}
+
+.cont-back a img{
+    width: 30px;
+}
+
+.cont-btn{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cont-btn a{
+    min-width: 20%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #8c898a;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.cont-btn a:hover{
+   
+    background-color: #ff6c91;
+
+}
+
+.cont-btn a.active{
+    background-color: #F26699;
+}
+
+.slider-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-form section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-form section form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    transition: all 0.4s ease-in-out;
+}
+
+form .input-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 12px;
+    width: 100%;
+}
+
+
+form .input-group label {
+    margin-bottom: 10px;
+}
+
+form span{
+    color:#bf093d
+}
+
+form .input-group .cont-input .icon-input{
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+form .input-group .cont-input{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+form .input-group i{
+    position: absolute;
+    right: 3%;
+    font-size: 25px;
+    color: #F26699;
+    cursor: pointer;
+}
+form  .cont-input label .icon-input{
+    width: 30px;
+    margin-right: 5px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+form .input-group  input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #F26699;
+    outline: none;
+}
+
+.animated-input:focus {
+    border-bottom: 4px solid #F26699;
+    transform: scale(1.04);
+}
+
+input:focus, input:valid{
+    border: none;
+    border-bottom: 2px solid #F26699;
+    
+}
+
+form .regras-senha{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 0px;
+    height: 0px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    opacity: 1;
+    overflow: hidden;
+    transition: height 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+form .regras-senha.active{
+    opacity: 1;
+    
+    height: 200px;
+}
+
+form .regras-senha>div{
+    margin: 15px 10px;
+    font-weight: 400;
+    color: #9b143a;
+}
+
+form .regras-senha>div>span.active{
+    color:#409b0c
+}
+
+form button{
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+form button:hover{
+    background-color: #F88AC5;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide img {
+    width: 110%;
+    height: 100%;
+
+}
+
+.carousel-text {
+    text-align: center;
+    padding: 10px;
+    background-color: #f26699bc;
+    color: white;
+    position: absolute;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 3.5s;
+}
+
+@keyframes fade {
+    from { opacity: 2 } 
+    to { opacity: 1 }
+}
+
+@media screen and (max-width: 1000px){
+
+    .cont-carousel{
+        display: none;
+    }
+    .container-conteudo{
+        flex-direction: column;
+    }
+    .cont-img-mobile{
+        display: flex;
+        width: 100%;
+        height: 300px;
+        padding-top: 10%;
+        justify-content: start;
+        align-items: center;
+    }
+    .cont-back{
+        display: none;
+    }
+    
+}
