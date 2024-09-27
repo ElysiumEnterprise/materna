@@ -184,13 +184,13 @@
     color: white;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-top: 20px;
 }
 
 .cont-editar-perfil form input[type='submit']:hover{
     background-color: #dc437b;
-    transform: scale(1.04);
+    transform: scale(1.01);
 }
 .cont-destroy-perfil{
     display: flex;
@@ -231,6 +231,7 @@
     transition: all 0.3s ease;
     margin-top: 20px;
 }
+
 .modal form button[type='submit']{
     justify-content: center;
     align-items: center;
@@ -335,7 +336,7 @@
     color: white;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-top: 20px;
 }
 .modal-excluir .cont-modal .cont-btn-escolha button{
@@ -344,7 +345,7 @@
 }
 .modal-excluir .cont-modal .cont-btn-escolha form button:hover, .cont-destroy-perfil  button:hover{
     background-color: #9f101c;
-    transform: scale(1.04);
+    transform: scale(1.01);
 }
 
 .modal-excluir .cont-modal .cont-btn-escolha button:hover{
