@@ -1,25 +1,33 @@
-const carouselSlide = document.querySelector('.carousel-slide');
-const images = document.querySelectorAll('.carousel-slide img');
+const carouselContainer = document.querySelector('.carousel-container');
+const carouselSlides = document.querySelectorAll('.carousel-slide');
 
 let counter = 0;
-const size = images[0].clientWidth;
+let size = carouselContainer.clientWidth; // Captura a largura do contêiner
 
 function autoSlide() {
     counter++;
-    if (counter >= images.length) {
+    if (counter >= carouselSlides.length) {
         counter = 0;
     }
-    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    carouselSlides.forEach((slide, index) => {
+        slide.style.display = (index === counter) ? 'block' : 'none';
+    });
+    carouselContainer.style.transform = `translateX(${-size * counter}px)`;
 }
 
 setInterval(autoSlide, 3000); // Muda o slide a cada 3 segundos
 
 // Ajusta o tamanho da imagem ao redimensionar a janela
 window.addEventListener('resize', () => {
-    carouselSlide.style.transition = 'none'; // Remove a transição durante o redimensionamento
-    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
-    setTimeout(() => {
-        carouselSlide.style.transition = 'transform 0.4s ease-in-out'; // Restaura a transição
-    }, 0);
+    size = carouselContainer.clientWidth; // Atualiza o tamanho ao redimensionar
+    updateCarousel(); // Atualiza a exibição do carousel
 });
 
+// Inicializa o carousel na carga da página
+document.addEventListener('DOMContentLoaded', () => {
+    updateCarousel();
+});
