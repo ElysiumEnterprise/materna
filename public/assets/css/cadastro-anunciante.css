@@ -280,8 +280,8 @@ form button:hover{
 .carousel-text {
     text-align: center;
     padding: 10px;
-    background-color: #f26699bc;
-    color: white;
+    color: #8c898a;
+    font-size: 18px;
     position: absolute;
     width: 100%;
     margin-top: 2px;
