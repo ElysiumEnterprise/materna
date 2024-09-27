@@ -157,14 +157,22 @@
                     </div>
                 </div>
 
-                <div class="cont-carousel">
-                        <div class="carousel-container">
-                            <div class="carousel-slide">
-                               
-                                <img class="img-carousel" src="{{url('assets/img/slide3.png')}}" alt="Imagem 3">
-        
-                                <img class="img-carousel" src="{{url('assets/img/slide2-final.png')}}" alt="Imagem 2">
-                        </div>
+                <div class="carousel-container">
+                    <div class="carousel-slide fade">
+                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 1">
+                        <div class="carousel-text">Texto</div>
+                    </div>
+
+                    <div class="carousel-slide fade">
+                        <img src="{{url('assets/img/chat.png')}}" alt="Slide 2">
+                        <div class="carousel-text">Texto</div>
+                    </div>
+
+                    <div class="carousel-slide fade">
+                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 3">
+                        <div class="carousel-text">Texto</div>
+                    </div>
+
                 </div>
 
             </div>
