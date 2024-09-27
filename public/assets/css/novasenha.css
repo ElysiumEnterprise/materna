@@ -37,6 +37,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 75vh;
 }
 
 .title-senha{
@@ -55,8 +56,8 @@ main{
     overflow: hidden;
     width: 440px;
     max-width: 100%;
-    padding: 20px;
-   height: auto;
+    padding: 30px;
+    height: auto;
 }
 
 .txt p{
