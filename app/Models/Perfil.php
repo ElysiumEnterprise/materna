@@ -41,6 +41,22 @@ class Perfil extends Model
         return $this->belongsToMany(Categoria::class, 'categoria_perfils', 'idCategoria', 'idPerfil');;
     }
 
-    
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($perfil){
+            //Deleta as postagens
+            $perfil->usuarios()->delete();
+
+            //Deleta as postagens
+
+            $perfil->postagems()->delete();
+
+            //Deletagem de categorias
+
+            $perfil->categorias()->delete();
+        });
+    }
     use HasFactory;
 }

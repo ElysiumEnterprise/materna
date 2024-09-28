@@ -156,4 +156,12 @@ class UsuarioController extends Controller
             return redirect('/');
         }
     }
+
+    public function destrouyViaADM($idUser){
+        $user = Usuario::find($idUser);
+
+        $user->delete();
+
+        return redirect()->route('usuarios.adm');
+    }
 }

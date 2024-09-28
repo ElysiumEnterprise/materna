@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ExclusaoController;
@@ -78,6 +79,15 @@ Route::post('/dashboard/usuarios', [UsuarioController::class, 'buscarUsuario'])-
 
 Route::get('/dashboard/info-usuario/{idPerfil}', [InfoUserController::class, 'goInfoUserADM'])->name('info.user');
 
+//ir para as denúncias verificadas do usuário
+
+Route::get('/dashboard/denuncias-verificadas/{idUser}', [InfoUserController::class, 'goListagemDenunciasVerificadas'])->name('go.list-denuncias-verificadas');
+
+//Ações que determinam se a denúncia foi aceita ou não
+Route::put('/dashboard/denuncia/{idDenuncia}', [DenunciaController::class, 'aceitarDenuncia'])->name('aceitar.denuncia');
+
+Route::delete('/dashboard/denuncia/{idDenuncia}', [DenunciaController::class, 'recusarDenuncia'])->name('recusar.denuncia');
+//
 Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');
 });

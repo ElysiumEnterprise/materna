@@ -17,5 +17,11 @@ class InfoUserController extends Controller
         
         return view('dashboard-adm.info-cliente-adm', compact('user'));
     }
+
+    public function goListagemDenunciasVerificadas($idUser){
+        $user = Usuario::with('denuncias')->first();
+
+        return view('dashboard-adm.denuncias-verificadas', compact('user'));
+    }
     
 }
