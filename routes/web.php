@@ -145,13 +145,8 @@ Route::middleware(['auth'])->group(function() {
 
 
 
-Route::get('/preferencias', function () {
-    return view('preferencias'); // Certifique-se de que o arquivo está na pasta correta
-})->name('preferencias');
+Route::get('/preferencias', [PreferenciasController::class, 'mostrarPreferencias'])->name('preferencias');
 
-// routes/web.php
-// routes/web.php
-Route::post('/salvar-conteudo', [ConteudoController::class, 'salvarConteudo'])->name('salvarConteudo');
-
-
+// Rota para salvar as preferências
+Route::post('/preferencias', [PreferenciasController::class, 'salvarPreferencias'])->name('salvar.preferencias');
 
