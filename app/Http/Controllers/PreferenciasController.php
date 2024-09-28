@@ -1,35 +1,22 @@
-<?php
-
-namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PreferenciasController extends Controller
 {
-    public function mostrarPreferencias()
-    {
-        return view('preferencias'); // Retorna a view das preferências
-    }
-
     public function salvarPreferencias(Request $request)
     {
-        // Pega o usuário autenticado
-        $usuario = Auth::user();
+        $user = auth()->user(); // Obtém o usuário autenticado
 
-        // Validação das preferências
+        // Valida se pelo menos uma preferência foi selecionada
         $request->validate([
-            'preferencias' => 'required|array|min:1',
-        ], [
-            'preferencias.required' => 'Selecione pelo menos uma preferência!',
+            'preferencias' => 'required|array',
         ]);
 
         // Salva as preferências no banco de dados
-        $usuario->preferencias = json_encode($request->preferencias);
-        $usuario->primeiro_login = false; // Define que o usuário não está mais no primeiro login
-        $usuario->save();
+        $user->preferencias = json_encode($request->preferencias); // Armazena como JSON
+        $user->save();
 
-        // Redireciona o usuário para o feed ou outra página
-        return redirect()->route('/home/feed')->with('success', 'Preferências salvas com sucesso!');
+        // Redireciona para a tela do feed
+        return redirect()->route('feed'); // Ajuste para o nome correto da sua rota de feed
     }
 }
