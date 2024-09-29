@@ -84,6 +84,10 @@ Route::post('/dashboard/usuarios', [UsuarioController::class, 'buscarUsuario'])-
 
 Route::get('/dashboard/info-usuario/{idPerfil}', [InfoUserController::class, 'goInfoUserADM'])->name('info.user');
 
+//Deletagem do usuário via ADM
+
+Route::delete('/dashboard/info-usuario/{idPerfil}', [UsuarioController::class, 'destroyViaADM'])->name('user.destroy.adm');
+
 //ir para as denúncias verificadas do usuário
 
 Route::get('/dashboard/denuncias-verificadas/{idUser}', [InfoUserController::class, 'goListagemDenunciasVerificadas'])->name('go.list-denuncias-verificadas');

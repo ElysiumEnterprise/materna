@@ -157,7 +157,7 @@ class UsuarioController extends Controller
         }
     }
 
-    public function destrouyViaADM($idUser){
+    public function destroyViaADM($idUser){
         $user = Usuario::find($idUser);
 
         $user->delete();

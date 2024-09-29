@@ -37,14 +37,14 @@
 
 .cont-clientes{
     display: flex;
-    width: auto;
+    
     height: 100%;
     flex-direction: column;
     padding: 20px;
 }
 .cont-card-num-cadastro{
     display: flex;
-    width: 30%;
+    
     height: auto;
 }
 
@@ -141,16 +141,16 @@
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+   
     height: auto;
     background-color: var(--color-white);
-    border: 10px;
+    border-radius: 10px;
     padding: 30px;
 }
 
 .cont-titulo{
     display: flex;
-    width: 100%;
+   
     height: auto;
     justify-content: start;
     align-items: center;
@@ -164,10 +164,8 @@
 }
 
 .cont-filtro{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
     justify-content: center;
     align-items: center;
 }
@@ -203,7 +201,7 @@
 }
 .cont-buscador{
     display: flex;
-    width: 50%;
+    
     height: 100%;
     justify-content: end;
     
@@ -211,7 +209,7 @@
 }
 
 .cont-buscador form{
-    min-width: 400px;
+    min-width: 250px;
     background-color: var(--color-primary);
     border-radius: 50px 50px;
 }
@@ -318,4 +316,44 @@
     color: var(--color-dark);
     font-family: 'Inter';
 
+}
+
+@media screen and (max-width: 1200px) {
+
+    .cont-lista-users{
+        width: 90%;
+    }
+
+    .cont-buscador{
+        width: 10px;
+    }
+    .cont-filtro{
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-buttons{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-buscador{
+        display: flex;
+        
+        width:100%;
+        
+        justify-content: center;
+        
+        align-items: center;
+    }
+    
+    .cont-buscador form{
+        min-width: 250px;
+       
+    }
 }
