@@ -299,7 +299,7 @@ form button:hover{
 
 @media screen and (max-width: 1000px){
 
-    .cont-carousel{
+    .carousel-container{
         display: none;
     }
     .container-conteudo{
