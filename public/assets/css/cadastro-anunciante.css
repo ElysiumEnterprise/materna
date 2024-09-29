@@ -272,7 +272,7 @@ form button:hover{
 }
 
 .carousel-slide img {
-    width: 100%;
+    width: 85%;
     height: auto;
 
 }
@@ -283,7 +283,7 @@ form button:hover{
     color: #8c898a;
     font-size: 18px;
     position: absolute;
-    width: 100%;
+    width: 85%;
     margin-top: 2px;
 }
 
