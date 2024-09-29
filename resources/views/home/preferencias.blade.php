@@ -41,8 +41,8 @@
 
             <div>
                 <label>
-                    <input type="checkbox" name="preferencias[]" value="entretenimento">
-                    <span>Entretenimento</span>
+                    <input type="checkbox" name="preferencias[]" value="amamentacao">
+                    <span>Amamentação</span>
                 </label>
             </div>
 
@@ -62,15 +62,15 @@
 
             <div>
                 <label>
-                    <input type="checkbox" name="preferencias[]" value="alimentacao">
-                    <span>Alimentação</span>
+                    <input type="checkbox" name="preferencias[]" value="puerperio">
+                    <span>Puerferio</span>
                 </label>
             </div>
 
             <div>
                 <label>
-                    <input type="checkbox" name="preferencias[]" value="passeios">
-                    <span>Passeios</span>
+                    <input type="checkbox" name="preferencias[]" value="educacao">
+                    <span>Educação</span>
                 </label>
             </div>
 
