@@ -57,20 +57,7 @@
                         </div>
                         
                     </div>
-                    <div class="regras-senha">
-                        <div class="senha-numeros">
-                            <span class="txt-regra-numb">Precisa conter números</span>
-                        </div>
-                        <div class="senha-uppercase">
-                            <span class="txt-regra-upper">Precisa conter caracteres maiúsculos</span>
-                        </div>
-                        <div class="senha-caracteres">
-                            <span class="txt-regra-caracter">No mínimo, 8 carecteres</span>
-                        </div>
-                        <div class="senha-carcter-especiais">
-                            <span class="txt-regra-caracter-special">Precisa conter caracteres speciais</span>
-                        </div>
-                    </div>
+                    
                     <div class="cont-btn">
                         <button type="submit">
                             Entrar
