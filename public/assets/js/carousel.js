@@ -16,8 +16,8 @@ function updateCarousel() {
     carouselSlides.forEach((slide, index) => {
         slide.style.display = (index === counter) ? 'block' : 'none';
     });
-    carouselContainer.style.transform = `translateX(${-size * counter}px)`;
 }
+
 
 setInterval(autoSlide, 3500); // Muda o slide a cada 3 segundos
 

@@ -59,5 +59,26 @@ class Usuario extends Authenticatable
     public function denuncias(){
         return $this->hasMany(Denuncia::class, 'idUsuario');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($usuario) {
+            // Deleta os posts relacionados
+            $usuario->anunciantes()->delete();
+
+            // Deleta as denúncias relacionadas
+            $usuario->denuncias()->delete();
+
+            //Deleta os telefones relacionados:
+
+            $usuario->telefone_users()->delete();
+
+            //Deletagem de Perfils
+            $usuario->perfils()->delete();
+        });
+    }
+
     use HasFactory;
 }
