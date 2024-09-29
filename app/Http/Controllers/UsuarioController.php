@@ -17,18 +17,32 @@ class UsuarioController extends Controller
     public function show(){
 
         $users = Usuario::with('perfils')->where('idNivelUsuario', '!=', 2)->get();
-        return view('dashboard-adm.clientes-adm', compact('users'));
+
+        if ($users->isEmpty()) {
+            return view('dashboard-adm.clientes-adm', compact('users'))->with('message', 'Não foi encontrados usuários cadastrados no sitema!');
+        }else{
+            return view('dashboard-adm.clientes-adm', compact('users'));
+        }
+        
         
     }
 
     public function showCliente(){
         $users = Usuario::all()->where('idNivelUsuario', '!=', 3)->where('idNivelUsuario', '!=', 2);
-        return view('dashboard-adm.clientes-adm', compact('users'));
+        if ($users->isEmpty()) {
+            return view('dashboard-adm.clientes-adm', compact('users'))->with('message', 'Não foi encontrados usuários do tipo cliente no sitema!');
+        }else{
+            return view('dashboard-adm.clientes-adm', compact('users'));
+        }
     }
 
     public function showAnunciantes(){
         $users = Usuario::all()->where('idNivelUsuario', '!=', 1)->where('idNivelUsuario', '!=', 2);
-        return view('dashboard-adm.clientes-adm', compact('users'));
+        if ($users->isEmpty()) {
+            return view('dashboard-adm.clientes-adm', compact('users'))->with('message', 'Não foi encontrados usuários do tipo anunciantes no sitema!');
+        }else{
+            return view('dashboard-adm.clientes-adm', compact('users'));
+        }
     }
 
     public function buscarUsuario(Request $request){
@@ -157,7 +171,7 @@ class UsuarioController extends Controller
         }
     }
 
-    public function destrouyViaADM($idUser){
+    public function destroyViaADM($idUser){
         $user = Usuario::find($idUser);
 
         $user->delete();

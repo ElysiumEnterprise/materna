@@ -69,41 +69,36 @@ senha.addEventListener('blur', function(){
 //Verificação de senha
 senha.addEventListener('keyup', function(){
     
-
-    const regra_uppercase = document.querySelector('.txt-regra-upper');
-    const regra_caracter = document.querySelector('.txt-regra-caracter');
-    const regra_carcter_special = document.querySelector('.txt-regra-caracter-special');
-    const regra_numero = document.querySelector('.txt-regra-numb');
     //Verificar Se tem carctere maiúscula
     if (/[A-Z]/.test(senha.value)) {
-        regra_uppercase.classList.add('active')
+        
         passUpperValid=true;
     }else{
-        regra_uppercase.classList.remove('active')
+       
         passUpperValid=false;
     }
     //Verfiricar se a senha tem no mínimo 8 caracteres
     if(senha.value.length>=8){
-        regra_caracter.classList.add('active')
+        
         passCaracter8Valid=true;
     }else{
-        regra_caracter.classList.remove('active');
+        
         passCaracter8Valid=false
     }
     //Verficar se a senha tem números
     if (/[0-9]/.test(senha.value)) {
-        regra_numero.classList.add('active');
+        
         passNumbValid=true;
     }else{
-        regra_numero.classList.remove('active');
+       
         passNumbValid=false;
     }
     //Verificar se a senha tem a caracteres especiais
     if(/[^A-Za-z0-9]/.test(senha.value)){
-        regra_carcter_special.classList.add('active');
+        
         passCaracterSpecialValid=true
     }else{
-        regra_carcter_special.classList.remove('active');
+        
         passCaracterSpecialValid=false;
     }
 

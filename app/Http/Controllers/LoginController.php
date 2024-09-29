@@ -108,7 +108,7 @@ class LoginController extends Controller
             $usuario = Auth::user();
             
             if ($usuario->idNivelUsuario==2) {
-                return redirect()->intended('/dashboard/home');
+                return redirect()->intended('go.adm');
             }else {
                 Auth::logout();
                 return redirect()->back()->with(['status'=> 'Opa, você não é um ADM!', 'message' => 'Clique aqui para logar na sua área!' , 'link'=>'/']);

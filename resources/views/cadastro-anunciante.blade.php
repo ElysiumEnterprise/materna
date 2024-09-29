@@ -159,12 +159,12 @@
 
                 <div class="carousel-container">
                     <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 1">
+                        <img src="{{url('assets/img/ads.png')}}" alt="Slide 1">
                         <div class="carousel-text">Texto</div>
                     </div>
 
                     <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/chat.png')}}" alt="Slide 2">
+                        <img src="{{url('assets/img/seguidor.png')}}" alt="Slide 2">
                         <div class="carousel-text">Texto</div>
                     </div>
 

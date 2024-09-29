@@ -16,7 +16,7 @@
                         
                         <div class="left">
                             <h3 class="titulo-card">Cadastros</h3>
-                            <h1>89</h1>
+                            <h1>{{$users->count()}}</h1>
                         </div>
                         
                         <div class="progress">
@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <small class="text-muted">Últimas 24 Horas</small>
+                    <small class="text-muted">Desde do começo</small>
                 </div>
         </div>
         <div class="cont-lista-users">
@@ -75,7 +75,7 @@
                 @if(session('message'))
                 <div class="cont-status">
                     <i class="fa-solid fa-circle-exclamation"></i>
-                    <p>{{ session('message') }}</p>
+                    <p>{{session('message')}}</p>
                 </div>
                 @else
                 <div class="cont-status">

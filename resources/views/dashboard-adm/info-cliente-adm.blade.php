@@ -107,7 +107,7 @@
                     <p>Esse usuário não poderá mais acessar a rede Materna e perderá seus dados!</p>
                 </div>
                 <div class="cont-btn-escolha">
-                    <form action="{{ route('user.destroy', $user->idUsuario) }}" method="POST">
+                    <form action="{{ route('user.destroy.adm', $user->idUsuario) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit">Excluir Perfil</button>
