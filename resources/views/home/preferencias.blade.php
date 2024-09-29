@@ -48,8 +48,8 @@
 
             <div>
                 <label>
-                    <input type="checkbox" name="preferencias[]" value="receitas">
-                    <span>Receitas</span>
+                    <input type="checkbox" name="preferencias[]" value="alimentacao">
+                    <span>Alimentação</span>
                 </label>
             </div>
 

@@ -47,9 +47,9 @@ class LoginController extends Controller
 
                 // AQUI INICIO PARA CONTEUDO
 
-                if ($usuario->primeiro_login) {
-                    return redirect()->route('preferencias'); // Redireciona para a tela de preferências
-                } else {
+                if (is_null(auth()->user()->preferencias)) {
+                    return redirect()->route('/home/preferencias'); // Ajuste para o nome correto da sua rota de preferências
+                }else{
 
                 // FIM MUDANÇA
 

@@ -1,22 +1,35 @@
+<?php
+
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
+
 
 class PreferenciasController extends Controller
 {
     public function salvarPreferencias(Request $request)
     {
-        $user = auth()->user(); // Obtém o usuário autenticado
+        // Verifique se o usuário está autenticado
+        if (auth()->check()) {
+            $user = auth()->user(); // Obtém o usuário autenticado
 
-        // Valida se pelo menos uma preferência foi selecionada
-        $request->validate([
-            'preferencias' => 'required|array',
-        ]);
+            // Valida se pelo menos uma preferência foi selecionada
+            $request->validate([
+                'preferencias' => 'required|array',
+            ]);
 
-        // Salva as preferências no banco de dados
-        $user->preferencias = json_encode($request->preferencias); // Armazena como JSON
-        $user->save();
+            // Salva as preferências no banco de dados
+            $user->preferencias = json_encode($request->preferencias); // Armazena como JSON
+            $user->save();
 
-        // Redireciona para a tela do feed
-        return redirect()->route('feed'); // Ajuste para o nome correto da sua rota de feed
+              // Filtra os posts com base nas preferências
+          
+        
+           
+            // Redireciona para a tela do feed
+            return redirect()->route('home.feed'); // Ajuste para o nome correto da sua rota de feed
+        } else {
+            return redirect()->route('index')->withErrors('Você precisa estar logado para salvar preferências.');
+        }
     }
 }

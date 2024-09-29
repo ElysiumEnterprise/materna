@@ -10,6 +10,25 @@
     
 @section('cont-home')
     <div class="cont-feed">
+
+
+    <!-- api para mudar o feed -->
+
+       <!-- Seção do Select para Escolher o Conteúdo -->
+       <div class="cont-select">
+            <label for="conteudo-select">Escolha um Conteúdo:</label>
+            <select id="conteudo-select">
+                <option value="">Selecione um conteúdo</option>
+                <option value="adolescencia">Adolescência</option>
+                <option value="gravidez">Gravidez</option>
+                <option value="maes_solo">Mães Solo</option>
+                <option value="receitas">Receitas</option>
+                <option value="lazer">Lazer</option>
+                <!-- Adicione mais opções conforme necessário -->
+            </select>
+        </div>
+
+        <!-- terminou -->
         
         <div class="cont-post">
             

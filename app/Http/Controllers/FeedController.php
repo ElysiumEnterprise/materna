@@ -16,4 +16,6 @@ class FeedController extends Controller
             return view('home.perfilAnunciante');
         }
    }
+   
 }
+

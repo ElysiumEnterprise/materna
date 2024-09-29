@@ -14,6 +14,11 @@ use App\Mail\TestMail;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Mail;
 
+use App\Http\Controllers\PreferenciasController;
+
+use App\Http\Controllers\UserPreferenciasController;
+
+
 Route::get('/', function () {
     return view('index');
 })->name('index');
@@ -145,8 +150,10 @@ Route::middleware(['auth'])->group(function() {
 
 
 
-Route::get('/preferencias', [PreferenciasController::class, 'mostrarPreferencias'])->name('preferencias');
+Route::get('/home/preferencias', function () {
+    return view('/home/preferencias'); // Ajuste para o nome correto da sua view
+})->name('/home/preferencias');
 
 // Rota para salvar as preferências
-Route::post('/preferencias', [PreferenciasController::class, 'salvarPreferencias'])->name('salvar.preferencias');
+Route::post('/home/preferencias', [PreferenciasController::class, 'salvarPreferencias'])->name('salvar.preferencias');
 
