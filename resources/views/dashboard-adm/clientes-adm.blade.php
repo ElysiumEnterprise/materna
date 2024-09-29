@@ -75,7 +75,7 @@
                 @if(session('message'))
                 <div class="cont-status">
                     <i class="fa-solid fa-circle-exclamation"></i>
-                    <p>{{ session('message') }}</p>
+                    <p>{{session('message')}}</p>
                 </div>
                 @else
                 <div class="cont-status">
