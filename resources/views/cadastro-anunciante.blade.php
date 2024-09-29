@@ -159,7 +159,7 @@
 
                 <div class="carousel-container">
                     <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 1">
+                        <img src="{{url('assets/img/ads.png')}}" alt="Slide 1">
                         <div class="carousel-text">Texto</div>
                     </div>
 

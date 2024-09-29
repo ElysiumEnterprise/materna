@@ -57,7 +57,7 @@
                                             
                                         
                                         
-                                        <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Digite seu nome" value='{{old("nomeCliente")}}'>
+                                        <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Digite seu nome completo" value='{{old("nomeCliente")}}'>
                                     </div>
                                 
                                 </div>
