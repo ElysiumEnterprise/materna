@@ -164,7 +164,7 @@
                     </div>
 
                     <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/chat.png')}}" alt="Slide 2">
+                        <img src="{{url('assets/img/seguidor.png')}}" alt="Slide 2">
                         <div class="carousel-text">Texto</div>
                     </div>
 
