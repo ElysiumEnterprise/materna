@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CadastroController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\LoginController;
@@ -67,9 +68,7 @@ Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('home.feed');
 //Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('feed');
 
 //Dashboard
-Route::get('/dashboard/home', function(){
-    return view('dashboard-adm.dashboard-home');
-});
+Route::get('/dashboard/home', [DashboardController::class, 'goDashboard'])->name('go.dashboard');
 
 Route::get('/dashboard/usuarios', [UsuarioController::class, 'show'])->name('usuarios.adm');
 

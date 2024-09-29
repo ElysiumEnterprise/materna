@@ -32,7 +32,7 @@
             </div>
 
             <div class="sidebar">
-                <a href="/dashboard/home">
+                <a href="{{route('go.dashboard')}}">
                     <span class="material-icons-sharp">grid_view</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -98,47 +98,43 @@
 
                     <div class="profile-photo">
                         <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}">
-                    </div>
+                    </div>+
                 </div>
             </div>
 
             <div class="recent-updates">
                 <h2>Atualizações recentes</h2>
+
                 <div class="updates">
+                @foreach($ultimosUsuarios as $usuario)
+                @php
+                    
+                    if($usuario->created_at->diffInMinutes(now()) => 60){
+                        if($usuario->created_at->diffInHours(now()) =>24){
 
+
+
+                        }else{
+                            $tempoPassado = $usuario->created_at->diffInHours(now()). '';
+                        }
+
+                    }else{
+                        $tempoPassado = $usuario->created_at->diffInMinutes(now());
+                    }
+                @endphp
                     <div class="update">
+                        <a href="{{route('')}}"></a>
                         <div class="profile-photo">
-                            <img src="{{url('assets/img/Dashboard/albert-dera-ILip77SbmOE-unsplash.jpg')}}">
+                            <img src="{{url('assets/img/foto-perfil/'.$usuario->perfils->fotoPerfil)}}">
                         </div>
 
                         <div class="message">
-                            <p><b>João</b>recebeu seu pedido</p>
-                            <small class="text-muted">10 minutos atrás</small>
+                            <p><b>{{$usuario->nome}}</b>se cadastrou a Materna!</p>
+                            <small class="text-muted">{{$minutosPassados}}</small>
                         </div>
                     </div>
-
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="{{url('assets/img/Dashboard/erik-lucatero-d2MSDujJl2g-unsplash.jpg')}}">
-                        </div>
-
-                        <div class="message">
-                            <p><b>Marcos</b>recebeu seu pedido</p>
-                            <small class="text-muted">19 minutos atrás</small>
-                        </div>
-                    </div>
-
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="{{url('assets/img/Dashboard/prince-akachi-J1OScm_uHUQ-unsplash.jpg')}}">
-                        </div>
-
-                        <div class="message">
-                            <p><b>Sônia</b>recebeu seu pedido</p>
-                            <small class="text-muted">35 minutos atrás</small>
-                        </div>
-                    </div>
-
+                @endforeach
+                    
                 </div>
             </div>
 

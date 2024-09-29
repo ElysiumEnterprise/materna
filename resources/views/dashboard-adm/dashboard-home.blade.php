@@ -23,7 +23,7 @@
                         
                         <div class="left">
                             <h3 class="titulo-card">Cadastros</h3>
-                            <h1>89</h1>
+                            <h1>{{$countCadastros}}</h1>
                         </div>
 
                         <div class="progress">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
 
-                    <small class="text-muted">Últimas 24 Horas</small>
+                    <small class="text-muted">No total</small>
                 </div>
 
                 <div class="expenses">
@@ -42,7 +42,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3 class="titulo-card">Postagens</h3>
-                            <h1>267</h1>
+                            <h1>{{$countPostagens}}</h1>
                         </div>
 
                         <div class="progress">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
 
-                    <small class="text-muted">Últimas 24 horas</small>
+                    <small class="text-muted">No total</small>
                 </div>
 
                 <div class="income">
@@ -62,7 +62,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3 class="titulo-card">Anúncios</h3>
-                            <h1>13</h1>
+                            <h1>{{$countPostADD}}</h1>
                         </div>
 
                         <div class="progress">
@@ -73,7 +73,7 @@
                         </div>
                     </div>
 
-                    <small class="text-muted">Últimas 24 horas</small>
+                    <small class="text-muted">No total</small>
                 </div>
             </div>
 
