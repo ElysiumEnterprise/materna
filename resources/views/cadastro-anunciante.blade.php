@@ -172,8 +172,8 @@
                     </div>
 
                     <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/feliz.png')}}" alt="Slide 3">
-                        <div class="carousel-text">Texto</div>
+                        <img src="{{url('assets/img/happy.png')}}" alt="Slide 3">
+                        <div class="carousel-text">Venha fazer parte da Materna também!!!</div>
                     </div>
 
                 </div>
