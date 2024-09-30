@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+
+body{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.cont-header{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-header .cont-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cont-header .cont-img img{
+    width: 200px;
+}
+
+.cont-header .cont-titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-header .cont-titulo h1{
+    font-size: 30px;
+    font-family: 'Fredoka';
+    font-weight: bold;
+    color: black;
+}
+
+.cont-header .cont-desc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-header .cont-desc p{
+    font-size: 18px;
+    font-family: 'Inter';
+    color: black;
+}
+
+.cont-conteudo{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+
+}
+.cont-conteudo > h3{
+    font-size: 22px;
+    color: black;
+    font-family: 'Fredoka';
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cont-conteudo > h4{
+    font-size: 18px;
+    font-family: 'Fredoka';
+    font-weight: bold;
+    color: black;
+}
+.cont-conteudo > h4 span{
+    color: black;
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+    </style>
+    <title>Relatório do Sistema Materna</title>
+</head>
+<body>
+    <div class="cont-header">
+        <div class="cont-img">
+            <img src="http://127.0.0.1:8000/assets/img/logo/Logo-Materna.png" alt="Logo da Materna">
+        </div>
+        <div class="cont-titulo">
+            <h1>Relatório do Sistema Materna</h1>
+        </div>
+        <div class="cont-desc">
+            <p>Esse relatório foi gerado na data : 30/09/2024</p>
+        </div>
+    </div>
+
+    <div class="cont-conteudo">
+        <h3>Cadastros</h3>
+        <h4>Cadastros Realizados ao Todo: <span>3</span></h4>
+        <h4>Cadastros Realizados no Mês: <span>2</span></h4>
+
+        <h3>Postagens</h3>
+        <h4>Postagens Realizadas ao Todo: <span>0</span></h4>
+        <h4>Postagens Realizadas no Mês: <span>0</span></h4>
+
+        <h3>Anúncios</h3>
+        <h4>Anúncios Gerados ao Todo: <span>0</span></h4>
+        <h4>Anúncios Gerados no Mês: <span>0</span></h4>
+
+        <h3>Denúncias</h3>
+        <h4>Denúncias Feitas ao Todo: <span>1</span></h4>
+        <h4>Denúncias Feitas no Mês: <span>0</span></h4>
+        <h4>Denúncias Verificadas no Total: 0</h4>
+        <h4>Denúncias Verificadas no Mês: 0</h4>
+    </div>
+</body>
+</html>

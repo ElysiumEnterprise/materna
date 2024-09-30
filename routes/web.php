@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ExclusaoController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\InfoUserController;
+use App\Http\Controllers\PDFGenerateController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UsuarioController;
 use App\Mail\TestMail;
@@ -169,4 +170,8 @@ Route::get('/home/preferencias', function () {
 
 // Rota para salvar as preferências
 Route::post('/home/preferencias', [PreferenciasController::class, 'salvarPreferencias'])->name('salvar.preferencias');
+
+//Rotas para gera pdf
+
+Route::get('/pdf/relatorio', [PDFGenerateController::class, 'gerarPDFRelatorioHoje'])->name('pdf.relatorio');
 

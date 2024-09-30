@@ -1,0 +1,87 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+
+body{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.cont-header{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-header .cont-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cont-header .cont-img img{
+    width: 200px;
+}
+
+.cont-header .cont-titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-header .cont-titulo h1{
+    font-size: 30px;
+    font-family: 'Fredoka';
+    font-weight: bold;
+    color: black;
+}
+
+.cont-header .cont-desc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-header .cont-desc p{
+    font-size: 18px;
+    font-family: 'Inter';
+    color: black;
+}
+
+.cont-conteudo{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+
+}
+.cont-conteudo > h3{
+    font-size: 22px;
+    color: black;
+    font-family: 'Fredoka';
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.cont-conteudo > h4{
+    font-size: 18px;
+    font-family: 'Fredoka';
+    font-weight: bold;
+    color: black;
+}
+.cont-conteudo > h4 span{
+    color: black;
+    font-family: 'Inter';
+    font-weight: normal;
+}
+
+

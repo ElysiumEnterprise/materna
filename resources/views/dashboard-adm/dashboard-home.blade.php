@@ -10,11 +10,12 @@
 @section('cont-adm')
         
             <h1>Dashboard</h1>
-
-            <div class="date">
-                <input type="date">
+            <div class="cont-acoes">
+                <a href="{{route('pdf.relatorio')}}">Gerar PDF</a>
+            
             </div>
-
+            
+            
             <div class="insights">
 
                 <div class="sales">
@@ -76,64 +77,37 @@
                     <small class="text-muted">No total</small>
                 </div>
             </div>
-
+    
             <div class="recent-orders">
-                <h2>Pedidos Recentes</h2>
+                <h2>Anunciantes Recentes</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Nome do produto</th>
-                            <th>Número do produto</th>
-                            <th>Pagamento</th>
-                            <th>Status</th>
+                            <th>Nome do Anunciante</th>
+                            <th>Id do Anunciante</th>
+                            <th>Quantidades de Anúncios</th>
+                            
                             <th></th>
                         </tr>
                     </thead>
-
+                    
                     <tbody>
+                    @foreach($anunciantes as $anunciante)
                         <tr>
-                            <td>Anúncio</td>
-                            <td>854697</td>
-                            <td>Pix</td>
-                            <td class="warning">Esperando</td>
-                            <td class="primary">Detalhes</td>
+                            <td>{{$anunciante->nome}}</td>
+                            <td>{{$anunciante->idUsuario}}</td>
+                            <td>{{$anunciante->perfils->postagems->count()}}</td>
+                            <td></td>
+                            <td class="primary"><a href="{{route('info.user', $anunciante->idUsuario)}}">Detalhes</a></td>
                         </tr>
+                    @endforeach
                     </tbody>
 
-                    <tbody>
-                        <tr>
-                            <td>Publi</td>
-                            <td>1658547</td>
-                            <td>Dinheiro</td>
-                            <td class="success">Concluída</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <td>Colaboração</td>
-                            <td>8934567</td>
-                            <td>Pix</td>
-                            <td class="success">Concluída</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <td>Publi</td>
-                            <td>2386971</td>
-                            <td>Pix</td>
-                            <td class="warning">Esperando</td>
-                            <td class="primary">Detalhes</td>
-                        </tr>
-                    </tbody>
                 </table>
 
                 
 
-                <a href="#">Mostrar tudo</a>
+                <a href="{{route('anunciantes.adm')}}">Mostrar tudo</a>
             </div>
 
 @endsection

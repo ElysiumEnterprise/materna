@@ -2,6 +2,8 @@
 
     $user = Auth::user();
 
+    use Carbon\Carbon;
+
 @endphp
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -107,32 +109,21 @@
 
                 <div class="updates">
                 @foreach($ultimosUsuarios as $usuario)
-                @php
-                    
-                    if($usuario->created_at->diffInMinutes(now()) => 60){
-                        if($usuario->created_at->diffInHours(now()) =>24){
-
-
-
-                        }else{
-                            $tempoPassado = $usuario->created_at->diffInHours(now()). '';
-                        }
-
-                    }else{
-                        $tempoPassado = $usuario->created_at->diffInMinutes(now());
-                    }
-                @endphp
+                   
+                    <a href="{{route('info.user', $usuario->idUsuario)}}">
                     <div class="update">
-                        <a href="{{route('')}}"></a>
-                        <div class="profile-photo">
-                            <img src="{{url('assets/img/foto-perfil/'.$usuario->perfils->fotoPerfil)}}">
-                        </div>
+                        
+                            <div class="profile-photo">
+                                <img src="{{url('assets/img/foto-perfil/'.$usuario->perfils->fotoPerfil)}}">
+                            </div>
 
-                        <div class="message">
-                            <p><b>{{$usuario->nome}}</b>se cadastrou a Materna!</p>
-                            <small class="text-muted">{{$minutosPassados}}</small>
-                        </div>
+                            <div class="message">
+                                <p><b>{{$usuario->nome}}</b> Se cadastrou a Materna!</p>
+                                
+                            </div>
+                        
                     </div>
+                    </a>
                 @endforeach
                     
                 </div>
