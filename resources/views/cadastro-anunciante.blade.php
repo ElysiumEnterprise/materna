@@ -7,7 +7,9 @@
     <title>Materna - Cadastro</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{url('assets/css/cadastro-anunciante.css')}}">
+    
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -150,6 +152,7 @@
                                         <i class="bi bi-eye-slash btn-show-pass-confirm" onclick="mostrarConfirmarSenha()"></i>
                                     </div>
                                 </div>
+
                                 <button type="submit">Criar</button>
                             </form>
                         </section>
@@ -160,12 +163,12 @@
                 <div class="carousel-container">
                     <div class="carousel-slide fade">
                         <img src="{{url('assets/img/ads.png')}}" alt="Slide 1">
-                        <div class="carousel-text">Texto</div>
+                        <div class="carousel-text">Aqui você pode fazer seus anúncios para que as mães vejam</div>
                     </div>
 
                     <div class="carousel-slide fade">
                         <img src="{{url('assets/img/seguidor.png')}}" alt="Slide 2">
-                        <div class="carousel-text">Texto</div>
+                        <div class="carousel-text">Faça postagens, anuncie e ganhe seguidoras</div>
                     </div>
 
                     <div class="carousel-slide fade">
