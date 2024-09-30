@@ -228,6 +228,8 @@
     justify-content: space-between;
     min-height: 65px;
     margin-top: 10px;
+
+    
 }
 
 
@@ -272,3 +274,10 @@
     margin-top: 40px;
     border-radius: 20px
 }
+
+.img-assunto {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção */
+   
+}
+
