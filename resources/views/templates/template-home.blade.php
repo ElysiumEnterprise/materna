@@ -35,7 +35,7 @@
     <main>
     <nav id="sidebar">
                 <div id="sidebar_content">
-                    <a href="{{route('perfil')}}">
+                    <a href="{{route('perfil', $user->idUsuario)}}">
                         <div id="user">
                             <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" id="user_avatar" alt="Avatar">
                 
@@ -154,7 +154,7 @@
                 <div class="cont-header-modal">
                 <button type="button" onclick="fecharModalPost()"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{route('cad.post')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <section class="cont-img-post">
                        
@@ -188,7 +188,7 @@
                             @foreach($categorias as $categoria)
                             <div class="input-group">
                                 <label for="{{$categoria->idCategoria}}" class='label-checkbox'>{{$categoria->nomeCategoria}}</label>
-                                <input type="checkbox" name="categoriaPost" id="{{$categoria->idCategoria}}" value="{{$categoria->idCategoria}}">
+                                <input type="checkbox" name="categoriasPost[]" id="{{$categoria->idCategoria}}" value="{{$categoria->idCategoria}}">
                             </div>
                            
                             @endforeach

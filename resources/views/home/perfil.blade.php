@@ -3,9 +3,9 @@
 <!-- Links CSS-->
 
 @php
-    $user = Auth::user();
+    $userAuth = Auth::user();
 
-    $perfil = $user->perfils;
+    $perfil = $userAuth->perfils;
 @endphp
 @section('links-css')
 
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row" style="padding-top: 20px;">
             <div class="col-3">
-                <img class="img-profile" src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}">
+                <img class="img-profile" src="{{asset('assets/img/foto-perfil/'.$user->perfils->fotoPerfil)}}">
             </div>
             <div class="col-7">
                 <div class="row" style="padding-top: 20px; padding-bottom: 10px;">
@@ -32,13 +32,13 @@
                     
                 <div class="row">
                     <div class="col-4">
-                        <p class="profile-datas"><strong>{{$perfil->qtddPost}}</strong> publicações</p>
+                        <p class="profile-datas"><strong>{{$user->perfils->qtddPost}}</strong> publicações</p>
                     </div>
                     <div class="col-4">
-                        <p class="profile-datas"><strong>{{$perfil->qtddSeguidores}}</strong> seguidores</p>
+                        <p class="profile-datas"><strong>{{$user->perfils->qtddSeguidores}}</strong> seguidores</p>
                     </div>
                     <div class="col-4">
-                        <p class="profile-datas"><strong>{{$perfil->qtddSeguindo}}</strong> seguindo</p>
+                        <p class="profile-datas"><strong>{{$user->perfils->qtddSeguindo}}</strong> seguindo</p>
                     </div>
                 </div>
                 <div class="row">
@@ -48,10 +48,24 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p class="profile-desc">{{$perfil->biography}}</p>
+                        <p class="profile-desc">{{$user->perfils->biography}}</p>
                         
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{session('status')}}
+                    </div>
+                </div>
+                @if($userAuth->idUsuario != $user->idUsuario)
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" onclick="abrirModalDenuncia()">Denunciar</button>
+                    </div>
+                </div>
+                    
+
+                @endif
             </div>
             <div class="col-2"></div>
         </div>
@@ -118,11 +132,35 @@
         </div>
     </div>
           </section>
-      
+          <div class="box-modal-post">
+        <dialog class="modal-denuncia">
+            <div class="cont-modal-denuncia">
+                <div class="cont-header-modal">
+                <button type="button" onclick="fecharModalDenuncia()"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <form action="{{route('cad.denuncia', $user->idUsuario)}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                        <div class="cont-assunto">
+                            <label for="motivoDenuncia">Motivo da Denúncia @error('motivoDenuncia'): {{$message}}@enderror</label>
+                            <input type="text" name="motivoDenuncia" id="motivoDenuncia" placeholder="Digite o motivo da denúncia aqui">
+                        </div>
+                        <div class="cont-desc">
+                            <label for="detalhesDenuncia">Detalhes @error('detalhesDenuncia'): {{$message}}@enderror</label>
+                            <textarea name="detalhesDenuncia" id="detalhesDenuncia"></textarea>
+                        </div>
+
+                        <div class="cont-btn-criar-post">
+                            <button type="submit">Denunciar</button>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </dialog>
+    </div>
       
       
           <script type="text/javascript">
-      
+            
               var crl = document.getElementById('myCrl').getContext('2d');
       
               crl.beginPath();
@@ -152,7 +190,8 @@
               crl2.linewidth = 5;
               crl2.strokeStyle = '#dbdbdb';
               crl2.stroke();
-      
+
+              
           </script>
       
       
@@ -161,7 +200,7 @@
               integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
               crossorigin="anonymous"></script>
       
-
+        <script src="{{url('assets/js/home/modal-denuncia.js')}}"></script>
 
           </div>
       </div>

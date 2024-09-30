@@ -16,7 +16,7 @@ class Denuncia extends Model
     protected $fillable = [
         'motivoDenuncia',
         'denunciaVerificada',
-        'idPerfil',
+        'idUsuario',
         'detalheDenuncia'
     ];
 

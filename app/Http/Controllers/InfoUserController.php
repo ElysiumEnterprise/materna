@@ -23,5 +23,13 @@ class InfoUserController extends Controller
         
         return view('dashboard-adm.denuncias-verificadas', compact('user'));
     }
+
+    public function goInfoUserHome($idUsuario){
+
+        $user = Usuario::with(['perfils', 'perfils.postagems', 'nivel_usuarios'])->where('idUsuario', $idUsuario)->first();
+        
+        
+        return view('home.perfil', compact('user'));
+    }
     
 }

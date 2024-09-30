@@ -26,6 +26,7 @@ class Postagem extends Model
         'descPostagem',
         'dataPost',
         'horaPost',
+        'isADD'
     ];
 
 

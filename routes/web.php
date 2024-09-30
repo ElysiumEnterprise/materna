@@ -11,6 +11,7 @@ use App\Http\Controllers\ExclusaoController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\PDFGenerateController;
+use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UsuarioController;
 use App\Mail\TestMail;
@@ -66,10 +67,15 @@ Route::get('/home/notificacoes', function(){
 
 Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('home.feed');
 
+//Cadastro de postagem
+
+Route::post('/home/feed', [PostagemController::class, 'store'])->name('cad.post');
 //Route::get('/home/feed', [FeedController::class, 'go_feed'])->name('feed');
 
 //Dashboard
 Route::get('/dashboard/home', [DashboardController::class, 'goDashboard'])->name('go.dashboard');
+
+
 
 Route::get('/dashboard/usuarios', [UsuarioController::class, 'show'])->name('usuarios.adm');
 
@@ -100,9 +106,9 @@ Route::delete('/dashboard/denuncia/{idDenuncia}', [DenunciaController::class, 'r
 Route::get('/home/configuracoes', function(){
     return view('home.configuracoes.configuracoes-gerais');
 });
-Route::get('/home/perfil-user', function(){
-    return view('home.perfil');
-})->name('perfil');
+Route::get('/home/feed/{idUsuario}', [InfoUserController::class, 'goInfoUserHome'])->name('perfil');
+
+Route::post('/home/perfil/{idUsuario}', [DenunciaController::class, 'store'])->name('cad.denuncia');
 
 Route::get('/home/perfil-anunciante', function(){
     return view('home.perfilAnunciante');

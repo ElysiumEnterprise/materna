@@ -53,7 +53,7 @@
                 <a href="#">
                     <span class="material-icons-sharp">mail_outline</span>
                     <h3>Mensagens</h3>
-                    <span class="message-count">15</span>
+                    
                 </a>
 
 
