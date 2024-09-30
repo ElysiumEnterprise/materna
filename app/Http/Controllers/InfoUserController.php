@@ -19,8 +19,8 @@ class InfoUserController extends Controller
     }
 
     public function goListagemDenunciasVerificadas($idUser){
-        $user = Usuario::with('denuncias')->first();
-
+        $user = Usuario::with('denuncias')->where('idUsuario', $idUser)->first();
+        
         return view('dashboard-adm.denuncias-verificadas', compact('user'));
     }
     
