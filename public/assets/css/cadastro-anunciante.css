@@ -196,7 +196,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
   }
 
-form .input-group  input {
+form .input-group input {
     background-color: transparent;
     width: 100%;
     border: none;
@@ -284,7 +284,7 @@ form button:hover{
     font-size: 18px;
     position: absolute;
     width: 85%;
-    margin-top: 2px;
+    margin-top: 5px;
 }
 
 .fade {
