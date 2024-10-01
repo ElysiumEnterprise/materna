@@ -138,6 +138,7 @@
                    
                     <img src="{{ url('assets/img/icons/Gestação.png') }}" alt="" class="img-assunto">
                     <img src="{{ url('assets/img/icons/Amamentação.png') }}" alt="" class="img-assunto">
+                    <img src="{{ url('assets/img/icons/eduacatioon.png') }}" alt="" class="img-assunto">
                    
                     <div class="texto-card">
                         <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
