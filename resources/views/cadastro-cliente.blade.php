@@ -151,8 +151,9 @@
                 </div>
 
                 <div class="carousel-container">
+                    
                     <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 1">
+                        <img src="{{url('assets/img/mother.png')}}" alt="Slide 1">
                         <div class="carousel-text">A Materna é uma rede social feita especialmente para mães</div>
                     </div>
 
