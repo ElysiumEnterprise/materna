@@ -109,7 +109,7 @@
         <section class="cont-tipo-feed">
 
             <div class="cont-link-feed">
-                <a href="#">Tranding</a>
+                <a href="#">Trending</a>
                 <a href="#">Dicas</a>
             </div>
 
@@ -122,6 +122,9 @@
                 <section class='card-assunto'>
                     <div class="teste">
                     <img src="{{ url('assets/img/icons/Alimentação.png') }}" alt="" class="img-assunto">
+                    <img src="{{ url('assets/img/icons/Maternidade Solo.png') }}" alt="" class="img-assunto">
+                    <img src="{{ url('assets/img/icons/Puerperio.png') }}" alt="" class="img-assunto">
+
                     <div class="texto-card">
                         <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
                     </div>
@@ -132,7 +135,9 @@
 
                 <section class='card-assunto'>
                     <div class="teste">
-                    <img src="{{ url('assets/img/icons/Maternidade Solo.png') }}" alt="" class="img-assunto">
+                   
+                    <img src="{{ url('assets/img/icons/Gestação.png') }}" alt="" class="img-assunto">
+                    <img src="{{ url('assets/img/icons/Amamentação.png') }}" alt="" class="img-assunto">
                    
                     <div class="texto-card">
                         <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
@@ -143,7 +148,7 @@
 
                 <section class='card-assunto'>
                 <div class="teste">
-                <img src="{{ url('assets/img/icons/Puerperio.png') }}" alt="" class="img-assunto">
+                
                    
                     <div class="texto-card">
                         <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
@@ -153,8 +158,7 @@
 
                 <section class='card-assunto'>
                 <div class="teste">
-                <img src="{{ url('assets/img/icons/Gestação.png') }}" alt="" class="img-assunto">
-                   
+               
                     <div class="texto-card">
                         <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
                     </div>
@@ -163,7 +167,7 @@
 
                 <section class='card-assunto'>
                 <div class="teste">
-                <img src="{{ url('assets/img/icons/Amamentação.png') }}" alt="" class="img-assunto">
+                
                   
                     <div class="texto-card">
                         <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
