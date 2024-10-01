@@ -151,11 +151,7 @@
                 </div>
 
                 <div class="carousel-container">
-                    <div class="carousel-slide fade">
-                        <img src="{{url('assets/img/mae.png')}}" alt="Slide 1">
-                        <div class="carousel-text">A Materna é uma rede social feita especialmente para mães</div>
-                    </div>
-
+                    
                     <div class="carousel-slide fade">
                         <img src="{{url('assets/img/chat.png')}}" alt="Slide 2">
                         <div class="carousel-text">Você pode conversar, compartilhar experiências e postar sobre seu dia a dia com outras mães</div>

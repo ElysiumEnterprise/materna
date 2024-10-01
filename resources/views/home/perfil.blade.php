@@ -26,7 +26,15 @@
 <div class="header__wrapper">
       <div class="cont-banner">
         @if($user->perfils->bannerPerfil == null ||$user->perfils->bannerPerfil == '')
-        <img src="{{url('assets/img/banners-perfils/default-banner.png')}}" alt="">
+          @if($user->idUsuario == $userAuth->idUsuario)
+          <a href="{{route('perfil.editar', $user->idUsuario)}}">
+            <img src="{{url('assets/img/banners-perfils/default-banner.png')}}" alt="">
+          </a>
+          @else
+
+          <img src="{{url('assets/img/bg.jpeg')}}" alt="">
+          @endif
+        
         @else
 
         <img src="{{url('assets/img/banners-perfils/'.$user->perfils->bannerPerfil)}}" alt="">
@@ -37,7 +45,7 @@
       <div class="cols__container">
         <div class="left__col">
           <div class="img__container">
-            <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" alt="Anna Smith" />
+            <img src="{{asset('assets/img/foto-perfil/'.$user->perfils->fotoPerfil)}}" alt="Anna Smith" />
             <span></span>
           </div>
           <h2>{{$user->nome}}</h2>
