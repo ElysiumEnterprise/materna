@@ -43,7 +43,7 @@ class PDFGenerateController extends Controller
 
             'countDenunciasMes' => Denuncia::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->count(),
 
-            'countDenunciasChecadasTotal' => Denuncia::where('denuciaVerificada', '!=', 1)->count(),
+            'countDenunciasChecadasTotal' => Denuncia::where('denuciaVerificada', 1)->count(),
 
             'countDenunciasChecadasMes' => Denuncia::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])->where('denuciaVerificada', '!=', 1)->count(),
             
