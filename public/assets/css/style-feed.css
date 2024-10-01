@@ -222,14 +222,15 @@
 }
 
 .card-assunto{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 65px;
-    margin-top: 10px;
+    flex: 0 0 auto; /* Os cards ocuparão o espaço necessário */
+    margin: 10px; /* Espaço entre os cards */
+}
 
-    
+.cont-assuntos {
+    display: flex; /* Define um contêiner flexível para os assuntos */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte se não houver espaço */
+    justify-content: flex-start; /* Alinha os itens ao início do contêiner */
+    margin-bottom: 20px; /* Espaço abaixo da seção de assuntos */
 }
 
 
