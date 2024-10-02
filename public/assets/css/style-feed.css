@@ -279,6 +279,7 @@
 .img-assunto {
     width: 100px; /* Ajuste o tamanho conforme necessário */
     height: auto; /* Mantém a proporção */
+    cursor: pointer;
    
 }
 
