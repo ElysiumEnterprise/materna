@@ -22,7 +22,7 @@ fileBanner.addEventListener('change', uploadImage);
 function uploadImage() {
     let linkImg = URL.createObjectURL(fileBanner.files[0])
 
-    viewBanner.computedStyleMap.backgroundImage = `url(${linkImg})`
+    viewBanner.style.backgroundImage = `url(${linkImg})`
     viewBanner.textContent=''
     dropAreaBanner.style.border=0
 }

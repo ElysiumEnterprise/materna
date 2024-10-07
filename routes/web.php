@@ -177,6 +177,12 @@ Route::get('/home/preferencias', function () {
 // Rota para salvar as preferências
 Route::post('/home/preferencias', [PreferenciasController::class, 'salvarPreferencias'])->name('salvar.preferencias');
 
+//Rota para criação do perfil
+
+Route::get('/criar-perfil', function(){
+    return view('criacao-perfil');
+})->name('criacao-perfil');
+
 //Rotas para gera pdf
 
 Route::get('/pdf/relatorio', [PDFGenerateController::class, 'gerarPDFRelatorioHoje'])->name('pdf.relatorio');
