@@ -18,6 +18,7 @@ class Perfil extends Model
         'fotoPerfil',
         'nickname',
         'biography',
+        'bannerPerfil',
         'qtddSeguidores',
         'qtddSeguindo',
     ];

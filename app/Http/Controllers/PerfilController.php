@@ -15,6 +15,74 @@ use Illuminate\Support\Facades\DB;
 class PerfilController extends Controller
 {
     
+    public function store(Request $request){
+        $request->validate(
+            [
+                'nickname' => 'required||min:5|max:250',
+                'biography' => 'required||min:5|max:250'
+            ],
+            [
+                'nickname.required' => 'Preencha esse campo!',
+                'nickname.min' => 'O nome de usuário precisa ter, no mínimo, 5 caracteres!',
+                'nickname.max'=> 'O nome atingiu o limite de 250 caracteres',
+
+                'biography.required' => 'Preencha esse campo!',
+                'biography.min' => 'A biografia precisa ter, no mínimo, 5 caracteres!',
+                'biography.max' => 'Esse campo atingiu o limite de 250 caracteres!',
+            ]
+        );
+        if(Auth::check()){
+
+
+            $user = Auth::user();
+
+            if(Perfil::where('nickname', $request->nickname)->exists()){
+                return redirect()->back()->with('errorNickEqual', 'Nome de usuário já existente!');
+            }
+
+            if ($request->hasFile('imgPerfil') && $request->file('imgPerfil')->isValid()) {
+
+                $fileImgPerfil = $request->imgPerfil;
+                
+                $extension = $fileImgPerfil->extension();
+    
+                $nomeImgPerfil = md5($fileImgPerfil->getClientOriginalName().strtotime('now')).'.'.$extension;
+    
+                $fileImgPerfil->move(public_path('assets/img/foto-perfil'),$nomeImgPerfil);
+    
+    
+            }else{
+                return redirect()->back()->with('errorImgPerfil', 'Imagem não selecionada ou tipo de arquivo inválido!');
+            }
+    
+            if ($request->hasFile('imgCapa') && $request->file('imgCapa')->isValid()) {
+                
+                $fileImgCapa = $request->imgCapa;
+    
+                $extension = $fileImgCapa->extension();
+    
+                $nomeImgCapa = md5($fileImgCapa->getClientOriginalName().strtotime('now')).'.'.$extension;
+    
+                $fileImgCapa->move(public_path('assets/img/banners-perfils'), $nomeImgCapa);
+            }else{
+                return redirect()->back()->with('errorCapa', 'Imagem não selecionada ou tipo de arquivo inválido!');
+            }
+    
+            Perfil::create([
+                'nickname' => $request->nickname,
+                'biography' => $request->biography,
+                'fotoPerfil' => $nomeImgPerfil,
+                'bannerPerfil' => $nomeImgCapa,
+                'idUsuario' => $user->idUsuario, 
+            ]);
+
+            return redirect()->route('home.feed');
+        }else{
+            return redirect()->route('index')->withErrors('Você precisa estar logado para criar seu perfil!');
+        }
+       
+
+    }
 
 
     public function show(){

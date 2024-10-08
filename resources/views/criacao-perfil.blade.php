@@ -25,9 +25,14 @@
             <p>Crie um perfil mostrando como você é!</p>
         </div>
        <div class="cont-form">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{route('cadastrar.perfil')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="cont-img-perfil">
+                @if(session('errorImgPerfil'))
+                <div class="cont-error-foto-perfil">
+                    <span for="imgPerfil" class="errorField">{{session('errorImgPerfil')}}</span>
+                </div>
+                @endif
                 <label for="imgPerfil">
                     <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}" class="img-fluid img-perfil" alt="Foto de perfil">
                 </label>
@@ -36,11 +41,11 @@
                 <input type="file" name="imgPerfil" id="imgPerfil" hidden accept="image/*">
             </div>
             <div class="input-group">
-                <label for="nickname">Nome de Usuário</label>
+                <label for="nickname">Nome de Usuário: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
                 <input type="text" name="nickname" id="nickname" placeholder="Digite seu nome de usuário">
             </div>
             <div class="input-group">
-                <label for="imgCapa">Adicionar Capa de Perfil</label>
+                <label for="imgCapa">Adicionar Capa de Perfil:<span class="errorField">{{session('errorCapa')}}</span></label>
                 <label for="imgCapa" id='drag-area-banner'>
                     <input type="file" name="imgCapa" id="imgCapa" hidden accept="image/*">
                     <div class="img-view-banner">
@@ -52,7 +57,7 @@
                 </label>
             </div>
             <div class="input-group">
-                <label for="biography">Biografia</label>
+                <label for="biography">Biografia: <span class="errorField">@error('biography'){{$message}}@enderror</span></label>
                <textarea name="biography" id="biography" placeholder="Conte sobre você para outars pessoas!"></textarea>
             </div>
             <div class="cont-btn">

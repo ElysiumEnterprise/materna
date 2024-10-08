@@ -208,3 +208,14 @@ form .cont-btn{
     align-items: center;
     margin-bottom: 20px;
 }
+form .cont-error-foto-perfil{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+form .errorField{
+    color: #d02b39;
+    font-size: 14px;
+    text-align: start;
+}

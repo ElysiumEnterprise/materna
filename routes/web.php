@@ -183,6 +183,7 @@ Route::get('/criar-perfil', function(){
     return view('criacao-perfil');
 })->name('criacao-perfil');
 
+Route::post('/criar-perfil', [PerfilController::class, 'store'])->name('cadastrar.perfil');
 //Rotas para gera pdf
 
 Route::get('/pdf/relatorio', [PDFGenerateController::class, 'gerarPDFRelatorioHoje'])->name('pdf.relatorio');
