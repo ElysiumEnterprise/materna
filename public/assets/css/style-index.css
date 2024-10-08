@@ -97,8 +97,6 @@ body, html {
     min-height: 600px;
     margin-bottom: 15px;
     padding: 12%;
-
-    
     
 }
 
@@ -265,7 +263,24 @@ button:hover {
     margin-top: 30px;
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
+}
+
+.login-adm{
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.login-adm span{
+    text-decoration: underline;
+    font-weight: 500;
+    color: #F26699;
+}
+
+.login-adm span:hover{
+    color: #F88AC5;
 }
 
 .forgot-password:hover{
@@ -282,7 +297,7 @@ button:hover {
     color: #F26699;
 }
 
-.create-account:hover span {
+.create-account span:hover {
     color: #F88AC5;
 }
 

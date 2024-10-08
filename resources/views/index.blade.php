@@ -68,6 +68,8 @@
                     <a href="/senha" class="forgot-password">Esqueceu sua senha?</a>
                    
                     <p class="create-account">Não tem uma conta? <a href="/cadastro-user"><span>Clique aqui</span></a></p>
+
+                    <p class="login-adm">Logar como <a href="#"><span>ADM</span></a></p>
                 </form>
             </div>
         </div>
