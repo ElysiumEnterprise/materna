@@ -151,10 +151,6 @@ class CadastroController extends Controller
                 'cnpjAnunciante'=>$request->cnpjAnunciante,
             ]);
 
-            Perfil::create([
-                'idUsuario'=>$usuario->idUsuario,
-                'nickname'=>$usuario->nome,
-            ]);
 
             Auth::login($usuario);
 

@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Postagem;
 use App\Models\Usuario;
 
-use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use Carbon\Carbon;
 class PDFGenerateController extends Controller
@@ -49,10 +48,7 @@ class PDFGenerateController extends Controller
             
         ];
         //Gerar pdf com a view que eu quero
-        $pdf = PDF::loadView('pdf.pdf-relatorios-hoje', $dados)->setOptions(['quiet' => true, // Para reduzir a saída de logs
-              'no-stop-slow-scripts' => true, // Para permitir que scripts lentos sejam executados
-              'enable-local-file-access' => true // Para permitir acesso a arquivos locais]);
-        ]);
+        $pdf = Pdf::loadView('pdf.pdf-relatorios-hoje', $dados);
         return $pdf->download('relatorio-materna-hoje.pdf');
     }
 }

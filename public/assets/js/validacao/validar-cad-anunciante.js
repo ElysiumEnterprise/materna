@@ -58,31 +58,31 @@ formAnunciante.addEventListener('submit', (event)=>{
     }
     //Validação de email
     if (emailAnunciante.value==='') {
-        errorSpanAnunciante[2].innerHTML="(Preencha o campo de email!)";
+        errorSpanAnunciante[3].innerHTML="(Preencha o campo de email!)";
         emailAnunciante.focus();
         return;
     }else{  
-        errorSpanAnunciante[2].innerHTML="";
+        errorSpanAnunciante[3].innerHTML="";
     }
     if (validarEmail(emailAnunciante.value)) {
-        errorSpanAnunciante[2].innerHTML="(Email inválido)";
+        errorSpanAnunciante[3].innerHTML="(Email inválido)";
         emailAnunciante.focus();
         return;
     }else{
-        errorSpanAnunciante[2].innerHTML="";
+        errorSpanAnunciante[3].innerHTML="";
     }
 
     //Verficação de telefone
     if (telAnunciante.value==='') {
-        errorSpanAnunciante[3].innerHTML='(Preencha esse campo!)';
+        errorSpanAnunciante[4].innerHTML='(Preencha esse campo!)';
         telAnunciante.focus();
         return;
     } else {
-        errorSpanAnunciante[3].innerHTML='';
+        errorSpanAnunciante[4].innerHTML='';
     }
 
     if (validarTel(telAnunciante.value)) {
-        errorSpanAnunciante[3].innerHTML="(Tipo de número inválido!)"
+        errorSpanAnunciante[4].innerHTML="(Tipo de número inválido!)"
         telAnunciante.focus();
         return;
     } else {
@@ -90,7 +90,7 @@ formAnunciante.addEventListener('submit', (event)=>{
     }
     //Verificação de Senha:
     if (!passCaracter8ValidAnunciante && !passCaracterSpecialValidAnunciante && !passNumbValidAnuciante &&!passUpperValidAnunciante) {
-        errorSpanAnunciante[4].innerHTML="(A senha não contem os requisitos mínimos!)";
+        errorSpanAnunciante[5].innerHTML="(A senha não contem os requisitos mínimos!)";
         senhaAnunciante.focus()
         return;
     } else {
