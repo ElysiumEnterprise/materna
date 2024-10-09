@@ -15,10 +15,7 @@ class PDFGenerateController extends Controller
 {
     public function gerarPDFRelatorioHoje(){
         //Encontrar o executável do wkhtmltopdf
-        $binaryPath = '"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe"';
-
-        // Configurar o PDF com o caminho do binário com o executável
-        PDF::setBinary($binaryPath);
+        
         
         $dados =[
 
@@ -48,6 +45,7 @@ class PDFGenerateController extends Controller
             
         ];
         //Gerar pdf com a view que eu quero
+        
         $pdf = Pdf::loadView('pdf.pdf-relatorios-hoje', $dados);
         return $pdf->download('relatorio-materna-hoje.pdf');
     }

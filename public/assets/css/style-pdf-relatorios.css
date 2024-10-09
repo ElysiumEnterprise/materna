@@ -1,11 +1,38 @@
 @font-face{
     font-family: "Fredoka";
-    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+    src: url('{{storage_path("fonts/Fredoka-VariableFont_wdth,wght.ttf")}}');
 }
 
 @font-face{
     font-family: "Inter";
-    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+    src: url("{{ storage_path('fonts/Inter-VariableFont_opsz,wght.ttf')}}");
+}
+
+:root{
+    --color-primary: #F26699;
+    --color-danger: #fd5462;
+    --color-succes: #41f1b6;
+    --color-warning: #ffa927;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: #848bc82e;
+    --color-dark-variant: #677483;
+    --color-primary-variant: #111e88;
+    --color-background: #f6f6f9;
+    --color-toggler: #dce1eb;
+
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 4rem 5rem var(--color-light);
 }
 
 
@@ -15,43 +42,47 @@ body{
     padding: 20px;
 }
 
-.cont-header{
+header{
     display: flex;
     width: 100%;
+    height:200px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.cont-header .cont-img{
+header .cont-img{
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
-.cont-header .cont-img img{
+header .cont-img img{
     width: 200px;
 }
 
-.cont-header .cont-titulo{
+header.cont-titulo{
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.cont-header .cont-titulo h1{
+header .cont-titulo h1{
     font-size: 30px;
     font-family: 'Fredoka';
     font-weight: bold;
     color: black;
 }
 
-.cont-header .cont-desc{
+header .cont-desc{
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
 
-.cont-header .cont-desc p{
+header .cont-desc p{
     font-size: 18px;
     font-family: 'Inter';
     color: black;
@@ -63,13 +94,6 @@ body{
     height: 100%;
     margin-top: 10px;
 
-}
-.cont-conteudo > h3{
-    font-size: 22px;
-    color: black;
-    font-family: 'Fredoka';
-    font-weight: bold;
-    margin-bottom: 20px;
 }
 
 .cont-conteudo > h4{
@@ -83,5 +107,114 @@ body{
     font-family: 'Inter';
     font-weight: normal;
 }
+.cont-conteudo section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
+.cont-conteudo section h3{
+    font-size: 22px;
+    color: black;
+    font-family: 'Fredoka';
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.cont-conteudo section .cont-card-relatorio{
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    width: 90%;
+}
+.cont-conteudo section .cont-card-relatorio .card-relatorio > div{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    transition: all 300ms ease;
+}
 
+.cont-conteudo section .cont-card-relatorio .card-relatorio > div:hover{
+    transform: scale(1.02);
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio > div span{
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio > div.expenses span{
+    background: var(--color-danger);
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio > div.income span{
+    background: var(--color-succes);
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio h3{
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio .progress{
+    position: relative;
+    width: 80px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio svg{
+    width: 7rem;
+    height: 7rem;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio svg circle{
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio .sales svg circle{
+    stroke-dashoffset: -140;
+    stroke-dasharray: 200;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio .expenses svg circle{
+    stroke-dashoffset: 100;
+    stroke-dasharray: 200;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio .income svg circle{
+    stroke-dashoffset: 1000;
+    stroke-dasharray: 200;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio .progress .number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-conteudo section .cont-card-relatorio .card-relatorio small{
+    margin-top: 1rem;
+    display: block;
+}
