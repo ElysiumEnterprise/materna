@@ -42,6 +42,10 @@ class Perfil extends Model
         return $this->belongsToMany(Categoria::class, 'categoria_perfils', 'idCategoria', 'idPerfil');;
     }
 
+    public function seguidores(){
+        return $this->hasMany(Seguidores::class, 'idPerfilSeguidor');
+    }
+
     protected static function boot()
     {
         parent::boot();
