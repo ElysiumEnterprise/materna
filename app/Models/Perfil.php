@@ -41,9 +41,15 @@ class Perfil extends Model
     public function categorias(){
         return $this->belongsToMany(Categoria::class, 'categoria_perfils', 'idCategoria', 'idPerfil');;
     }
-
+    //Perfils que está seguindo esse perfils
     public function seguidores(){
-        return $this->hasMany(Seguidores::class, 'idPerfilSeguidor');
+        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguindo', 'idPerfilSeguidor', 'idPerfil', 'idPerfil');
+    }
+
+    //Perfils que este perfils está seguindo
+
+    public function seguindo(){
+        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguidor', 'idPerfilSeguindo', 'idPerfil', 'idPerfil');
     }
 
     protected static function boot()

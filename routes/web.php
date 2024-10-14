@@ -19,7 +19,7 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\PreferenciasController;
-
+use App\Http\Controllers\SeguidoresController;
 use App\Http\Controllers\UserPreferenciasController;
 
 
@@ -188,3 +188,7 @@ Route::post('/criar-perfil', [PerfilController::class, 'store'])->name('cadastra
 
 Route::get('/pdf/relatorio', [PDFGenerateController::class, 'gerarPDFRelatorioHoje'])->name('pdf.relatorio');
 
+
+Route::post('/seguir-perfil/{idPerfil}', [SeguidoresController::class, 'seguirPerfil'])->name('seguir.perfil');
+
+Route::post('/parar-seguir-perfil/{idPerfil}', [SeguidoresController::class, 'pararSeguirPerfil'])->name('parar.seguir.perfil');

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SeguidoresController extends Controller
 {
-    public function seguirPerfil($idPerfilSeguindo){
+    public function seguirPerfil($idPerfil){
 
         if(Auth::check()){
 
@@ -17,17 +17,17 @@ class SeguidoresController extends Controller
             $perfilUserAuth = $userAuth->perfils;
 
             Seguidores::create([
-                'idPerfilSeguindo' => $idPerfilSeguindo,
+                'idPerfilSeguindo' => $idPerfil,
                 'idPerfilSeguidor' => $perfilUserAuth->idPerfil,
             ]);
 
-            $perfilSeguindo = Perfil::where('idPerfil', $idPerfilSeguindo)->get();
+            $perfilSeguindo = Perfil::find($idPerfil);
 
-            $perfilSeguindo->qtddSeguidores = Seguidores::where('idPerfilSeguindo', $idPerfilSeguindo)->count();
+            $perfilSeguindo->qtddSeguidores = Seguidores::where('idPerfilSeguindo', $idPerfil)->count();
 
             $perfilSeguindo->save();
 
-            $perfilUserAuth->qttdSeguindo = Seguidores::where('idPerfilSeguidor', $perfilUserAuth->idPerfil)->count();
+            $perfilUserAuth->qtddSeguindo = Seguidores::where('idPerfilSeguidor', $perfilUserAuth->idPerfil)->count();
 
             $perfilUserAuth->save();
 
@@ -39,7 +39,7 @@ class SeguidoresController extends Controller
 
     }
 
-    public function pararSeguirPerfil($idPerfilSeguindo){
+    public function pararSeguirPerfil($idPerfil){
 
         if (Auth::check()) {
             
@@ -50,13 +50,13 @@ class SeguidoresController extends Controller
 
             $seguidor->delete();
 
-            $perfilSeguindo = Perfil::where('idPerfil', $idPerfilSeguindo)->get();
+            $perfilSeguindo = Perfil::find($idPerfil);
 
-            $perfilSeguindo->qtddSeguidores = Seguidores::where('idPerfilSeguindo', $idPerfilSeguindo)->count();
+            $perfilSeguindo->qtddSeguidores = Seguidores::where('idPerfilSeguindo', $idPerfil)->count();
 
             $perfilSeguindo->save();
 
-            $perfilUserAuth->qttdSeguindo = Seguidores::where('idPerfilSeguidor', $perfilUserAuth->idPerfil)->count();
+            $perfilUserAuth->qtddSeguindo = Seguidores::where('idPerfilSeguidor', $perfilUserAuth->idPerfil)->count();
 
             $perfilUserAuth->save();
 

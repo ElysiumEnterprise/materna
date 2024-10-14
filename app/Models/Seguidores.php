@@ -21,9 +21,15 @@ class Seguidores extends Model
     /** 
      * @var bool;
     */
-    
-    public function perfils(){
-        return $this->belongsTo(Perfil::class, 'idPerfilSeguidor');
+    //Perfils que está sendo seguidos
+
+    public function perfilSeguidor(){
+        return $this->belongsTo(Perfil::class, 'idPerfilSeguidor', 'idPerfil');
+    }
+
+    //Perfils que este perfil segue
+    public function seguindo(){
+        return $this->belongsTo(Perfil::class, 'idPerfilSeguindo','idPerfil');
     }
     use HasFactory;
 }

@@ -50,12 +50,24 @@
           </div>
           <h2>{{$user->nome}}</h2>
           @if($user->idUsuario != $userAuth->idUsuario)
+            @if($hasSeguindo)
+              <form action="{{route('parar.seguir.perfil', $user->perfils->idPerfil)}}" method="post">
+                @csrf
+                <button type="submit">Deixar de Seguir</button>
+              </form>
+
+            @else
+              <form action="{{route('seguir.perfil', $user->perfils->idPerfil)}}" method="post">
+                @csrf
+                <button type="submit">Seguir</button>
+              </form>
+            @endif
             <button type="button" onclick="abrirModalDenuncia()">Denunciar</button>
           @endif
 
           <ul class="about">
-            <li><span>4,073</span>Seguidores</li>
-            <li><span>{{$user->perfils->qtddSeguidores}}</span>Seguindo</li>
+            <li><span>{{$user->perfils->qtddSeguidores}}</span>Seguidores</li>
+            <li><span>{{$user->perfils->qtddSeguindo}}</span>Seguindo</li>
             <li><span>200,543</span>Visualização</li>
           </ul>
 
