@@ -68,4 +68,5 @@ class SeguidoresController extends Controller
         }
 
     }
+    
 }

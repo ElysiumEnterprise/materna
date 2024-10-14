@@ -165,6 +165,18 @@ class PerfilController extends Controller
 
         return redirect()->route('perfil.editar', $perfil )->with('message', 'Perfil atualizado com sucesso');
     }
+
+    public function showPerfilsSeguindo($idPerfil){
+        $perfilsSeguindo = Perfil::with('seguindo')->find($idPerfil);
+
+        return view('home.seguindo', compact('perfilsSeguindo'));
+    }
+
+    public function showPerfilsSeguidores($idPerfil){
+        $perfilsSeguidores = Perfil::with('seguidores')->find($idPerfil);
+
+        return view('home.seguidores', compact('perfilsSeguidores'));
+    }
     public function destroy($idPerfil){
 
         
