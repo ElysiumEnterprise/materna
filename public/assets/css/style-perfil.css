@@ -86,7 +86,13 @@ a {
   color: #818181;
   font-size: 0.9rem;
 }
-.header__wrapper .cols__container .left__col .about li span {
+.header__wrapper .cols__container .left__col .about li a{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #818181;
+}
+.header__wrapper .cols__container .left__col .about li a span {
   color: #1d1d1d;
   font-weight: 600;
 }

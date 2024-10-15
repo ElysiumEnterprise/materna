@@ -167,15 +167,22 @@ class PerfilController extends Controller
     }
 
     public function showPerfilsSeguindo($idPerfil){
-        $perfilsSeguindo = Perfil::with('seguindo')->find($idPerfil);
-
+        
+        $perfilsSeguindo = Perfil::with(['seguindo'])->where('idPerfil', $idPerfil)->get();
+        
         return view('home.seguindo', compact('perfilsSeguindo'));
     }
 
     public function showPerfilsSeguidores($idPerfil){
-        $perfilsSeguidores = Perfil::with('seguidores')->find($idPerfil);
+        $perfilsSeguidores = Perfil::with(['seguidores'])->where('idPerfil', $idPerfil)->get();
+        $userAuth = Auth::user();
 
-        return view('home.seguidores', compact('perfilsSeguidores'));
+        if($userAuth->perfils->idPerfil == $idPerfil){
+            $isAuth = true;
+        }else{
+            $isAuth = false;
+        }
+        return view('home.seguidores', compact('perfilsSeguidores', 'isAuth'));
     }
     public function destroy($idPerfil){
 

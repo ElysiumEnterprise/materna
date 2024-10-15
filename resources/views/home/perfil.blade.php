@@ -66,8 +66,8 @@
           @endif
 
           <ul class="about">
-            <li><span>{{$user->perfils->qtddSeguidores}}</span>Seguidores</li>
-            <li><span>{{$user->perfils->qtddSeguindo}}</span>Seguindo</li>
+            <li><a href="{{route('go.list.seguidores', $user->perfils->idPerfil)}}"><span>{{$user->perfils->qtddSeguidores}}</span>Seguidores</a></li>
+            <li><a href="{{route('go.list.seguindo', $user->perfils->idPerfil)}}"><span>{{$user->perfils->qtddSeguindo}}</span>Seguindo</a></li>
             <li><span>200,543</span>Visualização</li>
           </ul>
 

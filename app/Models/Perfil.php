@@ -43,13 +43,13 @@ class Perfil extends Model
     }
     //Perfils que está seguindo esse perfils
     public function seguidores(){
-        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguindo', 'idPerfilSeguidor', 'idPerfil', 'idPerfil');
+        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguindo', 'idPerfilSeguidor');
     }
 
     //Perfils que este perfils está seguindo
 
     public function seguindo(){
-        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguidor', 'idPerfilSeguindo', 'idPerfil', 'idPerfil');
+        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguidor', 'idPerfilSeguindo');
     }
 
     protected static function boot()

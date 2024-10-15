@@ -39,6 +39,28 @@ class SeguidoresController extends Controller
 
     }
 
+    public function removerSeguidor($idPerfil, $idUsuarioAuth){
+        $userAuth = Auth::user();
+
+        if (Auth::check() && $userAuth->idUsuario == $idUsuarioAuth) {
+            $perfilUserAuth = $userAuth->perfils;
+
+            $seguidor  = Seguidores::where('idPerfilSeguidor', $idPerfil)->where('idPerfilSeguindo', $perfilUserAuth->idPerfil);
+
+            $seguidor->delete();
+
+            $perfilSeguindo = Perfil::find($idPerfil);
+
+            $perfilSeguindo->qtddSeguindo = Seguidores::where('idPerfilSeguindo', $idPerfil)->count();
+
+            $perfilSeguindo->save();
+
+            $perfilUserAuth->qtddSeguidores= Seguidores::where('idPerfilSeguidor', $perfilUserAuth->idPerfil)->count();
+
+            $perfilUserAuth->save();
+        }
+    }
+
     public function pararSeguirPerfil($idPerfil){
 
         if (Auth::check()) {

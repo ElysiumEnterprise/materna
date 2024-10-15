@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\PreferenciasController;
 use App\Http\Controllers\SeguidoresController;
 use App\Http\Controllers\UserPreferenciasController;
-
+use App\Models\Seguidores;
 
 Route::get('/', function () {
     return view('index');
@@ -192,3 +192,15 @@ Route::get('/pdf/relatorio', [PDFGenerateController::class, 'gerarPDFRelatorioHo
 Route::post('/seguir-perfil/{idPerfil}', [SeguidoresController::class, 'seguirPerfil'])->name('seguir.perfil');
 
 Route::post('/parar-seguir-perfil/{idPerfil}', [SeguidoresController::class, 'pararSeguirPerfil'])->name('parar.seguir.perfil');
+
+//Ir para lista de seguindo
+
+Route::get('/lista-seguindo/{idPerfil}', [PerfilController::class, 'showPerfilsSeguindo'])->name('go.list.seguindo');
+
+//Ir para lista de seguidores
+
+Route::get('/lista-seguidores/{idPerfil}', [PerfilController::class, 'showPerfilsSeguidores'])->name('go.list.seguidores');
+
+//Remover seguidores 
+
+Route::delete('/remover-seguidor/user-auth={idUserAuth}&perfil-seguidor={idPerfil}', [SeguidoresController::class, 'removerSeguidor'])->name('remover-seguidor');
