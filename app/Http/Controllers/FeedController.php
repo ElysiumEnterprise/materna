@@ -11,7 +11,7 @@ class FeedController extends Controller
         $user = Auth::user();
 
         if($user->idNivelUsuario==1){
-            return view('home.feed');
+            return view('home.feed') ;
         }else if($user->idNivelUsuario==3){
             return view('home.perfilAnunciante');
         }
