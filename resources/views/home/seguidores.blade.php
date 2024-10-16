@@ -1,5 +1,7 @@
 @extends('templates.template-home')
-    
+    @php
+        $userAuth = Auth::user();
+    @endphp
 @section('links-css')
     <link rel="stylesheet" href="{{url('assets/css/style-seguidores.css')}}">
 @endsection
@@ -23,7 +25,7 @@
                             </a>
                             @if($isAuth)
                                     <div class="cont-remover-seguidor">
-                                        <button type="button" onclick="abrirModalRemoverSeguidor()">Remover Seguidor</button>
+                                        <button type="button" onclick="abrirModalRemoverSeguidor('{{$perfilSeguidor->idPerfil}}', '{{$userAuth->perfils->idPerfil}}' , `{{ route('remover-seguidor', ['idUserAuth' => ':idUserAuth', 'perfilSeguidor' =>':perfilSeguidor']) }}`)">Remover Seguidor</button>
                                     </div>
                                 @endif
                         </section>
@@ -46,7 +48,7 @@
         <dialog class="modal-remove">
             <div class="cont-modal">
                 <p>Tem certeza que deseja remover esse seguidor?</p>
-                    <form action="" method="post">
+                    <form action="" method="post" class="form-remove">
                         @csrf
                         @method('DELETE')
                         
