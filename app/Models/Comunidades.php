@@ -7,12 +7,34 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comunidades extends Model
 {
+
+    protected $table = 'comunidades';
+
+    protected $primaryKey = 'idComunidade';
+    public $incremeting = true;
+    protected $keyType = 'int';
+    /**
+     * 
+     * Verificando se o id é auto-incrementado
+
+        *@var bool;
+     * 
+     */
     protected $fillable = [
         'fotoComunidade',
         'qtddMembros',
         'nomeComunidade',
         'descComunidade',
-        'dtCriacaoComunidade'
+        'dtCriacaoComunidade',
+        'idPerfilCriador'
     ];
+
+    public function perfilCriador(){
+        return $this->belongsTo(Perfil::class, 'idPerfilCriador');
+    }
+
+    public function perfilMembros(){
+        return $this->belongsToMany(Perfil::class, 'perfil_comunidades', 'idPerfil', 'idComunidade');
+    }
     use HasFactory;
 }

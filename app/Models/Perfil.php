@@ -51,7 +51,9 @@ class Perfil extends Model
     public function seguindo(){
         return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguidor', 'idPerfilSeguindo');
     }
-
+    public function comunidades(){
+        return $this->belongsToMany(Comunidades::class, 'perfil_comunidades', 'idComunidade', 'idPerfil');
+    }
     protected static function boot()
     {
         parent::boot();
