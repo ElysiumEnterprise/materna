@@ -41,7 +41,7 @@ class SeguidoresController extends Controller
 
     public function removerSeguidor($idPerfil, $idUsuarioAuth){
         $userAuth = Auth::user();
-
+        
         if (Auth::check() && $userAuth->idUsuario == $idUsuarioAuth) {
             $perfilUserAuth = $userAuth->perfils;
 
@@ -58,6 +58,11 @@ class SeguidoresController extends Controller
             $perfilUserAuth->qtddSeguidores= Seguidores::where('idPerfilSeguidor', $perfilUserAuth->idPerfil)->count();
 
             $perfilUserAuth->save();
+
+            return redirect()->back();
+        }else{
+            
+            return redirect()->back()->with('error', 'Você não tem autorização para executar essa ação');
         }
     }
 

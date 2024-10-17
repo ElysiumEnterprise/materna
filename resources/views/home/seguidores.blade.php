@@ -25,7 +25,7 @@
                             </a>
                             @if($isAuth)
                                     <div class="cont-remover-seguidor">
-                                        <button type="button" onclick="abrirModalRemoverSeguidor('{{$perfilSeguidor->idPerfil}}', '{{$userAuth->perfils->idPerfil}}' , `{{ route('remover-seguidor', ['idUserAuth' => ':idUserAuth', 'perfilSeguidor' =>':perfilSeguidor']) }}`)">Remover Seguidor</button>
+                                        <button type="button" onclick="abrirModalRemoverSeguidor('{{$perfilSeguidor->idPerfil}}', '{{$userAuth->idUsuario}}' , `{{ route('remover-seguidor', ['idUserAuth' => ':idUserAuth', 'idPerfil' => ':perfilSeguidor']) }}`)">Remover Seguidor</button>
                                     </div>
                                 @endif
                         </section>

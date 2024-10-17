@@ -203,4 +203,4 @@ Route::get('/lista-seguidores/{idPerfil}', [PerfilController::class, 'showPerfil
 
 //Remover seguidores 
 
-Route::delete('/remover-seguidor/user-auth={idUserAuth}&perfil-seguidor={idPerfil}', [SeguidoresController::class, 'removerSeguidor'])->name('remover-seguidor');
+Route::delete('/remover-seguidor/{idPerfil}/{idUserAuth}', [SeguidoresController::class, 'removerSeguidor'])->name('remover-seguidor');
