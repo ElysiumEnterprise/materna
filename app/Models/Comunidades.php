@@ -36,5 +36,18 @@ class Comunidades extends Model
     public function perfilMembros(){
         return $this->belongsToMany(Perfil::class, 'perfil_comunidades', 'idPerfil', 'idComunidade');
     }
+    public function categorias(){
+        return $this->belongsToMany(Categoria::class, 'comunidades_categorias', 'idCategoria', 'idComunidade');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($comunidade){
+            //Deleta as suas categorias
+            $comunidade->categorias()->delete();
+        });
+    }
     use HasFactory;
 }
