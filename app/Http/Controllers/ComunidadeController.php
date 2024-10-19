@@ -79,7 +79,7 @@ class ComunidadeController extends Controller
         if (Auth::check() && $idPerfilAuth == $perfilAuth->idPerfil) {
             
         }else{
-            return 
+            return redirect()->back()->with('status', 'Você não pode executar essa ação!');
         }
     }
 }
