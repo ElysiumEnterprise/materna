@@ -27,7 +27,7 @@ class PreferenciasController extends Controller
         
            
             // Redireciona para a tela do feed
-            return redirect()->route('home.feed'); // Ajuste para o nome correto da sua rota de feed
+            return redirect()->route('criacao-perfil'); // Ajuste para o nome correto da sua rota de feed
         } else {
             return redirect()->route('index')->withErrors('Você precisa estar logado para salvar preferências.');
         }

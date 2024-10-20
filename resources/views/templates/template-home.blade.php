@@ -133,7 +133,7 @@
                 </div>
                 <div class="cont-buscador">
                     <form action="" method="post">
-                        <input type="search" name="item-search" id="item-search" placeholder="Procure aqui...">
+                        <input type="search" name="itemSearch" id="itemSearch" placeholder="Procure aqui...">
                         <button type="submit"><i class="fa-solid fa-magnifying-glass" ></i></button>
                     </form>
                 </div>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Seguidores;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InfoUserController extends Controller
 {
@@ -26,10 +28,21 @@ class InfoUserController extends Controller
 
     public function goInfoUserHome($idUsuario){
 
+        $userAuth = Auth::user();
+        $perfilAuth = $userAuth->perfils;
+
         $user = Usuario::with(['perfils', 'perfils.postagems', 'nivel_usuarios'])->where('idUsuario', $idUsuario)->first();
+
+        //Verificar se esse usuário está sendo seguido pelo usuário autenticado
+        if($user->idUsuario!=$userAuth->idUsuario){
+            $hasSeguindo = Seguidores::where('idPerfilSeguidor', $perfilAuth->idPerfil)->where('idPerfilSeguindo', $user->perfils->idPerfil)->exists();
+        }else{
+            $hasSeguindo = false;
+        }
         
         
-        return view('home.perfil', compact('user'));
+        
+        return view('home.perfil', compact('user', 'hasSeguindo'));
     }
     
 }

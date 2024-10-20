@@ -24,6 +24,7 @@ class Postagem extends Model
     protected $fillable = [
         'idPerfil',
         'descPostagem',
+        'fotoPost',
         'dataPost',
         'horaPost',
         'isADD'

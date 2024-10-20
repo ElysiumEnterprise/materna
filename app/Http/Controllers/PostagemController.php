@@ -52,6 +52,7 @@ class PostagemController extends Controller
         $postagem = Postagem::create([
             'descPostagem' => $request->descPost,
             'idPerfil' => $perfil->idPerfil,
+            'fotoPost' => $nomeImg,
             'dataPost' => today(),
             'horaPost' => now()->format('H:i:s'),
             'isAdd'=> $isAdd,

@@ -8,6 +8,9 @@
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
 
+*{
+    margin: 0;
+}
 
 header{
     background-color: #F26699;
@@ -106,7 +109,7 @@ header{
     width: 40%;
     align-items: center;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 7%;
     padding-left: 30%;
 }
 
@@ -123,7 +126,13 @@ button {
     font-size: 1rem;
     cursor: pointer;
     margin-top: 20px;
-    
+    transition: all 0.2s ease;
+}
+
+button:hover{
+    background-color: #F88AC5;
+    transform: scale(1.01);
+
 }
 
 

@@ -19,9 +19,9 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\PreferenciasController;
-
+use App\Http\Controllers\SeguidoresController;
 use App\Http\Controllers\UserPreferenciasController;
-
+use App\Models\Seguidores;
 
 Route::get('/', function () {
     return view('index');
@@ -177,7 +177,30 @@ Route::get('/home/preferencias', function () {
 // Rota para salvar as preferências
 Route::post('/home/preferencias', [PreferenciasController::class, 'salvarPreferencias'])->name('salvar.preferencias');
 
+//Rota para criação do perfil
+
+Route::get('/criar-perfil', function(){
+    return view('criacao-perfil');
+})->name('criacao-perfil');
+
+Route::post('/criar-perfil', [PerfilController::class, 'store'])->name('cadastrar.perfil');
 //Rotas para gera pdf
 
 Route::get('/pdf/relatorio', [PDFGenerateController::class, 'gerarPDFRelatorioHoje'])->name('pdf.relatorio');
 
+
+Route::post('/seguir-perfil/{idPerfil}', [SeguidoresController::class, 'seguirPerfil'])->name('seguir.perfil');
+
+Route::post('/parar-seguir-perfil/{idPerfil}', [SeguidoresController::class, 'pararSeguirPerfil'])->name('parar.seguir.perfil');
+
+//Ir para lista de seguindo
+
+Route::get('/lista-seguindo/{idPerfil}', [PerfilController::class, 'showPerfilsSeguindo'])->name('go.list.seguindo');
+
+//Ir para lista de seguidores
+
+Route::get('/lista-seguidores/{idPerfil}', [PerfilController::class, 'showPerfilsSeguidores'])->name('go.list.seguidores');
+
+//Remover seguidores 
+
+Route::delete('/remover-seguidor/{idPerfil}/{idUserAuth}', [SeguidoresController::class, 'removerSeguidor'])->name('remover-seguidor');

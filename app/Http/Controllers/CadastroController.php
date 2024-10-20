@@ -63,11 +63,6 @@ class CadastroController extends Controller
                 'idNivelUsuario'=> 1,
             ]);
     
-            $perfil = Perfil::create([
-                'idUsuario'=>$usuario->idUsuario,
-                'nickname'=>$usuario->nome,
-            ]);
-    
             TelefoneUser::create([
                 'idUsuario'=> $usuario->idUsuario,
                 'numTelefone' => $request->telCliente
@@ -156,10 +151,6 @@ class CadastroController extends Controller
                 'cnpjAnunciante'=>$request->cnpjAnunciante,
             ]);
 
-            Perfil::create([
-                'idUsuario'=>$usuario->idUsuario,
-                'nickname'=>$usuario->nome,
-            ]);
 
             Auth::login($usuario);
 

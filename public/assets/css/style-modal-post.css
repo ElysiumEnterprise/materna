@@ -176,7 +176,7 @@
     margin-top: 20px;
 }
 .modal-post form .cont-img-post  .btnImg:hover, .modal-post form .cont-btn-criar-post button:hover{
-    background-color: #ef6d96;
+    background-color: #F88AC5;
     transform: scale(1.01);
 }
 .modal-post form .cont-img-post .input-group input[type='file']{

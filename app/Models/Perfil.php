@@ -18,6 +18,7 @@ class Perfil extends Model
         'fotoPerfil',
         'nickname',
         'biography',
+        'bannerPerfil',
         'qtddSeguidores',
         'qtddSeguindo',
     ];
@@ -40,7 +41,19 @@ class Perfil extends Model
     public function categorias(){
         return $this->belongsToMany(Categoria::class, 'categoria_perfils', 'idCategoria', 'idPerfil');;
     }
+    //Perfils que está seguindo esse perfils
+    public function seguidores(){
+        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguindo', 'idPerfilSeguidor');
+    }
 
+    //Perfils que este perfils está seguindo
+
+    public function seguindo(){
+        return $this->belongsToMany(Perfil::class, 'seguidores', 'idPerfilSeguidor', 'idPerfilSeguindo');
+    }
+    public function comunidades(){
+        return $this->belongsToMany(Comunidades::class, 'perfil_comunidades', 'idComunidade', 'idPerfil');
+    }
     protected static function boot()
     {
         parent::boot();

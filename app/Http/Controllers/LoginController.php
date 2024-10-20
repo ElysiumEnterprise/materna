@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Perfil;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -58,7 +60,12 @@ class LoginController extends Controller
 
 
             }else if($usuario->idNivelUsuario==3){
-                return redirect()->intended('/home/perfil-anunciante');
+                if(!Perfil::where('idUsuario', $usuario->idUsuario)->exists()){
+                    return redirect()->intended('/criar-perfil');
+                }else{
+                    return redirect()->intended('/home/perfil-anunciante');
+                }
+                
             }else{
                 Auth::logout();
                 return redirect()->back()->with(['status' => 'Opa! Você é um ADM!', 'message' => 'Clique aqui para logar na sua área!', 'link' => '/login-adm']);
