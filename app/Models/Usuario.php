@@ -23,7 +23,9 @@ class Usuario extends Authenticatable
         'dtNasc',
         'email',
         'senha',
-        'idNivelUsuario'
+        'idNivelUsuario',
+        'isSuspenso',
+        'qtddDenuncias'
     ];
     /**
      * 

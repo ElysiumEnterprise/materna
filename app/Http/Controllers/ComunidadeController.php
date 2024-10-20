@@ -4,12 +4,72 @@ namespace App\Http\Controllers;
 
 use App\Models\Comunidades;
 use App\Models\ComunidadesCategoria;
+use App\Models\PerfilComunidades;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ComunidadeController extends Controller
 {
+
+    public function ingressarComunidade($idComunidade, $idPerfil){
+
+        $userAuth = Auth::user();
+        $perfilAuth = $userAuth->perfils;
+
+        if (Auth::check() && $perfilAuth->idPerfil == $idPerfil) {
+            
+            PerfilComunidades::create([
+                'idPerfil' => $idPerfil,
+                'idComunidade' => $idComunidade,
+            ]);
+
+            //Atualizar a quantidade de membros da comunidade
+            $comunidade = Comunidades::find($idComunidade);
+
+            $contMembros = PerfilComunidades::where('idComunidade', $idComunidade)->count();
+
+            $comunidade->qtddMembros = $contMembros;
+            $comunidade->save();
+
+            return redirect()->back();
+
+        }else{
+            return redirect()->back()->with('statusError', 'Você não tem permissão para fazer essa ação!');
+        }
+    }
+
+    public function showComunidadesdoPerfil($idPerfil){
+
+        $comunidades = PerfilComunidades::with(['comunidades'])->where('idPerfil',$idPerfil)->get();
+
+        //Rota para mostrar todas as comunidades desse perfil
+
+    return redirect()->route(/**Rota a ser colocada aqui */'', compact('comunidades'));
+    }
+
+    public function pararSeguirComunidade($idComunidade, $idPerfil){
+        $userAuth = Auth::user();
+        $perfilAuth = $userAuth->perfils;
+
+        if (Auth::check() && $perfilAuth->idPerfil == $idPerfil) {
+
+            $perfilIngresso = PerfilComunidades::where('idPerfil', $idPerfil)->where('idComunidade', $idComunidade)->first();
+
+            $perfilIngresso->delete();
+
+            $comunidade = Comunidades::find($idComunidade);
+
+            $comunidade->qtddMembros = PerfilComunidades::where('idComunidade', $idComunidade)->count();
+
+            $comunidade->save();
+
+            return redirect()->back();
+        }else{
+            return redirect()->back()->with('statusError', 'Você não tem permissão para executar essa ação');
+        }
+    }
+
     public function cadastrarComunidade(Request $request){
         $request->validate(
             [
@@ -77,7 +137,10 @@ class ComunidadeController extends Controller
         $perfilAuth = $userAuth->perfils;
 
         if (Auth::check() && $idPerfilAuth == $perfilAuth->idPerfil) {
-            
+
+            $comunidade = Comunidades::where('idPerfilCriador', $idPerfilAuth)->where('idComunidade', $idComunidade)->first();
+
+            $comunidade->delete();
         }else{
             return redirect()->back()->with('status', 'Você não pode executar essa ação!');
         }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('curtidas', function (Blueprint $table) {
             $table->id();
             // Chave estrangeira para o usuário que curtiu a postagem
-            $table->foreignId('idUsuario')->constrained()->onDelete('cascade');
+            $table->foreignId('idUsuario')->constrained('usuarios','idUsuario')->onDelete('cascade');
             // Chave estrangeira para a postagem que foi curtida
-            $table->foreignId('idPostagem')->constrained()->onDelete('cascade');
+            $table->foreignId('idPostagem')->constrained('perfils', 'idPerfil')->onDelete('cascade');
             $table->timestamps();
         });
     }

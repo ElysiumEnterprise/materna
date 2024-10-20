@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DenunciaMail;
 use App\Models\Denuncia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class DenunciaController extends Controller
 {
@@ -37,6 +39,18 @@ class DenunciaController extends Controller
 
         $denuncia->denuciaVerificada = 1;
         $denuncia->update();
+
+        $usuario = $denuncia->usuarios;
+
+        $usuario->qtddDenuncias = Denuncia::where('idUsuario', $usuario->idUsuario)->where('denuciaVerificada', 1)->count();
+
+        if($usuario->qtddDenuncias >= 3){
+            $usuario->isSuspenso = 1;
+        }
+
+        $usuario->save();
+
+        Mail::to($usuario->email)->send(new DenunciaMail($denuncia, $usuario));
 
         return redirect()->back()->with('message', "Denúncia de ID ". $idDenuncia. " verificada!");
     }
