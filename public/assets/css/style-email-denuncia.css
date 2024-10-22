@@ -1,0 +1,76 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth\,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opszwght.ttf');
+}
+
+header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+}
+
+header img{
+    width: 150px;
+    object-fit: contain;
+}
+
+.cont-desc{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.cont-denuncia{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.cont-titulo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-family: 'Fredoka';
+    font-weight: bold;
+    color: rgb(148, 26, 26);
+    text-align: center;
+}
+h2{
+    font-family: 'Fredoka';
+    font-weight: bold;
+    text-align: center;
+    color: rgb(148, 26, 26);
+}
+p{
+    font-family: 'Inter';
+    color: #003366;
+    text-align: justify;
+}
+
+span{
+    color: rgb(148, 26, 26);
+}
+
+.cont-detalhes{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-detalhes p{
+    font-size: 16px;
+}

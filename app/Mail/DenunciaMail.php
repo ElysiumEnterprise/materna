@@ -13,18 +13,21 @@ class DenunciaMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $denuncia;
-    public $usuario;
+    public $motivoDenuncia;
+    public $nomeUsuario;
+    public $qtddDenuncia;
     /**
      * Create a new message instance.
-     * @param object $denuncia
-     * @param object $usuario
+     * @param string $motivoDenuncia
+     * @param string $nomeUsuario
+     * @param int $qtddDenuncia
      * @return void
      */
-    public function __construct($denuncia, $usuario)
+    public function __construct($motivoDenuncia, $nomeUsuario, $qtddDenuncia)
     {
-        $this->denuncia = $denuncia;
-        $this->usuario = $usuario;
+        $this->motivoDenuncia = $motivoDenuncia;
+        $this->nomeUsuario = $nomeUsuario;
+        $this->qtddDenuncia = $qtddDenuncia;
     }
 
     /**
@@ -43,7 +46,7 @@ class DenunciaMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            //view: 'view.name',
         );
     }
 
@@ -62,9 +65,11 @@ class DenunciaMail extends Mailable
      */
     public function build(){
 
-        $denuncia = $this->denuncia;
-        $usuario = $this->usuario;
-        return $this->view('emails.mail-denuncia')->with(['denuncia' => $denuncia, 'usuario' => $usuario]);
+        $denuncia = $this->motivoDenuncia;
+        $usuario = $this->nomeUsuario;
+        $qtddDenuncia = $this->qtddDenuncia;
+        
+        return $this->view('emails.mail-denuncia')->with(['denuncia' => $denuncia, 'usuario' => $usuario, 'qtddDenuncia' => $qtddDenuncia]);
     }
 }   
 
