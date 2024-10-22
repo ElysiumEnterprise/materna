@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\DenunciaMail;
+use App\Mail\SuspensoMail;
 use App\Models\Denuncia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -44,7 +45,7 @@ class DenunciaController extends Controller
 
         $usuario = $denuncia->usuarios;
 
-        $qtddDenuncia = $usuario->qtddDenuncia;
+        $qtddDenuncia = $usuario->qtddDenuncias;
 
         $nomeUsuario = $usuario->nome;
 
@@ -52,8 +53,9 @@ class DenunciaController extends Controller
 
         if($usuario->qtddDenuncias >= 3){
             $usuario->isSuspenso = 1;
+            Mail::to($usuario->email)->send(new SuspensoMail($usuario->nome, $qtddDenuncia));
         }else{
-            Mail::to('machado.gui.oliveira@gmail.com')->send(new DenunciaMail($motivoDenuncia, $nomeUsuario, $qtddDenuncia));
+            Mail::to($usuario->email)->send(new DenunciaMail($motivoDenuncia, $nomeUsuario, $qtddDenuncia));
         }
 
         $usuario->save();
