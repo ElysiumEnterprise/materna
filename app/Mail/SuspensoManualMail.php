@@ -9,21 +9,21 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SuspensoMail extends Mailable
+class SuspensoManualMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $nomeUsuario;
-    public $qtddDenuncias;
+    public $motivo;
     /**
      * Create a new message instance.
      * @param string $nomeUsuario;
-     * @param int $qtddDenuncias;
+     * @param string $motivo;
      */
-    public function __construct($nomeUsuario, $qtddDenuncias)
+    public function __construct($nomeUsuario, $motivo)
     {
         $this->nomeUsuario = $nomeUsuario;
-        $this->qtddDenuncias = $qtddDenuncias;
+        $this->motivo = $motivo;
     }
 
     /**
@@ -32,7 +32,7 @@ class SuspensoMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Você está Suspenso!!!',
+            subject: 'Você foi suspenso!!!',
         );
     }
 
@@ -56,16 +56,16 @@ class SuspensoMail extends Mailable
         return [];
     }
     /**
-     * Build message
-     * @return $this
+     * Build Message
+     * @return $this;
      */
     public function build(){
 
         $nomeUsuario = $this->nomeUsuario;
 
-        $qtddDenuncias = $this->qtddDenuncias;
+        $motivo = $this->motivo;
 
-        return $this->view('emails.mail-suspenso-manual')->with(['nomeUsuario' => $nomeUsuario, 'qtddDenuncias' => $qtddDenuncias])->attach(public_path('assets\img\logo\Logo-Materna.png'),[
+        return $this->view('emails.mail-suspenso-manual')->with(['nomeUsuario' => $nomeUsuario, 'motivo' => $motivo])->attach(public_path('assets\img\logo\Logo-Materna.png'), [
             'as' => 'Logo-Materna.png',
             'mime' => 'image/png'
         ]);

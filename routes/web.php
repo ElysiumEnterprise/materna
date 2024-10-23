@@ -88,7 +88,7 @@ Route::post('/dashboard/usuarios', [UsuarioController::class, 'buscarUsuario'])-
 
 //Informações do usuário
 
-Route::get('/dashboard/info-usuario/{idPerfil}', [InfoUserController::class, 'goInfoUserADM'])->name('info.user');
+Route::get('/dashboard/info-usuario/{idUsuario}', [InfoUserController::class, 'goInfoUserADM'])->name('info.user');
 
 //Deletagem do usuário via ADM
 
@@ -204,3 +204,9 @@ Route::get('/lista-seguidores/{idPerfil}', [PerfilController::class, 'showPerfil
 //Remover seguidores 
 
 Route::delete('/remover-seguidor/{idPerfil}/{idUserAuth}', [SeguidoresController::class, 'removerSeguidor'])->name('remover-seguidor');
+
+//Suspender manualmente na lista de usuários
+
+Route::post('/suspender-usuario/{idUsuario}', [UsuarioController::class, 'suspenderUser'])->name('suspender-user');
+
+

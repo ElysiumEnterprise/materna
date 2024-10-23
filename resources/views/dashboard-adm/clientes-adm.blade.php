@@ -37,12 +37,6 @@
             
             <hr>
             <div class="cont-filtro">
-                <div class="cont-buttons">
-                    <button type="button" id="btn-todos">Todos</button>
-                    <button type="button" id="btn-cliente">Mães</button>
-                    <button type="button" id="btn-anunciante">Anunciante</button>
-                </div>
-                
                 <div class="cont-buscador">
                     <form action="{{route('buscar.usuario')}}" method="post">
                         @csrf
@@ -66,6 +60,12 @@
                                 
                             </div>
                         </a>
+                        <div class="cont-btn-acoes">
+                            <button type="button" onclick="abrirModalUser('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
+                            <i class="fa-sharp fa-regular fa-user-lock"></i>
+                            </button>
+                            <button type="button" onclick="abrirModalDeletar('{{$user->idUsuario}}', `{{route('user.destroy.adm', [idUsuario => ':idUsuario'])}}`)"><i class="fa-solid fa-trash"></i></button>
+                        </div>
                     </section>
                     <hr>
                     @endforeach
@@ -86,6 +86,31 @@
             @endif
             </div>
         </div>
+    </div>
+    <div class="box-modal-suspender">
+        <dialog class="modal-suspender">
+            <div class="cont-modal">
+                <p>Tem certeza que deseja suspender esse usuário? Se sim, escreva o motivo abaixo:</p>
+                <form action="" method="post">
+                    @csrf
+                    <textarea name="motivo" id="motivo" placeholder="Digite o motivo da suspensão aqui..."></textarea>
+                    <button type="submit">Suspender</button>
+                    <button type="button" onclick="fecharModalSuspender()">Cancelar</button>
+                </form>
+            </div>
+        </dialog>
+    </div>
+    <div class="box-modal-deletar">
+        <dialog class="modal-deletar-user">
+            <p>Tem certeza que deseja deletar esse usuário? Se sim, escreva o motivo abaixo:</p>
+            <form action="" method="post">
+                @csrf
+                @method('DELETE')
+                <textarea name="motivoExclusao" id="motivoExclusao" placeholder="Digite o motivo aqui..."></textarea>
+                <button type="submit">Deletar</button>
+                <button type="button" onclick="fecharModalDeletar()"></button>
+            </form>
+        </dialog>
     </div>
 @endsection
 

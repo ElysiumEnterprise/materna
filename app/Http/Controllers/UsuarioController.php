@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DeleteUserMail;
+use App\Mail\SuspensoMail;
+use App\Mail\SuspensoManualMail;
+use App\Mail\UserAtivoMail;
 use App\Models\Anunciante;
 use App\Models\TelefoneUser;
 use Illuminate\Http\Request;
@@ -9,6 +13,7 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\log;
+use Illuminate\Support\Facades\Mail;
 
 class UsuarioController extends Controller
 {
@@ -148,6 +153,35 @@ class UsuarioController extends Controller
 
     }
 
+    public function suspenderUser($idUser, Request $request){
+        $request->validate(
+            [
+            'motivo' => 'required||min:5|max:250',
+            ],
+            [
+                'motivo.required' => 'Preencha esse campo!',
+                'motivo.min' => 'Esse campo precisa ter no mínimo 5 caracteres!',
+                'motivo.max' => 'Esse campo atingiu o limite de 250 caracteres',
+            ]
+        );
+
+        if(Auth::check() && Auth::user()->idNivelUsuario==2){
+            $usuario = Usuario::find($idUser);
+
+            $usuario->isSuspenso = 1;
+
+            $usuario->save();
+
+            $motivo = $request->motivo;
+
+            Mail::to($usuario->email)->send(new SuspensoManualMail($usuario->nome, $motivo));
+
+            return redirect()->back();
+        }else{
+            return redirect()->back()->with('statusErro', 'Você não pode executar essa ação');
+        }
+    }
+
     public function destroy($idUser){
         $user = Usuario::with(['telefone_users', 'perfils'])->find($idUser);
         $exist = Anunciante::where('idUsuario', $idUser)->exists();
@@ -164,18 +198,52 @@ class UsuarioController extends Controller
             $user->perfils()->delete();
 
             //Deletar usuário
-
+            
             $user->delete();
 
             return redirect('/');
         }
     }
 
-    public function destroyViaADM($idUser){
-        $user = Usuario::find($idUser);
+    public function destroyViaADM($idUser, Request $request){
+        $request->validate(
+            [
+            'motivoExclusao' => 'required||min:5|max:250',
+            ],
+            [
+                'motivoExclusao.required' => 'Preencha esse campo!',
+                'motivoExclusao.min' => 'Esse campo precisa ter no mínimo 5 caracteres!',
+                'motivoExclusao.max' => 'Esse campo atingiu o limite de 250 caracteres',
+            ]
+        );
 
-        $user->delete();
+        if(Auth::check() && Auth::user()->idNivelUsuario==2){
+            $motivo = $request->motivoExclusao;
 
-        return redirect()->route('usuarios.adm');
+            $user = Usuario::find($idUser);
+
+            Mail::to($user->email)->send(new DeleteUserMail($user->nome, $motivo));
+
+            $user->delete();
+
+            return redirect()->route('usuarios.adm');
+        }else{
+            return redirect()->back()->with('statusError', 'Você não pode executar essa ação!');
+        }
+        
+    }
+
+    public function ativarUser($idUsuario){
+        if(Auth::check() && Auth::user()->idUsuario == $idUsuario){
+            $usuario = Usuario::find($idUsuario);
+
+            $usuario->isSuspenso = 0;
+
+            $usuario->save();
+
+            Mail::to($usuario->email)->send(new UserAtivoMail($usuario->nome));
+        }else{
+            return redirect()->back()->with('statusErro', 'Você não pode executar essa ação!');
+        }
     }
 }
