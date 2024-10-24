@@ -204,6 +204,14 @@ form .input-group input {
     outline: none;
 }
 
+.animated-input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
 .animated-input:focus {
     border-bottom: 4px solid #F26699;
     transform: scale(1.04);
@@ -214,6 +222,7 @@ input:focus, input:valid{
     border-bottom: 2px solid #F26699;
     
 }
+
 
 form .regras-senha{
     position: relative;

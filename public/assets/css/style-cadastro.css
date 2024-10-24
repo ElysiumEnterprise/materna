@@ -203,6 +203,13 @@ form .input-group  input {
     border-bottom: 2px solid #F26699;
     outline: none;
 }
+.animated-input {
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
 
 .animated-input:focus {
     border-bottom: 4px solid #F26699;

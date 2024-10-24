@@ -57,7 +57,7 @@
                                             
                                         
                                         
-                                        <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Digite seu nome completo" value='{{old("nomeCliente")}}'>
+                                        <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Digite seu nome completo" value='{{old("nomeCliente")}}' class="animated-input">
                                     </div>
                                 
                                 </div>
@@ -71,7 +71,7 @@
                                             <img src="{{url('assets/img/icons/icon-calendar.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="date" name="dtCliente" id="dtCliente" min="1924-01-01" placeholder="Digite sua data de nascimento" value='{{old("dtCliente")}}'>
+                                        <input type="date" name="dtCliente" id="dtCliente" min="1924-01-01" placeholder="Digite sua data de nascimento" value='{{old("dtCliente")}}' class="animated-input">
 
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                             <img src="{{url('assets/img/icons/icon-email.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="email" name="emailCliente" id="emailCliente" placeholder="Digite seu email" value='{{old("emailCliente")}}'>
+                                        <input type="email" name="emailCliente" id="emailCliente" placeholder="Digite seu email" value='{{old("emailCliente")}}' class="animated-input">
                                     </div>
 
                                 </div>
@@ -95,7 +95,7 @@
                                             <img src="{{url('assets/img/icons/icon-tel.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="tel" name="telCliente" id="telCliente" placeholder="Digite seu telefone" value='{{old("telCliente")}}'>
+                                        <input type="tel" name="telCliente" id="telCliente" placeholder="Digite seu telefone" value='{{old("telCliente")}}' class="animated-input">
                                     </div>
                                 </div>
 
@@ -106,7 +106,7 @@
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="password" id="password" placeholder="Crie uma senha" value='{{old("senhaCliente")}}'>
+                                        <input type="password"  name="password" id="password" placeholder="Crie uma senha" value='{{old("senhaCliente")}}' class="animated-input">
                                         <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
                                         
                                     </div>
@@ -137,7 +137,7 @@
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="password_confirmation" id="password_confirmation" placeholder="Confirme a senha" value='{{old("senhaCliente")}}'>
+                                        <input type="password"  name="password_confirmation" id="password_confirmation" placeholder="Confirme a senha" value='{{old("senhaCliente")}}' class="animated-input">
                                         <i class="bi bi-eye-slash btn-show-pass-confirm" onclick="mostrarConfirmarSenha()"></i>
                                     </div>
                                     
