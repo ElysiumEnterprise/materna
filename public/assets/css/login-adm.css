@@ -184,13 +184,23 @@ input {
     font-family: 'Fredoka';
 }
 .animated-input {
-    padding: 5px;
+    padding-left: 8px;
+    padding: 8px;
     border: none;
-    border-bottom: 2px solid #F26699;
     outline: none;
     transition: all 0.3s ease;
     font-size: 15px;
-    font-family: 'Fredoka';
+}
+
+.animated-input:focus {
+    border-bottom: 4px solid #F26699;
+    transform: scale(1.04);
+}
+
+input:focus, input:valid{
+    border: none;
+    border-bottom: 2px solid #F26699;
+    
 }
 
 .cont-btn{
@@ -212,7 +222,6 @@ input {
     font-size: 14px;
     font-family: 'Fredoka';
     cursor: pointer;
-    transition: all ease-in-out 0.2s;
 }
 
 .cont-btn button:hover{
