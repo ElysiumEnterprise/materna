@@ -13,12 +13,14 @@ class UserAtivoMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $nomeUsuario;
     /**
      * Create a new message instance.
+     * @param string $nomeUsuario;
      */
-    public function __construct()
+    public function __construct($nomeUsuario)
     {
-        //
+        $this->nomeUsuario = $nomeUsuario;
     }
 
     /**
@@ -27,7 +29,7 @@ class UserAtivoMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'User Ativo Mail',
+            subject: 'Conta ativada!!!',
         );
     }
 
@@ -37,7 +39,7 @@ class UserAtivoMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            //view: 'view.name',
         );
     }
 
@@ -49,5 +51,16 @@ class UserAtivoMail extends Mailable
     public function attachments(): array
     {
         return [];
+    }
+
+    /**
+     * Build message
+     * @return $this;
+     */
+    public function build(){
+        return $this->view('emails.mail-user-ativo')->with(['nomeUsuario' => $this->nomeUsuario])->attach(public_path('assets\img\logo\Logo-Materna.png'),[
+            'as' => 'Logo-Materna.png',
+            'mime' => 'image/png'
+        ]);
     }
 }
