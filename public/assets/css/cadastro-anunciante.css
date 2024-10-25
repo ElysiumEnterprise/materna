@@ -30,12 +30,11 @@ body{
 .container-conteudo{
     display: flex;
     min-width: 100%;
-   
     justify-content: center;
     align-items: center;
     height: 100vh;
- 
 }
+
 .cont-img-mobile{
     display: none;
 }
@@ -43,6 +42,7 @@ body{
 .cont-img-mobile img{
     width: 40%;
 }
+
 .cont-form{
     display: flex;
     width: 50%;
@@ -156,7 +156,7 @@ form .input-group {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: 12px;
+    margin-top: 5px;
     width: 100%;
 }
 
@@ -180,6 +180,7 @@ form .input-group .cont-input{
     flex-direction: row;
     width: 100%;
 }
+
 form .input-group i{
     position: absolute;
     right: 3%;
@@ -187,14 +188,16 @@ form .input-group i{
     color: #F26699;
     cursor: pointer;
 }
+
 form  .cont-input label .icon-input{
     width: 30px;
     margin-right: 5px;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
+
     display: none;
-  }
+}
 
 form .input-group input {
     background-color: transparent;
@@ -311,9 +314,11 @@ form button:hover{
     .carousel-container{
         display: none;
     }
+
     .container-conteudo{
         flex-direction: column;
     }
+
     .cont-img-mobile{
         display: flex;
         width: 100%;
@@ -322,6 +327,7 @@ form button:hover{
         justify-content: start;
         align-items: center;
     }
+
     .cont-back{
         display: none;
     }

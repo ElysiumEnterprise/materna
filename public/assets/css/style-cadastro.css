@@ -180,6 +180,7 @@ form .input-group .cont-input{
     flex-direction: row;
     width: 100%;
 }
+
 form .input-group i{
     position: absolute;
     right: 3%;
@@ -187,14 +188,16 @@ form .input-group i{
     color: #F26699;
     cursor: pointer;
 }
+
 form  .cont-input label .icon-input{
     width: 30px;
     margin-right: 5px;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
+
     display: none;
-  }
+}
 
 form .input-group  input {
     background-color: transparent;
@@ -203,6 +206,7 @@ form .input-group  input {
     border-bottom: 2px solid #F26699;
     outline: none;
 }
+
 .animated-input {
     padding: 10px;
     border: none;
@@ -309,9 +313,11 @@ form button:hover{
     .carousel-container{
         display: none;
     }
+
     .container-conteudo{
         flex-direction: column;
     }
+
     .cont-img-mobile{
         display: flex;
         width: 100%;
@@ -320,6 +326,7 @@ form button:hover{
         justify-content: start;
         align-items: center;
     }
+    
     .cont-back{
         display: none;
     }
