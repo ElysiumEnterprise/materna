@@ -9,27 +9,7 @@
 
 @section('cont-adm')
     <div class="cont-clientes">
-        <div class="cont-card-num-cadastro">
-                <div class="sales">
-                    <span class="material-icons-sharp">analytics</span>
-                    <div class="middle">
-                        
-                        <div class="left">
-                            <h3 class="titulo-card">Cadastros</h3>
-                            <h1>{{$users->count()}}</h1>
-                        </div>
-                        
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-
-                        </div>
-                    </div>
-
-                    <small class="text-muted">Desde do começo</small>
-                </div>
-        </div>
+        
         <div class="cont-lista-users">
             <div class="cont-titulo">
                 <h3>Usuários Cadastrados no Sistema</h3>
@@ -61,10 +41,11 @@
                             </div>
                         </a>
                         <div class="cont-btn-acoes">
-                            <button type="button" onclick="abrirModalUser('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
+                            <button type="button" onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><i class="fa-sharp fa-regular fa-user-unlock"></i></button>
+                            <button type="button" onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
                             <i class="fa-sharp fa-regular fa-user-lock"></i>
                             </button>
-                            <button type="button" onclick="abrirModalDeletar('{{$user->idUsuario}}', `{{route('user.destroy.adm', [idUsuario => ':idUsuario'])}}`)"><i class="fa-solid fa-trash"></i></button>
+                            <button type="button" onclick="abrirModalDeletar('{{$user->idUsuario}}', `{{route('user.destroy.adm', ['idUsuario' => ':idUsuario'])}}`)"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </section>
                     <hr>
@@ -87,11 +68,11 @@
             </div>
         </div>
     </div>
-    <div class="box-modal-suspender">
+    <div class="box-modal-suspender" id="box-modal">
         <dialog class="modal-suspender">
             <div class="cont-modal">
                 <p>Tem certeza que deseja suspender esse usuário? Se sim, escreva o motivo abaixo:</p>
-                <form action="" method="post">
+                <form action="" method="post" class="form-suspender">
                     @csrf
                     <textarea name="motivo" id="motivo" placeholder="Digite o motivo da suspensão aqui..."></textarea>
                     <button type="submit">Suspender</button>
@@ -100,10 +81,10 @@
             </div>
         </dialog>
     </div>
-    <div class="box-modal-deletar">
+    <div class="box-modal-deletar" id="box-modal">
         <dialog class="modal-deletar-user">
             <p>Tem certeza que deseja deletar esse usuário? Se sim, escreva o motivo abaixo:</p>
-            <form action="" method="post">
+            <form action="" method="post" class="form-delete">
                 @csrf
                 @method('DELETE')
                 <textarea name="motivoExclusao" id="motivoExclusao" placeholder="Digite o motivo aqui..."></textarea>
@@ -112,9 +93,17 @@
             </form>
         </dialog>
     </div>
+    <div class="box-modal-ativar" id="box-modal">
+        <dialog class="modal-ativar">
+            <p>Tem certeza que deseja ativar esse usuário novamente para a Materna?</p>
+            <a href="" class="action-ativar">Ativar</a>
+            <button type="button">Cancelar</button>
+        </dialog>
+    </div>
 @endsection
 
 @section('scripts')
     <script src="{{url('assets/js/dashboard/script-filtro-clientes.js')}}"></script>
+    <script src="{{url('assets/js/dashboard/script-clientes.js')}}"></script>
 @endsection
 

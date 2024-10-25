@@ -357,3 +357,111 @@
        
     }
 }
+
+#box-modal {
+    display: none;
+}
+
+#box-modal.active{
+    position: fixed;         /* Cover the whole screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    z-index: 1000;
+}
+
+#box-modal dialog{
+    width: 900px; /* Ajuste o tamanho conforme necessário */
+    border: solid 1px #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    top: 50%; /* Posiciona o topo do modal no meio da tela */
+    left: 50%; /* Posiciona a esquerda do modal no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta o modal para que o centro esteja no meio da tela */
+    max-width: 90%; /* Adapta o modal em telas menores */
+    max-height: 80%; /* Adapta a altura do modal em telas menores */
+    overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+}
+#box-modal dialog .cont-modal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#box-modal dialog .cont-modal p{
+    font-family: 'Fredoka';
+    
+    font-weight: normal;
+    text-align: center;
+    color: #003366;
+}
+
+#box-modal dialog .cont-modal form{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#box-modal dialog .cont-modal form button, #box-modal dialog .cont-modal a{
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d02b39;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+#box-modal dialog .cont-modal form button[type="submit"], #box-modal dialog .cont-modal a{
+    background-color: #d02b39;
+    color: white;
+}
+
+#box-modal dialog .cont-modal form button[type="button"]{
+    background-color: rgb(121, 119, 119);
+    color: white;
+}
+
+#box-modal dialog .cont-modal form button[type="submit"]:hover, #box-modal dialog .cont-modal a:hover{
+    background-color: #670f17;
+    transform: scale(1.04);
+}
+
+#box-modal dialog .cont-modal form button[type="button"]:hover{
+    background-color: #575656;
+    transform: scale(1.04);
+}
+#box-modal dialog .cont-modal form textarea{
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 2px #f26699 solid;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    resize: none;
+}
+#box-modal dialog .cont-modal form textarea:focus{
+    border: 4px solid #F26699;
+    transform: scale(1.01);
+    outline:none;
+}

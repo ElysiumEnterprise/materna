@@ -92,7 +92,7 @@ Route::get('/dashboard/info-usuario/{idUsuario}', [InfoUserController::class, 'g
 
 //Deletagem do usuário via ADM
 
-Route::delete('/dashboard/info-usuario/{idPerfil}', [UsuarioController::class, 'destroyViaADM'])->name('user.destroy.adm');
+Route::delete('/dashboard/info-usuario/{idUsuario}', [UsuarioController::class, 'destroyViaADM'])->name('user.destroy.adm');
 
 //ir para as denúncias verificadas do usuário
 
@@ -209,4 +209,5 @@ Route::delete('/remover-seguidor/{idPerfil}/{idUserAuth}', [SeguidoresController
 
 Route::post('/suspender-usuario/{idUsuario}', [UsuarioController::class, 'suspenderUser'])->name('suspender-user');
 
-
+//Ativar o usuário após ser suspenso
+Route::get('/ativar-usuario/{idUsuario}', [UsuarioController::class, 'ativarUser'])->name('ativar-user');
