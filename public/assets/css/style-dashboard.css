@@ -252,9 +252,7 @@ aside .sidebar a:hover{
     color: #F26699;
 }
 
-aside .sidebar a:hover span{
-    margin-left: 0.80rem;
-}
+    
 
 aside .sidebar .message-count{
     background: var(--color-danger);
@@ -340,7 +338,7 @@ main .insights > div span{
     color: var(--color-white);
     font-size: 2rem;
 }
-    
+
 
 main .insights > div.postagens span{
     background: var(--color-danger);
