@@ -18,60 +18,66 @@
             
             <div class="insights">
 
-                <div class="sales">
+                <div class="cadastros">
+                   
                     <span class="material-icons-sharp">analytics</span>
+                    
+                    
+                    
                     <div class="middle">
                         
                         <div class="left">
-                            <h3 class="titulo-card">Cadastros</h3>
+
+                        <h3 class="titulo-card">Cadastros</h3>
+                            
+                        <div class="counter">
                             <h1>{{$countCadastros}}</h1>
-                        </div>
-
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
+                            </div>
 
                         </div>
+
+                        
                     </div>
 
                     <small class="text-muted">No total</small>
+
+                    
                 </div>
 
-                <div class="expenses">
+                <div class="postagens">
+
                     <span class="material-icons-sharp">bar_chart</span>
                     <div class="middle">
+
                         <div class="left">
+
                             <h3 class="titulo-card">Postagens</h3>
-                            <h1>{{$countPostagens}}</h1>
+
+                            <div class="counter">
+                                <h1>{{$countPostagens}}</h1>
+                            </div>
                         </div>
 
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-
-
-                        </div>
+                        
                     </div>
 
                     <small class="text-muted">No total</small>
                 </div>
 
-                <div class="income">
+                <div class="anuncio">
                     <span class="material-icons-sharp">stacked_line_chart</span>
                     <div class="middle">
+                        
                         <div class="left">
+
                             <h3 class="titulo-card">Anúncios</h3>
-                            <h1>{{$countPostADD}}</h1>
+
+                            <div class="counter">
+                                <h1>{{$countPostADD}}</h1>
+                            </div>
                         </div>
 
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-
-                        </div>
+                        
                     </div>
 
                     <small class="text-muted">No total</small>

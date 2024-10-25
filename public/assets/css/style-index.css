@@ -239,12 +239,13 @@ button {
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background-color: #ff85ab;
+    background-color: #F26699;
     font-family: 'Fredoka';
     color: white;
     font-size: 1rem;
     cursor: pointer;
     margin-top: 20px;
+    transition: all ease-in-out 0.2s
 }
 
 .icon-senha{
