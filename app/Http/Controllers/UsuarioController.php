@@ -174,7 +174,7 @@ class UsuarioController extends Controller
 
             $motivo = $request->motivo;
 
-            Mail::to($usuario->email)->send(new SuspensoManualMail($usuario->nome, $motivo));
+            Mail::to('machado.gui.oliveira@gmail.com')->send(new SuspensoManualMail($usuario->nome, $motivo));
 
             return redirect()->back();
         }else{
@@ -222,7 +222,7 @@ class UsuarioController extends Controller
 
             $user = Usuario::find($idUser);
 
-            Mail::to($user->email)->send(new DeleteUserMail($user->nome, $motivo));
+            Mail::to('machado.gui.oliveira@gmail.com')->send(new DeleteUserMail($user->nome, $motivo));
 
             $user->delete();
 
@@ -234,14 +234,15 @@ class UsuarioController extends Controller
     }
 
     public function ativarUser($idUsuario){
-        if(Auth::check() && Auth::user()->idUsuario == $idUsuario){
+        if(Auth::check() && Auth::user()->idNivelUsuario == 2){
             $usuario = Usuario::find($idUsuario);
 
             $usuario->isSuspenso = 0;
 
             $usuario->save();
 
-            Mail::to($usuario->email)->send(new UserAtivoMail($usuario->nome));
+            Mail::to('machado.gui.oliveira@gmail.com')->send(new UserAtivoMail($usuario->nome));
+            return redirect()->back();
         }else{
             return redirect()->back()->with('statusErro', 'Você não pode executar essa ação!');
         }

@@ -278,6 +278,9 @@
 
 .card-user .cont-img img{
     width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    object-fit: fill;
 }
 
 .card-user .cont-info-user{
@@ -295,7 +298,53 @@
     color: var(--color-dark);
     text-align: start;
 }
+.cont-btn-acoes{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.cont-btn-acoes button{
+    display: flex;
+    width:40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 10%;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.cont-btn-acoes .btn-ativar{
+    background-color: #11b738;
+}
+.cont-btn-acoes .btn-ativar-disabled{
+    background-color: #11b738;
+    opacity: 0.50;
+}
+.cont-btn-acoes .btn-suspender{
+    background-color: #b71135;
+}
+.cont-btn-acoes .btn-suspender-disabled{
+    background-color: #b71135;
+    opacity: 0.50;
+}
 
+
+.cont-btn-acoes .btn-deletar{
+    background-color: #b71135;
+}
+.cont-btn-acoes .btn-deletar i{
+    color: white;
+}
+.cont-btn-acoes button img{
+    width: 40px;
+    object-fit: contain;
+}
+.cont-btn-acoes button i{
+    font-size: 20px;
+}
 .cont-status{
     display: flex;
     width: 100%;
@@ -401,7 +450,7 @@
 
 #box-modal dialog .cont-modal p{
     font-family: 'Fredoka';
-    
+    font-size: 20px;
     font-weight: normal;
     text-align: center;
     color: #003366;
@@ -414,8 +463,15 @@
     justify-content: space-around;
     align-items: center;
 }
+#box-modal dialog .cont-modal form .cont-btn, #box-modal dialog .cont-modal .cont-btn{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
 
-#box-modal dialog .cont-modal form button, #box-modal dialog .cont-modal a{
+#box-modal dialog .cont-modal form .cont-btn button, #box-modal dialog .cont-modal a, #box-modal dialog .cont-modal button{
     justify-content: center;
     align-items: center;
     
@@ -431,22 +487,22 @@
     margin-top: 20px;
 }
 
-#box-modal dialog .cont-modal form button[type="submit"], #box-modal dialog .cont-modal a{
+#box-modal dialog .cont-modal form .cont-btn button[type="submit"], #box-modal dialog .cont-modal a{
     background-color: #d02b39;
     color: white;
 }
 
-#box-modal dialog .cont-modal form button[type="button"]{
+#box-modal dialog .cont-modal form .cont-btn button[type="button"], #box-modal dialog .cont-modal button{
     background-color: rgb(121, 119, 119);
     color: white;
 }
 
-#box-modal dialog .cont-modal form button[type="submit"]:hover, #box-modal dialog .cont-modal a:hover{
+#box-modal dialog .cont-modal form .cont-btn button[type="submit"]:hover, #box-modal dialog .cont-modal a:hover{
     background-color: #670f17;
     transform: scale(1.04);
 }
 
-#box-modal dialog .cont-modal form button[type="button"]:hover{
+#box-modal dialog .cont-modal form .cont-btn button[type="button"]:hover, #box-modal dialog .cont-modal button[type="button"]:hover{
     background-color: #575656;
     transform: scale(1.04);
 }

@@ -6,6 +6,7 @@ use App\Mail\DenunciaMail;
 use App\Mail\SuspensoMail;
 use App\Models\Denuncia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class DenunciaController extends Controller
@@ -52,8 +53,10 @@ class DenunciaController extends Controller
         $usuario->qtddDenuncias = Denuncia::where('idUsuario', $usuario->idUsuario)->where('denuciaVerificada', 1)->count();
 
         if($usuario->qtddDenuncias >= 3){
-            $usuario->isSuspenso = 1;
-            Mail::to($usuario->email)->send(new SuspensoMail($usuario->nome, $qtddDenuncia));
+            if($usuario->isSuspenso == 0){
+                $usuario->isSuspenso = 1;
+                Mail::to($usuario->email)->send(new SuspensoMail($usuario->nome, $qtddDenuncia));
+            }
         }else{
             Mail::to($usuario->email)->send(new DenunciaMail($motivoDenuncia, $nomeUsuario, $qtddDenuncia));
         }
@@ -72,5 +75,10 @@ class DenunciaController extends Controller
         $denuncia->delete();
 
         return redirect()->back()->with('message', "Denúncia de ID ". $idDenuncia. " deleteda!");
+    }
+    public function listarDenuncias(){
+        if(Auth::check() && Auth::user()){
+
+        }
     }
 }
