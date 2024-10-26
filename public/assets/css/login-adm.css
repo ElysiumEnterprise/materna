@@ -22,6 +22,7 @@ body{
     font-family: 'Fredoka';
     background-color: #F26699;
 }
+
 header{
     display: flex;
     width: 100%;
@@ -29,6 +30,7 @@ header{
     align-items: center;
     
 }
+
 .navbar {
     display: flex;
     width: 100%;
@@ -46,6 +48,7 @@ header{
     align-items: center;
     
 }
+
 .logo a{
     text-decoration: none;
     outline: none;
@@ -55,9 +58,9 @@ header{
 .logo a span{
     color: white;
     font-size: 20px;
-    
     font-weight: bold;
 }
+
 .img-logo {
     width: 300px;
 }
@@ -154,18 +157,22 @@ form .input-group i{
     color: #F26699;
     cursor: pointer;
 }
+
 form  .cont-input label .icon-input{
     width: 30px;
     margin-right: 5px;
 }
+
 form .erro{
     color: #F26699;
     font-weight: bold;
     font-family: 'Inter';
 }
+
 .icon-input{
     display: flex;
 }
+
 .input-group .cont-erro{
     display: flex;
     width: 100%;
@@ -183,6 +190,7 @@ input {
     height: auto;
     font-family: 'Fredoka';
 }
+
 .animated-input {
     padding-left: 8px;
     padding: 8px;
@@ -222,8 +230,10 @@ input:focus, input:valid{
     font-size: 14px;
     font-family: 'Fredoka';
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .cont-btn button:hover{
     background-color: #F88AC5;
+    transform: scale(1.01);
 }

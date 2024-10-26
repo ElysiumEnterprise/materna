@@ -267,10 +267,12 @@ form button{
     font-size: 1rem;
     cursor: pointer;
     margin-top: 35px;
+    transition: all 0.2s ease;
 }
 
 form button:hover{
     background-color: #F88AC5;
+    transform: scale(1.01);
 }
 
 .carousel-container {
