@@ -294,6 +294,7 @@ main .cont-acoes a{
     transition: all ease-in-out 0.2s;
 }
 
+
 main .cont-acoes a:hover{
     background-color: #F88AC5;
 }
@@ -325,6 +326,7 @@ main .insights > div{
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
     transition: all 300ms ease;
+    width: 300px;
 }
 
 main .insights > div:hover{
@@ -354,6 +356,27 @@ main .insights > div .middle{
     align-items: center;
 }
 
+.cad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grafico-barra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+
+.grafico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
 .counter{
     display: flex;
     align-items: center;
@@ -362,7 +385,7 @@ main .insights > div .middle{
 }
 
 main .insights h3{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 main .insights small{
@@ -373,7 +396,8 @@ main .insights small{
 }
 
 main .recent-orders{
-    margin-top: 7rem;
+    margin-top: 20rem;
+    
 }
 
 main .recent-orders h2{
