@@ -20,6 +20,7 @@ body{
 header{
     background-color: #F26699;
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -42,6 +43,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .cont-titulo h1{
@@ -51,6 +53,7 @@ header{
     font-weight: bold;
     text-align: center;
 }
+
 .cont-titulo p{
     font-size: 20px;
     color: #F26699;
@@ -110,9 +113,16 @@ form .cont-img-perfil .btn-mudar-img, form input[type='submit']{
     transition: all 0.3s ease;
     margin-top: 20px;
 }
+
+form .cont-img-perfil .btn-mudar-img:hover, form input[type='submit']:hover{
+    background-color: #F88AC5;
+    transform: scale(1.01);
+}
+
 form .cont-img-perfil .btn-mudar-img{
     width: 60%;
 }
+
 form .input-group{
     display: flex;
     width: 100%;
@@ -122,9 +132,11 @@ form .input-group{
     flex-direction: column ;
     
 }
+
 form > div{
     margin-top: 20px;
 }
+
 form #drag-area-banner{
     display: flex;
     flex-direction: column;
@@ -141,16 +153,19 @@ form .input-group #drag-area-banner .icon i{
     font-size: 50px;
     color: #F26699;
 }
+
  form .input-group #drag-area-banner h5{
     font-weight: bold;
      color: #003366;
      font-family: 'Inter';
  }
+
 form .input-group #drag-area-banner span{
     font-size: 20px;
     color: #F26699;
     font-family: 'Inter';
 }
+
 form .input-group #drag-area-banner .img-view-banner{
     display: flex;
     flex-direction: column;
@@ -162,6 +177,7 @@ form .input-group #drag-area-banner .img-view-banner{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 form .input-group label{
     display: flex;
     width: 100%;
@@ -172,6 +188,7 @@ form .input-group label{
     text-align: center;
     color: #003366;
 }
+
 form .input-group textarea{
     width: 100%;
     height: 200px;
@@ -181,11 +198,13 @@ form .input-group textarea{
     transition: all 0.3s ease;
     font-size: 15px;
 }
+
  form .input-group textarea:focus{
     border: 4px solid #F26699;
-    transform: scale(1.04);
+    transform: scale(1.01);
     outline:none;
 }
+
 form .input-group input{
     width: 100%;
     padding: 10px;
@@ -198,7 +217,7 @@ form .input-group input{
 
 form .input-group input:focus{
     border-bottom: 4px solid #F26699;
-    transform: scale(1.04);
+    transform: scale(1.01);
 }
 
 form .cont-btn{
@@ -208,12 +227,14 @@ form .cont-btn{
     align-items: center;
     margin-bottom: 20px;
 }
+
 form .cont-error-foto-perfil{
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
 }
+
 form .errorField{
     color: #d02b39;
     font-size: 14px;
