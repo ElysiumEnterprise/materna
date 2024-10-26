@@ -44,7 +44,7 @@ function drawSlice(startAngle, endAngle, color, label, value) {
 // Dados do gráfico (label, valor e cor)
 const data = [
     { label: 'Anunciantes', value: 25, color: '#FF6384' },
-    { label: 'Mães', value: 47, color: '#36A2EB' },
+    { label: 'Mães', value: 47, color: '#fd5462' },
 ];
 
 // Desenhando o gráfico
