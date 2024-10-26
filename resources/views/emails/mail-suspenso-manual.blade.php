@@ -82,8 +82,8 @@
             <h1>Você está suspenso da Materna!!!</h1>
         </div>
         <div class="cont-desc">
-            <p>{{$nomeUsuario}}, você está suspenso da nossa plataforma pelo seguinte motivo:</p>
-            <p>{{$motivo}}</p>
+            <p>{{$nomeUsuario}}, você está suspenso da nossa plataforma pelo seguinte motivo: {{$motivo}}</p>
+            
         </div>
         <div class="cont-detalhes">
             <p>Se você não concorda com a suspensão de sua conta ou achar que foi indevidamente realizada, por favor, contate ao nosso email!</p>

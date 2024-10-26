@@ -47,7 +47,7 @@ function abrirModalDeletar(idUsuario, urlTemplate){
 
 function fecharModalDeletar(){
     modalDelete.close();
-    divModalAtivar.classList.remove('active')
+    divModalDeletar.classList.remove('active')
     formDelete.action = ""
 }
 

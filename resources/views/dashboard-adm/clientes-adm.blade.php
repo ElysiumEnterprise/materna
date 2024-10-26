@@ -41,11 +41,23 @@
                             </div>
                         </a>
                         <div class="cont-btn-acoes">
-                            <button type="button" onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><i class="fa-sharp fa-regular fa-user-unlock"></i></button>
-                            <button type="button" onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
-                            <i class="fa-sharp fa-regular fa-user-lock"></i>
+                            @if($user->isSuspenso == 1)
+                                <button type="button" class="btn-ativar" onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><img src="{{url('assets/img/icons/user-ativado.png')}}" alt=""></button>
+                            @else
+                                <button type="button" class="btn-ativar-disabled" disabled onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><img src="{{url('assets/img/icons/user-ativado.png')}}" alt=""></button>
+                            @endif
+
+                            @if($user->isSuspenso == 1)
+
+                            <button type="button" class="btn-suspender-disabled" disabled onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
+                            <img src="{{url('assets/img/icons/user-bloqueado.png')}}" alt="">
                             </button>
-                            <button type="button" onclick="abrirModalDeletar('{{$user->idUsuario}}', `{{route('user.destroy.adm', ['idUsuario' => ':idUsuario'])}}`)"><i class="fa-solid fa-trash"></i></button>
+                            @else
+                            <button type="button" class="btn-suspender" onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
+                            <img src="{{url('assets/img/icons/user-bloqueado.png')}}" alt="">
+                            </button>
+                            @endif
+                            <button type="button" class="btn-deletar" onclick="abrirModalDeletar('{{$user->idUsuario}}', `{{route('user.destroy.adm', ['idUsuario' => ':idUsuario'])}}`)"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </section>
                     <hr>
@@ -75,29 +87,43 @@
                 <form action="" method="post" class="form-suspender">
                     @csrf
                     <textarea name="motivo" id="motivo" placeholder="Digite o motivo da suspensão aqui..."></textarea>
-                    <button type="submit">Suspender</button>
-                    <button type="button" onclick="fecharModalSuspender()">Cancelar</button>
+                    <div class="cont-btn">
+                        <button type="submit">Suspender</button>
+                        <button type="button" onclick="fecharModalSuspender()">Cancelar</button>
+                    </div>
+                    
                 </form>
             </div>
         </dialog>
     </div>
     <div class="box-modal-deletar" id="box-modal">
         <dialog class="modal-deletar-user">
-            <p>Tem certeza que deseja deletar esse usuário? Se sim, escreva o motivo abaixo:</p>
-            <form action="" method="post" class="form-delete">
-                @csrf
-                @method('DELETE')
-                <textarea name="motivoExclusao" id="motivoExclusao" placeholder="Digite o motivo aqui..."></textarea>
-                <button type="submit">Deletar</button>
-                <button type="button" onclick="fecharModalDeletar()"></button>
-            </form>
+            <div class="cont-modal">
+                <p>Tem certeza que deseja deletar esse usuário? Se sim, escreva o motivo abaixo:</p>
+                <form action="" method="post" class="form-delete">
+                    @csrf
+                    @method('DELETE')
+                    <textarea name="motivoExclusao" id="motivoExclusao" placeholder="Digite o motivo aqui..."></textarea>
+                    <div class="cont-btn">
+                        <button type="submit">Deletar</button>
+                        <button type="button" onclick="fecharModalDeletar()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            
         </dialog>
     </div>
     <div class="box-modal-ativar" id="box-modal">
         <dialog class="modal-ativar">
-            <p>Tem certeza que deseja ativar esse usuário novamente para a Materna?</p>
-            <a href="" class="action-ativar">Ativar</a>
-            <button type="button">Cancelar</button>
+            <div class="cont-modal">
+                <p>Tem certeza que deseja ativar esse usuário novamente para a Materna?</p>
+                <div class="cont-btn">
+                    <a href="" class="action-ativar">Ativar</a>
+                    <button type="button" onclick="fecharModalAtivar()">Cancelar</button>
+                </div>
+                
+            </div>
+            
         </dialog>
     </div>
 @endsection
