@@ -19,25 +19,22 @@
             <div class="insights">
 
                 <div class="cadastros">
-                   
+
+                    
+
                     <span class="material-icons-sharp">analytics</span>
-                    
-                    
-                    
-                    <div class="middle">
-                        
-                        <div class="left">
 
+                    <div class="cad">
                         <h3 class="titulo-card">Cadastros</h3>
-                            
-                        <div class="counter">
-                            <h1>{{$countCadastros}}</h1>
-                            </div>
-
-                        </div>
-
-                        
                     </div>
+                    
+                    <div class="grafico">
+                    <canvas id="myChart" width="200" height="200"></canvas>
+                    </div>
+                    
+                    
+                    
+                    
 
                     <small class="text-muted">No total</small>
 
@@ -47,11 +44,16 @@
                 <div class="postagens">
 
                     <span class="material-icons-sharp">bar_chart</span>
+
+                    <div class="cad">
+                    <h3 class="titulo-card">Postagens</h3>
+                    </div>
+                    
                     <div class="middle">
 
                         <div class="left">
 
-                            <h3 class="titulo-card">Postagens</h3>
+                           
 
                             <div class="counter">
                                 <h1>{{$countPostagens}}</h1>
@@ -116,5 +118,11 @@
                 <a href="{{route('anunciantes.adm')}}">Mostrar tudo</a>
             </div>
 
+            
+
 @endsection
+
+
+
+
 
