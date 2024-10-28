@@ -18,7 +18,12 @@ class FeedController extends Controller
    }
 
 
-   
+   public function index()
+    {
+        $postagens = Postagem::all(); // Carrega todas as postagens
+        return view('home.feed', compact('postagens')); // Passa a variável para a view
+    }
+
    
 }
 

@@ -31,6 +31,7 @@
         <!-- terminou -->
         
         <div class="cont-post">
+        @foreach($postagens as $postagem)
             
             <section class="card-post">
                 <div class="post-head">
@@ -48,7 +49,9 @@
                     <div class="cont-icons">
                         <div class="icons-principais">
 
-                            <button type="button"><i class="fa-regular fa-heart"></i></button>
+                            <button type="button" class="like-button" data-postagem-id="{{ $postagem->idPostagem }}">
+                                <i class="fa-regular fa-heart" id="heart-icon-{{ $postagem->idPostagem }}"></i>
+                            </button>
                             <button type="button"><i class="fa-regular fa-message"></i></button>
                             <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
                             
@@ -68,6 +71,7 @@
                     </div>
                 </div>
             </section>
+            @endforeach
             <section class="card-post">
                 <div class="post-head">
                     
@@ -190,3 +194,29 @@
         </section>
     </div>
 @endsection
+
+<Script>
+    $(document).on('click', '.like-button', function() {
+    var postId = $(this).data('postagem-id');
+    var heartIcon = $('#heart-icon-' + postId);
+
+    $.ajax({
+        url: '/curtir',
+        type: 'POST',
+        data: {
+            idPostagem: postId,
+            _token: '{{ csrf_token() }}' // Adicione seu token CSRF
+        },
+        success: function(response) {
+            if (response.status === 'curtido') {
+                heartIcon.addClass('fas').removeClass('far'); // Altera o ícone para "curtido"
+            } else {
+                heartIcon.addClass('far').removeClass('fas'); // Altera o ícone para "não curtido"
+            }
+        },
+        error: function(xhr) {
+            console.log(xhr.responseText);
+        }
+    });
+});
+</Script>

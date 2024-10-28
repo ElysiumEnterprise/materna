@@ -18,6 +18,8 @@ use App\Mail\TestMail;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Mail;
 
+use App\Http\Controllers\CurtidasController;
+
 use App\Http\Controllers\PreferenciasController;
 use App\Http\Controllers\SeguidoresController;
 use App\Http\Controllers\UserPreferenciasController;
@@ -217,3 +219,6 @@ Route::get('/dashboard/list-denuncias-pendentes', [DenunciaController::class, 'l
 
 //Rota para listar as denuncias verificadas
 Route::get('/dashboard/list-denuncias-verificadas', [DenunciaController::class, 'listarDenunciasVerificadas'])->name('list-denuncias-verificadas');
+
+
+Route::post('/curtir', [CurtidasController::class, 'toggleLike'])->middleware('auth');
