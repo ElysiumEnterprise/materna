@@ -155,6 +155,7 @@
     @yield('scripts')
 
     <script src="{{url('assets/js/dashboard/grafico.js')}}"></script>
+    
 
 </body>
 </html>
