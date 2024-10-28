@@ -61,7 +61,7 @@ class UsuarioController extends Controller
             return view('dashboard-adm.clientes-adm', compact('users'));
         }
     }
-
+    
     public function edit($idUser){
         if (!$usuario = Usuario::all()->where('idUsuario', $idUser)->first()){
             return redirect()->back();  

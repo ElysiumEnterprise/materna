@@ -76,9 +76,31 @@ class DenunciaController extends Controller
 
         return redirect()->back()->with('message', "Denúncia de ID ". $idDenuncia. " deleteda!");
     }
-    public function listarDenuncias(){
-        if(Auth::check() && Auth::user()){
+    public function listarDenunciasPendentes(){
+        if(Auth::check() && Auth::user()->idNivelUsuario == 2){
+            $denunciasPendentes = Denuncia::with(['usuarios'])->latest()->where('denuciaVerificada', 0)->get();
 
+            if ($denunciasPendentes->isEmpty()) {
+                $denunciasPendentes->collect();
+                return view('dashboard-adm.denuncias-pendentes', compact('denunciasPendentes'))->with('Não há denúncias pendentes');
+            }else{
+                return view('dashboard-adm.denuncias-pendentes', compact('denunciasPendentes'));
+            }
+        }else{
+            return redirect()->back()->with('statusError', 'Você não pode executar essa ação');
+        }
+    }
+
+    public function listarDenunciasVerificadas(){
+        if (Auth::check() && Auth::user()->idNivelUsuario==2) {
+            $denunciasVerificadas = Denuncia::with(['usuarios'])->latest()->where('denuciaVerificada', 1)->get();
+
+            if($denunciasVerificadas->isEmpty()){
+                $denunciasVerificadas->collect();
+                return view('dashboard-adm.denuncias-gerais-verificadas', compact('denunciasVerificadas'))->with('statusErro', 'Não há denúncias verificadas!');
+            }else{
+                return view('dashboard-adm.denuncias-gerais-verificadas', compact('denunciasVerificadas'));
+            }
         }
     }
 }

@@ -39,9 +39,17 @@
                     <h3>Dashboard</h3>
                 </a>
 
-                <a href="{{route('usuarios.adm')}}">
+                <a href="{{route('clientes.adm')}}">
                     <span class="material-icons-sharp">person_outline</span>
                     <h3>Clientes</h3>
+                </a>
+                <a href="{{route('anunciantes.adm')}}">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Anunciantes</h3>
+                </a>
+                <a href="{{route('list-denuncias-pendentes')}}">
+                    <span class="material-icons-sharp">report_gmailerrorred</span>
+                    <h3>Denúncias</h3>
                 </a>
 
 

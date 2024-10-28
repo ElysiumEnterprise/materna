@@ -150,9 +150,9 @@
 
 .cont-titulo{
     display: flex;
-   
+    width: 100%;
     height: auto;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -164,8 +164,7 @@
 }
 
 .cont-filtro{
-    display: grid;
-    grid-template-columns: repeat(4, 2fr);
+   display: flex;
     justify-content: center;
     align-items: center;
 }

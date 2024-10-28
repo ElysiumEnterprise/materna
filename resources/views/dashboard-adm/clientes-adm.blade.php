@@ -13,10 +13,7 @@
         <div class="cont-lista-users">
             <div class="cont-titulo">
                 <h3>Usuários Cadastrados no Sistema</h3>
-            </div>
-            
-            <hr>
-            <div class="cont-filtro">
+                <div class="cont-filtro">
                 <div class="cont-buscador">
                     <form action="{{route('buscar.usuario')}}" method="post">
                         @csrf
@@ -25,6 +22,10 @@
                     </form>
                 </div>
             </div>
+            </div>
+            
+        
+            
             <div class="lista-user">
             @if($users->isNotEmpty())
                 

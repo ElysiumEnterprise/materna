@@ -47,12 +47,13 @@
 .cont-back{
     display: flex;
     width: 100%;
+    margin-bottom: 20px;
     justify-content: start;
     align-items: start;
 }
 
 .cont-back a i{
-    font-size: 20px;
+    font-size: 30px;
     color: var(--color-primary);
 }
 
@@ -82,7 +83,9 @@
 }
 
 .cont-header-user .cont-img img{
-    width: 90%;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
     object-fit: fill;
 }
 
@@ -200,8 +203,8 @@
    
 }
 .cont-info-user .cont-info-denuncias .cont-status i{
-    font-size: 30px;
     color: var(--color-primary);
+    font-size: 30px;
 }
 
 .cont-info-user .cont-info-denuncias .cont-status p{
@@ -264,7 +267,7 @@
     display: flex;
     width: 100%;
     height: 5%;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
 }
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-header-denuncia h3{
@@ -285,15 +288,18 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: start;
+    align-items: center;
     margin-top: 5px;
     
 }
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-detalhes{
     
     display: flex;
+
     justify-content: start;
     
-    align-items: start;
+    align-items: center;
     
 }
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-detalhes p{
@@ -311,10 +317,24 @@
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form:not(:last-child){
     margin-right: 20px;
 }
+
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form >button{
-    width: 20%;
-    cursor: pointer;
+    display: flex;
+    width:40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 10%;
     background-color: transparent;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form .btn-check{
+    background-color: #11b738;
+}
+.cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form .btn-close{
+    background-color: #b71135;
 }
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form >button i{
     font-size: 30px;
@@ -322,17 +342,17 @@
 }
 
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form button> .fa-check{
-    color: #196f13;
+    color: white;
 }
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form button> .fa-check:hover{
-    color: #13550f;
+    color: white;
 }
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form >button .fa-xmark{
-    color: var(--color-danger);
+    color: white;
 }
 
 .cont-info-user .cont-info-denuncias .lista-denuncias .card-denuncia .cont-info .cont-escolha-denuncia >form >button .fa-xmark:hover{
-    color: #ac3842;
+    color: white;
 }
 .modal form button[type='submit']{
     justify-content: center;

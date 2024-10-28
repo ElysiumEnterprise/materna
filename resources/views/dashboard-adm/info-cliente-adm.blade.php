@@ -9,9 +9,18 @@
 
 @section('cont-adm')
     <div class="cont-clientes">
+            <div class="cont-back">
+            @if($user->idNivelUsuario == 1)
+                <a href="{{route('clientes.adm', $user->idUsuario)}}"><i class="fa-solid fa-arrow-left"></i></a>
+            @else
+                <a href="{{route('anunciantes.adm', $user->idUsuario)}}"><i class="fa-solid fa-arrow-left"></i></a>
+            @endif
+                
+            </div>
         <div class="cont-status-acoes">
                 <h1>{{session('message')}}</h1>
             </div>
+            
         <div class="cont-header-user">
             
             <div class="cont-img">
@@ -58,7 +67,7 @@
                             
                             <a href="{{route('go.list-denuncias-verificadas', $user->idUsuario)}}">Visualizar Denúncias Verificadas</a>
                         </div>
-                @if($user->denuncias->isEmpty() || $user->denuncias->where('denuciaVerificada', 1)->count() >0)
+                @if($user->denuncias->isEmpty())
                 <div class="cont-status">
                     <i class="fa-solid fa-circle-exclamation"></i>
                     <p>Sem denúncias pendentes</p>
@@ -67,7 +76,7 @@
                     <div class="lista-denuncias">
                         
                         @foreach($user->denuncias as $denuncia)
-                           
+                           @if($denuncia->denuciaVerificada == 0)
                             <section class="card-denuncia">
                                 <div class="cont-header-denuncia">
                                     <h3>Motivo: {{$denuncia->motivoDenuncia}}</h3>
@@ -81,18 +90,19 @@
                                         <form action="{{route('aceitar.denuncia', $denuncia->idDenuncia)}}" method="post">
                                             @csrf
                                             @method('PUT')
-                                            <button type="submit"><i class="fa-solid fa-check"></i></button>
+                                            <button type="submit" class="btn-check"><i class="fa-solid fa-check"></i></button>
                                         </form>
                                         <form action="{{route('recusar.denuncia', $denuncia->idDenuncia)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit"><i class="fa-solid fa-xmark"></i></button>
+                                            <button type="submit" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                                         </form>
                                        
                                     </div>
+                                    
                                 </div>
                             </section>
-                            
+                            @endif
                         @endforeach
                     </div>
                 @endif

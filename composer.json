@@ -11,7 +11,9 @@
         "doctrine/dbal": "^4.1",
         "knplabs/knp-snappy": "*",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/reverb": "@beta",
+        "laravel/tinker": "^2.9",
+        "pusher/pusher-php-server": "^7.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

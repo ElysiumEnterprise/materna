@@ -211,3 +211,9 @@ Route::post('/suspender-usuario/{idUsuario}', [UsuarioController::class, 'suspen
 
 //Ativar o usuário após ser suspenso
 Route::get('/ativar-usuario/{idUsuario}', [UsuarioController::class, 'ativarUser'])->name('ativar-user');
+
+//Rota para listar as denuncias verificadas
+Route::get('/dashboard/list-denuncias-pendentes', [DenunciaController::class, 'listarDenunciasPendentes'])->name('list-denuncias-pendentes');
+
+//Rota para listar as denuncias verificadas
+Route::get('/dashboard/list-denuncias-verificadas', [DenunciaController::class, 'listarDenunciasVerificadas'])->name('list-denuncias-verificadas');
