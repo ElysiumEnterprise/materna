@@ -29,7 +29,9 @@
                     </div>
                     
                     <div class="grafico">
-                    <canvas id="myChart" width="200" height="200"></canvas>
+
+                    <canvas id="myChart"></canvas>
+
                     </div>
                     
                     
