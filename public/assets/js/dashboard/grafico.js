@@ -19,16 +19,12 @@ const ctx = document.getElementById('myChart').getContext('2d');
             type: 'pie',
             data: data,
             options: {
-                responsive:   
- true,
+                responsive: true,
                 plugins: {
                     legend: {
                         position: 'top',
                     },
-                    title: {
-                        display: true,
-                        text: 'Cadastros'
-                    }
+
                 },
                 animation: {
                     animateRotate: true,

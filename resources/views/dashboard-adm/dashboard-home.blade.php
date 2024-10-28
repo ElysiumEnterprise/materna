@@ -20,8 +20,6 @@
 
                 <div class="cadastros">
 
-                    
-
                     <span class="material-icons-sharp">analytics</span>
 
                     <div class="cad">
@@ -30,15 +28,10 @@
                     
                     <div class="grafico">
 
-                    <canvas id="myChart"></canvas>
+                    <canvas id="myChart" width="200px" height="200px"></canvas>
 
                     </div>
-                    
-                    
-                    
-                    
-
-                    <small class="text-muted">No total</small>
+                        
 
                     
                 </div>
@@ -123,6 +116,8 @@
             
 
 @endsection
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 

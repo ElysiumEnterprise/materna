@@ -374,7 +374,6 @@ main .insights > div .middle{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15px;
 }
 
 .counter{
@@ -385,7 +384,7 @@ main .insights > div .middle{
 }
 
 main .insights h3{
-    font-size: 20px;
+    font-size: 25px;
 }
 
 main .insights small{
