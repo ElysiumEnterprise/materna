@@ -31,7 +31,7 @@
                     <canvas id="myChart" width="200px" height="200px"></canvas>
 
                     </div>
-                        
+
 
                     
                 </div>
@@ -44,40 +44,20 @@
                     <h3 class="titulo-card">Postagens</h3>
                     </div>
                     
-                    <div class="middle">
+                    
 
-                        <div class="left">
-
-                           
-
-                            <div class="counter">
-                                <h1>{{$countPostagens}}</h1>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-
-                    <small class="text-muted">No total</small>
+                    
                 </div>
 
                 <div class="anuncio">
                     <span class="material-icons-sharp">stacked_line_chart</span>
-                    <div class="middle">
-                        
-                        <div class="left">
 
-                            <h3 class="titulo-card">Anúncios</h3>
-
-                            <div class="counter">
-                                <h1>{{$countPostADD}}</h1>
-                            </div>
-                        </div>
-
-                        
+                    <div class="cad">
+                    <h3 class="titulo-card">Anúncios</h3>
                     </div>
+                   
 
-                    <small class="text-muted">No total</small>
+                    
                 </div>
             </div>
     

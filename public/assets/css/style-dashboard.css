@@ -295,7 +295,6 @@ main .cont-acoes a{
     color: var(--color-white);
     font-family: 'Fredoka';
     font-size: 14px;
-    font-weight: bold;
     margin: 20px;
     cursor: pointer;
     transition: all ease-in-out 0.2s;
