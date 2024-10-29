@@ -154,7 +154,12 @@
     
     @yield('scripts')
 
-    <script src="{{url('assets/js/dashboard/grafico.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="{{url('assets/js/dashboard/grafico.js')}}" defer></script>
+    <script src="{{url('assets/js/dashboard/grafico-barra.js')}}" defer></script>
+    
+
     
 
 </body>
