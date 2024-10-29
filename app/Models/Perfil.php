@@ -54,6 +54,26 @@ class Perfil extends Model
     public function comunidades(){
         return $this->belongsToMany(Comunidades::class, 'perfil_comunidades', 'idComunidade', 'idPerfil');
     }
+
+    //Mensagem enviada para outros perfils
+
+    public function mensagemEnviadas(){
+        return $this->belongsToMany(Mensagen::class, 'perfil_mensagens', 'idPerfilEmissor', 'idMensagem');
+    }
+
+    //Mensagens recebidas pelos outros perfils
+
+    public function mensagensRecebidas(){
+        return $this->belongsToMany(Mensagen::class, 'idPerfilReceptor', 'idMensagem');
+    }
+
+    //Acessar as mensagens direitamente
+
+    public function mensagens(){
+
+        return $this->hasMany(Mensagen::class, 'idPerfilEmissor', 'idPerfil');
+
+    }
     protected static function boot()
     {
         parent::boot();

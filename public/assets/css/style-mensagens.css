@@ -64,6 +64,13 @@
 
 }
 
+.chat__messages img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
 
 .chat__messages> div{
     padding: 10px;

@@ -62,7 +62,7 @@
                         </li>
             
                         <li class="side-item">
-                            <a href="/home/mensagens">
+                            <a href="{{route('mensagens.perfil', 30)}}">
                                 <i class="fa-solid fa-envelope" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Mensagens
