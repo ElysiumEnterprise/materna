@@ -24,6 +24,8 @@ use App\Http\Controllers\PreferenciasController;
 use App\Http\Controllers\SeguidoresController;
 use App\Http\Controllers\UserPreferenciasController;
 use App\Models\Seguidores;
+use Laravel\Reverb\Protocols\Pusher\Http\Controllers\PusherController;
+use App\Http\Controllers\MensagensController;
 
 Route::get('/', function () {
     return view('index');
@@ -154,9 +156,12 @@ Route::delete('home/configuracoes/editar-conta/{idPerfil}', [UsuarioController::
 Route::get('/home/configuracoes/editar-usuario/{idUser}', [UsuarioController::class, 'edit'])->name('user.edit');
 Route::put('/home/configuracoes/editar-usuario/{idUser}', [UsuarioController::class, 'update'])->name('user.update');
 
-Route::get('/home/mensagens', function(){
-    return view('home.mensagens');
-});
+Route::get('/home/mensagens/{idPerfil}', [MensagensController::class, 'index'])->name('list.mensagens');
+
+Route::get('/home/mensagens/{idPerfil}', [MensagensController::class, 'escolherPerfil'])->name('mensagens.perfil');
+//Enviar mensagem para o perfil
+
+Route::post('/home/mensagens/enviar/{idPerfil}', [MensagensController::class, 'enviarMensagem'])->name('enviar.mensagem');
 
 
 

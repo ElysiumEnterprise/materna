@@ -41,7 +41,11 @@
                     <span class="material-icons-sharp">bar_chart</span>
 
                     <div class="cad">
-                    <h3 class="titulo-card">Postagens</h3>
+                        <h3 class="titulo-card">Postagens</h3>
+                    </div>
+
+                    <div class="barra">
+                        <canvas id="myChart2" width="200px" height="200px"></canvas>
                     </div>
                     
                     
@@ -90,14 +94,15 @@
 
                 
 
-                <a href="{{route('anunciantes.adm')}}">Mostrar tudo</a>
+                <a class="link-mostrar" href="{{route('anunciantes.adm')}}">Mostrar tudo</a>
             </div>
 
             
 
 @endsection
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
 
 
 

@@ -1,0 +1,118 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+.cont-mensagens{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding-left:10%;
+    margin-top:3.05%;
+    margin-bottom:3.05%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-titulo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-titulo h1{
+    font-family: 'Fredoka';
+    font-size: 34px;
+    font-weight: normal;
+    text-align: center;
+    color: #f26699;
+}
+
+.cont-list-perfils{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.card-seguidores{
+    display: flex;
+    width: 700px;
+    height: 100px;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px;
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+.card-seguidores:hover{
+    transform: scale(1.01);
+}
+
+.card-seguidores a{
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-family: 'Inter';
+}
+.card-seguidores img{
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    border-radius: 100%;
+    object-fit: fill;
+}
+.card-seguidores .cont-desc-config{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+.card-seguidores .cont-desc-config small{
+    font-family: 'Fredoka';
+    font-weight: normal;
+    color: #003366;
+    text-align: center;
+    justify-content: start;
+
+}
+.cont-status{
+    display: flex;
+    width: 100%;
+    min-height: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cont-status i{
+    font-size: 40px;
+    color: #ef6d96;
+    margin-bottom: 20px;
+}
+
+.cont-status p{
+    font-family: 'Inter';
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}

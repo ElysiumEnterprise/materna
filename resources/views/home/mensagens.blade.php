@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
@@ -73,11 +74,11 @@
                     
                     <div class="right1">
                         <div class="user"> 
-                            <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg')}}" class="img-fluid3" >
+                            <img src="{{asset('assets/img/foto-perfil/'.$perfilMensagem->fotoPerfil)}}" class="img-fluid3" >
                             
                             <div class="right3">
-                                <h1 class="txt-titulo">Carla Fernanda</h1>
-                                <h7 class="right2">@carla_fernanda</h7>
+                                <h1 class="txt-titulo">{{$perfilMensagem->usuarios->nome}}</h1>
+                                <h7 class="right2">{{$perfilMensagem->nickname}}</h7>
                             </div>
                 
                         </div>
@@ -88,21 +89,34 @@
                         <br>
 
                         <div class="chat__messages">
-                            <img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" class="img-fluid3" >
+                            @foreach($mensagens as $mensagem)
+                                
+                                    <div class="mensagem">
+                                        
+                                        <div class="message__self"><span class="message__sender">{{$mensagem->emissores->nickname}}</span>
+                                        <strong>{{$mensagem->conteudoMensagem}}</strong>
+                                    </div>
+
+                               
+                            @endforeach
+                            <!--<img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" class="img-fluid3" >
                             
                             <div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span>
                             Oi tudo bem?
                             </div>
 
-                            <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg')}}" class="img-fluid5" >
+                            <img src="{{asset('assets/img/foto-perfil/'.$perfilMensagem->fotoPerfil)}}" class="img-fluid5" >
                             <div class="message__other">
-                                <span class="message__sender">@carla_fernanda</span>
+                                <span class="message__sender">{{$perfilMensagem->usuarios->nome}}</span>
                                 To bem, como foi a semana?
                             </div>
-                            </div>
+                        -->
+                        </div>
                     
 
                         <form class="chat__form">
+                            @csrf
+                            <input type="hidden" name="idPerfilReceptor" value="{{ $perfilMensagem->idPerfil }}">
                             <div class="icons-chat">
 
                             <span class="material-symbols-outlined icon">
@@ -117,12 +131,42 @@
 
                             <input type="text" class="chat__input" required />
                             <button type="submit" class="chat__button">
-                                <span class="material-symbols-outlined">
-                                    mic
-                                    </span>
+                                <span class="material-symbols-outlined">send</span>
                             </button>
                         </form>
                        
                     </div>
                 </div>
+@endsection
+
+@section('scripts')
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+
+    var pusher = new Pusher('040588d1490451bb55cd', {
+      cluster: 'sa1'
+    });
+
+    var channel = pusher.subscribe('chat-channel');
+    channel.bind('message-sent', function(data) {
+      //Exibe a nova mensagem recebida
+      const mensagemDiv =document.querySelector('.mensagem');
+      mensagemDiv.innerHTML += `<div class="mensagem">
+                                        <img src="{{asset('assets/img/foto-perfil/'.${data.nickname})}}" class="img-fluid3" >
+                                        <div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span>
+                                        <strong>${data.conteudoMensagem}</strong>
+                                    </div>`
+    });
+
+    //Enviar a mensagem via AJAX
+
+    document.querySelector('.chat__form').addEventListener('submit', function(e){
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch(`/home/mensagens/enviar/`)
+    });
+
+  </script>
 @endsection
