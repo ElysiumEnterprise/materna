@@ -31,6 +31,10 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+Route::post('/pusher/auth', function () {
+    return Auth::user() ? response()->json(Auth::user()) : abort(403);
+});
+
 //Cadastro e login
 Route::get('/cadastro-user', function(){
     return view('cadastro-cliente');
@@ -161,7 +165,7 @@ Route::get('/home/mensagens/{idPerfil}', [MensagensController::class, 'index'])-
 Route::get('/home/mensagens/{idPerfil}', [MensagensController::class, 'escolherPerfil'])->name('mensagens.perfil');
 //Enviar mensagem para o perfil
 
-Route::post('/home/mensagens/enviar/{idPerfil}', [MensagensController::class, 'enviarMensagem'])->name('enviar.mensagem');
+Route::post('/home/mensagens/enviar', [MensagensController::class, 'enviarMensagem'])->name('enviar.mensagem');
 
 
 

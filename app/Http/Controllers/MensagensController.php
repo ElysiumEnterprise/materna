@@ -46,7 +46,7 @@ class MensagensController extends Controller
         return view('home.mensagens', compact('perfilMensagem', 'mensagens'));
     }
 
-    public function enviarMensagem(Request $request, $idPerfilReceptor){
+    public function enviarMensagem(Request $request){
         $userAuth = Auth::user();
 
         $perfilAuth = $userAuth->perfils;
@@ -54,22 +54,22 @@ class MensagensController extends Controller
         //Associar aos perfils emissor e receptor
 
         $perfilEmissor = $perfilAuth->idPerfil;
-        $perfilReceptor = $idPerfilReceptor;
+        $perfilReceptor = $request->idPerfilReceptor;
 
         $mensagem = Mensagen::create([
-            'conteudoMensagem' => $request->mensagem,
+            'conteudoMensagem' => $request->txtMessage,
             'dataEnvio' => Carbon::now()->toDateString(),
         ]);
 
         //Cadastrar na tabela perfil_mensagens
 
         PerfilMensagens::create([
-            'idPerfilEmssior' => $perfilEmissor,
+            'idPerfilEmissior' => $perfilEmissor,
             'idPerfilReceptor' => $perfilReceptor,
             'idMensagem' => $mensagem->idMensagem,
         ]);
         
-        broadcast(new PursherBroadcast($mensagem))->toOthers();
+        broadcast(new PursherBroadcast($mensagem, $userAuth->idUsuario))->toOthers();
 
         return response()->json(['status' => 'Mesagem enviada!']);
     }

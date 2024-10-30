@@ -114,7 +114,7 @@
                         </div>
                     
 
-                        <form class="chat__form">
+                        <form class="chat__form" method="post" action='{{route("enviar.mensagem")}}'>
                             @csrf
                             <input type="hidden" name="idPerfilReceptor" value="{{ $perfilMensagem->idPerfil }}">
                             <div class="icons-chat">
@@ -129,7 +129,7 @@
 
                                 </div>
 
-                            <input type="text" class="chat__input" required />
+                            <input type="text" name='txtMessage' id="txtMessage" class="chat__input" required />
                             <button type="submit" class="chat__button">
                                 <span class="material-symbols-outlined">send</span>
                             </button>
@@ -142,20 +142,21 @@
 @section('scripts')
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
+    
+    var idPerfil = {{$perfil->idPerfil}}
+
+    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     var pusher = new Pusher('040588d1490451bb55cd', {
       cluster: 'sa1'
     });
 
-    var channel = pusher.subscribe('chat-channel');
-    channel.bind('message-sent', function(data) {
+    var channel = pusher.subscribe('chat.' +idPerfil);
+    channel.bind('mensagem.enviada', function(data) {
+        
       //Exibe a nova mensagem recebida
       const mensagemDiv =document.querySelector('.mensagem');
-      mensagemDiv.innerHTML += `<div class="mensagem">
-                                        <img src="{{asset('assets/img/foto-perfil/'.${data.nickname})}}" class="img-fluid3" >
-                                        <div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span>
-                                        <strong>${data.conteudoMensagem}</strong>
-                                    </div>`
+      mensagemDiv.innerHTML += `<div class="mensagem"><img src="/assets/img/foto-perfil/${data.nickname}" class="img-fluid3"><div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span><strong>${data.conteudoMensagem}</strong></div>`
     });
 
     //Enviar a mensagem via AJAX
@@ -165,7 +166,19 @@
 
         const formData = new FormData(this);
 
-        fetch(`/home/mensagens/enviar/`)
+        fetch('/home/mensagens/enviar', {
+            method: 'POST',
+            body: formData,
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+             }
+            
+        }).then(response => response.json()).then(data =>{
+            //Limpa o campo de mensagem após o envio
+            document.querySelector('#txtMessage').value = '';
+        }).catch(error => console.error('Erro ao tentar enviar a mensagem:', error));
     });
 
   </script>

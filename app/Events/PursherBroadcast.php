@@ -13,6 +13,7 @@ use Illuminate\Queue\SerializesModels;
 
 class PursherBroadcast implements ShouldBroadcast
 {
+    public int $idAuth;
     public $message;
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
@@ -20,9 +21,10 @@ class PursherBroadcast implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
-    public function __construct(Mensagen $message)
+    public function __construct(Mensagen $message, $idAuth)
     {
         $this->message = $message;
+        $this->idAuth = $idAuth
     }
 
     /**
@@ -32,11 +34,11 @@ class PursherBroadcast implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chat.' . $this->message->receptores->first()->idPerfil);
+        return new PrivateChannel('chat.' . $this->idAuth);
         
     }
 
-    public function broadcastAd(){
+    public function broadcastAs(){
         return 'mensagem.enviada';
     }
 }
