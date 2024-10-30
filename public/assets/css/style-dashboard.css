@@ -368,7 +368,9 @@ main .insights > div .middle{
     align-items: center;
 }
 
-
+.grafico{
+    margin-top: 10px;
+}
 
 .counter{
     display: flex;

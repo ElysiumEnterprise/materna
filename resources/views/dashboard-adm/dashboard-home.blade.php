@@ -44,7 +44,7 @@
                         <h3 class="titulo-card">Postagens</h3>
                     </div>
 
-                    <div class="barra">
+                    <div class="grafico">
                         <canvas id="myChart2" width="200px" height="200px"></canvas>
                     </div>
                     
@@ -58,6 +58,10 @@
 
                     <div class="cad">
                     <h3 class="titulo-card">Anúncios</h3>
+                    </div>
+
+                    <div class="grafico">
+                        <canvas id="myChart3"></canvas>
                     </div>
                    
 
