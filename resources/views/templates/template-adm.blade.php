@@ -158,7 +158,7 @@
     
     <script src="{{url('assets/js/dashboard/grafico.js')}}" defer></script>
     <script src="{{url('assets/js/dashboard/grafico-barra.js')}}" defer></script>
-    
+    <script src="{{url('assets/js/dashboard/grafico2.js')}}"></script>
 
     
 
