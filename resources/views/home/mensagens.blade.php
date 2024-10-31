@@ -93,12 +93,13 @@
                                 
                                     <div class="mensagem">
                                         
-                                        <div class="message__self"><span class="message__sender">{{$mensagem->emissores->nickname}}</span>
+                                        <div class="message__self">
                                         <strong>{{$mensagem->conteudoMensagem}}</strong>
                                     </div>
 
                                
                             @endforeach
+                            
                             <!--<img src="{{asset('assets/img/foto-perfil/'.$perfil->fotoPerfil)}}" class="img-fluid3" >
                             
                             <div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span>
@@ -137,26 +138,29 @@
                        
                     </div>
                 </div>
+        <div id="chatContainer" hidden data-idUsuario="{{$user->idUsuario}}"></div>
 @endsection
 
 @section('scripts')
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
     
-    var idPerfil = {{$perfil->idPerfil}}
+    var idUsuario = document.getElementById('chatContainer').getAttribute('data-idUsuario');
 
     var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     var pusher = new Pusher('040588d1490451bb55cd', {
-      cluster: 'sa1'
+      cluster: 'sa1',
+      encrypted: true
     });
 
-    var channel = pusher.subscribe('chat.' +idPerfil);
+    var channel = pusher.subscribe('chat.' +parseInt(idUsuario));
     channel.bind('mensagem.enviada', function(data) {
-        
+        alert(data);
       //Exibe a nova mensagem recebida
       const mensagemDiv =document.querySelector('.mensagem');
-      mensagemDiv.innerHTML += `<div class="mensagem"><img src="/assets/img/foto-perfil/${data.nickname}" class="img-fluid3"><div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span><strong>${data.conteudoMensagem}</strong></div>`
+      mensagemDiv.innerHTML += `<div class="mensagem"><div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span><strong>${data.conteudoMensagem}</strong></div>`
     });
 
     //Enviar a mensagem via AJAX
@@ -166,19 +170,36 @@
 
         const formData = new FormData(this);
 
-        fetch('/home/mensagens/enviar', {
-            method: 'POST',
-            body: formData,
-            headers: { 
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrfToken
-             }
+        // fetch('/home/mensagens/enviar', {
+        //     method: 'POST',
+        //     body: formData,
+        //     headers: { 
+        //         'Accept': 'application/json',
+        //         'X-CSRF-TOKEN': csrfToken
+        //      }
             
-        }).then(response => response.json()).then(data =>{
-            //Limpa o campo de mensagem após o envio
+        // }).then(response => response.json()).then(data =>{
+        //     //Limpa o campo de mensagem após o envio
+        //     document.querySelector('#txtMessage').value = '';
+        // }).catch(error => console.log('Erro ao tentar enviar a mensagem:', error));
+        $.ajax({
+            url: '/home/mensagens/enviar',
+            method: 'POST',
+            headers:{
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': csrfToken,
+                'X-Socket-Id': pusher.connection.socket_id
+            },
+            data:{
+                _token : csrfToken,
+                message: document.querySelector('#txtMessage').value
+            }
+        }).done(function(data){
             document.querySelector('#txtMessage').value = '';
-        }).catch(error => console.error('Erro ao tentar enviar a mensagem:', error));
+            console.log('Mensagem enviada com sucesso:', data);
+        }).fail(function(error) {
+            console.error('Erro ao enviar a mensagem:', error);
+        });
     });
 
   </script>

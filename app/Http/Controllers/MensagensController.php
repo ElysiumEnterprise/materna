@@ -64,12 +64,12 @@ class MensagensController extends Controller
         //Cadastrar na tabela perfil_mensagens
 
         PerfilMensagens::create([
-            'idPerfilEmissior' => $perfilEmissor,
+            'idPerfilEmissor' => $perfilEmissor,
             'idPerfilReceptor' => $perfilReceptor,
             'idMensagem' => $mensagem->idMensagem,
         ]);
         
-        broadcast(new PursherBroadcast($mensagem, $userAuth->idUsuario))->toOthers();
+        broadcast(new PursherBroadcast($request->txtMessage, $userAuth->idUsuario))->toOthers();
 
         return response()->json(['status' => 'Mesagem enviada!']);
     }
