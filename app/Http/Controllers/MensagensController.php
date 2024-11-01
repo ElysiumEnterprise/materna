@@ -47,6 +47,11 @@ class MensagensController extends Controller
     }
 
     public function enviarMensagem(Request $request){
+
+        $request->validate([
+            'txtMessage' => 'required|string'
+        ]);
+
         $userAuth = Auth::user();
 
         $perfilAuth = $userAuth->perfils;
@@ -69,7 +74,7 @@ class MensagensController extends Controller
             'idMensagem' => $mensagem->idMensagem,
         ]);
         
-        broadcast(new PursherBroadcast($request->txtMessage, $userAuth->idUsuario))->toOthers();
+        broadcast(new PursherBroadcast($mensagem->conteudoMensagem, $userAuth->idUsuario))->toOthers();
 
         return response()->json(['status' => 'Mesagem enviada!']);
     }

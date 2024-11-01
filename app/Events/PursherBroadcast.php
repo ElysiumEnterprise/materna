@@ -26,8 +26,6 @@ class PursherBroadcast implements ShouldBroadcast
       $this->idAuth = $idAuth;
     }
 
-    
-    
     public function broadcastOn()
     {
         return new PrivateChannel('chat.' . $this->idAuth);
