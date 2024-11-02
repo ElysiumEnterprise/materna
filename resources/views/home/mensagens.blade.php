@@ -142,63 +142,9 @@
 @endsection
 
 @section('scripts')
-    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-    
-    var idUsuario = document.getElementById('chatContainer').getAttribute('data-idUsuario');
+    @vite(['resources/js/app.js'])
 
-    var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    var pusher = new Pusher('040588d1490451bb55cd', {
-      cluster: 'sa1',
-      encrypted: true,
-      auth: {
-        headers: {
-            'X-CSRF-TOKEN': csrfToken
-        }
-    }
-    });
-    
-    pusher.connection.bind('connected', function() {
-        console.log('Conexão feita!')
-        
-        //Enviar a mensagem via AJAX
-        var channel = pusher.subscribe('private-chat.' +parseInt(idUsuario));
-        channel.bind('mensagem.enviada', function(data) {
-            
-        //Exibe a nova mensagem recebida
-             console.log(data); // Confirme se o conteúdo está certo
-            const mensagemDiv =document.querySelector('.mensagem');
-            mensagemDiv.innerHTML += `<div class="mensagem"><div class="message__self"><span class="message__sender">{{$perfil->nickname}}</span><strong>${data.conteudoMensagem}</strong></div>`
-        });
-        document.querySelector('.chat__form').addEventListener('submit', function(e){
-            e.preventDefault();
-
-            const formData = new FormData(this);
-
-            $.ajax({
-                url: '/home/mensagens/enviar',
-                method: 'POST',
-                headers:{
-                    'Accept': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken,
-                    'X-Socket-Id': pusher.connection.socket_id
-                },
-                data:{
-                    _token : csrfToken,
-                    txtMessage: document.getElementById('txtMessage').value,
-                    idPerfilReceptor: document.getElementById('idPerfilReceptor').value,
-                }
-            }).done(function(data){
-                document.querySelector('#txtMessage').value = '';
-                console.log('Mensagem enviada com sucesso:', data);
-            }).fail(function(error) {
-                console.error('Erro ao enviar a mensagem:', error);
-            });
-        });
-    });
-        
-
-  </script>
 @endsection
