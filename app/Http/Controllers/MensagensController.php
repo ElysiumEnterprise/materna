@@ -52,9 +52,13 @@ class MensagensController extends Controller
             'txtMessage' => 'required|string'
         ]);
 
+        
+
         $userAuth = Auth::user();
 
         $perfilAuth = $userAuth->perfils;
+
+        broadcast(new PursherBroadcast($request->txtMessage, $userAuth->idUsuario))->toOthers();
 
         //Associar aos perfils emissor e receptor
 
@@ -74,7 +78,7 @@ class MensagensController extends Controller
             'idMensagem' => $mensagem->idMensagem,
         ]);
         
-        broadcast(new PursherBroadcast($mensagem->conteudoMensagem, $userAuth->idUsuario))->toOthers();
+        
 
         return response()->json(['status' => 'Mesagem enviada!']);
     }
