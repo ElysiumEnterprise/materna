@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Categoria; // Importando a classe Categoria
+use App\Models\Postagens;
 
 
 

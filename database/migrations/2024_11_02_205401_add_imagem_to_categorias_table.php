@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Controller\FeedController;
 
 return new class extends Migration
 {
@@ -11,11 +12,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table->id('idCategoria');
-            $table->string('nomeCategoria', 255)->unique();
-            $table->string('imagem')->nullable(); // Caminho da imagem (opcional)
-            $table->timestamps();
+        Schema::table('categorias', function (Blueprint $table) {
+            $table->string('imagem')->nullable(); // Adiciona a coluna imagem
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categorias');
+        Schema::table('categorias', function (Blueprint $table) {
+            $table->dropColumn('imagem'); // Remove a coluna imagem
+        });
     }
 };

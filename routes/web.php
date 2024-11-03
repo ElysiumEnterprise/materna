@@ -230,4 +230,6 @@ Route::get('/dashboard/list-denuncias-pendentes', [DenunciaController::class, 'l
 Route::get('/dashboard/list-denuncias-verificadas', [DenunciaController::class, 'listarDenunciasVerificadas'])->name('list-denuncias-verificadas');
 
 
-Route::post('/curtir', [CurtidasController::class, 'toggleLike'])->middleware('auth');
+
+
+Route::get('/feed', [FeedController::class, 'mostrarFeed']);
