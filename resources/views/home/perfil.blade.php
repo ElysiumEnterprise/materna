@@ -63,6 +63,7 @@
               </form>
             @endif
             <button type="button" onclick="abrirModalDenuncia()">Denunciar</button>
+            <button type="button" onclick="goMessage('{{$user->perfils->idPerfil}}')">Mensagem</button>
           @endif
 
           <ul class="about">
@@ -139,4 +140,16 @@
       </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+  <script>
+    function goMessage(id){
+
+      const idPerfil= parseInt(id);
+
+      location.href = `/home/mensagens/${idPerfil}`
+
+    }
+  </script>
 @endsection

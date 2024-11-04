@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
 .grid-container {
-    display: grid;
-    grid-template-columns: 200fr 200fr; /* Divide a tela em duas colunas iguais */
-    height: 100vh; /* 100% da altura da viewport */
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding-left:20%;
 }
 
 .left, .right {
@@ -22,6 +32,9 @@
 }
 
 .right1{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     background-color: #ffffff;
     color:  #f26699;
     font-family: 'Fredoka';
@@ -95,17 +108,85 @@
     justify-content: center;
     align-items: center;
 }
-.mensagens:not(:last-child){
+.mensagens{
     margin-bottom: 20px;
 }
-.message__self{
-
+.chat__messages_card{
+    padding-top:0;
+    padding: 30px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+   
+}
+.chat__messages_card .card-mensagem{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #fab5cf;
+    color: #121212;
+    border-radius: 10px 10px 0px 10px;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+.chat__messages_card .message__self{
+    display: flex;
+    justify-content: end;
     background-color: #fab5cf;
     color: #121212;
     border-radius: 10px 10px 0px 10px;
     align-self: flex-end;
 }
+.chat__messages_card .card-mensagem .cont-header{
+    display: flex;
+    
+    justify-content: start;
+    align-items: center;
+}
+.chat__messages_card .card-mensagem .cont-header p{
+    color: #003366;
+    font-family: 'Inter';
+    font-weight: bold;
+}
 
+.chat__messages_card .card-mensagem .cont-desc{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.chat__messages_card .message__other .cont-desc{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.chat__messages_card .message__other .cont-desc strong{
+    color: #003366;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.chat__messages_card .card-mensagem .cont-desc strong{
+    color: #003366;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    margin-right: 10px;
+}
+.chat__messages_card .card-mensagem .cont-desc img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+.chat__messages_card 
 .message__other{
 
     background-color: #fab5cf;
@@ -127,20 +208,21 @@
 
 .cont-form{
     display: flex;
-    margin-left: 250px;
+    width: 100%;
     position: fixed;
-    justify-content: end;
-    align-items: end;
+    justify-content: start;
+    align-items: start;
 }
 
 .chat__form{
     background-color: #f0f0f0;
     padding: 8px 10px;
     display: flex;
+    justify-content: center;
     align-items:center;
     position: fixed;
     bottom: 18px;
-    width: 44%;
+    width: 50%;
     border-radius: 10px 10px 10px 10px;
 
 }

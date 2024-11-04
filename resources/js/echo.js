@@ -8,6 +8,12 @@ var idUsuario = document.getElementById('chatContainer').getAttribute('data-idUs
 
 var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+var idPerfilReceptor = parseInt(document.querySelector('#contIdPerfil').getAttribute('data-idPerfil'));
+
+var idPerfilAuth = parseInt(document.querySelector('#contIdPerfilAuth').getAttribute('data-idPerfilAuth'));
+
+var ultimoIdMensagem = parseInt(document.querySelector('#contUltimoIdMensagem').getAttribute('data-ultimoIdMensagem'));
+
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: '040588d1490451bb55cd',
@@ -27,7 +33,7 @@ window.Echo = new Echo({
 window.Echo.connector.pusher.connection.bind('connected', () => {
     console.log('Conectado ao Pusher!');
     window.Echo.private('chat.' + parseInt(idUsuario)).listen('mensagem-enviada', (data) => {
-        atualizarMensagens([data]);
+        console.log('Estou aqui')
     });
     document.querySelector('.chat__form').addEventListener('submit', function(e){
         e.preventDefault();
@@ -56,27 +62,47 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
     
     
 });
-function buscarNovasMensagens(){
+setInterval(()=>{
+    buscarMensagens(idPerfilReceptor)
+}, 1000)
+
+function buscarMensagens(idPerfilReceptor) {
     $.ajax({
-        url: '/home/mensagens/buscar-novas',
+        url: `/home/mensagens/buscar-novas/${idPerfilReceptor}?ultimoIdMensagem=${ultimoIdMensagem}`,
         method: 'GET',
-        success: function (response) {
-            atualizarMensagens(data)
+        success: function(data){
+            // Para evitar duplicação, armazene os IDs das mensagens já mostradas
+           
+                data.mensagens.forEach(mensagem =>{
+                    console.log(idPerfilAuth)
+                    console.log(mensagem.emissores[0].idPerfil)
+                    const classePosicao = mensagem.emissores[0].idPerfil === idPerfilAuth ? 'message__self' : 'message__other';
+                    const fotoPerfilPath = `/assets/img/foto-perfil/${mensagem.emissores[0].fotoPerfil}`;
+                        const novaMensagem = `<div class="card-mensagem ${classePosicao}">
+                                        <div class="cont-header">
+                                            <p>${mensagem.emissores[0].nickname}</p>
+                                        </div>
+                                        <div class="cont-desc">
+                                            <strong>${mensagem.conteudoMensagem}</strong>
+                                            <img src="${fotoPerfilPath}" class="img-fluid3" >
+                                        </div>
+                                            
+                                    </div>
+    `;
+                        
+                        document.querySelector('.chat__messages_card').innerHTML +=novaMensagem; 
+                        // Atualiza o último ID exibido
+                         ultimoIdMensagem = Math.max(ultimoIdMensagem, mensagem.idMensagem)
+                })
+                
+            
+            
+            
         },
-        error: function(error){
-            console.error('Erro ao buscar novas mensagens: ', error)
+        error: function(error) {
+            console.error("Erro ao buscar novas mensagens:", error);
         }
     })
 }
-//Função para atualizar mensagens na view
-function atualizarMensagens(data) {
-    const mensagemCard = document.querySelector('.chat__messages');
-    if (mensagemCard) {
-        data.forEach(mensagem => {
-            mensagemCard.innerHTML += `<div class="mensagem-card"><div class="message__self"><span class="message__sender">{{ $perfil->nickname }}</span><strong>${mensagem.conteudoMensagem}</strong></div></div>`
-        })
-    }
-}
 
-//Tempo de reload
-setInterval(buscarNovasMensagens, 4000);
+

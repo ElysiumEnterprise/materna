@@ -21,56 +21,7 @@
 
 @section('cont-home')
     <div class="grid-container">
-                    <div class="left">
-                        <div class="teset">
-                            <div class="mensagens">
-                            <h1 class="titulo"> Mensagens</h1>
-                            </div>
-                            <br>
-                            <br>
-                            <br>
-                            <div class="chat__messages">
-                                <div class="message__other2">
-                                    <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg')}}" class="img-fluid5" >
-                                    <div>
-                                        <span class="message__sender2">@carla_fernanda</span>
-                                        <h6 class="message__sender3">mensagem recebida</h6>
-                                    </div>
-                                  
-                                    <span class="material-symbols-outlined">
-                                        stars
-                                        </span>
-                                  
-                                </div>
-                              
-                                <div class="message__other2">
-                                    <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-4.jpg')}}" class="img-fluid5" >
-                                    <div>
-                                        <span class="message__sender2">@maria_benedita</span>
-                                        <h6 class="message__sender3">mensagem recebida</h6>
-                                    </div>
-                                  
-                                </div>
-    
-                                <div class="message__other2">
-                                    <img src="{{url('assets/img/img-home/foto-perfil-teste/perfil-05.png')}}" class="img-fluid5" >
-                                    <div>
-                                        <span class="message__sender2">@gabrielle_lima</span>
-                                        <h6 class="message__sender3">mensagem recebida</h6>
-                                    </div>
-                                  
-                                  
-                                </div>
-                            </div>
-    
-                        </div>
-                        <div class="teste">
-                            <div class="vertical-line"></div>
-                        </div>
-                     
-                   
-                   
-                    </div>
+                    
                     
                     <div class="right1">
                         <div class="user"> 
@@ -85,18 +36,31 @@
                    
                     
                         <br>
-                        <br>
-                        <br>
+                       
 
-                        <div class="chat__messages">
+                        <div class="chat__messages_card">
                             @foreach($mensagens as $mensagem)
-                                
-                                    <div class="card-mensagem">
-                                        
-                                        
-                                        <strong>{{$mensagem->conteudoMensagem}}</strong>
+                            
+                                @foreach ($mensagem->emissores as $emissor)
+                                @php
+                                    // Verifica se o emissor é o usuário autenticado
+                                    $classePosicao = ($emissor->idPerfil === auth()->user()->perfils->idPerfil) ? 'message__self' : 'message__other';
+                                @endphp
+                                <div class="card-mensagem {{$classePosicao}}">
+                                    <div class="cont-header">
+                                        <p>{{ $emissor->nickname }}</p>
                                     </div>
+                                    <div class="cont-desc">
+                                        <strong>{{$mensagem->conteudoMensagem}}</strong>
+                                        <img src="{{asset('assets/img/foto-perfil/'.$emissor->fotoPerfil)}}" class="img-fluid3" >
+                                    </div>
+                                        
+                                </div>
 
+                                
+                                
+                                @endforeach
+                                    
                                
                             @endforeach
                             
@@ -138,7 +102,8 @@
                     
         <div id="chatContainer" hidden data-idUsuario="{{$user->idUsuario}}"></div>
         <div id="contIdPerfil" hidden data-idPerfil="{{$perfilMensagem->idPerfil}}"></div>
-        
+        <div id="contIdPerfilAuth" hidden data-idPerfilAuth="{{$perfil->idPerfil}}"></div>
+        <div id="contUltimoIdMensagem" hidden data-ultimoIdMensagem="{{ $mensagens->last()->idMensagem ?? 0 }}"></div>
                         
     </div>
 @endsection
@@ -146,7 +111,7 @@
 @section('scripts')
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="{{url('assets/js/home/update-mensagens')}}"></script>
+    
     @vite(['resources/js/app.js'])
 
 

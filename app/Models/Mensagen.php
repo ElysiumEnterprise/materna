@@ -10,7 +10,7 @@ class Mensagen extends Model
     protected $table = 'mensagens';
 
     protected $primaryKey = 'idMensagem';
-    public $incremeting = true;
+    public $incrementing = true;
     protected $keyType = 'int';
 
     protected $fillable = [

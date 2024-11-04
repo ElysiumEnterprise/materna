@@ -41,10 +41,20 @@ class MensagensController extends Controller
         })
         ->whereHas('receptores', function($query) use ($idPerfil){
             $query->where('idPerfilReceptor', $idPerfil);
-        })->orderBy('created_at', 'asc')
+        })->orWhere(function($query) use ($perfilEmissor, $idPerfil) {
+            $query->whereHas('emissores', function($q) use ($idPerfil) {
+                $q->where('idPerfilEmissor', $idPerfil);
+            })->whereHas('receptores', function($q) use ($perfilEmissor) {
+                $q->where('idPerfilReceptor', $perfilEmissor);
+            });
+        })
+        ->orderBy('created_at', 'asc')
         ->get();
 
-        return view('home.mensagens', compact('perfilMensagem', 'mensagens'));
+        // Obtém o maior ID de mensagem
+        $ultimoIdMensagem = $mensagens->max('idMensagem');
+
+        return view('home.mensagens', compact('perfilMensagem', 'mensagens', 'ultimoIdMensagem'));
     }
 
     public function enviarMensagem(Request $request){
@@ -56,6 +66,7 @@ class MensagensController extends Controller
         
 
         $userAuth = Auth::user();
+        
 
         $perfilAuth = $userAuth->perfils;
 
@@ -84,21 +95,54 @@ class MensagensController extends Controller
         return response()->json(['status' => 'Mesagem enviada!']);
     }
 
-    public function buscarNovasMensagens(Request $request){
-        $userAuth = Auth::user();
+    public function buscarNovasMensagens(Request $request, $idPerfil){
+        try {
+            $userAuth = Auth::user();
 
-        $idPerfilReceptor = $userAuth->perfils;
+            if (!$userAuth) {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+    
+            $idPerfilEmissor = $userAuth->perfils->idPerfil;
+            if (!$idPerfilEmissor) {
+                return response()->json(['error' => 'Perfil não encontrado'], 404);
+            }
 
-        //Buscar novas mensagens
-        $mensagens = Mensagen::with(['emissores', 'receptores'])->whereHas('receptores', function($query) use ($idPerfilReceptor){
-            $query->where('idPerfilReceptor', $idPerfilReceptor->idPerfil);
-        })->where('statusLeitura', false) // se existir essa coluna para mensagens não lidas
-        ->orderBy('created_at', 'asc')->get();
+            $idPerfilReceptor = $idPerfil;
+            $ultimoIdMensagem = $request->query('ultimoIdMensagem', 0);
+            //Buscar novas mensagens
+            
+            
+            $mensagens = Mensagen::with(['emissores', 'receptores'])->where('idMensagem', '>', $ultimoIdMensagem)->where(function ($query) use ($idPerfilEmissor, $idPerfilReceptor) {
+            $query->whereHas('emissores', function ($q) use ($idPerfilEmissor) {
+                $q->where('idPerfilEmissor', $idPerfilEmissor);
+            })->whereHas('receptores', function ($q) use ($idPerfilReceptor) {
+                $q->where('idPerfilReceptor', $idPerfilReceptor);
+            });
+        })
+        ->orWhere(function ($query) use ($idPerfilEmissor, $idPerfilReceptor) {
+            $query->whereHas('emissores', function ($q) use ($idPerfilReceptor) {
+                $q->where('idPerfilEmissor', $idPerfilReceptor);
+            })->whereHas('receptores', function ($q) use ($idPerfilEmissor) {
+                $q->where('idPerfilReceptor', $idPerfilEmissor);
+            });
+        })->where('statusLeitura', false)
+        ->orderBy('created_at', 'asc')
+        ->get();
 
-        foreach($mensagens as $mensagem){
-            $mensagem->update(['statusLeitura' => true]);
+        if ($ultimoIdMensagem !== 'null') {
+            $mensagens->where('idMensagem', '>', $ultimoIdMensagem);
         }
 
-        return response()->json(['mensagens' => $mensagens]);
+    
+        $mensagensIds = $mensagens->pluck('idMensagem');
+
+        Mensagen::whereIn('idMensagem', $mensagensIds)->update(['statusLeitura' => true]);
+    
+            return response()->json(['mensagens' => $mensagens]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+        
     }
 }

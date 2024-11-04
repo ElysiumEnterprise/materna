@@ -238,4 +238,4 @@ Route::get('/feed', [FeedController::class, 'mostrarFeed']);
 
 Route::post('/comunidades',[ComunidadeController::class, 'store'])->name('comunidades.store');
 
-Route::get('/home/mensagens/buscar-novas', [MensagensController::class, 'buscarNovasMensagens'])->name('busca-mensagens');
+Route::get('/home/mensagens/buscar-novas/{idPerfil}', [MensagensController::class, 'buscarNovasMensagens'])->name('busca-mensagens');
