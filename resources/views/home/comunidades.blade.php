@@ -41,42 +41,7 @@
             
            </div>
 
-           <div class="container">
-    <button id="btn-criar-comunidade" class="btn btn-primary">Criar Comunidade</button>
-
-    <div class="modal fade" id="modalCriarComunidade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Criar Nova Comunidade</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form method="POST" action="{{ route('comunidades.store') }}" enctype="multipart/form-data">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="fotoComunidade" class="form-label">Foto da Comunidade</label>
-                            <input type="file" class="form-control" id="fotoComunidade" name="fotoComunidade">
-                        </div>
-                        <div class="mb-3">
-                            <label for="nomeComunidade" class="form-label">Nome da Comunidade</label>
-                            <input type="text" class="form-control" id="nomeComunidade" name="nomeComunidade">
-                        </div>
-                        <div class="mb-3">
-                            <label for="descComunidade" class="form-label">Descrição da Comunidade</label>
-                            <textarea class="form-control" id="descComunidade" name="descComunidade" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-
-                    <button type="submit" class="btn btn-primary">Criar</button>
-                </div>
-            </div>
+           
 
         </div>
     </div>
