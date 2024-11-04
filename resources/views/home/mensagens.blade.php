@@ -115,14 +115,11 @@
                         </div>
                     
 
+                        <div class="cont-form">
                         <form class="chat__form" method="post" action='{{route("enviar.mensagem")}}'>
                             @csrf
                             <input type="hidden" name="idPerfilReceptor" id="idPerfilReceptor" value="{{ $perfilMensagem->idPerfil }}">
                             <div class="icons-chat">
-
-                            <span class="material-symbols-outlined icon">
-                                sentiment_satisfied
-                                </span>
 
                             <span class="material-symbols-outlined icon">
                                 text_fields
@@ -135,10 +132,14 @@
                                 <span class="material-symbols-outlined">send</span>
                             </button>
                         </form>
-                       
                     </div>
+                       
                 </div>
+                    
         <div id="chatContainer" hidden data-idUsuario="{{$user->idUsuario}}"></div>
+        
+                        
+    </div>
 @endsection
 
 @section('scripts')

@@ -117,6 +117,13 @@
     gap: 10px;
 }
 
+.cont-form{
+    display: flex;
+    margin-left: 250px;
+    position: fixed;
+    justify-content: end;
+    align-items: end;
+}
 
 .chat__form{
     background-color: #f0f0f0;

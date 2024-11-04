@@ -13,6 +13,7 @@ window.Echo = new Echo({
     key: '040588d1490451bb55cd',
     cluster: 'sa1',
     forceTLS: true,
+    namespace: false,
     auth: {
         headers: {
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
@@ -22,12 +23,19 @@ window.Echo = new Echo({
 });
 
 
+
 window.Echo.connector.pusher.connection.bind('connected', () => {
     console.log('Conectado ao Pusher!');
+    window.Echo.private('chat.' + parseInt(idUsuario)).listen('mensagem-enviada', (data) => {
+        console.log('Esses são os valores' + data);
+        const mensagemDiv = document.querySelector('.mensagem');
+        
+            mensagemDiv.innerHTML += `<div class="mensagem"><div class="message__self"><span class="message__sender">{{ $perfil->nickname }}</span><strong>teste</strong></div></div>`;
+        
+    });
     document.querySelector('.chat__form').addEventListener('submit', function(e){
         e.preventDefault();
     
-        const formData = new FormData(this);
     
         $.ajax({
             url: '/home/mensagens/enviar',
@@ -49,17 +57,6 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
             console.error('Erro ao enviar a mensagem:', error);
         });
     });
-    var channel = window.Echo.private('chat.' + parseInt(idUsuario));
-    document.addEventListener('DOMContentLoaded', function () {
-        channel.listen('mensagem-enviada', function(data) {
-            console.log('Esses são os valores' + data);
-            const mensagemDiv = document.querySelector('.mensagem');
-            if (mensagemDiv) {
-                mensagemDiv.innerHTML += `<div class="mensagem"><div class="message__self"><span class="message__sender">{{ $perfil->nickname }}</span><strong>teste</strong></div></div>`;
-            } else {
-                console.error('Elemento .mensagem não encontrado na página');
-            }
-        });
-    })
+    
     
 });

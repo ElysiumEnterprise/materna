@@ -31,7 +31,7 @@ class PursherBroadcast implements ShouldBroadcast, ShouldQueue
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
+     * @return array Channel|array, \Illuminate\Broadcasting\Channel>
      */
     public function broadcastOn()
     {

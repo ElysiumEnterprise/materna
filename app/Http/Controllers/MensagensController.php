@@ -9,6 +9,7 @@ use App\Models\Perfil;
 use App\Models\PerfilMensagens;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Pusher\Pusher;
 
 class MensagensController extends Controller
 {
@@ -59,7 +60,7 @@ class MensagensController extends Controller
         $perfilAuth = $userAuth->perfils;
 
         broadcast(new PursherBroadcast($request->txtMessage, $userAuth->idUsuario))->toOthers();
-
+        
         //Associar aos perfils emissor e receptor
 
         $perfilEmissor = $perfilAuth->idPerfil;
