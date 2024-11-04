@@ -83,4 +83,22 @@ class MensagensController extends Controller
 
         return response()->json(['status' => 'Mesagem enviada!']);
     }
+
+    public function buscarNovasMensagens(Request $request){
+        $userAuth = Auth::user();
+
+        $idPerfilReceptor = $userAuth->perfils;
+
+        //Buscar novas mensagens
+        $mensagens = Mensagen::with(['emissores', 'receptores'])->whereHas('receptores', function($query) use ($idPerfilReceptor){
+            $query->where('idPerfilReceptor', $idPerfilReceptor->idPerfil);
+        })->where('statusLeitura', false) // se existir essa coluna para mensagens não lidas
+        ->orderBy('created_at', 'asc')->get();
+
+        foreach($mensagens as $mensagem){
+            $mensagem->update(['statusLeitura' => true]);
+        }
+
+        return response()->json(['mensagens' => $mensagens]);
+    }
 }

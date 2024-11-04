@@ -1,11 +1,11 @@
 @font-face{
     font-family: "Fredoka";
-    src: url('{{storage_path("fonts/Fredoka-VariableFont_wdth,wght.ttf")}}');
+    src: url('{{public_path("assets/fonts/Fredoka-VariableFont_wdth,wght.ttf")}}');
 }
 
 @font-face{
     font-family: "Inter";
-    src: url("{{ storage_path('fonts/Inter-VariableFont_opsz,wght.ttf')}}");
+    src: url("{{public_path('assets/fonts/Inter-VariableFont_opsz,wght.ttf')}}");
 }
 
 :root{
@@ -19,10 +19,10 @@
     --color-dark: #363949;
     --color-light: #848bc82e;
     --color-dark-variant: #677483;
-    --color-primary-variant: #111e88;
+    --color-primary-variant: #003366;
     --color-background: #f6f6f9;
     --color-toggler: #dce1eb;
-
+    
 
     --card-border-radius: 2rem;
     --border-radius-1: 0.4rem;
@@ -70,9 +70,9 @@ header.cont-titulo{
 
 header .cont-titulo h1{
     font-size: 30px;
-    font-family: 'Fredoka';
+    font-family: 'Fredoka', sans-serif;
     font-weight: bold;
-    color: black;
+    color: var(--color-primary-variant);
 }
 
 header .cont-desc{
@@ -84,7 +84,7 @@ header .cont-desc{
 
 header .cont-desc p{
     font-size: 18px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     color: black;
 }
 
@@ -98,13 +98,13 @@ header .cont-desc p{
 
 .cont-conteudo > h4{
     font-size: 18px;
-    font-family: 'Fredoka';
+    font-family: 'Inter', sans-serif;
     font-weight: bold;
     color: black;
 }
 .cont-conteudo > h4 span{
-    color: black;
-    font-family: 'Inter';
+    color: var(--color-dark);
+    font-family: 'Inter', sans-serif;
     font-weight: normal;
 }
 .cont-conteudo section{
@@ -115,8 +115,8 @@ header .cont-desc p{
 
 .cont-conteudo section h3{
     font-size: 22px;
-    color: black;
-    font-family: 'Fredoka';
+    color: var(--color-primary-variant);
+    font-family: 'Fredoka', sans-serif;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -126,6 +126,13 @@ header .cont-desc p{
     grid-template-columns: repeat(3, 1fr);
     gap: 1.6rem;
     width: 90%;
+}
+.cont-conteudo section .cont-card-relatorio .card-relatorio h1{
+    font-size: 20px;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 .cont-conteudo section .cont-card-relatorio .card-relatorio > div{
     background: var(--color-white);
@@ -162,8 +169,11 @@ header .cont-desc p{
 }
 
 .cont-conteudo section .cont-card-relatorio .card-relatorio h3{
-    margin: 1rem 0 0.6rem;
-    font-size: 1rem;
+    font-size: 20px;
+    color: var(--color-primary);
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .cont-conteudo section .cont-card-relatorio .card-relatorio .progress{

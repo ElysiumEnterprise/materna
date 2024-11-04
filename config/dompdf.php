@@ -56,7 +56,16 @@ return [
          * Note: This directory must exist and be writable by the webserver process.
          */
         'font_cache' => storage_path('fonts'),
-
+        'font' => [
+            'Fredoka' => [
+                'R'  => public_path('fonts/Fredoka-VariableFont_wdth,wght.ttf'), // Regular
+               
+            ],
+            'Inter' => [
+                'R'  => public_path('fonts/Inter-VariableFont_opsz,wght.ttf'), // Regular
+               
+            ],
+],
         /**
          * The location of a temporary directory.
          *

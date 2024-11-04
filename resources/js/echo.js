@@ -27,11 +27,7 @@ window.Echo = new Echo({
 window.Echo.connector.pusher.connection.bind('connected', () => {
     console.log('Conectado ao Pusher!');
     window.Echo.private('chat.' + parseInt(idUsuario)).listen('mensagem-enviada', (data) => {
-        console.log('Esses são os valores' + data);
-        const mensagemDiv = document.querySelector('.mensagem');
-        
-            mensagemDiv.innerHTML += `<div class="mensagem"><div class="message__self"><span class="message__sender">{{ $perfil->nickname }}</span><strong>teste</strong></div></div>`;
-        
+        atualizarMensagens([data]);
     });
     document.querySelector('.chat__form').addEventListener('submit', function(e){
         e.preventDefault();
@@ -60,3 +56,27 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
     
     
 });
+function buscarNovasMensagens(){
+    $.ajax({
+        url: '/home/mensagens/buscar-novas',
+        method: 'GET',
+        success: function (response) {
+            atualizarMensagens(data)
+        },
+        error: function(error){
+            console.error('Erro ao buscar novas mensagens: ', error)
+        }
+    })
+}
+//Função para atualizar mensagens na view
+function atualizarMensagens(data) {
+    const mensagemCard = document.querySelector('.chat__messages');
+    if (mensagemCard) {
+        data.forEach(mensagem => {
+            mensagemCard.innerHTML += `<div class="mensagem-card"><div class="message__self"><span class="message__sender">{{ $perfil->nickname }}</span><strong>${mensagem.conteudoMensagem}</strong></div></div>`
+        })
+    }
+}
+
+//Tempo de reload
+setInterval(buscarNovasMensagens, 4000);

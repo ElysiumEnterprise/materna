@@ -84,12 +84,20 @@
 
 }
 
-.mensagens{
+.card-mensagens{
     display: flex;
+    padding:10px;
+    height: auto;
+    background-color: #fab5cf;
+    color: #121212;
+    border-radius: 10px 10px 0px 10px;
+    align-self: flex-end;
     justify-content: center;
     align-items: center;
 }
-
+.mensagens:not(:last-child){
+    margin-bottom: 20px;
+}
 .message__self{
 
     background-color: #fab5cf;

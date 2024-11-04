@@ -91,9 +91,9 @@
                         <div class="chat__messages">
                             @foreach($mensagens as $mensagem)
                                 
-                                    <div class="mensagem">
+                                    <div class="card-mensagem">
                                         
-                                        <div class="message__self">
+                                        
                                         <strong>{{$mensagem->conteudoMensagem}}</strong>
                                     </div>
 
@@ -137,6 +137,7 @@
                 </div>
                     
         <div id="chatContainer" hidden data-idUsuario="{{$user->idUsuario}}"></div>
+        <div id="contIdPerfil" hidden data-idPerfil="{{$perfilMensagem->idPerfil}}"></div>
         
                         
     </div>
@@ -145,6 +146,7 @@
 @section('scripts')
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{url('assets/js/home/update-mensagens')}}"></script>
     @vite(['resources/js/app.js'])
 
 
