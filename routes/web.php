@@ -14,6 +14,7 @@ use App\Http\Controllers\PDFGenerateController;
 use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ComunidadeController;
 use App\Mail\TestMail;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Mail;
@@ -233,3 +234,6 @@ Route::get('/dashboard/list-denuncias-verificadas', [DenunciaController::class, 
 
 
 Route::get('/feed', [FeedController::class, 'mostrarFeed']);
+
+
+Route::post('/comunidades',[ComunidadeController::class, 'store'])->name('comunidades.store');

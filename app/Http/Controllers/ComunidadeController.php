@@ -125,6 +125,8 @@ class ComunidadeController extends Controller
                 ]);
             }
 
+            return redirect()->back()->with('success', 'Comunidade criada com sucesso!');
+
             //Aqui precisa carregar a rota após o cadastro
         }else{
             return redirect()->route('/')->with('status', 'Você precisa estar logado para executar essa ação');
