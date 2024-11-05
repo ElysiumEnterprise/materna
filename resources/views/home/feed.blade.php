@@ -31,43 +31,65 @@
         <!-- terminou -->
 
         <div class="cont-post">
-            @foreach($postagens as $postagem)
-                <section class="card-post">
-                    <div class="post-head">
-                        <img src="{{ url('assets/img/img-home/foto-perfil-teste/' . $postagem->user->foto_perfil) }}" class="img-fluid foto-perfil" alt="">
-                        <small class="txt-perfil">{{ $postagem->user->nome }}</small>
+            <section class="card-post">
+                <div class="post-head">
+                    <img src="{{ url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg') }}" class="img-fluid foto-perfil" alt="">
+                    <small class="txt-perfil">Daniela</small>
+                </div>
+                <div class="conteudo-post">
+                    <div class="cont-arquivo">
+                        <img src="{{ url('assets/img/img-home/teste.jpeg') }}" class="img-fluid img-arquivo" alt="">
                     </div>
-                    <div class="conteudo-post">
-                        <div class="cont-arquivo">
-                            <img src="{{ url('assets/img/imagens-postagens/' . $postagem->imagem) }}" class="img-fluid img-arquivo" alt="">
+                    <div class="cont-icons">
+                        <div class="icons-principais">
+                            <button type="button"><i class="fa-regular fa-heart"></i></button>
+                            <button type="button"><i class="fa-regular fa-message"></i></button>
+                            <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
                         </div>
-
-                        {{-- Exibe a imagem da categoria relacionada --}}
-                        @foreach($postagem->categorias as $categoria)
-                            <img src="{{ url('assets/img/imagens-postagens/' . $categoria->imagem) }}" alt="Imagem da Categoria">
-                        @endforeach
-
-                        <div class="cont-icons">
-                            <div class="icons-principais">
-                                <button type="button"><i class="fa-regular fa-heart"></i></button>
-                                <button type="button"><i class="fa-regular fa-message"></i></button>
-                                <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
-                            </div>
-                            <div class="icon-salvos">
-                                <button type="button">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="cont-legenda">
-                            <small>{{ $postagem->user->nome }} <span>{{ $postagem->legenda }}</span></small>
-                        </div>
-                        <div class="cont-num-comentarios">
-                            <small>Ver todos os {{ $postagem->comentarios_count }} comentários</small>
+                        <div class="icon-salvos">
+                            <button type="button">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
                         </div>
                     </div>
-                </section>
-            @endforeach
+                    <div class="cont-legenda">
+                        <small>Daniela <span>Mais um final de semana cuidando dos meus filhos</span></small>
+                    </div>
+                    <div class="cont-num-comentarios">
+                        <small>Ver todos os 10 comentários</small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card-post">
+                <div class="post-head">
+                    <img src="{{ url('assets/img/img-home/avatar.jpg') }}" class="img-fluid foto-perfil" alt="">
+                    <small class="txt-perfil">Juliana</small>
+                </div>
+                <div class="conteudo-post">
+                    <div class="cont-arquivo">
+                        <img src="{{ url('assets/img/img-home/teste-2.png') }}" class="img-fluid img-arquivo" alt="">
+                    </div>
+                    <div class="cont-icons">
+                        <div class="icons-principais">
+                            <button type="button"><i class="fa-regular fa-heart"></i></button>
+                            <button type="button"><i class="fa-regular fa-comment"></i></button>
+                            <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
+                        </div>
+                        <div class="icon-salvos">
+                            <button type="button">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cont-legenda">
+                        <small>Juliana <span>Legenda aqui</span></small>
+                    </div>
+                    <div class="cont-num-comentarios">
+                        <small>Ver todos os 10 comentários</small>
+                    </div>
+                </div>
+            </section>
         </div>
 
 

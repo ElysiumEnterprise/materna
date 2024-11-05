@@ -29,19 +29,20 @@ class FeedController extends Controller
     {
         $user = auth()->user(); // Obtém o usuário autenticado
 
-        if ($user && $user->preferencias) {
-            // Decodifica as preferências do JSON
-            $preferencias = json_decode($user->preferencias);
-            
-            // Busca as postagens com base nas preferências do usuário
-            $postagens = Postagens::whereIn('categoria', $preferencias)->with('categorias')->get();
-        } else {
-            // Caso o usuário não tenha preferências, mostra todas as postagens
-            $postagens = Postagens::with('categorias')->get();
-        }
+    // Verifica se o usuário tem preferências salvas
+    if ($user && $user->preferencias) {
+        $preferencias = json_decode($user->preferencias);
 
-        return view('home.feed', compact('postagens')); // Passa as postagens para a view
+        // Caso a coluna 'categoria' tenha valores separados por vírgulas, usamos FIND_IN_SET
+        $postagens = Postagens::where(function($query) use ($preferencias) {
+            foreach ($preferencias as $categoria) {
+                $query->orWhereRaw("FIND_IN_SET(?, `categoria`)", [$categoria]);
+            }
+        })->get();
+    } else {
+        // Se não houver preferências, mostra todas as postagens
+        $postagens = Postagens::all();
     }
 
-        
-}
+    return view('home.feed', compact('postagens'));
+}}
