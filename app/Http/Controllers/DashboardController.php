@@ -11,9 +11,9 @@ class DashboardController extends Controller
     public function goDashboard(){
         $countCadastros = Usuario::where('idNivelUsuario', '!=', 2)->count();
 
-        $countCadastroMaes = Usuario::where('idNivelUsusario', 1)->count();
+        $countCadastroMaes = Usuario::where('idNivelUsuario', 1)->count();
 
-        $countCadastroAnunciantes = Usuario::where('idNivelUsusario', 3)->count();
+        $countCadastroAnunciantes = Usuario::where('idNivelUsuario', 3)->count();
 
         $countPostagens = Postagem::count();
 

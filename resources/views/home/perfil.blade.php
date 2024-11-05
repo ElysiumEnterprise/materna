@@ -69,7 +69,7 @@
           <ul class="about">
             <li><a href="{{route('go.list.seguidores', $user->perfils->idPerfil)}}"><span>{{$user->perfils->qtddSeguidores}}</span>Seguidores</a></li>
             <li><a href="{{route('go.list.seguindo', $user->perfils->idPerfil)}}"><span>{{$user->perfils->qtddSeguindo}}</span>Seguindo</a></li>
-            <li><span>200,543</span>Visualização</li>
+            <li><span>0</span>Visualização</li>
           </ul>
 
           <div class="content">

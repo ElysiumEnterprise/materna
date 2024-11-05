@@ -41,7 +41,7 @@
 
                 <a href="{{route('clientes.adm')}}">
                     <span class="material-icons-sharp">person_outline</span>
-                    <h3>Clientes</h3>
+                    <h3>Mães</h3>
                 </a>
                 <a href="{{route('anunciantes.adm')}}">
                     <span class="material-icons-sharp">person_outline</span>
