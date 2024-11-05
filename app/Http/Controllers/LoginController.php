@@ -44,7 +44,10 @@ class LoginController extends Controller
          if(Auth::attempt($credentials)){ /* true força a opção de lembrar me */
             /* autenticação deu certo */
             $usuario = Auth::user();
-
+            if($usuario->isSuspenso == true || $usuario->isSuspenso == 1){
+                Auth::logout();
+                return redirect()->back()->with('status' => 'Você não pode logar na Materna devido a suspensão de sua conta!');
+            }
             if($usuario->idNivelUsuario==1){
 
                 // AQUI INICIO PARA CONTEUDO

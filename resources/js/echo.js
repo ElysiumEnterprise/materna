@@ -72,7 +72,7 @@ function buscarMensagens(idPerfilReceptor) {
         method: 'GET',
         success: function(data){
             // Para evitar duplicação, armazene os IDs das mensagens já mostradas
-           
+            if(data.mensagens.length > 0){
                 data.mensagens.forEach(mensagem =>{
                     console.log(idPerfilAuth)
                     console.log(mensagem.emissores[0].idPerfil)
@@ -96,7 +96,7 @@ function buscarMensagens(idPerfilReceptor) {
                 })
                 
             
-            
+            }
             
         },
         error: function(error) {
