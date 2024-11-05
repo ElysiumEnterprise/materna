@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Postagem;
 use App\Models\Postagens;
+use App\Models\Categoria;
 
 class FeedController extends Controller
 {
@@ -31,14 +32,16 @@ class FeedController extends Controller
         if ($user && $user->preferencias) {
             // Decodifica as preferências do JSON
             $preferencias = json_decode($user->preferencias);
-    
+            
             // Busca as postagens com base nas preferências do usuário
-            $postagens = Postagens::whereIn('categoria', $preferencias)->get();
+            $postagens = Postagens::whereIn('categoria', $preferencias)->with('categorias')->get();
         } else {
             // Caso o usuário não tenha preferências, mostra todas as postagens
-            $postagens = Postagens::all();
+            $postagens = Postagens::with('categorias')->get();
         }
 
-        return view('home.feed', compact('postagens')); // Corrigido aqui
+        return view('home.feed', compact('postagens')); // Passa as postagens para a view
     }
+
+        
 }

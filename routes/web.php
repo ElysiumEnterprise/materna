@@ -19,6 +19,9 @@ use App\Mail\TestMail;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Mail;
 
+use App\Http\Controllers\PostagensController;
+
+
 use App\Http\Controllers\CurtidasController;
 
 use App\Http\Controllers\PreferenciasController;
@@ -236,3 +239,6 @@ Route::get('/dashboard/list-denuncias-verificadas', [DenunciaController::class, 
 Route::get('/feed', [FeedController::class, 'mostrarFeed']);
 
 Route::get('/home/mensagens/buscar-novas/{idPerfil}', [MensagensController::class, 'buscarNovasMensagens'])->name('busca-mensagens');
+
+
+Route::post('/criar-postagem', [PostagensController::class, 'criarPostagem'])->name('criar-postagem');

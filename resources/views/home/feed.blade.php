@@ -29,18 +29,24 @@
         </div>
 
         <!-- terminou -->
-        
-                <div class="cont-post">
-                     @foreach($postagens as $postagem)
+
+        <div class="cont-post">
+            @foreach($postagens as $postagem)
                 <section class="card-post">
                     <div class="post-head">
                         <img src="{{ url('assets/img/img-home/foto-perfil-teste/' . $postagem->user->foto_perfil) }}" class="img-fluid foto-perfil" alt="">
-                        <small class="txt-perfil">{{ $postagem->user->nome }}</small> <!-- Ajuste conforme seu modelo -->
+                        <small class="txt-perfil">{{ $postagem->user->nome }}</small>
                     </div>
                     <div class="conteudo-post">
                         <div class="cont-arquivo">
-                            <img src="{{ url('assets/img/img-home/' . $postagem->imagem) }}" class="img-fluid img-arquivo" alt="">
+                            <img src="{{ url('assets/img/imagens-postagens/' . $postagem->imagem) }}" class="img-fluid img-arquivo" alt="">
                         </div>
+
+                        {{-- Exibe a imagem da categoria relacionada --}}
+                        @foreach($postagem->categorias as $categoria)
+                            <img src="{{ url('assets/img/imagens-postagens/' . $categoria->imagem) }}" alt="Imagem da Categoria">
+                        @endforeach
+
                         <div class="cont-icons">
                             <div class="icons-principais">
                                 <button type="button"><i class="fa-regular fa-heart"></i></button>
@@ -54,19 +60,21 @@
                             </div>
                         </div>
                         <div class="cont-legenda">
-                            <small>{{ $postagem->user->nome }} <span>{{ $postagem->legenda }}</span></small> <!-- Ajuste conforme seu modelo -->
+                            <small>{{ $postagem->user->nome }} <span>{{ $postagem->legenda }}</span></small>
                         </div>
                         <div class="cont-num-comentarios">
-                            <small>Ver todos os {{ $postagem->comentarios_count }} comentários</small> <!-- Contagem de comentários -->
+                            <small>Ver todos os {{ $postagem->comentarios_count }} comentários</small>
                         </div>
                     </div>
                 </section>
             @endforeach
         </div>
+
+
         <section class="cont-tipo-feed">
 
             <div class="cont-link-feed">
-                <a href="#">Trending</a>
+               
                 <a href="#">Dicas</a>
             </div>
 

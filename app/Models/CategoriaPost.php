@@ -10,7 +10,7 @@ class CategoriaPost extends Model
     protected $table = 'categoria_posts';
 
     protected $primaryKey = 'idCategoriaPost';
-    protected $incremeting = true;
+    protected $incrementing = true;
     protected $keyType = 'int';
 
     /**
