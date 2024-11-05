@@ -62,7 +62,7 @@
                         </li>
             
                         <li class="side-item">
-                            <a href="{{route('mensagens.perfil', 30)}}">
+                            <a href="{{route('mensagens.perfil', 28)}}">
                                 <i class="fa-solid fa-envelope" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Mensagens
@@ -121,7 +121,7 @@
                     <a href="{{route('perfil.config', $perfil->idPerfil)}}" id="logout_btn">
                         <i class="fa-solid fa-gear" style="color: #ffb6c1;"></i>
                         <span class="item-description">
-                            Configuraçoes
+                            Configurações
                         </span>
                     </a>
                 </div>
