@@ -11,7 +11,12 @@ class DashboardController extends Controller
     public function goDashboard(){
         $countCadastros = Usuario::where('idNivelUsuario', '!=', 2)->count();
 
+        $countCadastroMaes = Usuario::where('idNivelUsusario', 1)->count();
+
+        $countCadastroAnunciantes = Usuario::where('idNivelUsusario', 3)->count();
+
         $countPostagens = Postagem::count();
+
 
         $countPostADD = Postagem::where('isADD', "!=", 0)->count();
         
@@ -19,6 +24,6 @@ class DashboardController extends Controller
 
 
 
-        return view('dashboard-adm.dashboard-home', compact('countCadastros', 'countPostagens', 'countPostADD', 'anunciantes'));
+        return view('dashboard-adm.dashboard-home', compact('countCadastros', 'countPostagens', 'countPostADD', 'anunciantes', 'countCadastroMaes', 'countCadastroAnunciantes'));
     }
 }

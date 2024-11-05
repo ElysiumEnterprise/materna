@@ -101,7 +101,8 @@
                 <a class="link-mostrar" href="{{route('anunciantes.adm')}}">Mostrar tudo</a>
             </div>
 
-            
+            <div id="countCadMaes" hidden data-countCadMaes="{{$countCadastroMaes}}"></div>
+            <div id="countCadAnunciantes" hidden data-countcadAnunciantes="{{$countCadastroAnunciantes}}"></div>
 
 @endsection
 

@@ -55,15 +55,13 @@ class DenunciaController extends Controller
         if($usuario->qtddDenuncias >= 3){
             if($usuario->isSuspenso == 0){
                 $usuario->isSuspenso = 1;
-                Mail::to($usuario->email)->send(new SuspensoMail($usuario->nome, $qtddDenuncia));
+                Mail::to('machado.gui.oliveira@gmail.com')->send(new SuspensoMail($usuario->nome, $qtddDenuncia));
             }
         }else{
-            Mail::to($usuario->email)->send(new DenunciaMail($motivoDenuncia, $nomeUsuario, $qtddDenuncia));
+            Mail::to('machado.gui.oliveira@gmail.com')->send(new DenunciaMail($motivoDenuncia, $nomeUsuario, $qtddDenuncia));
         }
 
         $usuario->save();
-
-       
 
         return redirect()->back()->with('message', "Denúncia de ID ". $idDenuncia. " verificada!");
     }

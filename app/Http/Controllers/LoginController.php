@@ -46,7 +46,7 @@ class LoginController extends Controller
             $usuario = Auth::user();
             if($usuario->isSuspenso == true || $usuario->isSuspenso == 1){
                 Auth::logout();
-                return redirect()->back()->with('status' => 'Você não pode logar na Materna devido a suspensão de sua conta!');
+                return redirect()->back()->with('status','Você não pode logar na Materna devido a suspensão de sua conta!');
             }
             if($usuario->idNivelUsuario==1){
 
