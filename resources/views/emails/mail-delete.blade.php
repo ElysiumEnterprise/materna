@@ -56,6 +56,7 @@
             font-family: 'Fredoka';
             text-align: justify;
             color: #003366;
+            font-size:18px;
         }
         span{
         color: rgb(148, 26, 26);

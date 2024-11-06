@@ -1,6 +1,9 @@
 (function(){
 
 
+const countPostADD =parseInt(document.querySelector('#contPostADD').getAttribute('data-countPostADD'))
+
+const countPostMaes = parseInt(document.querySelector('#contPostMaes').getAttribute('data-countPostMaes'))
 
 const ctx = document.getElementById('myChart2');
 
@@ -16,12 +19,12 @@ new Chart(ctx, {
     datasets: [
         {
           label: 'Mães',
-          data: [27],
+          data: [countPostMaes],
           backgroundColor: 'rgb(255, 99, 132)'
         },
         {
           label: 'Anunciantes',
-          data: [16],
+          data: [countPostADD],
           backgroundColor: 'rgb(54, 162, 235)',
         },
         

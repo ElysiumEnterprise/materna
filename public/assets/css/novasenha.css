@@ -89,14 +89,14 @@ main{
     justify-content: center;
 }
 
-.input-group .cont-erro{
+.input-group .cont-error{
     display: flex;
     width: 100%;
     justify-content: start;
     align-items: start;
 }
 
-.input-group .cont-erro .error{
+.input-group .cont-error .error{
     color:#bf093d;
     font-family: 'Inter';
 }

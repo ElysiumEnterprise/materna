@@ -103,6 +103,8 @@
 
             <div id="countCadMaes" hidden data-countCadMaes="{{$countCadastroMaes}}"></div>
             <div id="countCadAnunciantes" hidden data-countcadAnunciantes="{{$countCadastroAnunciantes}}"></div>
+            <div id="contPostADD" hidden data-countPostADD="{{$countPostADD}}"></div>
+            <div id="contPostMaes" hidden data-countPostMaes="{{$countPostMaes}}"></div>
 
 @endsection
 

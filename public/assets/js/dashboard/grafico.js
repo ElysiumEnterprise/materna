@@ -1,10 +1,16 @@
+//Pegando as informações na view dasboard-home
+
+const countCadMaes = parseInt(document.querySelector("#countCadMaes").getAttribute('data-countCadMaes'));
+
+const countCadAnunciantes = parseInt(document.querySelector("#countCadAnunciantes").getAttribute('data-countCadAnunciantes'));
+
 const ctx = document.getElementById('myChart').getContext('2d');
 
         const data = {
             labels:  ['Mães', 'Anunciantes'],
             datasets: [{
                 label: 'Quantidade',
-                data: [55, 30],
+                data: [countCadMaes, countCadMaes],
                 backgroundColor: [
                     
                     'rgb(255, 99, 132)',

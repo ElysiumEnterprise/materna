@@ -72,6 +72,7 @@
         font-family: 'Inter';
         color: #003366;
         text-align: justify;
+        font-size:18px;
     }
 
     span{

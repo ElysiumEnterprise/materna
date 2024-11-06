@@ -37,7 +37,7 @@ class PerfilController extends Controller
             $user = Auth::user();
 
             if(Perfil::where('nickname', $request->nickname)->exists()){
-                return redirect()->back()->with('errorNickEqual', 'Nome de usuário já existente!');
+                return redirect()->back()->with('errorNickEqual', 'Nome de usuário já existente!')->withInput();
             }
 
             if ($request->hasFile('imgPerfil') && $request->file('imgPerfil')->isValid()) {
@@ -52,7 +52,7 @@ class PerfilController extends Controller
     
     
             }else{
-                return redirect()->back()->with('errorImgPerfil', 'Imagem não selecionada ou tipo de arquivo inválido!');
+                return redirect()->back()->with('errorImgPerfil', 'Imagem não selecionada ou tipo de arquivo inválido!')->withInput();
             }
     
             if ($request->hasFile('imgCapa') && $request->file('imgCapa')->isValid()) {
@@ -65,7 +65,7 @@ class PerfilController extends Controller
     
                 $fileImgCapa->move(public_path('assets/img/banners-perfils'), $nomeImgCapa);
             }else{
-                return redirect()->back()->with('errorCapa', 'Imagem não selecionada ou tipo de arquivo inválido!');
+                return redirect()->back()->with('errorCapa', 'Imagem não selecionada ou tipo de arquivo inválido!')->withInput();
             }
     
             Perfil::create([
@@ -78,7 +78,7 @@ class PerfilController extends Controller
 
             return redirect()->route('home.feed');
         }else{
-            return redirect()->route('index')->withErrors('Você precisa estar logado para criar seu perfil!');
+            return redirect()->route('index')->withErrors('Você precisa estar logado para criar seu perfil!')->withInput();
         }
        
 

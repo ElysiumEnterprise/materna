@@ -99,7 +99,7 @@
                                             <img src="{{url('assets/img/icons/icon-email.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="email" name="emailAnunciante" id="emailAnunciante" placeholder="Digite seu email" class="animated-input">
+                                        <input type="email" name="emailAnunciante" id="emailAnunciante" placeholder="Digite seu email" class="animated-input" value="{{old('emailAnunciante')}}">
                                     </div>
                                 </div>
 
@@ -110,7 +110,7 @@
                                             <img src="{{url('assets/img/icons/icon-tel.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="tel" name="telAnunciante" id="telAnunciante" placeholder="Digite seu telefone" class="animated-input">
+                                        <input type="tel" name="telAnunciante" id="telAnunciante" placeholder="Digite seu telefone" class="animated-input" value="{{old('telAnunciante')}}">
                                     </div>
                                 </div>
 
@@ -121,7 +121,7 @@
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="password" id="password" placeholder="Crie uma sennha" class="animated-input">
+                                        <input type="password"  name="password" id="password" placeholder="Crie uma sennha" class="animated-input" value="{{old('password')}}">
                                         <i class="bi bi-eye-slash btn-show-pass" onclick="mostrarSenha()"></i>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@
                                             <img src="{{url('assets/img/icons/icon-password.png')}}" alt="" class="img-fluid icon-input">
                                         </label>
                                         
-                                        <input type="password"  name="password_confirmation" id="password_confirmation" placeholder="Confirme a sennha" class="animated-input">
+                                        <input type="password"  name="password_confirmation" id="password_confirmation" placeholder="Confirme a sennha" class="animated-input" value="{{old('password_confirmation')}}">
                                         <i class="bi bi-eye-slash btn-show-pass-confirm" onclick="mostrarConfirmarSenha()"></i>
                                     </div>
                                 </div>

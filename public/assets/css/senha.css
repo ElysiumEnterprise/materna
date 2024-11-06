@@ -100,14 +100,14 @@ main{
     
 }
 
-.input-group .cont-erro{
+.input-group .cont-error{
     display: flex;
     width: 100%;
     justify-content: start;
     align-items: start;
 }
 
-.input-group .error{
+.input-group  .cont-error .error{
     color:#bf093d;
     font-family: 'Inter';
 }

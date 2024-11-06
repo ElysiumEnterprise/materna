@@ -78,7 +78,10 @@ class Perfil extends Model
     public function comentarios(){
         return $this->hasMany(Comentarios::class, 'idPerfil');
     }
-
+    //Relacionamento na tabela visualizações
+    public function visualizacoes(){
+        return $this->belongsToMany(Visualizacoes::class, 'visualizacoes', 'idPerfil');
+    }
     protected static function boot()
     {
         parent::boot();

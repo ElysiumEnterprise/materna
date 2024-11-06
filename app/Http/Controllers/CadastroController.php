@@ -45,7 +45,7 @@ class CadastroController extends Controller
 
         $exist=Usuario::where('email', $request->emailCliente)->exists();
             if($exist){
-                return redirect()->back()->with('error', "Email já existente!");
+                return redirect()->back()->with('error', "Email já existente!")->withInput();
             }
             
         
@@ -53,7 +53,7 @@ class CadastroController extends Controller
             $exist=TelefoneUser::where('numTelefone', $request->telCliente)->exists();
 
             if($exist){
-                return redirect()->back()->with('errorTel', "Telefone já existente!");
+                return redirect()->back()->with('errorTel', "Telefone já existente!")->withInput();
             }
             $usuario = Usuario::create([
                 'nome' => $request->nomeCliente,
@@ -116,7 +116,7 @@ class CadastroController extends Controller
             
             if ($existCNPJ) {
               
-                return redirect()->back()->with('errorCNPJ', 'CNPJ inválido! Este CNPJ já está cadastrado.');
+                return redirect()->back()->with('errorCNPJ', 'CNPJ inválido! Este CNPJ já está cadastrado.')->withInput();
             } 
         }
 
@@ -125,12 +125,12 @@ class CadastroController extends Controller
 
         $exist=Usuario::where('email', $request->emailAnunciante)->exists();
         if($exist){
-            return redirect()->back()->with('error', "Email já existente!");
+            return redirect()->back()->with('error', "Email já existente!")->withInput();
         }else{
             $exist=TelefoneUser::where('numTelefone', $request->telAnunciante)->exists();
 
             if($exist){
-                return redirect()->back()->with('errorTel', "Telefone já existente!");
+                return redirect()->back()->with('errorTel', "Telefone já existente!")->withInput();
             }
             $usuario = Usuario::create([
                 'nome' => $request->nomeAnunciante,

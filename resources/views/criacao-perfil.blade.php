@@ -38,16 +38,16 @@
                 </label>
                 <label for="imgPerfil" class="btn-mudar-img">Inserir Foto de Perfil</label>
                 
-                <input type="file" name="imgPerfil" id="imgPerfil" hidden accept="image/*">
+                <input type="file" name="imgPerfil" id="imgPerfil" hidden accept="image/*" value="{{old('imgPerfil')}}">
             </div>
             <div class="input-group">
                 <label for="nickname">Nome de Usuário: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
-                <input type="text" name="nickname" id="nickname" placeholder="Digite seu nome de usuário">
+                <input type="text" name="nickname" id="nickname" placeholder="Digite seu nome de usuário" value="{{old('nickname')}}">
             </div>
             <div class="input-group">
                 <label for="imgCapa">Adicionar Capa de Perfil:<span class="errorField">{{session('errorCapa')}}</span></label>
                 <label for="imgCapa" id='drag-area-banner'>
-                    <input type="file" name="imgCapa" id="imgCapa" hidden accept="image/*">
+                    <input type="file" name="imgCapa" id="imgCapa" hidden accept="image/*" value="{{old('imgCapa')}}">
                     <div class="img-view-banner">
                         <div class="icon">
                             <i class="fa-solid fa-cloud-arrow-up"></i>
@@ -58,7 +58,7 @@
             </div>
             <div class="input-group">
                 <label for="biography">Biografia: <span class="errorField">@error('biography'){{$message}}@enderror</span></label>
-               <textarea name="biography" id="biography" placeholder="Conte sobre você para outars pessoas!"></textarea>
+               <textarea name="biography" id="biography" placeholder="Conte sobre você para outras pessoas!" value="{{old('biography')}}"></textarea>
             </div>
             <div class="cont-btn">
                 <input type="submit" value="Criar Perfil">

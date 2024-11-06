@@ -15,9 +15,9 @@ class PostagemController extends Controller
         $user = Auth::user();
 
         if ($user->idNivelUsuario == 3) {
-            $isAdd = 1;
+            $isAdd = true;
         }else{
-            $isAdd = 0;
+            $isAdd = false;
         }
 
         $perfil = Perfil::where('idUsuario', $user->idUsuario)->first();
@@ -55,7 +55,7 @@ class PostagemController extends Controller
             'fotoPost' => $nomeImg,
             'dataPost' => today(),
             'horaPost' => now()->format('H:i:s'),
-            'isAdd'=> $isAdd,
+            'isADD'=> $isAdd,
         ]);
 
         foreach($opcoesCategorias as $opcaoCategoria){

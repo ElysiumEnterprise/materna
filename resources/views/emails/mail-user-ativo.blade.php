@@ -55,6 +55,7 @@
         p{
             font-family: 'Fredoka';
             text-align: justify;
+            font-size:18px;
             color: #003366;
         }
         span{

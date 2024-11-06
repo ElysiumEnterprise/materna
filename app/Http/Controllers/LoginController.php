@@ -46,7 +46,7 @@ class LoginController extends Controller
             $usuario = Auth::user();
             if($usuario->isSuspenso == true || $usuario->isSuspenso == 1){
                 Auth::logout();
-                return redirect()->back()->with('status','Você não pode logar na Materna devido a suspensão de sua conta!');
+                return redirect()->back()->with('status','Você não pode logar na Materna devido a suspensão de sua conta!')->withInput();
             }
             if($usuario->idNivelUsuario==1){
 
@@ -71,7 +71,7 @@ class LoginController extends Controller
                 
             }else{
                 Auth::logout();
-                return redirect()->back()->with(['status' => 'Opa! Você é um ADM!', 'message' => 'Clique aqui para logar na sua área!', 'link' => '/login-adm']);
+                return redirect()->back()->with(['status' => 'Opa! Você é um ADM!', 'message' => 'Clique aqui para logar na sua área!', 'link' => '/login-adm'])->withInput();
             }
 
             
@@ -79,7 +79,7 @@ class LoginController extends Controller
          }
 
          /* se der ruim e falhar */
-         return redirect()->back()->withErrors(['email' => 'Dados invalidos, faça seu cadastro ou login']);
+         return redirect()->back()->withErrors(['email' => 'Dados invalidos, faça seu cadastro ou login'])->withInput();
         }
         
         public function index()
@@ -121,10 +121,10 @@ class LoginController extends Controller
                 return redirect()->intended('/dashboard/home');
             }else {
                 Auth::logout();
-                return redirect()->back()->with(['status'=> 'Opa, você não é um ADM!', 'message' => 'Clique aqui para logar na sua área!' , 'link'=>'/']);
+                return redirect()->back()->with(['status'=> 'Opa, você não é um ADM!', 'message' => 'Clique aqui para logar na sua área!' , 'link'=>'/'])->withInput();
             }
         }else{
-            return redirect()->back()->with(['status'=> 'Email ou senha inválidos!']);
+            return redirect()->back()->with(['status'=> 'Email ou senha inválidos!'])->withInput();
         }
     }
 

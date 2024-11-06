@@ -17,13 +17,14 @@ class DashboardController extends Controller
 
         $countPostagens = Postagem::count();
 
+        $countPostADD = Postagem::where('isADD', "!=", false)->count();
 
-        $countPostADD = Postagem::where('isADD', "!=", 0)->count();
+        $countPostMaes = Postagem::where('isADD', '!=', true)->count();
         
         $anunciantes = Usuario::with(['perfils','perfils.postagems'])->where('idNivelUsuario', 3)->latest()->take(5)->get();
 
 
 
-        return view('dashboard-adm.dashboard-home', compact('countCadastros', 'countPostagens', 'countPostADD', 'anunciantes', 'countCadastroMaes', 'countCadastroAnunciantes'));
+        return view('dashboard-adm.dashboard-home', compact('countCadastros', 'countPostagens', 'countPostADD', 'anunciantes', 'countCadastroMaes', 'countCadastroAnunciantes', 'countPostMaes'));
     }
 }

@@ -35,14 +35,16 @@ class ResetPasswordController extends Controller
                 'email.email'=>'Email inválido!'
             ]
         );
-
+        if(!Usuario::where('email', 'LIKE', $request->email)->exists()){
+            return redirect()->back()->with('email', 'Não existe esse email na plataforma!')->withInput();
+        }
         $response = Password::broker()->sendResetLink($request->only('email'),
             function ($user, $token) use ($request){
                 Mail::to($request->email)->send(new ResetPasswordMail($token, $request->email));
             }
         );
 
-        return $response == Password::RESET_LINK_SENT ? back()->with('status', _('Verifique seu email!')): back()->withErrors(['email'=>_($response)]);
+        return $response == Password::RESET_LINK_SENT ? back()->with('status', _('Verifique seu email!')): back()->withErrors(['email'=>_($response)])->withInput();
     }
 
 
@@ -63,7 +65,9 @@ class ResetPasswordController extends Controller
                 'password.confirmed'=>'A senhas não são iguais!'
             ]
         );
-        
+        if(!Usuario::where('email', 'LIKE', $request->email)->exists()){
+            return redirect()->back()->with('email', 'Não existe esse email na plataforma!')->withInput();
+        }
         $response = Password::reset(
 
             $request->only('email', 'password', 'password_confirmation' , 'token'),
@@ -75,7 +79,7 @@ class ResetPasswordController extends Controller
 
         );
         
-        return $response == Password::PASSWORD_RESET ? redirect('/')->with('status', __('Senha atualizada com sucesso!')) : back()->withError(['email' => __($response)]);
+        return $response == Password::PASSWORD_RESET ? redirect('/')->with('status', __('Senha atualizada com sucesso!')) : back()->withError(['email' => __($response)])->withInput();
 
     }
 }

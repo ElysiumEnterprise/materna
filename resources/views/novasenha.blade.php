@@ -40,11 +40,11 @@
                         <input type="hidden" id="token" name="token" value="{{ $token }}">
                         
                         <div class="input-group">
-                            <div class="cont-erro">
-                                <span class="errorEmail error">@error('email'){{$message}}@enderror</span>
+                            <div class="cont-error">
+                                <span class="errorEmail error">{{session('email')}}@error('email'){{$message}}@enderror</span>
                             </div>
                             
-                            <input type="email" name="email" id="email" class="animated-input" placeholder="Digite seu email" value="{{old('email')}}">
+                            <input type="email" name="email" id="email" class="animated-input" placeholder="Digite seu email">
                         </div>
                         <div class="input-group">
                             <div class="cont-erro">

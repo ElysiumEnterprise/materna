@@ -54,6 +54,7 @@
         }
         p{
             font-family: 'Fredoka';
+            font-size:18px;
             text-align: justify;
             color: #003366;
         }
