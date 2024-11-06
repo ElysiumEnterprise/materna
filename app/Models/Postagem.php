@@ -37,6 +37,9 @@ class Postagem extends Model
         return $this->belongsTo(Perfil::class, 'idPerfil');
     }
 
-   
+   //Relacionamento dos cometários:
+    public function cometarios(){
+        return $this->hasMany(Comentarios::class, 'idPostagem');
+    }
     use HasFactory;
 }

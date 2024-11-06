@@ -74,6 +74,11 @@ class Perfil extends Model
         return $this->hasMany(Mensagen::class, 'idPerfilEmissor', 'idPerfil');
 
     }
+    //Relacionamento da tabela comentário
+    public function comentarios(){
+        return $this->hasMany(Comentarios::class, 'idPerfil');
+    }
+
     protected static function boot()
     {
         parent::boot();
