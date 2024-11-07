@@ -283,3 +283,25 @@
    
 }
 
+.cont-status{
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.cont-status i{
+    color: var(--color-primary);
+    font-size: 30px;
+}
+
+.cont-status p{
+    font-size: 20px;
+    color: var(--color-dark);
+    font-family: 'Inter';
+    text-align: center;
+}
+

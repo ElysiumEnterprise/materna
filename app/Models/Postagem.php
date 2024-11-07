@@ -38,12 +38,12 @@ class Postagem extends Model
     }
 
    //Relacionamento dos cometários:
-    public function comemtarios(){
+    public function comentarios(){
         return $this->hasMany(Comentarios::class, 'idPostagem');
     }
     //Relacionamento com a tabela visualizações
     public function visualizacoes(){
-        return $this->belongsToMany(Visualizacoes::class, 'visualizacoes', 'idPerfil');
+        return $this->belongsToMany(Visualizacoes::class, 'visualizacoes', 'idPostagem');
     }
     use HasFactory;
 }

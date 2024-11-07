@@ -122,9 +122,7 @@ Route::get('/home/feed/{idUsuario}', [InfoUserController::class, 'goInfoUserHome
 
 Route::post('/home/perfil/{idUsuario}', [DenunciaController::class, 'store'])->name('cad.denuncia');
 
-Route::get('/home/perfil-anunciante', function(){
-    return view('home.perfilAnunciante');
-});
+Route::get('/home/perfil-anunciante', [FeedController::class, 'feedAnunciante'])->name('go.feed.anunciante');
 
 
 Route::get('/home/comunidades', function(){

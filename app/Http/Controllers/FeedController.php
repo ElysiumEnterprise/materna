@@ -18,7 +18,7 @@ class FeedController extends Controller
             if ($user->idNivelUsuario == 1) {
                 return $this->mostrarFeed(); // Mostra o feed com base nas preferências do usuário
             } elseif ($user->idNivelUsuario == 3) {
-                return view('home.perfilAnunciante');
+                return redirect()->route('go.feed.anunciante');
             }
         } else {
             return redirect()->route('login')->withErrors('Você precisa estar logado para acessar essa página.');
@@ -45,4 +45,25 @@ class FeedController extends Controller
     }
 
     return view('home.feed', compact('postagens'));
-}}
+}
+    //Controller do feed de anunciante
+
+    public function feedAnunciante(){
+        if(Auth::check()){
+            $userAuth = Auth::user();
+
+            $perfilAuth = $userAuth->perfils;
+
+            $postagens = Postagem::with(['perfils', 'comentarios', 'visualizacoes'])->where('idPerfil', $perfilAuth->idPerfil)->get();
+
+            if($postagens->isEmpty()){
+                $postagens->collect();
+                return view('home.perfilAnunciante', compact('postagens'));
+            }else{
+                return view('home.perfilAnunciante',compact('postagens'));
+            }
+        }else{
+            return redirect()->route("/");
+        }
+    }
+}
