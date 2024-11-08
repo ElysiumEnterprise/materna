@@ -26,12 +26,12 @@
                             <img src="{{url('assets/img/foto-perfil/'.$post->perfils->fotoPerfil)}}" class="img-fluid foto-perfil" alt="">
                         
                         
-                            <small>{{$post->nickname}}</small>
+                            <small>{{$post->perfils->nickname}}</small>
                         
                     </div>
                     <div class="conteudo-post">
                         <div class="cont-arquivo">
-                            <img src="{{url('assets/img/file-post/'.$post->fotoPost)}}" class="img-fluid img-arquivo" alt="">
+                            <img src="{{url('assets/img/file-posts/'.$post->fotoPost)}}" class="img-fluid img-arquivo" alt="">
                         </div>
                         <div class="cont-icons">
                             <div class="icons-principais">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="cont-legenda">
-                            <small>{{$post->perfils}} <span>{{$post->descPostagem}}</span></small>
+                            <small>{{$post->perfils->nickname}} <span>{{$post->descPostagem}}</span></small>
                         </div>
                         
                     </div>
@@ -65,17 +65,33 @@
                 <h5>Informações sobre Anúncios</h5>
                 <section class='card-assunto'>
                     <h4>Alcances</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="grafico">
+
+                        <canvas id="myChart1" width="200px" height="200px"></canvas>
+
+                    </div>
                 </section>
                 <section class='card-assunto'>
                     <h4>Renda geral</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="grafico">
+
+                        <canvas id="myChart2" width="200px" height="200px"></canvas>
+
+                    </div>
                 </section>
                 <section class='card-assunto'>
                     <h4>Análise Geral do Anúncio</h4>
-                    <i class="fa-solid fa-ellipsis"></i>
+                    <div class="grafico">
+
+                        <canvas id="myChart3" width="200px" height="200px"></canvas>
+
+                    </div>
                 </section>
             </div>
         </section>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{url('assets/js/home/graficos.js')}}"></script>
 @endsection

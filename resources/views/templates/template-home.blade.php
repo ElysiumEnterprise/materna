@@ -201,7 +201,7 @@
             </div>
         </dialog>
     </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    @yield('scripts')
     <script src="{{url('assets/js/home/script.js')}}"></script>
     <script src="{{url('assets/js/home/post.js')}}"></script>
