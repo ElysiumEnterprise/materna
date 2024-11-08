@@ -283,7 +283,7 @@
    
 }
 
-.cont-status{
+.cont-feed .cont-post .cont-status{
     display: flex;
     margin-top: 10px;
     width: 100%;
@@ -293,12 +293,12 @@
    
 }
 
-.cont-status i{
+.cont-feed .cont-post  .cont-status i{
     color: var(--color-primary);
     font-size: 30px;
 }
 
-.cont-status p{
+.cont-feed .cont-post  .cont-status p{
     font-size: 20px;
     color: var(--color-dark);
     font-family: 'Inter';

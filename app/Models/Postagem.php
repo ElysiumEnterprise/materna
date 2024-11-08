@@ -43,7 +43,7 @@ class Postagem extends Model
     }
     //Relacionamento com a tabela visualizações
     public function visualizacoes(){
-        return $this->belongsToMany(Visualizacoes::class, 'visualizacoes', 'idPostagem');
+        return $this->belongsToMany(Visualizacoes::class, 'visualizacoes', 'idPostagem', 'idVisualizacao', 'idPostagem', 'idVisualizacao');
     }
     use HasFactory;
 }

@@ -23,7 +23,7 @@
                     <section class="card-post">
                     <div class="post-head">
                         
-                            <img src="{{url('assets/img/foto-perfil/'.{{$post->perfils->fotoPerfil}})}}" class="img-fluid foto-perfil" alt="">
+                            <img src="{{url('assets/img/foto-perfil/'.$post->perfils->fotoPerfil)}}" class="img-fluid foto-perfil" alt="">
                         
                         
                             <small>{{$post->nickname}}</small>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="conteudo-post">
                         <div class="cont-arquivo">
-                            <img src="{{url('assets/img/file-post/'.{{$post->fotoPost}})}}" class="img-fluid img-arquivo" alt="">
+                            <img src="{{url('assets/img/file-post/'.$post->fotoPost)}}" class="img-fluid img-arquivo" alt="">
                         </div>
                         <div class="cont-icons">
                             <div class="icons-principais">
