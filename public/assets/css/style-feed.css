@@ -206,12 +206,42 @@
     align-items: end;
     justify-content: end;
 }
-
-.cont-tipo-feed .cont-assuntos h5{
+.cont-tipo-feed .cont-analise{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: end;
+    justify-content: end;
+}
+.cont-tipo-feed .cont-analise h5{
     font-family: 'Inter';
     text-align: center;
     color: #cfcfcf;
     font-size: 16px;
+}
+.cont-tipo-feed .cont-analise h5{
+    font-family: 'Inter';
+    text-align: center;
+    color: #cfcfcf;
+    font-size: 16px;
+}
+
+.cont-tipo-feed .cont-analise .card-analise-grafico{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+
+.cont-tipo-feed .cont-analise .card-analise-grafico .grafico{
+    display: flex;
+    width: 100%;
+    height: 260px;
+    justify-content: center;
+    align-items: center;
 }
 
 .teste{

@@ -3,38 +3,78 @@
 //Graficos de pizza de visualizacoes
 
 const ctx1 = document.getElementById('myChart1').getContext('2d');
+const ctx2 = document.getElementById('myChart2').getContext('2d');
+const ctx3 = document.getElementById('myChart3').getContext('2d')
+//Função para atualizar o gráfico de pizza
 
-const dataPizza1 ={
-    labels: ['Seguidores', 'Não seguindo'],
-    datasets:[{
-        label: 'Quantidade',
-        data:[10, 20],
-        backgroundColor:[
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-        ],
-        hoverOffset: 4
-    }]
-}
-
-const configPizza1 ={
-    type: 'pie',
-    data: dataPizza1,
-    option:{
-        responsive : true,
-        plugins:{
-            legend:{
-                position:'top'
-            },
-        },
-        animation: {
-            animateRotate: true,
-            animateScale: true
-        }
+function atualizarGraficoPizza(){
+  fetch('/get-count-views').then(response=> response.json()).then(data =>{
+    const dataPizza1 ={
+      labels: data.labels,
+      datasets:[{
+          label: 'Quantidade',
+          data:data.data,
+          backgroundColor:[
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+          ],
+          hoverOffset: 4
+      }]
     }
+    const configPizza1 ={
+      type: 'pie',
+      data: dataPizza1,
+      option:{
+          responsive : true,
+          plugins:{
+              legend:{
+                  position:'top'
+              },
+          },
+          animation: {
+              animateRotate: true,
+              animateScale: true
+          }
+      }
+    }
+    // Cria o gráfico
+    const myChartPizza1 = new Chart(ctx1, configPizza1);
+
+  }).catch(error=> console.error('Erro ao carregar dados do gráfico: ', error))
 }
 
-const myChartPizza1 = new Chart(ctx1, configPizza1);
+function atualizarGraficoBarras() {
+  fetch('/get-data-geral-perfil-add').then(response=>response.json()).then(data=>{
+    const cores = ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', '#FFF763', '#AA7B84'];
+
+    const dataBar = {
+      labels: data.labels,
+      datasets: data.data.map((value, index)=>({
+        label: data.labels[index],  // Define o valor na posição correta, e 0 nas outras posições
+        data: data.labels.map((_, i)=> i=== index ? value:0),
+        backgroundColor:cores[index]
+      })),
+     
+    };
+    
+    const configBar = {
+        type: 'bar',
+        data: dataBar,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        },
+    };
+    
+    const myChartBar = new Chart(ctx3, configBar)
+  }).catch(error => console.log('Erro ao colocar os dados no gráfico: ', error))
+}
+
+atualizarGraficoPizza();
+atualizarGraficoBarras();
 
 //Grafico de Linha para Renda Geral (Simulação)
 
@@ -58,43 +98,10 @@ const configLine = {
     }
   };
 
-const ctx2 = document.getElementById('myChart2').getContext('2d');
+
 
 const myChartLine = new Chart(ctx2, configLine)
 
 //Grafico de Barras
 
-const ctx3 = document.getElementById('myChart3').getContext('2d')
 
-const labelsBar = ['Curtidas', 'Visualizacões', 'Comentários', 'Seguidores'];
-
-const dataBar = {
-  labels: labelsBar,
-  datasets: [{
-    label: 'Quantidades',
-    
-    data: [65, 59, 80, 81],
-    backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgba(255, 205, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-    ],
-    
-    borderWidth: 1
-  }]
-};
-
-const configBar = {
-    type: 'bar',
-    data: dataBar,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    },
-};
-
-const myChartBar = new Chart(ctx3, configBar)

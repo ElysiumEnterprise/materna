@@ -23,13 +23,14 @@ use App\Http\Controllers\PostagensController;
 
 
 use App\Http\Controllers\CurtidasController;
-
+use App\Http\Controllers\GraficoAnuncianteController;
 use App\Http\Controllers\PreferenciasController;
 use App\Http\Controllers\SeguidoresController;
 use App\Http\Controllers\UserPreferenciasController;
 use App\Models\Seguidores;
 use Laravel\Reverb\Protocols\Pusher\Http\Controllers\PusherController;
 use App\Http\Controllers\MensagensController;
+use App\Http\Controllers\VisualizacoesController;
 
 Route::get('/', function () {
     return view('index');
@@ -240,3 +241,10 @@ Route::get('/home/mensagens/buscar-novas/{idPerfil}', [MensagensController::clas
 
 
 Route::post('/criar-postagem', [PostagensController::class, 'criarPostagem'])->name('criar-postagem');
+
+//Obter as views de seguidores ou não
+Route::get('/get-count-views', [VisualizacoesController::class, 'getCountViews'])->name('get.view.count');
+
+//Obter as informações para o gráfico de barras geral de todos os anúncios do anunciante autenticado
+
+Route::get('/get-data-geral-perfil-add', [GraficoAnuncianteController::class, 'getGeralGraficoPerfilAdd'])->name('get.data.perfil.add');

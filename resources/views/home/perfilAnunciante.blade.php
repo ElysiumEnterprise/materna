@@ -61,9 +61,10 @@
 
         <section class="cont-tipo-feed">
            
-            <div class="cont-assuntos">
+            <div class="cont-analise">
                 <h5>Informações sobre Anúncios</h5>
-                <section class='card-assunto'>
+                @if($postagens->isNotEmpty())
+                <section class='card-analise-grafico'>
                     <h4>Alcances</h4>
                     <div class="grafico">
 
@@ -71,7 +72,7 @@
 
                     </div>
                 </section>
-                <section class='card-assunto'>
+                <section class='card-analise-grafico'>
                     <h4>Renda geral</h4>
                     <div class="grafico">
 
@@ -79,7 +80,7 @@
 
                     </div>
                 </section>
-                <section class='card-assunto'>
+                <section class='card-analise-grafico'>
                     <h4>Análise Geral do Anúncio</h4>
                     <div class="grafico">
 
@@ -87,6 +88,14 @@
 
                     </div>
                 </section>
+                @else
+
+                    <div class="cont-status">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <p>Você ainda não têm anúncios feitos!</p>
+                    </div>
+
+                @endif
             </div>
         </section>
     </div>

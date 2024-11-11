@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Postagem;
 use App\Models\Postagens;
 use App\Models\Categoria;
+use App\Models\Seguidores;
+use App\Models\Visualizacoes;
 
 class FeedController extends Controller
 {
@@ -60,6 +62,9 @@ class FeedController extends Controller
                 $postagens->collect();
                 return view('home.perfilAnunciante', compact('postagens'));
             }else{
+
+                
+
                 return view('home.perfilAnunciante',compact('postagens'));
             }
         }else{
