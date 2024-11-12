@@ -45,5 +45,10 @@ class Postagem extends Model
     public function visualizacoes(){
         return $this->hasMany(Visualizacoes::class, 'idPostagem', 'idPostagem');
     }
+
+    public function curtidas()
+    {
+    return $this->hasMany(Curtida::class);
+    }
     use HasFactory;
 }

@@ -71,4 +71,6 @@ class FeedController extends Controller
             return redirect()->route("/");
         }
     }
+
+
 }

@@ -248,3 +248,10 @@ Route::get('/get-count-views', [VisualizacoesController::class, 'getCountViews']
 //Obter as informações para o gráfico de barras geral de todos os anúncios do anunciante autenticado
 
 Route::get('/get-data-geral-perfil-add', [GraficoAnuncianteController::class, 'getGeralGraficoPerfilAdd'])->name('get.data.perfil.add');
+
+
+
+
+Route::post('/salvar-curtida', [CurtidasController::class, 'salvar']);
+Route::post('/remover-curtida', [CurtidasController::class, 'remover']);
+
