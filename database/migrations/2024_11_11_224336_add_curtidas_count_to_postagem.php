@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('postagem', function (Blueprint $table) {
+        Schema::table('postagems', function (Blueprint $table) {
             $table->unsignedInteger('curtidas_count')->default(0);
         });
     }

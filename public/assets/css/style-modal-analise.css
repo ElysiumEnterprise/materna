@@ -1,0 +1,136 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+
+.box-modal-post-analise{
+    display: none;
+}
+
+.box-modal-post-analise.active{
+    position: fixed;         /* Cover the whole screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    z-index: 1000;
+}
+
+.box-modal-post-analise .modal-analise-post{
+    width: 900px; /* Ajuste o tamanho conforme necessário */
+    border: solid 1px #ccc;
+    height: 80%;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    top: 50%; /* Posiciona o topo do modal no meio da tela */
+    left: 50%; /* Posiciona a esquerda do modal no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta o modal para que o centro esteja no meio da tela */
+    max-width: 90%; /* Adapta o modal em telas menores */
+    max-height: 80%; /* Adapta a altura do modal em telas menores */
+    overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+}
+.modal-analise-post .cont-modal-post-analise{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-header-modal{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button i{
+    font-size: 20px;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button:focus{
+    border: none;
+    outline: none;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button:active{
+    border: none;
+    outline: none;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction:row ;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-img-post{
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    justify-content: center;
+    margin-right: 20px;
+    align-items: center;
+}
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-img-post img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos .cont-row-grafico{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos h4{
+    font-family: 'Inter';
+    font-weight: bold;
+    text-align: center;
+    color: #3c4ab6;
+}
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos .cont-row-grafico .grafico{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos .cont-row-grafico .grafico h5{
+    font-family: 'Inter';
+    font-weight: bold;
+    color: #020311;
+}

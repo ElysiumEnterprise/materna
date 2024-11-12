@@ -24,7 +24,7 @@ function atualizarGraficoPizza(){
     const configPizza1 ={
       type: 'pie',
       data: dataPizza1,
-      option:{
+      options:{
           responsive : true,
           plugins:{
               legend:{

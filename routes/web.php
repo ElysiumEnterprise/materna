@@ -255,3 +255,8 @@ Route::get('/get-data-geral-perfil-add', [GraficoAnuncianteController::class, 'g
 Route::post('/salvar-curtida', [CurtidasController::class, 'salvar']);
 Route::post('/remover-curtida', [CurtidasController::class, 'remover']);
 
+//Gerar gráficos para mostrar da postagem selecionada
+
+Route::get('/gerar-grafico-pizza-post/{idPostagem}', [GraficoAnuncianteController::class, 'gerarGraficoPizzaPost'])->name('gera-grafic-pizza-post');
+Route::get('/gerar-grafico-barras-post/{idPostagem}', [GraficoAnuncianteController::class, 'gerarGraficoBarPost'])->name('gerar-grafic-bar-post');
+

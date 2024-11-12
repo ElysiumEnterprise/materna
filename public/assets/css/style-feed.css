@@ -103,7 +103,7 @@
 
 .card-post .conteudo-post .cont-icons .icons-principais{
     display: flex;
-    width: 30%;
+    
     flex-direction: row;
     justify-content: center;
     justify-content: start;

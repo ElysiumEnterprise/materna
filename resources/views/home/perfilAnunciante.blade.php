@@ -4,7 +4,7 @@
 
 @section('links-css')
     <link rel="stylesheet" href="{{url('assets/css/style-feed.css')}}">
-    
+    <link rel="stylesheet" href="{{url('assets/css/style-modal-analise.css')}}">
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
@@ -35,10 +35,12 @@
                         </div>
                         <div class="cont-icons">
                             <div class="icons-principais">
-
+                                
                                 <button type="button"><i class="fa-regular fa-heart"></i></button>
                                 <button type="button"><i class="fa-regular fa-comment"></i></button>
                                 <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
+                                <button type="button" onclick="abrirModalPostAnalise('{{$post->idPostagem}}', '{{$post->fotoPost}}')"><i class="fa-solid fa-chart-line"></i></button>
+                                
                                 
                             </div>
                             <div class="icon-salvos">
@@ -99,8 +101,39 @@
             </div>
         </section>
     </div>
+    <div class="box-modal-post-analise">
+        <dialog class="modal-analise-post">
+            <div class="cont-modal-post-analise">
+                <div class="cont-header-modal">
+                    <button type="button" onclick="fecharModalPostAnalise()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="cont-conteudo-analise">
+                    <div class="cont-img-post">
+                        <img src="" alt="" id="img-modal-post" class="img-fluid img-post">
+                    </div>
+                    <div class="cont-graficos">
+                        <h4>Informações do Anúncio</h4>
+                        <div class="cont-row-grafico">
+                            <div class="grafico">
+                                <h5>Visualizações</h5>
+                                <canvas id="chartPost1" width="200px" height="300px"></canvas>
+                            </div>
+                            <div class="grafico">
+                                <h5>Análise Geral</h5>
+                                <canvas id="chartPost2" width="200px" height="300px"></canvas>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </dialog>
+    </div>
 @endsection
 
 @section('scripts')
     <script src="{{url('assets/js/home/graficos.js')}}"></script>
+    <script src="{{url('assets/js/home/analise-post.js')}}"></script>
 @endsection
