@@ -134,7 +134,7 @@
     <div class="box-modal-deletar box-modal">
         <dialog class="modal-deletar-post">
             <div class="cont-modal">
-                <p>Tem certeza que deseja deletar esse usuário? Se sim, escreva o motivo abaixo:</p>
+                <p>Tem certeza que deseja deletar esse anúncio? Todos os comentários, curtidas e Visualizações serão perdidas ao executar essa ação!</p>
                 <form action="" method="post" class="form-delete">
                     @csrf
                     @method('DELETE')
