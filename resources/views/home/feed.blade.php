@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="cont-icons">
                                     <div class="icons-principais">
-                                        <button type="button" onclick="curtirPost(this, {{ $post->id }})">
+                                        <button type="button" onclick="curtirPost(this, '{{ $post->idPostagem }}')">
                                             <i class="fa{{ $post->curtidas->contains('idUsuario', auth()->id()) ? '-solid' : '-regular' }} fa-heart"></i>
                                         </button>
                                         <span>{{ $post->curtidas_count }} curtidas</span> <!-- Exibindo o número de curtidas -->

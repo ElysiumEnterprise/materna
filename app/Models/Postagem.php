@@ -48,7 +48,7 @@ class Postagem extends Model
 
     public function curtidas()
     {
-        return $this->hasMany(Curtidas::class);
+        return $this->hasMany(Curtidas::class, 'idPostagem');
     }
 
     public function categorias(){
