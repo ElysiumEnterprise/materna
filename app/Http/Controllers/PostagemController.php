@@ -67,4 +67,26 @@ class PostagemController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy($idPostagem){
+       
+        if (Auth::check()) {
+            $userAuth = Auth::user();
+
+            $perfilAuth =$userAuth->perfils;
+
+            if (Postagem::where('idPerfil', $perfilAuth->idPerfil)->where('idPostagem', $idPostagem)->exists()) {
+                $postagem = Postagem::where('idPerfil', $perfilAuth->idPerfil)->where('idPostagem', $idPostagem)->get();
+                
+                $postagem->delete();
+
+                return redirect()->back()->with('status', 'Postagem deletada com sucesso!');
+            }else{
+                return redirect()->back()->with('status', 'Erro ao tentar deletar a postagem!');
+            }
+
+        }else{
+            return redirect()->route('/')->with('status', 'Você não pode executar essa ação');
+        }
+    }
 }

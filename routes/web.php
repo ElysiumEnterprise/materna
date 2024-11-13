@@ -260,3 +260,5 @@ Route::post('/remover-curtida', [CurtidasController::class, 'remover']);
 Route::get('/gerar-grafico-pizza-post/{idPostagem}', [GraficoAnuncianteController::class, 'gerarGraficoPizzaPost'])->name('gera-grafic-pizza-post');
 Route::get('/gerar-grafico-barras-post/{idPostagem}', [GraficoAnuncianteController::class, 'gerarGraficoBarPost'])->name('gerar-grafic-bar-post');
 
+//Deletar Postagem com o seu idPostagem
+Route::delete('/deletar-postagem/{idPostagem}', [PostagemController::class, 'destroy'])->name('destroy.post');

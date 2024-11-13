@@ -44,8 +44,8 @@
                                 
                             </div>
                             <div class="icon-salvos">
-                                <button type="button">
-                                    <i class="fa-regular fa-bookmark"></i>
+                                <button type="button" onclick="abrirModalDeletar('')">
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                                 
                             </div>
@@ -101,7 +101,7 @@
             </div>
         </section>
     </div>
-    <div class="box-modal-post-analise">
+    <div class="box-modal-post-analise box-modal" >
         <dialog class="modal-analise-post">
             <div class="cont-modal-post-analise">
                 <div class="cont-header-modal">
@@ -129,6 +129,22 @@
                     </div>
                 </div>
             </div>
+        </dialog>
+    </div>
+    <div class="box-modal-deletar box-modal">
+        <dialog class="modal-deletar-post">
+            <div class="cont-modal">
+                <p>Tem certeza que deseja deletar esse usuário? Se sim, escreva o motivo abaixo:</p>
+                <form action="" method="post" class="form-delete">
+                    @csrf
+                    @method('DELETE')
+                    <div class="cont-btn">
+                        <button type="submit">Deletar</button>
+                        <button type="button" onclick="fecharModalDeletar('{{$postagem->idPostagem}}', `{{route('destroy.post', ['idPostagem' => ':idPostagem'])}}`)">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            
         </dialog>
     </div>
 @endsection
