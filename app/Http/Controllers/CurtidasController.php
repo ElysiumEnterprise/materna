@@ -13,7 +13,7 @@ class CurtidasController extends Controller
         {
             $postId = $request->input('postId');
             // Salvar a curtida no banco de dados
-            Curtida::create([
+            Curtidas::create([
                 'idUsuario' => auth()->id(),
                 'idPostagem' => $postId
             ]);
@@ -24,7 +24,7 @@ class CurtidasController extends Controller
         {
             $postId = $request->input('postId');
             // Remover a curtida do banco de dados
-            Curtida::where('idUsuario', auth()->id())
+            Curtidas::where('idUsuario', auth()->id())
                     ->where('idPostagem', $postId)
                     ->delete();
             return response()->json(['success' => true]);
