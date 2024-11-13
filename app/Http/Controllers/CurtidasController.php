@@ -9,25 +9,37 @@ use Illuminate\Support\Facades\Auth;
 
 class CurtidasController extends Controller
 {
-        public function salvar(Request $request)
-        {
-            $postId = $request->input('postId');
-            // Salvar a curtida no banco de dados
-            Curtidas::create([
-                'idUsuario' => auth()->id(),
-                'idPostagem' => $postId
-            ]);
-            return response()->json(['success' => true]);
+    public function salvarCurtida(Request $request)
+    {
+        $post = Postagem::find($request->postId);
+        $post->curtidas()->create(['idUsuario' => auth()->id()]);
+    
+        return response()->json(['totalCurtidas' => $post->curtidas()->count()]);
+    }
+    
+    public function removerCurtida(Request $request)
+    {
+        $post = Postagem::find($request->postId);
+        $post->curtidas()->where('idUsuario', auth()->id())->delete();
+    
+        return response()->json(['totalCurtidas' => $post->curtidas()->count()]);
+    }
+            public function toggleCurtida(Request $request, $postId)
+            {
+            $user = auth()->user();
+
+            $curtida = $user->curtidas()->where('idPostagem', $postId)->first();
+
+            if ($curtida) {
+                // Se já curtiu, remove a curtida
+                $curtida->delete();
+                return response()->json(['message' => 'Curtida removida!']);
+            } else {
+                // Se não curtiu, adiciona uma nova curtida
+                $user->curtidas()->create(['idPostagem' => $postId]);
+                return response()->json(['message' => 'Curtida salva!']);
+            }
         }
 
-        public function remover(Request $request)
-        {
-            $postId = $request->input('postId');
-            // Remover a curtida do banco de dados
-            Curtidas::where('idUsuario', auth()->id())
-                    ->where('idPostagem', $postId)
-                    ->delete();
-            return response()->json(['success' => true]);
-        }
 
 }

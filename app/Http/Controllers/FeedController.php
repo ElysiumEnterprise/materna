@@ -72,5 +72,9 @@ class FeedController extends Controller
         }
     }
 
-
+    public function index()
+    {
+        $posts = Postagem::withCount('curtidas')->get();
+        return view('home.feed', compact('posts'));
+    }
 }
