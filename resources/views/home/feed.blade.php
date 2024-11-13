@@ -30,39 +30,40 @@
 
         <!-- terminou -->
 
-        <div class="cont-post">
-            <section class="card-post">
-                <div class="post-head">
-                    <img src="{{ url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg') }}" class="img-fluid foto-perfil" alt="">
-                    <small class="txt-perfil">Daniela</small>
-                </div>
-                <div class="conteudo-post">
-                    <div class="cont-arquivo">
-                        <img src="{{ url('assets/img/img-home/teste.jpeg') }}" class="img-fluid img-arquivo" alt="">
-                    </div>
-                    <div class="cont-icons">
-                        <div class="icons-principais">
-                            <button type="button" onclick="curtirPost(this,1)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
+                <div class="cont-post">
+                    @foreach ($postagens as $post)
+                        <section class="card-post">
+                            <div class="post-head">
+                                <img src="{{ url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg') }}" class="img-fluid foto-perfil" alt="">
+                                <small class="txt-perfil">{{ $post->perfils->nickname}}</small> <!-- Exibindo o nome do usuário da postagem -->
+                            </div>
+                            <div class="conteudo-post">
+                                <div class="cont-arquivo">
+                                    <img src="{{ url('assets/img/img-home/teste.jpeg') }}" class="img-fluid img-arquivo" alt=""> <!-- Exibindo a imagem da postagem -->
+                                </div>
+                                <div class="cont-icons">
+                                    <div class="icons-principais">
+                                        <button type="button" onclick="curtirPost(this, {{ $post->id }})">
+                                            <i class="fa{{ $post->curtidas->contains('idUsuario', auth()->id()) ? '-solid' : '-regular' }} fa-heart"></i>
+                                        </button>
+                                        <span>{{ $post->curtidas_count }} curtidas</span> <!-- Exibindo o número de curtidas -->
+                                    </div>
+                                    <div class="icon-salvos">
+                                        <button type="button">
+                                            <i class="fa-regular fa-bookmark"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="cont-legenda">
+                                    <small>{{$post->perfils->nickname }} <span>{{ $post->legenda }}</span></small>
+                                </div>
+                                <div class="cont-num-comentarios">
+                                    <small>Ver todos os {{ $post->comentarios_count }} comentários</small>
+                                </div>
+                            </div>
+                        </section>
+                    @endforeach
 
-                            <button type="button"><i class="fa-regular fa-message"></i></button>
-                           
-                        </div>
-                        <div class="icon-salvos">
-                            <button type="button">
-                                <i class="fa-regular fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="cont-legenda">
-                        <small>Daniela <span>Mais um final de semana cuidando dos meus filhos</span></small>
-                    </div>
-                    <div class="cont-num-comentarios">
-                        <small>Ver todos os 10 comentários</small>
-                    </div>
-                </div>
-            </section>
 
             <section class="card-post">
                 <div class="post-head">
@@ -181,52 +182,56 @@
             </div>
         </section>
     </div>
-@endsection
 
-@section('scripts')
+
+
 <script>
-        function curtirPost(button, postId) {
-            const icon = button.querySelector('i');
-            
-            if (icon.classList.contains('fa-regular')) {
-                icon.classList.remove('fa-regular');
-                icon.classList.add('fa-solid');
-                
-                fetch('/salvar-curtida', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: JSON.stringify({ postId: postId })
-                }).then(response => {
-                    if (response.ok) {
-                        console.log('Curtida salva!');
-                    }
-                }).catch(error => {
-                    console.error('Erro ao salvar a curtida:', error);
-                });
-            } else {
-                icon.classList.remove('fa-solid');
-                icon.classList.add('fa-regular');
-                
-                fetch('/remover-curtida', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: JSON.stringify({ postId: postId })
-                }).then(response => {
-                    if (response.ok) {
-                        console.log('Curtida removida!');
-                    }
-                }).catch(error => {
-                    console.error('Erro ao remover a curtida:', error);
+function curtirPost(button, postId) {
+    const icon = button.querySelector('i');
+
+    if (icon.classList.contains('fa-regular')) {
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+
+        fetch('/salvar-curtida', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ postId: postId })
+        }).then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    button.nextElementSibling.textContent = `${data.totalCurtidas} curtidas`;
                 });
             }
+        }).catch(error => {
+            console.error('Erro ao salvar a curtida:', error);
+        });
+    } else {
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+
+        fetch('/remover-curtida', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ postId: postId })
+        }).then(response => {
+            if (response.ok) {
+                response.json().then(data => {
+                    button.nextElementSibling.textContent = `${data.totalCurtidas} curtidas`;
+                });
+            }
+        }).catch(error => {
+            console.error('Erro ao remover a curtida:', error);
+        });
     }
+}
+
 </script>
 
-
-
+@endsection

@@ -252,8 +252,11 @@ Route::get('/get-data-geral-perfil-add', [GraficoAnuncianteController::class, 'g
 
 
 
-Route::post('/salvar-curtida', [CurtidasController::class, 'salvar']);
-Route::post('/remover-curtida', [CurtidasController::class, 'remover']);
+Route::post('/salvar-curtida', [CurtidasController::class, 'salvarCurtida'])->name('salvar-curtida');
+Route::post('/remover-curtida', [CurtidasController::class, 'removerCurtida'])->name('remover-curtida');
+
+Route::post('/curtir-post/{id}', [CurtidasController::class, 'toggleCurtida']);
+
 
 //Gerar gráficos para mostrar da postagem selecionada
 
