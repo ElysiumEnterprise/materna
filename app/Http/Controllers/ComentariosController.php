@@ -13,11 +13,11 @@ class ComentariosController extends Controller
 
         $request->validate(
             [
-                'txtComentario' => 'required|max:250',
+                'inputComentarioModal' => 'required|max:250',
             ],
             [
-                'txtComentario.required' => 'Você precisa preencher o campo!',
-                'txtCometario.max' => 'O comentário atingiu o limite de 250 caracteres',
+                'inputComentarioModal.required' => 'Você precisa preencher o campo!',
+                'inputComentarioModal.max' => 'O comentário atingiu o limite de 250 caracteres',
             ]
         );
 
