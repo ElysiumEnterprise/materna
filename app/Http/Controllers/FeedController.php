@@ -32,7 +32,7 @@ class FeedController extends Controller
         $user = auth()->user(); // Obtém o usuário autenticado
 
     // Verifica se o usuário tem preferências salvas
-    if ($user && $user->preferencias) {
+    /*if ($user && $user->preferencias) {
         $preferencias = json_decode($user->preferencias);
 
         // Caso a coluna 'categoria' tenha valores separados por vírgulas, usamos FIND_IN_SET
@@ -43,9 +43,9 @@ class FeedController extends Controller
         })->get();
     } else {
         // Se não houver preferências, mostra todas as postagens
-        $postagens = Postagens::all();
-    }
-
+        
+    }*/
+    $postagens = Postagem::all();
     return view('home.feed', compact('postagens'));
 }
     //Controller do feed de anunciante
@@ -72,5 +72,9 @@ class FeedController extends Controller
         }
     }
 
-
+    public function index()
+    {
+        $posts = Postagem::withCount('curtidas')->get();
+        return view('home.feed', compact('posts'));
+    }
 }

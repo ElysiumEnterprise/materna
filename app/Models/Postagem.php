@@ -48,7 +48,34 @@ class Postagem extends Model
 
     public function curtidas()
     {
-    return $this->hasMany(Curtida::class);
+        return $this->hasMany(Curtidas::class, 'idPostagem');
     }
+
+    public function categorias(){
+        return $this->hasMany(CategoriaPost::class, 'idPostagem');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        //Caso delete um post, deletará seus comentários e, visualizações e curtidas
+        static::deleting(function($postagem){
+            //Deletar seus comentários
+            $postagem->comentarios()->delete();
+
+            //Deletar suas visualizações
+            $postagem->visualizacoes()->delete();
+
+            //Deletagem de curtidas
+            $postagem->curtidas()->delete();
+
+            $postagem->categorias()->delete();
+        });
+    }
+
+   
+    
     use HasFactory;
+    
 }

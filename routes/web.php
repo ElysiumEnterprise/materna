@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\PostagensController;
 
+use App\Http\Controllers\ComentariosController;
 
 use App\Http\Controllers\CurtidasController;
 use App\Http\Controllers\GraficoAnuncianteController;
@@ -252,11 +253,25 @@ Route::get('/get-data-geral-perfil-add', [GraficoAnuncianteController::class, 'g
 
 
 
-Route::post('/salvar-curtida', [CurtidasController::class, 'salvar']);
-Route::post('/remover-curtida', [CurtidasController::class, 'remover']);
+Route::post('/curtidas/salvar', [CurtidasController::class, 'salvarCurtida'])->name('curtidas.salvar');
+Route::post('/curtidas/remover', [CurtidasController::class, 'removerCurtida'])->name('curtidas.remover');
+Route::post('/curtidas/toggle/{postId}', [CurtidasController::class, 'toggleCurtida'])->name('curtidas.toggle');
+
+//Salvar as curtidas
+Route::post('/salvar-curtida/{idPostagem}', [CurtidasController::class, 'salvarCurtida'])->name('salvar-curtida');
+
+// Remover a curtida
+Route::delete('/remover-curtida/{idPostagem}', [CurtidasController::class, 'removerCurtida'])->name('remover-curtida');
+
+
 
 //Gerar gráficos para mostrar da postagem selecionada
 
 Route::get('/gerar-grafico-pizza-post/{idPostagem}', [GraficoAnuncianteController::class, 'gerarGraficoPizzaPost'])->name('gera-grafic-pizza-post');
 Route::get('/gerar-grafico-barras-post/{idPostagem}', [GraficoAnuncianteController::class, 'gerarGraficoBarPost'])->name('gerar-grafic-bar-post');
 
+//Deletar Postagem com o seu idPostagem
+Route::delete('/deletar-postagem/{idPostagem}', [PostagemController::class, 'destroy'])->name('destroy.post');
+
+// Rota para salvar comentários
+Route::post('/comentarios/{idPostagem}', [ComentariosController::class, 'store']);

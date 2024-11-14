@@ -7,12 +7,37 @@
     font-family: "Inter";
     src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
+:root{
+    --color-primary: #F26699;
+    --color-danger: #fd5462;
+    --color-succes: #41f1b6;
+    --color-warning: #ffa927;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: #848bc82e;
+    --color-dark-variant: #677483;
+    --color-primary-variant: #111e88;
+    --color-background: #f6f6f9;
+    --color-toggler: #dce1eb;
 
-.box-modal-post-analise{
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 4rem 5rem var(--color-light);
+}
+.box-modal{
     display: none;
 }
 
-.box-modal-post-analise.active{
+.box-modal.active{
     position: fixed;         /* Cover the whole screen */
     top: 0;
     left: 0;
@@ -25,7 +50,7 @@
     z-index: 1000;
 }
 
-.box-modal-post-analise .modal-analise-post{
+.box-modal .modal-analise-post, .box-modal .modal-deletar-post{
     width: 900px; /* Ajuste o tamanho conforme necessário */
     border: solid 1px #ccc;
     height: 80%;
@@ -41,6 +66,9 @@
     max-width: 90%; /* Adapta o modal em telas menores */
     max-height: 80%; /* Adapta a altura do modal em telas menores */
     overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+}
+.box-modal .modal-deletar-post{
+    height:auto;
 }
 .modal-analise-post .cont-modal-post-analise{
     display: flex;
@@ -103,7 +131,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 
@@ -111,15 +139,15 @@
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100%;
+    height: auto;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 .modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos h4{
     font-family: 'Inter';
     font-weight: bold;
     text-align: center;
-    color: #3c4ab6;
+    color: rgb(255, 99, 132);
 }
 .modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos .cont-row-grafico .grafico{
     display: flex;
@@ -132,5 +160,64 @@
 .modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos .cont-row-grafico .grafico h5{
     font-family: 'Inter';
     font-weight: bold;
-    color: #020311;
+    color: rgb(54, 162, 235);
+}
+.box-modal dialog .cont-modal form{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box-modal dialog .cont-modal form .cont-btn{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box-modal dialog .cont-modal form .cont-btn button{
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d02b39;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.box-modal dialog .cont-modal form .cont-btn button[type="submit"]{
+    background-color: #d02b39;
+    color: white;
+}
+
+.box-modal dialog .cont-modal form .cont-btn button[type="submit"]:hover{
+    background-color: #670f17;
+    transform: scale(1.04);
+}
+
+.box-modal dialog .cont-modal form .cont-btn button[type="button"]{
+    background-color: rgb(121, 119, 119);
+    color: white;
+}
+
+.box-modal dialog .cont-modal form .cont-btn button[type="button"]:hover{
+    background-color: #575656;
+    transform: scale(1.04);
+}
+
+.box-modal dialog .cont-modal p{
+    font-family: 'Fredoka';
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    color: #003366;
 }

@@ -108,3 +108,31 @@ function renderGraficoPizzaPost(data) {
 
     const myChartPizzaPost = new Chart(ctxPizzaPost, confiPizzaPost);
 }
+
+function abrirModalDeletar(idPostagem, urlTemplate){
+
+    const divModalDeletar = document.querySelector('.box-modal-deletar');
+    const modalDelete = document.querySelector('.modal-deletar-post')
+    const formDelete = document.querySelector('.form-delete');
+
+    modalDelete.show();
+
+    divModalDeletar.classList.add('active');
+
+    idPostagem = parseInt(idPostagem)
+
+    const url = urlTemplate.replace(':idPostagem', idPostagem)
+
+    formDelete.action = url
+}
+
+function fecharModalDeletar(){
+
+    const divModalDeletar = document.querySelector('.box-modal-deletar');
+    const modalDelete = document.querySelector('.modal-deletar-post')
+    const formDelete = document.querySelector('.form-delete');
+
+    modalDelete.close();
+    divModalDeletar.classList.remove('active')
+    formDelete.action = ""
+}

@@ -339,3 +339,102 @@
     margin-top: 10px;
 }
 
+/* Estilos para o botão de comentar */
+button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+button:hover {
+    color:#f26699; /* Cor ao passar o mouse */
+}
+
+/* Estilos para o Modal de Comentários */
+.modal {
+    display: none; /* Inicialmente invisível */
+    position: fixed;
+    z-index: 1; /* Fica sobre os outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Adiciona rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente */
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+    max-width: 600px; /* Tamanho máximo */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Fechar botão (X) */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo do título do modal */
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para o campo de comentário */
+#inputComentarioModal {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Estilo para o botão de enviar comentário */
+.modal-content button {
+    background-color:#f26699;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #f26699;
+}
+
+/* Estilo para cada comentário */
+.comentario {
+   
+    font-size: 16px;
+    left:30%;
+    color: #333;
+    padding-top: 60px;   
+}
+
+.comentario strong {
+    color: #f26699; /* Cor do nome do usuário */
+}
