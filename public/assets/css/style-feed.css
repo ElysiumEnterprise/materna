@@ -340,7 +340,7 @@
 }
 
 /* Estilos para o botão de comentar */
-button {
+.coment {
     background-color: transparent;
     border: none;
     font-size: 20px;
@@ -348,7 +348,7 @@ button {
     color: #333;
 }
 
-button:hover {
+.coment:hover {
     color:#f26699; /* Cor ao passar o mouse */
 }
 

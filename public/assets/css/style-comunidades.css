@@ -167,6 +167,7 @@
     display: flex;
 
 }
+
 .cont-tipo-feed .cont-link-feed a:hover{
     color: #be255d;
 }
@@ -242,7 +243,7 @@
 }
 
 .icons .icon{
-    margin-left: -20px;
+    margin-left: 10px;
 }
 
 .icon button{
@@ -252,7 +253,11 @@
 }
 
 .icon button i{
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.icon button i:hover{
+    color: #f26699;
 }
 
 

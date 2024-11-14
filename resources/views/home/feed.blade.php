@@ -66,7 +66,7 @@
                                     </div>
 
                                     <!-- Botão para abrir o Modal de Comentários -->
-                                    <button type="button" onclick="abrirModalComentario('{{ $post->idPostagem }}')">
+                                    <button class="coment" type="button" onclick="abrirModalComentario('{{ $post->idPostagem }}')">
                                         <i class="fa-regular fa-comment" style="right:12%"></i>
                                     </button>
                                 </div>
