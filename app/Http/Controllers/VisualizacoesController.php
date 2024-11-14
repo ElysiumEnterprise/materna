@@ -10,8 +10,19 @@ use App\Models\Postagem;
 
 class VisualizacoesController extends Controller
 {
-    public function store(){
+    public function store($idPostagem){
+        $userAuth = Auth::user();
 
+        $idPerfilAuth = $userAuth->perfils->idPerfil;
+
+        Visualizacoes::create([
+            'idPerfil' => $idPerfilAuth,
+            'idPostagem'=> $idPostagem,
+        ]);
+
+        return response()->json([
+            'message'=>'Visualização feita',
+        ]);
     }
 
     public function getCountViews(){

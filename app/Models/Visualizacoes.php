@@ -24,10 +24,10 @@ class Visualizacoes extends Model
 
     //Relacionamento da tabela postagens:
     public function postagens(){
-        return $this->belongsTo(Postagem::class, 'idPostagem', 'idPostagem');
+        return $this->belongsTo(Postagem::class, 'idPostagem');
     }
 
     public function perfils(){
-        return $this->belongsTo(Perfil::class, 'idPerfil', 'idPerfil');
+        return $this->belongsTo(Perfil::class, 'idPerfil');
     }
 }

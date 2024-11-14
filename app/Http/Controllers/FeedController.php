@@ -45,7 +45,7 @@ class FeedController extends Controller
         // Se não houver preferências, mostra todas as postagens
         
     }*/
-    $postagens = Postagem::all();
+    $postagens = Postagem::latest()->get();
     return view('home.feed', compact('postagens'));
 }
     //Controller do feed de anunciante
@@ -56,7 +56,7 @@ class FeedController extends Controller
 
             $perfilAuth = $userAuth->perfils;
 
-            $postagens = Postagem::with(['perfils', 'comentarios', 'visualizacoes'])->where('idPerfil', $perfilAuth->idPerfil)->get();
+            $postagens = Postagem::with(['perfils', 'comentarios', 'visualizacoes'])->where('idPerfil', $perfilAuth->idPerfil)->latest()->get();
 
             if($postagens->isEmpty()){
                 $postagens->collect();

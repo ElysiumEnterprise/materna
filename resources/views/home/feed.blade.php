@@ -79,7 +79,7 @@
                         <div class="modal-content">
                             <span class="close" onclick="fecharModalComentario()">&times;</span>
                             <h2>Comentar na Postagem</h2>
-                            <input type="text" id="inputComentarioModal" placeholder="Escreva seu comentário...">
+                            <input type="text" id="inputComentarioModal" name="inputComentarioModal" placeholder="Escreva seu comentário...">
                             <button onclick="enviarComentarioModal()">Comentar</button>
                         </div>
                     </div>
