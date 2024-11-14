@@ -32,14 +32,15 @@
 
                 <div class="cont-post">
                     @foreach ($postagens as $post)
+                       
                         <section class="card-post">
                             <div class="post-head">
-                                <img src="{{ url('assets/img/img-home/foto-perfil-teste/perfil-3.jpg') }}" class="img-fluid foto-perfil" alt="">
+                                <img src="{{ url('assets/img//foto-perfil/'.$post->perfils->fotoPerfil) }}" class="img-fluid foto-perfil" alt="">
                                 <small class="txt-perfil">{{ $post->perfils->nickname}}</small> <!-- Exibindo o nome do usuário da postagem -->
                             </div>
                             <div class="conteudo-post">
                                 <div class="cont-arquivo">
-                                    <img src="{{ url('assets/img/img-home/teste.jpeg') }}" class="img-fluid img-arquivo" alt=""> <!-- Exibindo a imagem da postagem -->
+                                    <img src="{{ url('assets/img/file-posts/'.$post->fotoPost) }}" class="img-fluid img-arquivo" alt=""> <!-- Exibindo a imagem da postagem -->
                                 </div>
                                 <div class="cont-icons">
                                     <div class="icons-principais">
@@ -60,12 +61,12 @@
                                         @endforeach
 
                                         @if($post->comentarios_count > 100)
-                                            <button class="btn-ver-mais" onclick="verMaisComentarios({{ $post->idPostagem }})">Ver mais comentários</button>
+                                            <button class="btn-ver-mais" onclick="verMaisComentarios('{{ $post->idPostagem }}')">Ver mais comentários</button>
                                         @endif
                                     </div>
 
                                     <!-- Botão para abrir o Modal de Comentários -->
-                                    <button type="button" onclick="abrirModalComentario({{ $post->idPostagem }})">
+                                    <button type="button" onclick="abrirModalComentario('{{ $post->idPostagem }}')">
                                         <i class="fa-regular fa-comment" style="right:12%"></i>
                                     </button>
                                 </div>
@@ -177,24 +178,27 @@
 
 <script>
 function curtirPost(button, postId) {
+    console.log(document.querySelector('meta[name="csrf-token"]').getAttribute('content'))
     const icon = button.querySelector('i');
 
     if (icon.classList.contains('fa-regular')) {
         icon.classList.remove('fa-regular');
         icon.classList.add('fa-solid');
 
-        fetch('/salvar-curtida', {
+        fetch(`/salvar-curtida/${postId}`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            body: JSON.stringify({ postId: postId })
+            
         }).then(response => {
             if (response.ok) {
                 response.json().then(data => {
-                    button.nextElementSibling.textContent = `${data.totalCurtidas} curtidas`;
+                    button.nextElementSibling.textContent = `${data.totalCurtidas}`;
                 });
+            }else{
+                return response.json();
             }
         }).catch(error => {
             console.error('Erro ao salvar a curtida:', error);
@@ -203,17 +207,16 @@ function curtirPost(button, postId) {
         icon.classList.remove('fa-solid');
         icon.classList.add('fa-regular');
 
-        fetch('/remover-curtida', {
-            method: 'POST',
+        fetch(`/remover-curtida/${postId}`, {
+            method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json',
+                
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             },
-            body: JSON.stringify({ postId: postId })
         }).then(response => {
             if (response.ok) {
                 response.json().then(data => {
-                    button.nextElementSibling.textContent = `${data.totalCurtidas} curtidas`;
+                    button.nextElementSibling.textContent = `${data.totalCurtidas}`;
                 });
             }
         }).catch(error => {
