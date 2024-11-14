@@ -156,6 +156,8 @@
     margin-bottom: 10px;
 }
 
+
+
 .cont-tipo-feed .cont-link-feed a{
     text-decoration: none;
     color: #f26699;
@@ -193,8 +195,6 @@
     margin-top: 10px;
 
 }
-
-
 
 .cont-tipo-feed .cont-assuntos .card-assunto i{
     font-size: 20px;
@@ -241,11 +241,20 @@
     width: 100%;
 }
 
-
-.icons{
-    display: flex;
-    gap: 15px;
+.icons .icon{
+    margin-left: -20px;
 }
+
+.icon button{
+    border: none;
+    background-color: transparent;
+    margin-top: 10px;
+}
+
+.icon button i{
+    font-size: 20px;
+}
+
 
 .link-card{
     text-decoration: none;
@@ -272,4 +281,204 @@
     border-radius: 20px
 }
 
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-title{
+    color: #f26699;
+    font-family: 'Fredoka';
+}
+
+.fecha{
+    background-color: #e4e4e4;
+    color: #868586;
+}
+
+.criar{
+    background-color: #F26699;
+    color: #fff;
+}
+
+.cont-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 100%;
+}
+
+form .cont-img-comunidade{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+form .cont-img-comunidade label{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+form .cont-img-comunidade label img{
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+    border-radius: 100%;
+}
+
+form .cont-img-comunidade .btn-mudar-img, form input[type='submit']{
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff85ab;
+    font-family: 'Inter';
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+form .cont-img-comunidade .btn-mudar-img:hover, form input[type='submit']:hover{
+    background-color: #F88AC5;
+    transform: scale(1.01);
+}
+
+form .cont-img-comunidade .btn-mudar-img{
+    width: 60%;
+}
+
+form .input-group{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column ;
+    
+}
+
+form > div{
+    margin-top: 20px;
+}
+
+form #drag-area-banner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+    border: 6px;
+    align-items: center;
+    justify-content: center;
+    border: 2px #f26699 dashed;
+    cursor: pointer;
+}
+
+form .input-group #drag-area-banner .icon i{
+    font-size: 50px;
+    color: #F26699;
+}
+
+ form .input-group #drag-area-banner h5{
+    font-weight: bold;
+     color: #003366;
+     font-family: 'Inter';
+ }
+
+ form .input-group #drag-area-banner span{
+    font-size: 20px;
+    color: #F26699;
+    font-family: 'Inter';
+}
+
+form .input-group #drag-area-banner .img-view-banner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+form .input-group label{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    font-family: 'inter';
+    font-weight: bold;
+    text-align: center;
+    color: #003366;
+}
+
+form .input-group textarea{
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 2px #f26699 solid;
+    border-radius: 10px ;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+ form .input-group textarea:focus{
+    border: 4px solid #F26699;
+    transform: scale(1.01);
+    outline:none;
+}
+
+form .input-group input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    border-bottom: 2px solid #F26699;
+}
+
+form .input-group input:focus{
+    border-bottom: 4px solid #F26699;
+    transform: scale(1.01);
+}
+
+form .cont-btn{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form .cont-error-foto-perfil{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+form .errorField{
+    color: #d02b39;
+    font-size: 14px;
+    text-align: start;
+}
 

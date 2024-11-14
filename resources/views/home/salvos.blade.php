@@ -35,10 +35,10 @@
     </section>
 
     <section class="cont-img">
-        <img src="{{url('assets/img/foto1.webp')}}" alt="" class="img-salvos">
-        <img src="{{url('assets/img/foto1.webp')}}" alt="" class="img-salvos">
-        <img src="{{url('assets/img/foto1.webp')}}" alt="" class="img-salvos">
-        <img src="{{url('assets/img/foto1.webp')}}" alt="" class="img-salvos">
+        <img src="{{url('assets/img/img-criancas.webp')}}" alt="" class="img-salvos">
+        <img src="{{url('assets/img/img-menina.webp')}}" alt="" class="img-salvos">
+        <img src="{{url('assets/img/img-criancas-lendo.jpg')}}" alt="" class="img-salvos">
+        <img src="{{url('assets/img/img-criancas-corda.jpg')}}" alt="" class="img-salvos">
         
     </section>
 
