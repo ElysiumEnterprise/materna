@@ -8,6 +8,7 @@ use App\Models\Seguidores;
 use App\Models\Visualizacoes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Postagem;
 
 class GraficoAnuncianteController extends Controller
 {
@@ -17,22 +18,20 @@ class GraficoAnuncianteController extends Controller
 
         $idPerfilAuth = $userAuth->perfils->idPerfil;
 
+        //Obter as postagens do usuário
+
+        $idPostagens = Postagem::where('idPerfil', $idPerfilAuth)->pluck('idPostagem');
+
         //Obter ps números de curtidas de todas as postagens daquele anunciante
         
-        $countCurtidas = Curtidas::where('idPostagem', function($query) use ($idPerfilAuth){
-            $query->select('idPostagem')->from('postagems')->where('idPerfil', $idPerfilAuth);
-        })->count();
+        $countCurtidas = Curtidas::whereIn('idPostagem', $idPostagens)->count();
 
         //Obter os números de visualizações de todas postagens do anunciante
-        $countViews = Visualizacoes::where('idPostagem', function($query) use ($idPerfilAuth){
-            $query->select('idPostagem')->from('postagems')->where('idPerfil', $idPerfilAuth);
-        })->count();
+        $countViews = Visualizacoes::whereIn('idPostagem', $idPostagens)->count();
 
         //Obter os números de comentários
 
-        $countComentarios = Comentarios::where('idPostagem', function($query) use ($idPerfilAuth){
-            $query->select('idPostagem')->from('postagems')->where('idPerfil', $idPerfilAuth);
-        })->count();
+        $countComentarios = Comentarios::whereIn('idPostagem', $idPostagens)->count();
 
         //Obter os números de seguidores
 

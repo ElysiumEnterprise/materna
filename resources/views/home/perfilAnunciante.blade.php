@@ -38,13 +38,13 @@
                                 
                                 <button type="button"><i class="fa-regular fa-heart"></i></button>
                                 <button type="button"><i class="fa-regular fa-comment"></i></button>
-                                <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
+                                
                                 <button type="button" onclick="abrirModalPostAnalise('{{$post->idPostagem}}', '{{$post->fotoPost}}')"><i class="fa-solid fa-chart-line"></i></button>
                                 
                                 
                             </div>
                             <div class="icon-salvos">
-                                <button type="button" onclick="abrirModalDeletar('')">
+                                <button type="button" onclick="abrirModalDeletar('{{$post->idPostagem}}', `{{route('destroy.post', ['idPostagem' => ':idPostagem'])}}`)">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                                 
@@ -134,13 +134,13 @@
     <div class="box-modal-deletar box-modal">
         <dialog class="modal-deletar-post">
             <div class="cont-modal">
-                <p>Tem certeza que deseja deletar esse usuário? Se sim, escreva o motivo abaixo:</p>
+                <p>Tem certeza que deseja deletar esse anúncio? Todos os comentários, curtidas e Visualizações serão perdidas ao executar essa ação!</p>
                 <form action="" method="post" class="form-delete">
                     @csrf
                     @method('DELETE')
                     <div class="cont-btn">
                         <button type="submit">Deletar</button>
-                        <button type="button" onclick="fecharModalDeletar('{{$postagem->idPostagem}}', `{{route('destroy.post', ['idPostagem' => ':idPostagem'])}}`)">Cancelar</button>
+                        <button type="button" onclick="fecharModalDeletar()">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -150,6 +150,7 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{url('assets/js/home/graficos.js')}}"></script>
     <script src="{{url('assets/js/home/analise-post.js')}}"></script>
 @endsection

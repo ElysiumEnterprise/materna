@@ -50,7 +50,7 @@
     z-index: 1000;
 }
 
-.box-modal .modal-analise-post{
+.box-modal .modal-analise-post, .box-modal .modal-deletar-post{
     width: 900px; /* Ajuste o tamanho conforme necessário */
     border: solid 1px #ccc;
     height: 80%;
@@ -66,6 +66,9 @@
     max-width: 90%; /* Adapta o modal em telas menores */
     max-height: 80%; /* Adapta a altura do modal em telas menores */
     overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+}
+.box-modal .modal-deletar-post{
+    height:auto;
 }
 .modal-analise-post .cont-modal-post-analise{
     display: flex;

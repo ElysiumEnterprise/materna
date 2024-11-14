@@ -76,8 +76,9 @@ class PostagemController extends Controller
             $perfilAuth =$userAuth->perfils;
 
             if (Postagem::where('idPerfil', $perfilAuth->idPerfil)->where('idPostagem', $idPostagem)->exists()) {
-                $postagem = Postagem::where('idPerfil', $perfilAuth->idPerfil)->where('idPostagem', $idPostagem)->get();
+                $postagem = Postagem::where('idPerfil', $perfilAuth->idPerfil)->where('idPostagem', $idPostagem)->first();
                 
+
                 $postagem->delete();
 
                 return redirect()->back()->with('status', 'Postagem deletada com sucesso!');
