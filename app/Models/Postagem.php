@@ -73,5 +73,9 @@ class Postagem extends Model
             $postagem->categorias()->delete();
         });
     }
+
+   
+    
     use HasFactory;
+    
 }

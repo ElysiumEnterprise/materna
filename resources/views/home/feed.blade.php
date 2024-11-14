@@ -46,55 +46,45 @@
                                         <button type="button" onclick="curtirPost(this, '{{ $post->idPostagem }}')">
                                             <i class="fa{{ $post->curtidas->contains('idUsuario', auth()->id()) ? '-solid' : '-regular' }} fa-heart"></i>
                                         </button>
-                                        <span>{{ $post->curtidas_count }} curtidas</span> <!-- Exibindo o número de curtidas -->
+                                        <span>{{ $post->curtidas_count }}</span> <!-- Exibindo o número de curtidas -->
+                                               
+
+                                               <!-- Comentários da Postagem -->
+                                    <div class="comentarios-postagem" id="comentarios{{ $post->idPostagem }}">
+                                        @foreach ($post->comentarios->take(100) as $comentario)
+
+                                            <div class="comentario">
+                                                <strong>{{ $comentario->perfils->nickname }}:</strong>
+                                                <span>{{ $comentario->conteudo }}</span>
+                                            </div>
+                                        @endforeach
+
+                                        @if($post->comentarios_count > 100)
+                                            <button class="btn-ver-mais" onclick="verMaisComentarios({{ $post->idPostagem }})">Ver mais comentários</button>
+                                        @endif
                                     </div>
-                                    <div class="icon-salvos">
-                                        <button type="button">
-                                            <i class="fa-regular fa-bookmark"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="cont-legenda">
-                                    <small>{{$post->perfils->nickname }} <span>{{ $post->legenda }}</span></small>
-                                </div>
-                                <div class="cont-num-comentarios">
-                                    <small>Ver todos os {{ $post->comentarios_count }} comentários</small>
+
+                                    <!-- Botão para abrir o Modal de Comentários -->
+                                    <button type="button" onclick="abrirModalComentario({{ $post->idPostagem }})">
+                                        <i class="fa-regular fa-comment" style="right:12%"></i>
+                                    </button>
                                 </div>
                             </div>
                         </section>
                     @endforeach
 
+                   <!-- Modal de Comentário -->
+                    <div id="modalComentario" class="modal" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close" onclick="fecharModalComentario()">&times;</span>
+                            <h2>Comentar na Postagem</h2>
+                            <input type="text" id="inputComentarioModal" placeholder="Escreva seu comentário...">
+                            <button onclick="enviarComentarioModal()">Comentar</button>
+                        </div>
+                    </div>
 
             <section class="card-post">
-                <div class="post-head">
-                    <img src="{{ url('assets/img/img-home/avatar.jpg') }}" class="img-fluid foto-perfil" alt="">
-                    <small class="txt-perfil">Juliana</small>
-                </div>
-                <div class="conteudo-post">
-                    <div class="cont-arquivo">
-                        <img src="{{ url('assets/img/img-home/teste-2.png') }}" class="img-fluid img-arquivo" alt="">
-                    </div>
-                    <div class="cont-icons">
-                        <div class="icons-principais">
-                            <button type="button" onclick="curtirPost(this,1)">
-                                <i class="fa-regular fa-heart"></i>
-                            </button>
-                            <button type="button"><i class="fa-regular fa-comment"></i></button>
-                          
-                        </div>
-                        <div class="icon-salvos">
-                            <button type="button">
-                                <i class="fa-regular fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="cont-legenda">
-                        <small>Juliana <span>Legenda aqui</span></small>
-                    </div>
-                    <div class="cont-num-comentarios">
-                        <small>Ver todos os 10 comentários</small>
-                    </div>
-                </div>
+               
             </section>
         </div>
 
@@ -230,6 +220,87 @@ function curtirPost(button, postId) {
             console.error('Erro ao remover a curtida:', error);
         });
     }
+}
+
+
+let postagemAtual = null;
+
+// Função para abrir o modal de comentários
+function abrirModalComentario(idPostagem) {
+    postagemAtual = idPostagem; // Define qual postagem está sendo comentada
+    document.getElementById("modalComentario").style.display = "block"; // Exibe o modal
+}
+
+// Função para fechar o modal de comentários
+function fecharModalComentario() {
+    document.getElementById("modalComentario").style.display = "none"; // Oculta o modal
+    document.getElementById("inputComentarioModal").value = ''; // Limpa o campo de comentário
+}
+
+// Função para enviar o comentário
+function enviarComentarioModal() {
+    const conteudo = document.getElementById("inputComentarioModal").value;
+
+    if (!conteudo) {
+        alert("Você precisa preencher o campo!");
+        return;
+    }
+
+    fetch(`/comentarios/${postagemAtual}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ txtComentario: conteudo })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'Comentário enviado') {
+            // Adiciona o novo comentário à postagem
+            const novoComentario = document.createElement('div');
+            novoComentario.classList.add('comentario');
+            novoComentario.innerHTML = `<strong>Você</strong>: ${conteudo}`;
+            
+            // Exibe o novo comentário na postagem atual
+            const comentariosPostagem = document.querySelector(`#postagem${postagemAtual} .comentarios-postagem`);
+            comentariosPostagem.appendChild(novoComentario);
+
+            // Limpa o campo de comentário
+            document.getElementById("inputComentarioModal").value = '';
+            fecharModalComentario(); // Fecha o modal após enviar
+        } else {
+            alert("Erro ao enviar o comentário.");
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert("Erro ao enviar o comentário.");
+    });
+}
+
+// Função para carregar mais comentários
+function verMaisComentarios(idPostagem) {
+    fetch(`/comentarios/${idPostagem}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.comentarios) {
+            const comentariosPostagem = document.querySelector(`#comentarios${idPostagem}`);
+            comentariosPostagem.innerHTML = ''; // Limpa os comentários atuais
+
+            // Adiciona todos os comentários
+            data.comentarios.forEach(comentario => {
+                const comentarioDiv = document.createElement('div');
+                comentarioDiv.classList.add('comentario');
+                comentarioDiv.innerHTML = `<strong>${comentario.perfils.nickname}:</strong> <span>${comentario.conteudo}</span>`;
+                comentariosPostagem.appendChild(comentarioDiv);
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert("Erro ao carregar mais comentários.");
+    });
 }
 
 </script>

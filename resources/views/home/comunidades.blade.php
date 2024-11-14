@@ -4,6 +4,7 @@
 
 @section('links-css')
     <link rel="stylesheet" href="{{url('assets/css/style-comunidades.css')}}"> 
+    <link rel="stylesheet" href="{{url('assets/css/style-feed.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 @endsection
@@ -131,45 +132,49 @@
 
                 <section class='card-assunto'>
                     <div class="teste-icon">
-                        <i class="fa-solid fa-circle-info icon"></i>
+                        <img src="{{ url('assets/img/icons/Alimentação.png') }}" alt="" class="img-assunto">
+                        <img src="{{ url('assets/img/icons/Maternidade Solo.png') }}" alt="" class="img-assunto">
+                        <img src="{{ url('assets/img/icons/Puerperio.png') }}" alt="" class="img-assunto">
                         <div class="texto-card">
-                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Adolescência</h4></a>
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
                         </div>
                     </div>
                 </section>
 
                 <section class='card-assunto'>
                     <div class="teste-icon">
-                        <i class="fa-solid fa-circle-info icon"></i>
+                        <img src="{{ url('assets/img/icons/Gestação.png') }}" alt="" class="img-assunto">
+                        <img src="{{ url('assets/img/icons/Amamentação.png') }}" alt="" class="img-assunto">
+                        <img src="{{ url('assets/img/icons/eduacatioon.png') }}" alt="" class="img-assunto">
                         <div class="texto-card">
-                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Gravidez</h4></a>
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
                         </div>
                     </div>
                 </section>
 
                 <section class='card-assunto'>
                     <div class="teste-icon">
-                        <i class="fa-solid fa-circle-info icon"></i>
+                        
                         <div class="texto-card">
-                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Receitas</h4></a>
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
                         </div>
                     </div>
                 </section>
 
                 <section class='card-assunto'>
                     <div class="teste-icon">
-                        <i class="fa-solid fa-circle-info icon"></i>
+                      
                         <div class="texto-card">
-                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Mãe solo</h4></a>
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
                         </div>
                     </div>
                 </section>
 
                 <section class='card-assunto'>
                     <div class="teste-icon">
-                        <i class="fa-solid fa-circle-info icon"></i>
+                       
                         <div class="texto-card">
-                            <a href="#" class="link-card"><h4 class="txt-card-assunto">Lazer</h4></a>
+                            <a href="#" class="link-card"><h4 class="txt-card-assunto"></h4></a>
                         </div>
                     </div>
                 </section>

@@ -12,34 +12,33 @@ class CurtidasController extends Controller
     public function salvarCurtida(Request $request)
     {
         $post = Postagem::find($request->postId);
-        $post->curtidas()->create(['idUsuario' => auth()->id()]);
+        
+        if (!$post) {
+            return response()->json(['message' => 'Postagem não encontrada'], 404);
+        }
+        
+        // Cria a curtida se não existir
+        $post->curtidas()->firstOrCreate([
+            'idUsuario' => auth()->id(),
+        ]);
     
+        // Retorna a contagem de curtidas atualizada
         return response()->json(['totalCurtidas' => $post->curtidas()->count()]);
     }
     
     public function removerCurtida(Request $request)
     {
         $post = Postagem::find($request->postId);
+        
+        if (!$post) {
+            return response()->json(['message' => 'Postagem não encontrada'], 404);
+        }
+    
+        // Remove a curtida associada ao usuário
         $post->curtidas()->where('idUsuario', auth()->id())->delete();
     
+        // Retorna a contagem de curtidas atualizada
         return response()->json(['totalCurtidas' => $post->curtidas()->count()]);
     }
-            public function toggleCurtida(Request $request, $postId)
-            {
-            $user = auth()->user();
 
-            $curtida = $user->curtidas()->where('idPostagem', $postId)->first();
-
-            if ($curtida) {
-                // Se já curtiu, remove a curtida
-                $curtida->delete();
-                return response()->json(['message' => 'Curtida removida!']);
-            } else {
-                // Se não curtiu, adiciona uma nova curtida
-                $user->curtidas()->create(['idPostagem' => $postId]);
-                return response()->json(['message' => 'Curtida salva!']);
-            }
-        }
-
-
-}
+   }

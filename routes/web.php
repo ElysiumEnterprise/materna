@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Http\Controllers\PostagensController;
 
+use App\Http\Controllers\ComentariosController;
 
 use App\Http\Controllers\CurtidasController;
 use App\Http\Controllers\GraficoAnuncianteController;
@@ -252,10 +253,14 @@ Route::get('/get-data-geral-perfil-add', [GraficoAnuncianteController::class, 'g
 
 
 
+Route::post('/curtidas/salvar', [CurtidasController::class, 'salvarCurtida'])->name('curtidas.salvar');
+Route::post('/curtidas/remover', [CurtidasController::class, 'removerCurtida'])->name('curtidas.remover');
+Route::post('/curtidas/toggle/{postId}', [CurtidasController::class, 'toggleCurtida'])->name('curtidas.toggle');
 Route::post('/salvar-curtida', [CurtidasController::class, 'salvarCurtida'])->name('salvar-curtida');
+
+// Remover a curtida
 Route::post('/remover-curtida', [CurtidasController::class, 'removerCurtida'])->name('remover-curtida');
 
-Route::post('/curtir-post/{id}', [CurtidasController::class, 'toggleCurtida']);
 
 
 //Gerar gráficos para mostrar da postagem selecionada
@@ -265,3 +270,6 @@ Route::get('/gerar-grafico-barras-post/{idPostagem}', [GraficoAnuncianteControll
 
 //Deletar Postagem com o seu idPostagem
 Route::delete('/deletar-postagem/{idPostagem}', [PostagemController::class, 'destroy'])->name('destroy.post');
+
+// Rota para salvar comentários
+Route::post('/comentarios/{idPostagem}', [ComentariosController::class, 'store']);
