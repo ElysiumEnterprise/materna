@@ -334,8 +334,11 @@
 }
 .modal-post-perfil .cont-info-post .cont-lado-direito{
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: auto;
+    justify-content: center;
+    align-items: start;
 }
 .modal-post-perfil .cont-info-post .cont-lado-direito .cont-info-rendimento{
     display: flex;
@@ -406,10 +409,10 @@
 }
 
 .modal-post-perfil .cont-info-post .cont-lado-direito .cont-comentarios form input{
+    width: 100%;
     border:none;
     padding: 10px;
     border-radius: 8px;
-    flex-grow: 1;
     background-color: #f0f0f0;
     outline: none;
     color: #000000;

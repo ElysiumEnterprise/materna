@@ -1,10 +1,10 @@
 //Função para abrir o modal da postagem
 
-function abrirModalPost(idPostagem, urlImg){
+function abrirInfoPost(idPostagem, urlImg){
     
     const boxModalPostInfo = document.querySelector('.box-modal-post-perfil');
     const modalPostPerfil = document.querySelector('.modal-post-perfil');
-    const imgPost = document.querySelector('#img-modal-post');
+    const imgPost = document.querySelector('.img-modal-post');
 
     //Mudar a imagem no modal pela imagem da postagem selecionada
     imgPost.src = `/assets/img/file-posts/${urlImg}`;
@@ -35,7 +35,7 @@ function renderInfoPost(data) {
     txtDesc.innerHTML = data.descPostagem;
 }
 
-function fecharModalInfoPost() {
+function fecharModalPostPerfil() {
     const boxModalPostInfo = document.querySelector('.box-modal-post-perfil');
     const modalPostPerfil = document.querySelector('.modal-post-perfil');
 
