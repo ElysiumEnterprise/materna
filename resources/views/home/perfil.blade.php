@@ -106,7 +106,7 @@
       </div>
     </div>
          
-        <div class="box-modal-post">
+      <div class="box-modal-post">
         <dialog class="modal-denuncia">
         <div class="cont-header-modal">
                 <button type="button" onclick="fecharModalDenuncia()"><i class="fa-solid fa-xmark"></i></button>
@@ -131,6 +131,46 @@
                 </form>
             </div>
         </dialog>
+    </div>
+
+    <div class="box-modal-post-perfil">
+      <dialog class="modal-post-perfil">
+        <div class="cont-header-modal">
+          <button type="button" onclick="abrirModalExcluirPostagem">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button type="button" onclick="fecharModalPostPerfil()">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cont-info-post">
+          <!-- Container da imagem do lado esquerdo -->
+          <div class="cont-img-post">
+              <img src="{{url('assets/img/file-posts/'.$post->fotoPost)}}" class="img-fluid img-arquivo" alt="">
+          </div>
+          <!-- Container das informações da postagem -->
+          <div class="cont-info-rendimento">
+            <div class="icon">
+                <i class="fa-solid fa-heart"></i>
+                <small class="num-curtidas"></small>
+            </div>
+            <div class="icon">
+                <i class="fa-regular fa-comment" style="right:12%"></i>
+                <small class="num-comentarios"></small>
+            </div>
+            <div class="icon">
+                <i class="fa-solid fa-eye"></i>
+                <small class="num-views"></small>
+            </div>
+            <!-- Container de descrição -->
+            <div class="cont-desc">
+              <p class="txtDesc"></p>
+            </div>
+            <!-- Container de comentários -->
+             div.cont
+          </div>
+        </div>
+      </dialog>
     </div>
 </div>
 
