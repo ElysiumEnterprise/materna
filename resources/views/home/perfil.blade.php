@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="{{url('assets/css/style-perfil.css')}}">
 
     
@@ -92,7 +93,10 @@
           @if($user->perfils->postagems->isNotEmpty())  
           <div class="photos">
             @foreach($user->perfils->postagems as $postagem)
-            <img src="{{url('assets/img/file-posts/'.$postagem->fotoPost)}}" alt="Photo" />
+            <button type="button" onclick="abrirInfoPost('{{$postagem->idPostagem}}', '{{$postagem->fotoPost}}')">
+              <img src="{{url('assets/img/file-posts/'.$postagem->fotoPost)}}" alt="Photo" />
+            </button>
+            
             
             @endforeach
           </div>
@@ -136,9 +140,7 @@
     <div class="box-modal-post-perfil">
       <dialog class="modal-post-perfil">
         <div class="cont-header-modal">
-          <button type="button" onclick="abrirModalExcluirPostagem">
-            <i class="fa-solid fa-trash"></i>
-          </button>
+          
           <button type="button" onclick="fecharModalPostPerfil()">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -146,31 +148,63 @@
         <div class="cont-info-post">
           <!-- Container da imagem do lado esquerdo -->
           <div class="cont-img-post">
-              <img src="{{url('assets/img/file-posts/'.$post->fotoPost)}}" class="img-fluid img-arquivo" alt="">
+              <img src="" class="img-fluid img-modal-post" alt="">
           </div>
           <!-- Container das informações da postagem -->
-          <div class="cont-info-rendimento">
-            <div class="icon">
-                <i class="fa-solid fa-heart"></i>
-                <small class="num-curtidas"></small>
-            </div>
-            <div class="icon">
-                <i class="fa-regular fa-comment" style="right:12%"></i>
-                <small class="num-comentarios"></small>
-            </div>
-            <div class="icon">
-                <i class="fa-solid fa-eye"></i>
-                <small class="num-views"></small>
+           <div class="cont-lado-direito">
+            <div class="cont-info-rendimento">
+              <div class="icon">
+                  <i class="fa-solid fa-heart"></i>
+                  <small class="num-curtidas"></small>
+              </div>
+              <div class="icon">
+                  <i class="fa-regular fa-comment" style="right:12%"></i>
+                  <small class="num-comentarios"></small>
+              </div>
+              <div class="icon">
+                  <i class="fa-solid fa-eye"></i>
+                  <small class="num-views"></small>
+              </div>
             </div>
             <!-- Container de descrição -->
             <div class="cont-desc">
               <p class="txtDesc"></p>
             </div>
             <!-- Container de comentários -->
-             div.cont
-          </div>
+              <div class="cont-comentarios">
+                <h6>Comentários</h6>
+                <!-- Aqui serão as sections vinda do banco de dados de todos os comentários dessa postagem -->
+                <div class="cont-card-comentarios">
+
+                </div>
+                <form action="" method="post" class="form-comentar">
+                  <input type="text" name="txtComentario" id="txtComentario">
+                  <button type="submit">
+                    <span class="material-symbols-outlined">send</span>
+                  </button>
+                </form>
+              </div>
+           </div>
+          
+          
         </div>
       </dialog>
+    </div>
+    <div class="box-modal-deletar box-modal">
+        <dialog class="modal-deletar-post">
+            <div class="cont-modal">
+                <p>Tem certeza que deseja deletar esse anúncio? Todos os comentários, curtidas e Visualizações serão perdidas ao executar essa ação!</p>
+                <form action="" method="post" class="form-delete">
+                    @csrf
+                    @method('DELETE')
+                    <div class="cont-btn">
+                        <button type="submit">Deletar</button>
+                        <button type="button" onclick="fecharModalDeletar()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </dialog>
     </div>
 </div>
 
@@ -192,4 +226,5 @@
 
     }
   </script>
+  <script src="{{url('assets/js/home/script-post.js')}}"></script>
 @endsection

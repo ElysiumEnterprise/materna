@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriaPost;
+use App\Models\Comentarios;
+use App\Models\Curtidas;
 use App\Models\Perfil;
 use Illuminate\Http\Request;
 use App\Models\Postagem;
+use App\Models\Visualizacoes;
 use Illuminate\Support\Facades\Auth;
 
 class PostagemController extends Controller
@@ -89,5 +92,39 @@ class PostagemController extends Controller
         }else{
             return redirect()->route('/')->with('status', 'Você não pode executar essa ação');
         }
+    }
+
+    public function showPostagem($idPostagem){
+
+        if (Postagem::where('idPostagem', $idPostagem)->exists()) {
+            $postagem = Postagem::with(['comentarios', 'perfils'])->where('idPostagem', $idPostagem)->first();
+
+            //Quantidade de curtidas:
+            $countCurtidas = Curtidas::where('idPostagem', $idPostagem)->count();
+
+            //Pegar a quantidade de comentários:
+            $countComentarios = Comentarios::where('idPostagem', $idPostagem)->count();
+
+            //Pegar a quantidade de visualizações
+            $countViews = Visualizacoes::where('idPostagem', $idPostagem)->count();
+
+
+            //Retornar em JSON:
+            return response()->json([
+                'descPostagem' => $postagem->descPostagem,
+                'dataPost' => $postagem->created_at,
+                'totalCurtidas' => $countCurtidas,
+                'totalViews' => $countViews,
+                'totalComentarios'=> $countComentarios,
+                'comentarios'=> $postagem->comentarios(),
+            ]);
+
+
+        }else{
+            return response()->json([
+                'messsage' => 'Não foi possível encontrar a Postagem!'
+            ]);
+        }
+
     }
 }
