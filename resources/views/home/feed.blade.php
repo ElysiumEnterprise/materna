@@ -75,12 +75,15 @@
                     @endforeach
 
                    <!-- Modal de Comentário -->
-                    <div id="modalComentario" class="modal" style="display: none;">
-                        <div class="modal-content">
+                    <div id="modalComentario" class="modal-coment" style="display: none;">
+                        <div class="modal-content-coment">
                             <span class="close" onclick="fecharModalComentario()">&times;</span>
                             <h2>Comentar na Postagem</h2>
                             <input type="text" id="inputComentarioModal" name="inputComentarioModal" placeholder="Escreva seu comentário...">
-                            <button onclick="enviarComentarioModal()">Comentar</button>
+                            <div class="botoes">
+                                <button class="enviar" onclick="enviarComentarioModal()">Comentar</button>
+                                <button class="cancel" onclick="fecharModalComentario()">Fechar</button>
+                            </div>
                         </div>
                     </div>
 

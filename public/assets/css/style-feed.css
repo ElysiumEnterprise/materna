@@ -192,6 +192,7 @@
     font-weight: bold;
     text-align: center;
     font-family: "Inter";
+    font-size: 20px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -353,7 +354,7 @@
 }
 
 /* Estilos para o Modal de Comentários */
-.modal {
+.modal-coment {
     display: none; /* Inicialmente invisível */
     position: fixed;
     z-index: 1; /* Fica sobre os outros elementos */
@@ -366,7 +367,7 @@
 }
 
 /* Conteúdo do Modal */
-.modal-content {
+.modal-content-coment {
     background-color: #fff;
     margin: 15% auto;
     padding: 20px;
@@ -395,7 +396,7 @@
 }
 
 /* Estilo do título do modal */
-.modal-content h2 {
+.modal-content-coment h2 {
     margin-top: 0;
     font-size: 24px;
     color: #333;
@@ -413,17 +414,39 @@
 }
 
 /* Estilo para o botão de enviar comentário */
-.modal-content button {
+.modal-content-coment .enviar {
     background-color:#f26699;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 50%;
+    font-weight: bold;
 }
 
-.modal-content button:hover {
-    background-color: #f26699;
+.botoes{
+    display: flex;
+    gap: 15px;
+}
+
+.cancel{
+    background-color: #e4e4e4;
+    color: #868586;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50%;
+    font-weight: bold;
+}
+
+.cancel:hover{
+    background-color: #d9d4d4;
+}
+
+.modal-content-coment .enviar:hover {
+    background-color: #F88AC5;
 }
 
 /* Estilo para cada comentário */
