@@ -30,10 +30,69 @@
 
                 <div class="icon">
                 
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#meuModal"><i class="fa-solid fa-plus icon-plus" ></i></button> 
+                    <button type="button" id="btn-abrir-modal" onclick="abrirModalComunidade()"><i class="fa-solid fa-plus icon-plus" ></i></button> 
                 </div>
 
             </div>
+
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Criar comunidade</h5>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="cont-form">
+                            <form action="" method="post">
+                            @csrf
+                            <div class="cont-img-comunidade">
+                                <label for="imgComunidade">
+                                <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}" class="img-fluid img-perfil" alt="Foto da comunidade">
+                                </label>
+                                <label for="imgComunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
+                                <input type="file" name="imgPerfil" id="imgPerfil" hidden accept="image/*" value="{{old('imgComunidade')}}">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="nickname">Nome da Comunidade: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
+                                <input type="text" name="nickname" id="nickname" placeholder="Crie um nome para a comunidade" value="{{old('nickname')}}">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="imgCapa">Adicionar Capa de Perfil para a Comunidade:<span class="errorField">{{session('errorCapa')}}</span></label>
+                                <label for="imgCapa" id='drag-area-banner'>
+                                <input type="file" name="imgCapa" id="imgCapa" hidden accept="image/*" value="{{old('imgCapa')}}">
+                                <div class="img-view-banner">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    </div>
+                                    <h5>Arraste e solte aqui sua imagem ou clique aqui</h5>
+                                </div>
+                                </label>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="biography">Biografia: <span class="errorField">@error('biography'){{$message}}@enderror</span></label>
+                            <textarea name="biography" id="biography" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('biography')}}"></textarea>
+                            </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn criar">Criar</button>
+                    </div>
+
+                    <span class="close">&times;</span>
+                    
+                </div>
+            </div>
+
+           
+
+            <!--
 
             <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -93,6 +152,7 @@
             </div>
         </div>
       </div>
+-->
             
             
            </div>
