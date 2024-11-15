@@ -33,7 +33,7 @@
                 <div class="cont-post">
                     @foreach ($postagens as $post)
                        
-                        <section class="card-post">
+                        <section class="card-post" data-post-id="{{$post->idPostagem}}">
                             <div class="post-head">
                                 <img src="{{ url('assets/img//foto-perfil/'.$post->perfils->fotoPerfil) }}" class="img-fluid foto-perfil" alt="">
                                 <small class="txt-perfil">{{ $post->perfils->nickname}}</small> <!-- Exibindo o nome do usuário da postagem -->
@@ -308,4 +308,8 @@ function verMaisComentarios(idPostagem) {
 
 </script>
 
+@endsection
+
+@section('scripts')
+    <script src="{{url('assets/js/home/visualizacoes.js')}}"></script>
 @endsection

@@ -15,7 +15,7 @@ class VisualizacoesController extends Controller
 
         $idPerfilAuth = $userAuth->perfils->idPerfil;
 
-        Visualizacoes::create([
+        Visualizacoes::firstOrCreate([
             'idPerfil' => $idPerfilAuth,
             'idPostagem'=> $idPostagem,
         ]);
