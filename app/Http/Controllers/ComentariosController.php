@@ -26,13 +26,18 @@ class ComentariosController extends Controller
 
             $idPerfilAuth = $userAuth->perfils->idPerfil;
 
-            Comentarios::create([
+            $comentario = Comentarios::create([
                 'idPerfil' => $idPerfilAuth,
                 'idPostagem' => $idPostagem,
-                'conteudo' => $request->txtComentario,
+                'conteudo' => $request->inputComentarioModal,
             ]);
 
-            return response()->json(['status'=>'Comentário enviado']);
+            $comentarioJSON = Comentarios::with(['perfils'])->where('idComentario', $comentario->idComentario)->first();
+
+            return response()->json([
+                'status'=>'Comentário enviado',
+                'comentarios'=> $comentarioJSON,
+            ]);
 
         }else{
             return redirect()->route('/')->with('error', 'Logue na Materna para seguir uma pessoa!');
@@ -43,7 +48,7 @@ class ComentariosController extends Controller
 
     public function show($idPostagem){
 
-        $comentarios = Comentarios::with(['perfils'])->where('idPostagem', $idPostagem)->orderBy('created_at', 'asc')->get();
+        $comentarios = Comentarios::with(['perfils'])->where('idPostagem', $idPostagem)->latest()->get();
 
         return response()->json(['comentarios' => $comentarios]);
     }

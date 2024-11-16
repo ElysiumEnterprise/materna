@@ -274,7 +274,7 @@ Route::get('/gerar-grafico-barras-post/{idPostagem}', [GraficoAnuncianteControll
 Route::delete('/deletar-postagem/{idPostagem}', [PostagemController::class, 'destroy'])->name('destroy.post');
 
 // Rota para salvar comentários
-Route::post('/comentarios/{idPostagem}', [ComentariosController::class, 'store']);
+Route::post('/comentarios/{idPostagem}', [ComentariosController::class, 'store'])->name('store.comentario');
 
 
 
@@ -283,3 +283,7 @@ Route::post('/visualizar-post/{idPostagem}', [VisualizacoesController::class, 's
 
 //Visualizar uma postagem:
 Route::get('/mostrar-postagem/{idPostagem}', [PostagemController::class, 'showPostagem'])->name('show.post');
+
+//Rota para mostrar os comentários
+
+Route::get('/mostrar-comentarios-post/{idPostagem}',[ComentariosController::class, 'show'])->name('show.chat.post');
