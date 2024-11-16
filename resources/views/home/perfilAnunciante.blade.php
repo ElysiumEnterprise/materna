@@ -3,6 +3,7 @@
 <!-- Links CSS-->
 
 @section('links-css')
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="{{url('assets/css/style-feed.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style-modal-analise.css')}}">
 @endsection
@@ -37,7 +38,7 @@
                             <div class="icons-principais">
                                 
                                 <button type="button"><i class="fa-regular fa-heart"></i></button>
-                                <button type="button"><i class="fa-regular fa-comment"></i></button>
+                                <button type="button" onclick="abrirModalComentarios('{{$post->idPostagem}}', `{{route('store.comentario', ['idPostagem'=> ':idPostagem'])}}`, '{{$post->fotoPost}}')"><i class="fa-regular fa-comment"></i></button>
                                 
                                 <button type="button" onclick="abrirModalPostAnalise('{{$post->idPostagem}}', '{{$post->fotoPost}}')"><i class="fa-solid fa-chart-line"></i></button>
                                 
@@ -51,7 +52,7 @@
                             </div>
                         </div>
                         <div class="cont-legenda">
-                            <small>{{$post->perfils->nickname}} <span>{{$post->descPostagem}}</span></small>
+                            {{$post->descPostagem}}</span></small>
                         </div>
                         
                     </div>
@@ -147,10 +148,43 @@
             
         </dialog>
     </div>
+    <div class="box-modal-comentarios box-modal">
+        <dialog class="modal-comentarios-post">
+            
+            <div class="cont-modal-comentarios">
+                <div class="cont-header-modal">
+                    <button type="button" onclick="fecharModalComentarios()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="cont-info-comentarios">
+                    <div class="cont-img">
+                        <img src="" class="img-fluid img-post-comentario" alt="">
+                    </div>
+                    <div class="cont-card-comentarios">
+                        <div class="chat-scroll">
+                            <!-- Cards dos comentários ficarão aqui via Javascript -->  
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                <div class="cont-form">
+                    <form action="" method="post" class="form-comentar">
+                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário...">
+                        <button type="submit"><span class="material-symbols-outlined">send</span></button>
+                    </form>
+                </div>
+                
+                
+            </div>
+        </dialog>
+    </div>
 @endsection
 
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{url('assets/js/home/graficos.js')}}"></script>
     <script src="{{url('assets/js/home/analise-post.js')}}"></script>
+    <script src="{{url('assets/js/home/script-comentarios.js')}}"></script>
 @endsection

@@ -158,7 +158,12 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 20px;
 }
-.header__wrapper .cols__container .right__col .photos img {
+.header__wrapper .cols__container .right__col .photos button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.header__wrapper .cols__container .right__col .photos button img {
   max-width: 100%;
   display: block;
   height: 100%;

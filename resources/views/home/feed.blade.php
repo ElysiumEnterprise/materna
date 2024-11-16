@@ -253,28 +253,22 @@ function enviarComentarioModal() {
     }
 
     fetch(`/comentarios/${postagemAtual}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        body: JSON.stringify({ txtComentario: conteudo })
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    },
+    body: JSON.stringify({ txtComentario: conteudo })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao enviar o comentário');
+        }
+        return response.json();
+    })
     .then(data => {
         if (data.status === 'Comentário enviado') {
-            // Adiciona o novo comentário à postagem
-            const novoComentario = document.createElement('div');
-            novoComentario.classList.add('comentario');
-            novoComentario.innerHTML = `<strong>Você</strong>: ${conteudo}`;
-            
-            // Exibe o novo comentário na postagem atual
-            const comentariosPostagem = document.querySelector(`#postagem${postagemAtual} .comentarios-postagem`);
-            comentariosPostagem.appendChild(novoComentario);
-
-            // Limpa o campo de comentário
-            document.getElementById("inputComentarioModal").value = '';
-            fecharModalComentario(); // Fecha o modal após enviar
+            // ... Lógica para atualizar a página com o novo comentário
         } else {
             alert("Erro ao enviar o comentário.");
         }

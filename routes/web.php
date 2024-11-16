@@ -241,7 +241,7 @@ Route::get('/feed', [FeedController::class, 'mostrarFeed']);
 Route::get('/home/mensagens/buscar-novas/{idPerfil}', [MensagensController::class, 'buscarNovasMensagens'])->name('busca-mensagens');
 
 
-Route::post('/criar-postagem', [PostagensController::class, 'criarPostagem'])->name('criar-postagem');
+//Route::post('/criar-postagem', [PostagensController::class, 'criarPostagem'])->name('criar-postagem');
 
 //Obter as views de seguidores ou não
 Route::get('/get-count-views', [VisualizacoesController::class, 'getCountViews'])->name('get.view.count');
@@ -274,7 +274,16 @@ Route::get('/gerar-grafico-barras-post/{idPostagem}', [GraficoAnuncianteControll
 Route::delete('/deletar-postagem/{idPostagem}', [PostagemController::class, 'destroy'])->name('destroy.post');
 
 // Rota para salvar comentários
-Route::post('/comentarios/{idPostagem}', [ComentariosController::class, 'store']);
+Route::post('/comentarios/{idPostagem}', [ComentariosController::class, 'store'])->name('store.comentario');
+
+
 
 //Rota para cadastrar as visualizações
 Route::post('/visualizar-post/{idPostagem}', [VisualizacoesController::class, 'store'])->name('view.post');
+
+//Visualizar uma postagem:
+Route::get('/mostrar-postagem/{idPostagem}', [PostagemController::class, 'showPostagem'])->name('show.post');
+
+//Rota para mostrar os comentários
+
+Route::get('/mostrar-comentarios-post/{idPostagem}',[ComentariosController::class, 'show'])->name('show.chat.post');

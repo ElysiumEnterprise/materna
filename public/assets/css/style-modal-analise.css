@@ -50,7 +50,7 @@
     z-index: 1000;
 }
 
-.box-modal .modal-analise-post, .box-modal .modal-deletar-post{
+.box-modal .modal-analise-post, .box-modal .modal-deletar-post, .box-modal .modal-comentarios-post{
     width: 900px; /* Ajuste o tamanho conforme necessário */
     border: solid 1px #ccc;
     height: 80%;
@@ -65,54 +65,55 @@
     transform: translate(-50%, -50%); /* Ajusta o modal para que o centro esteja no meio da tela */
     max-width: 90%; /* Adapta o modal em telas menores */
     max-height: 80%; /* Adapta a altura do modal em telas menores */
-    overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+   
 }
 .box-modal .modal-deletar-post{
     height:auto;
 }
-.modal-analise-post .cont-modal-post-analise{
+.modal-analise-post .cont-modal-post-analise, .box-modal .modal-comentarios-post .cont-modal-comentarios{
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow-y: hidden;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-header-modal{
+.modal-analise-post .cont-modal-post-analise .cont-header-modal, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-header-modal {
     display: flex;
     width: 100%;
     justify-content: end;
     align-items: center;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-header-modal button{
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-header-modal button{
     display: flex;
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-header-modal button i{
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button i, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-header-modal button i{
     font-size: 20px;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-header-modal button:focus{
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button:focus, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-header-modal button:focus{
     border: none;
     outline: none;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-header-modal button:active{
+.modal-analise-post .cont-modal-post-analise .cont-header-modal button:active, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-header-modal button:active{
     border: none;
     outline: none;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise{
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios {
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction:row ;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-img-post{
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-img-post, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-img{
     display: flex;
     width: 100%;
     min-height: 100%;
@@ -120,20 +121,22 @@
     margin-right: 20px;
     align-items: center;
 }
-.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-img-post img{
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-img-post img, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-img img{
     width: 100%;
     height: 100%;
     object-fit: fill;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos{
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios{
     display: flex;
+    position: relative;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    
     justify-content: start;
     align-items: center;
 }
+
 
 .modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos .cont-row-grafico{
     display: flex;
@@ -220,4 +223,127 @@
     font-weight: normal;
     text-align: center;
     color: #003366;
+}
+
+/*Modal de comentários*/
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .card-comentario{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-foto-perfil{
+    display: flex;
+    
+    height: 10%;
+    justify-content: center;
+    margin-right: 10px;
+    align-items: center;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios {
+    overflow-y: auto; /* Ativa a barra de rolagem vertical */
+    padding-right: 10px; /* Adiciona espaço para evitar que o texto fique sob a barra */
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.box-modal .modal-comentarios-post .cont-modal-comentarios {
+    
+    position: relative;
+}
+/* Personalização da barra de rolagem (opcional) */
+.chat-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .card-comentario .cont-foto-perfil img{
+    width: 50px;
+    height: 50px;
+    border-radius:100% ;
+    object-fit: fill;
+}
+
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    height: auto;
+    justify-content: start;
+    align-items: start;
+}
+
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll{
+    margin-bottom: 50px;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat h6{
+    margin-bottom: 10px;
+    font-family: 'Inter';
+    color: var(--color-dark);
+    font-weight: bold;
+    text-align: justify;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat p{
+    font-family: 'Inter';
+    color: var(--color-dark);
+    text-align: justify;
+}
+
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-form  form{
+    display: flex;
+    width:50%;
+    position: fixed;
+   
+    margin-left: 10px;
+    height: auto;
+    background-color: var(--color-white);
+    
+    
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios  .cont-form{
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: end;
+    align-items: end;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-form-chat{
+    display: flex;
+    width: 100%;
+    position: relative;
+
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-form  form input{
+    border:none;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    flex-grow: 1;
+    outline: none;
+    color: #000000;
+    font-size: 1rem;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-form  form input::placeholder{
+    color: #000000;
+    
+    font-size: 1rem;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios  .cont-form form button{
+    border: none;
+    background: none;
+    color: #f26699;
+    cursor: pointer;
 }
