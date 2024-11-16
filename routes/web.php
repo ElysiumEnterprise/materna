@@ -276,6 +276,8 @@ Route::delete('/deletar-postagem/{idPostagem}', [PostagemController::class, 'des
 // Rota para salvar comentários
 Route::post('/comentarios/{idPostagem}', [ComentariosController::class, 'store']);
 
+
+
 //Rota para cadastrar as visualizações
 Route::post('/visualizar-post/{idPostagem}', [VisualizacoesController::class, 'store'])->name('view.post');
 
