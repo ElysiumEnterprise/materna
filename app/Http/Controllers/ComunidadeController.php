@@ -147,4 +147,15 @@ class ComunidadeController extends Controller
             return redirect()->back()->with('status', 'Você não pode executar essa ação!');
         }
     }
+    
+    public function showComunidades(Request $request)
+    {
+        // Obtenha todas as comunidades e suas postagens associadas
+        $postagens = Comunidades::with('perfilCriador', 'perfilMembros', 'categorias')->get();
+    
+        // Retorne a view com as postagens
+        return view('comunidades', compact('postagens'));
+    }
+    
+
 }

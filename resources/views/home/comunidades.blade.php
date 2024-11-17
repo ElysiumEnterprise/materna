@@ -114,12 +114,12 @@
 
                             <button type="button"><i class="fa-regular fa-heart"></i></button>  
                             <button type="button"><i class="fa-regular fa-comment"></i></button>
-                            <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
+                            
                             
                         </div>
                         <div class="icon-salvos">
                             <button type="button">
-                                <i class="fa-regular fa-bookmark"></i>
+                               
                             </button>
                             
                         </div>
@@ -150,12 +150,12 @@
 
                             <button type="button"><i class="fa-regular fa-heart"></i></button>
                             <button type="button"><i class="fa-regular fa-comment"></i></button>
-                            <button type="button"><i class="fa-regular fa-paper-plane"></i></button>
+                           
                             
                         </div>
                         <div class="icon-salvos">
                             <button type="button">
-                                <i class="fa-regular fa-bookmark"></i>
+                               
                             </button>
                             
                         </div>

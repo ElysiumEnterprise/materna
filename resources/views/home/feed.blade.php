@@ -4,6 +4,7 @@
 
 @section('links-css')
     <link rel="stylesheet" href="{{url('assets/css/style-feed.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/style-modal-analise.css')}}">
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
@@ -42,50 +43,29 @@
                                 <div class="cont-arquivo">
                                     <img src="{{ url('assets/img/file-posts/'.$post->fotoPost) }}" class="img-fluid img-arquivo" alt=""> <!-- Exibindo a imagem da postagem -->
                                 </div>
+                                 <!-- Informações do Post -->
+                               
                                 <div class="cont-icons">
                                     <div class="icons-principais">
                                         <button type="button" onclick="curtirPost(this, '{{ $post->idPostagem }}')">
                                             <i class="fa{{ $post->curtidas->contains('idUsuario', auth()->id()) ? '-solid' : '-regular' }} fa-heart"></i>
                                         </button>
                                         <span>{{ $post->curtidas_count }}</span> <!-- Exibindo o número de curtidas -->
-                                               
-
-                                               <!-- Comentários da Postagem -->
-                                    <div class="comentarios-postagem" id="comentarios{{ $post->idPostagem }}">
-                                        @foreach ($post->comentarios->take(100) as $comentario)
-
-                                            <div class="comentario">
-                                                <strong>{{ $comentario->perfils->nickname }}:</strong>
-                                                <span>{{ $comentario->conteudo }}</span>
-                                            </div>
-                                        @endforeach
-
-                                        @if($post->comentarios_count > 100)
-                                            <button class="btn-ver-mais" onclick="verMaisComentarios('{{ $post->idPostagem }}')">Ver mais comentários</button>
-                                        @endif
-                                    </div>
-
-                                    <!-- Botão para abrir o Modal de Comentários -->
-                                    <button class="coment" type="button" onclick="abrirModalComentario('{{ $post->idPostagem }}')">
-                                        <i class="fa-regular fa-comment" style="right:12%"></i>
-                                    </button>
+                                        
+                                                <!-- Botão Comentários -->
+                                        <button type="button" onclick="abrirModalComentarios('{{ $post->idPostagem }}', `{{ route('store.comentario', ['idPostagem' => ':idPostagem']) }}`, '{{ $post->fotoPost }}')">
+                                            <i class="fa-regular fa-comment"></i>
+                                        </button>
                                 </div>
+                            </div>
+                            <div class="legenda-perfil">
+                                <strong>{{ $post->perfils->nickname }}</strong>: {{ $post->legenda }}
                             </div>
                         </section>
                     @endforeach
+                    
 
-                   <!-- Modal de Comentário -->
-                    <div id="modalComentario" class="modal-coment" style="display: none;">
-                        <div class="modal-content-coment">
-                            <span class="close" onclick="fecharModalComentario()">&times;</span>
-                            <h2>Comentar na Postagem</h2>
-                            <input type="text" id="inputComentarioModal" name="inputComentarioModal" placeholder="Escreva seu comentário...">
-                            <div class="botoes">
-                                <button class="enviar" onclick="enviarComentarioModal()">Comentar</button>
-                                <button class="cancel" onclick="fecharModalComentario()">Fechar</button>
-                            </div>
-                        </div>
-                    </div>
+                  
 
             <section class="card-post">
                
@@ -103,7 +83,7 @@
             <div class="cont-assuntos">
                 
                 <div class="assuntos">
-                <h5 class="txt-assuntos">Assuntos das Comunidades</h5>
+                <h5 class="txt-assuntos"></h5>
                 </div>
 
                 <section class='card-assunto'>
@@ -177,7 +157,36 @@
         </section>
     </div>
 
-
+  <!-- Modal de Comentários -->
+  <div class="box-modal-comentarios box-modal">
+                            <dialog class="modal-comentarios-post">
+                                <div class="cont-modal-comentarios">
+                                    <div class="cont-header-modal">
+                                        <button type="button" onclick="fecharModalComentarios()">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </div>
+                                    <div class="cont-info-comentarios">
+                                        <div class="cont-img">
+                                            <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post">
+                                        </div>
+                                        <div class="cont-card-comentarios">
+                                            <div class="chat-scroll">
+                                                <!-- Comentários serão carregados aqui -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cont-form">
+                                        <form action="" method="post" class="form-comentar">
+                                            @csrf
+                                            <input type="text" name="comentario" required id="inputComentarioModal" placeholder="Digite seu comentário...">
+                                            <button type="submit"><span class="material-symbols-outlined">send</span></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </dialog>
+                        </div>
+                    </div>
 
 <script>
 function curtirPost(button, postId) {
@@ -227,86 +236,12 @@ function curtirPost(button, postId) {
         });
     }
 }
-
-
-let postagemAtual = null;
-
-// Função para abrir o modal de comentários
-function abrirModalComentario(idPostagem) {
-    postagemAtual = idPostagem; // Define qual postagem está sendo comentada
-    document.getElementById("modalComentario").style.display = "block"; // Exibe o modal
-}
-
-// Função para fechar o modal de comentários
-function fecharModalComentario() {
-    document.getElementById("modalComentario").style.display = "none"; // Oculta o modal
-    document.getElementById("inputComentarioModal").value = ''; // Limpa o campo de comentário
-}
-
-// Função para enviar o comentário
-function enviarComentarioModal() {
-    const conteudo = document.getElementById("inputComentarioModal").value;
-
-    if (!conteudo) {
-        alert("Você precisa preencher o campo!");
-        return;
-    }
-
-    fetch(`/comentarios/${postagemAtual}`, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-    },
-    body: JSON.stringify({ txtComentario: conteudo })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao enviar o comentário');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.status === 'Comentário enviado') {
-            // ... Lógica para atualizar a página com o novo comentário
-        } else {
-            alert("Erro ao enviar o comentário.");
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert("Erro ao enviar o comentário.");
-    });
-}
-
-// Função para carregar mais comentários
-function verMaisComentarios(idPostagem) {
-    fetch(`/comentarios/${idPostagem}`)
-    .then(response => response.json())
-    .then(data => {
-        if (data.comentarios) {
-            const comentariosPostagem = document.querySelector(`#comentarios${idPostagem}`);
-            comentariosPostagem.innerHTML = ''; // Limpa os comentários atuais
-
-            // Adiciona todos os comentários
-            data.comentarios.forEach(comentario => {
-                const comentarioDiv = document.createElement('div');
-                comentarioDiv.classList.add('comentario');
-                comentarioDiv.innerHTML = `<strong>${comentario.perfils.nickname}:</strong> <span>${comentario.conteudo}</span>`;
-                comentariosPostagem.appendChild(comentarioDiv);
-            });
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert("Erro ao carregar mais comentários.");
-    });
-}
-
 </script>
 
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{url('assets/js/home/visualizacoes.js')}}"></script>
+    <script src="{{url('assets/js/home/script-comentarios.js')}}"></script>
 @endsection

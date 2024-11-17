@@ -287,3 +287,5 @@ Route::get('/mostrar-postagem/{idPostagem}', [PostagemController::class, 'showPo
 //Rota para mostrar os comentários
 
 Route::get('/mostrar-comentarios-post/{idPostagem}',[ComentariosController::class, 'show'])->name('show.chat.post');
+
+Route::get('/comunidades', [ComunidadeController::class, 'showComunidades'])->name('comunidades');
