@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PerfilMensagens;
 
 class Perfil extends Model
 {
@@ -64,7 +65,7 @@ class Perfil extends Model
     //Mensagens recebidas pelos outros perfils
 
     public function mensagensRecebidas(){
-        return $this->belongsToMany(Mensagen::class, 'idPerfilReceptor', 'idMensagem');
+        return $this->belongsToMany(Mensagen::class, 'perfil_mensagens', 'idPerfilReceptor', 'idMensagem');
     }
 
     //Acessar as mensagens direitamente
@@ -82,11 +83,15 @@ class Perfil extends Model
     public function visualizacoes(){
         return $this->belongsToMany(Visualizacoes::class, 'visualizacoes', 'idPerfil');
     }
+
     protected static function boot()
     {
         parent::boot();
 
         static::deleting(function ($perfil){
+            // Deletar mensagens relacionadas no perfil_mensagens
+            PerfilMensagens::where('idPerfilEmissor', $perfil->idPerfil)->orWhere('idPerfilReceptor', $perfil->idPerfil)->delete();
+
             //Deleta as postagens
             $perfil->usuarios()->delete();
 
@@ -97,6 +102,22 @@ class Perfil extends Model
             //Deletagem de categorias
 
             $perfil->categorias()->delete();
+
+            //Deletar os comentarios
+
+            $perfil->visualizacoes()->delete();
+
+            //Deletar os comentários
+            $perfil->comentarios()->delete();
+
+            $perfil->seguidores()->delete();
+            
+            $perfil->seguindo()->delete();
+
+            $perfil->comunidades()->delete();
+
+            
+            
         });
     }
     use HasFactory;

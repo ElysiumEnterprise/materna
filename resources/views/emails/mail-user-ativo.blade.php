@@ -40,7 +40,7 @@
             color: rgb(148, 26, 26);
             text-align: center;
         }
-        header img{
+        img{
             width: 200px;
             object-fit: contain;
         }
@@ -75,18 +75,26 @@
     </style>
 </head>
 <body>
-    <header>
-        <img src="cid:Logo-Materna.png" alt="Logo da Materna">
-    </header>
-    <main>
-        <div class="cont-titulo">
-            <h1>Sua conta Materna está ativa!!!</h1>
-        </div>
-        <div class="cont-desc">
-            <p>{{$nomeUsuario}}, sua conta está ativa novamente! Você pode logar e retornar à Materna com todos os seus dados salvos!</p>
+    <table>
+        <tr class="header">
+            <td style="text-align: center;">
+                <img src="cid:Logo-Materna.png" alt="logo da Materna">
+            </td>
+        </tr>
+        <tr class="cont-titulo">
+            <td>
+                <h1>Sua conta Materna está ativa!!!</h1>
+            </td>
+        </tr>
+        <tr class="cont-desc">
+            <td><p>{{$nomeUsuario}}, sua conta está ativa novamente! Você pode logar e retornar à Materna com todos os seus dados salvos!</p></td>
             
-        </div>
+        </tr>
+    </table>
+    
         
-    </main>
+        
+        
+    
 </body>
 </html>

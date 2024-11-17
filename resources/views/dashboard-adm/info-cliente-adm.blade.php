@@ -5,6 +5,8 @@
 @section('link-css')
 
     <link rel="stylesheet" href="{{url('assets/css/info-clientes-adm.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/clientes-adm.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/denuncias-adm.css')}}">
 @endsection
 
 @section('cont-adm')
@@ -87,17 +89,8 @@
                                         <p>{{$denuncia->detalheDenuncia}}</p>
                                     </div>
                                     <div class="cont-escolha-denuncia">
-                                        <form action="{{route('aceitar.denuncia', $denuncia->idDenuncia)}}" method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <button type="submit" class="btn-check"><i class="fa-solid fa-check"></i></button>
-                                        </form>
-                                        <form action="{{route('recusar.denuncia', $denuncia->idDenuncia)}}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
-                                        </form>
-                                       
+                                        <button type="button" class="btn-check" onclick="abrirModalAceitarDenuncia('{{$denuncia->idDenuncia}}', `{{route('aceitar.denuncia', ['idDenuncia' => ':idDenuncia'])}}`)"><i class="fa-solid fa-check"></i></button>
+                                        <button type="button" onclick="abrirModalRecusarDenuncia('{{$denuncia->idDenuncia}}', `{{route('recusar.denuncia', ['idDenuncia' => ':idDenuncia'])}}`)" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                                     </div>
                                     
                                 </div>
@@ -127,8 +120,43 @@
             </div>
         </dialog>
     </div>
+    <div class="box-modal-aceitar-denuncia" id="box-modal">
+        <dialog class="modal-aceitar-denuncia">
+            <div class="cont-modal">
+                <p>Escreva o motivo da escolha do resultado da denúncia:</p>
+                <form action="" method="post" class="form-aceitar">
+                    @csrf
+                    @method('PUT')
+                    <textarea name="txtEsclarecimento" id="txtEsclarecimento" placeholder="Digite o esclarecimento aqui..."></textarea>
+                    <div class="cont-btn">
+                        <button type="submit">Confirmar</button>
+                        <button type="button" onclick="fecharModalAceitarDenuncia()">Cancelar</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </dialog>
+    </div>
+    <div class="box-modal-recusar-denuncia" id="box-modal">
+        <dialog class="modal-recusar-denuncia">
+            <div class="cont-modal">
+                <p>Escreva o motivo da escolha do resultado da denúncia:</p>
+                <form action="" method="post" class="form-recusar">
+                    @csrf
+                    @method('DELETE')
+                    <textarea name="txtEsclarecimento" id="txtEsclarecimento" placeholder="Digite o esclarecimento aqui..."></textarea>
+                    <div class="cont-btn">
+                        <button type="submit">Confirmar</button>
+                        <button type="button" onclick="fecharModalRecusarDenuncia()">Cancelar</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </dialog>
+    </div>
 @endsection
 @section('scripts')
     <script src="{{url('assets/js/dashboard/script-modal-exclusao.js')}}"></script>
+    <script src="{{url('assets/js/dashboard/script-denuncias.js')}}"></script>
 @endsection
 
