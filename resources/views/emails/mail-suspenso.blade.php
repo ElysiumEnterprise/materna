@@ -40,7 +40,7 @@
             color: rgb(148, 26, 26);
             text-align: center;
         }
-        header img{
+        img{
             width: 200px;
             object-fit: contain;
         }
@@ -75,20 +75,30 @@
     </style>
 </head>
 <body>
-    <header>
-        <img src="cid:Logo-Materna.png" alt="Logo da Materna">
-    </header>
-    <main>
-        <div class="cont-titulo">
-            <h1>Você está suspenso da Materna!!!</h1>
-        </div>
-        <div class="cont-desc">
-            <p>{{$nomeUsuario}}, você está suspenso da nossa plataforma devido ao acúmulo de <span>{{$qtddDenuncias}}</span> denúncias registradas em seu perfil!</p>
-            <p>Assim, suspendemos sua conta para garantir por comportamento indevido em nossa plataforma!</p>
-        </div>
-        <div class="cont-detalhes">
-            <p>Se você não concorda com a suspensão de sua conta ou achar que foi indevidamente realizada, por favor, contate ao nosso email!</p>
-        </div>
-    </main>
+    <table>
+        <tr class="header">
+            <td style="text-align: center;">
+                <img src="cid:Logo-Materna.png" alt="logo da Materna">
+            </td>
+        </tr>
+        <tr class="cont-titulo">
+            <td><h1>Você está suspenso da Materna!!!</h1></td>
+        </tr>
+        <tr class="cont-desc">
+            <td><p>{{$nomeUsuario}}, você está suspenso da nossa plataforma devido ao acúmulo de <span>{{$qtddDenuncias}}</span> denúncias registradas em seu perfil!</p></td>
+            
+        </tr>
+        <tr>
+            <td><p>Assim, suspendemos sua conta para garantir por comportamento indevido em nossa plataforma!</p></td>
+        </tr>
+        <tr class="cont-detalhes">
+            <td><p>Se você não concorda com a suspensão de sua conta ou achar que foi indevidamente realizada, por favor, contate ao nosso email!</p></td>
+        </tr>
+    </table>
+    
+        
+       
+        
+    
 </body>
 </html>

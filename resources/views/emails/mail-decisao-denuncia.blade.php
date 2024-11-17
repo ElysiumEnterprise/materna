@@ -15,11 +15,10 @@
     }
     body{
         display: flex;
-        flex-direction: column;
         padding: 10px;
         width: 100%;
         height: 100%;
-        
+        flex-direction: column;
     }
     header{
         display: flex;
@@ -95,32 +94,28 @@
     <title>Denúncia</title>
 </head>
 <body>
-<table class="container">
+    <table>
         <tr class="header">
             <td style="text-align: center;">
                 <img src="cid:Logo-Materna.png" alt="logo da Materna">
             </td>
         </tr>
-        <tr>
-            <td>
-                <h1>Você Recebeu uma Denúncia!!!</h1>
-            </td>
+        <tr class="cont-titulo">
+            <td><h1>Resultado da Denúncia</h1></td>
+        </tr>
+        <tr class="cont-desc">
+            <td><h2>{{$nomeUsuario}}, sua denúncia para o usuário {{$denunciado}}, denunciado por {{$motivoDenuncia}}, foi {{$decisaoDenuncia}}!</h2></td>
+            
+            
         </tr>
         <tr>
-            <td>
-                <h2>Motivo: {{$denuncia}}</h2>
-            </td>
+            <td><p>Mensagem da equipe Materna sobre a decisão da denúncia:</p></td>
         </tr>
         <tr>
-            <td>
-                <p>Você recebeu essa denúncia devido ao comportamento indevido em nosso sistema.</p>
-                <p>No total, você têm <span>{{$qtddDenuncia}} denúncias</span>! Lembre-se que, se você receber 3 denúncias, você terá sua conta suspensa em nossa plataforma!</p>
-            </td>
+            <td><p>{{$esclarecimento}}</p></td>
         </tr>
-        <tr>
-            <td>
-                <p>Se você discorda que recebeu uma denúncia indevidamente, por favor, responda esse e-mail!</p>
-            </td>
+        <tr class="cont-detalhes">
+            <td><p>Se você discorda sobre a decisão da denúncia, por favor, responde esse email!</p></td>
         </tr>
     </table>
 </body>

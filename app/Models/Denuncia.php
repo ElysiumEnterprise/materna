@@ -17,11 +17,16 @@ class Denuncia extends Model
         'motivoDenuncia',
         'denunciaVerificada',
         'idUsuario',
-        'detalheDenuncia'
+        'detalheDenuncia',
+        'idUsuarioEmissor'
     ];
 
     public function usuarios(){
         return $this->belongsTo(Usuario::class, 'idUsuario');
+    }
+
+    public function usuarioEmissor(){
+        return $this->belongsTo(Usuario::class, 'idUsuarioEmissor');
     }
     use HasFactory;
 }

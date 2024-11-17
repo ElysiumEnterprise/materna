@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DenunciaAprovadaEmissorMail;
 use App\Mail\DenunciaMail;
 use App\Mail\SuspensoMail;
 use App\Models\Denuncia;
@@ -13,6 +14,9 @@ class DenunciaController extends Controller
 {
 
     public function store(Request $request, $idUsuario){
+
+        $usuarioAuth = Auth::user();
+
         $request->validate(
             [
                 'motivoDenuncia' => 'required||min:3',
@@ -30,13 +34,24 @@ class DenunciaController extends Controller
         Denuncia::create([
             'motivoDenuncia' => $request->motivoDenuncia,
             'idUsuario'=> $idUsuario,
+            'idUsuarioEmissor'=> $usuarioAuth->idUsuario,
             'detalheDenuncia' => $request->detalhesDenuncia,
         ]);
 
         return redirect()->back()->with('status', 'Denúncia realizada com sucesso!');
     }
-    public function aceitarDenuncia($idDenuncia){
+    public function aceitarDenuncia(Request $request, $idDenuncia){
 
+        $request->validate(
+            [
+                'txtEsclarecimento' => 'required||max:250|min:5',
+            ],
+            [
+                'txtEsclarecimento.required' => 'Preencha esse campo!',
+                'txtEsclarecimento.max' => 'O campo atingiu o limite de 250 caracteres!',
+                'txtEsclarecimento.min' => 'O campo precisa ter, no mínimo, 5 caracteres!'
+            ]
+        );
         $denuncia = Denuncia::find($idDenuncia);
 
         $denuncia->denuciaVerificada = 1;
@@ -52,28 +67,38 @@ class DenunciaController extends Controller
 
         $usuario->qtddDenuncias = Denuncia::where('idUsuario', $usuario->idUsuario)->where('denuciaVerificada', 1)->count();
 
-        if($usuario->qtddDenuncias >= 3){
-            if($usuario->isSuspenso == 0){
-                $usuario->isSuspenso = 1;
-                Mail::to('machado.gui.oliveira@gmail.com')->send(new SuspensoMail($usuario->nome, $qtddDenuncia));
-            }
-        }else{
-            Mail::to('machado.gui.oliveira@gmail.com')->send(new DenunciaMail($motivoDenuncia, $nomeUsuario, $qtddDenuncia));
-        }
+        
+        Mail::to('machado.gui.oliveira@gmail.com')->send(new DenunciaMail($motivoDenuncia, $nomeUsuario, $qtddDenuncia));
+        
+        Mail::to('machado.gui.oliveira@gmail.com')->send(new DenunciaAprovadaEmissorMail($denuncia->usuarioEmissor->nome, 'Aprovada', $denuncia->usuarios->nome, $denuncia->motivoDenuncia, $request->txtEsclarecimento));
 
         $usuario->save();
 
         return redirect()->back()->with('message', "Denúncia de ID ". $idDenuncia. " verificada!");
     }
 
-    public function recusarDenuncia($idDenuncia){
+    public function recusarDenuncia(Request $request, $idDenuncia){
+
+        $request->validate(
+            [
+                'txtEsclarecimento' => 'required||max:250|min:5',
+            ],
+            [
+                'txtEsclarecimento.required' => 'Preencha esse campo!',
+                'txtEsclarecimento.max' => 'O campo atingiu o limite de 250 caracteres!',
+                'txtEsclarecimento.min' => 'O campo precisa ter, no mínimo, 5 caracteres!'
+            ]
+        );
 
         $denuncia = Denuncia::find($idDenuncia);
 
+        Mail::to('machado.gui.oliveira@gmail.com')->send(new DenunciaAprovadaEmissorMail($denuncia->usuarioEmissor->nome, 'Recusada', $denuncia->usuarioEmissor->nome, $denuncia->motivoDenuncia, $request->txtEsclarecimento));
+        
         $denuncia->delete();
 
         return redirect()->back()->with('message', "Denúncia de ID ". $idDenuncia. " deleteda!");
     }
+
     public function listarDenunciasPendentes(){
         if(Auth::check() && Auth::user()->idNivelUsuario == 2){
             $denunciasPendentes = Denuncia::with(['usuarios'])->latest()->where('denuciaVerificada', 0)->get();

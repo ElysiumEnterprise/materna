@@ -173,23 +173,20 @@
 .cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas{
     display: flex;
     width: 10%;
-    justify-content: center;
+    height: auto;
+    justify-content: end;
     align-items: center;
 }
 
-.cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas> form{
-    display: flex;
-   
-    justify-content: space-around;
-    align-items: center;
-}
 
-.cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas >form>button{
+
+.cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas >button{
     display: flex;
-    width:40px;
-    height: 40px;
+    width:100%;
+    height: 100%;
     margin-right: 10px;
     border-radius: 10%;
+    padding: 10px;
     background-color: transparent;
     text-decoration: none;
     justify-content: center;
@@ -197,11 +194,11 @@
     cursor: pointer;
 }
 
-.cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas form .btn-check{
+.cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas .btn-check{
     background-color: #11b738;
 }
 
-.cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas form>button  i{
+.cont-lista-denuncias .card-denuncia .cont-info .cont-btn-escolhas button  i{
     font-size: 20px;
     color: white;
 }
