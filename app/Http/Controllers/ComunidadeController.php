@@ -114,7 +114,7 @@ class ComunidadeController extends Controller
                 'fotoComunidade' => $requestImage,
                 'nomeComunidade' => $request->nomeComunidade,
                 'descComunidade' => $request->descComunidade,
-                'dtCriacaoComunidade' => Carbon::date('now'),
+                'dtCriacaoComunidade' => Carbon::now(),
                 'idPerfilCriador' => $perfilAuth->idPerfil,
             ]);
 

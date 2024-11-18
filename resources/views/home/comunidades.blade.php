@@ -53,13 +53,13 @@
 
                                 </label>
 
-                                <label for="img-comunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
-                                <input type="file" name="img-comunidade" id="img-comunidade" hidden accept="image/*" value="{{old('img-comunidade')}}">
+                                <label for="fotoComunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
+                                <input type="file" name="fotoComunidade" id="fotoComunidade" hidden accept="image/*" value="{{old('fotoComunidade')}}">
                             </div>
 
                             <div class="input-group">
                                 <label for="nicknameComun">Nome da Comunidade: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
-                                <input type="text" name="nickname" id="nickname" placeholder="Crie um nome para a comunidade" value="{{old('nickname')}}">
+                                <input type="text" name="nomeComunidade" id="nomeComunidade" placeholder="Crie um nome para a comunidade" value="{{old('nomeComunidade')}}">
                             </div>
 
                             <div class="input-group">
@@ -77,7 +77,7 @@
 
                             <div class="input-group">
                                 <label for="biography">Biografia: <span class="errorField">@error('biography'){{$message}}@enderror</span></label>
-                            <textarea name="bio" id="bio" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('bio')}}"></textarea>
+                            <textarea name="descComunidade" id="descComunidade" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('descComunidade')}}"></textarea>
                             </div>
 
                             <div class="modal-footer">
