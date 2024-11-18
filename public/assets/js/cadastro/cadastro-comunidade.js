@@ -1,6 +1,6 @@
-const imgComunidade = document.querySelector('.fotoComunidade');
+const imgComunidade = document.querySelector('.img-comunidade');
 
-const fileImgComunidade = document.querySelector('#fotoComunidade')
+const fileImgComunidade = document.querySelector('#imgComunidade')
 
 const dropAreaBanner = document.querySelector('#drag-area-banner');
 const fileBanner = document.querySelector('#imgCapa');

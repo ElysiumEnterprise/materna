@@ -47,19 +47,19 @@
                             @csrf
                             <div class="cont-img-comunidade">
                                 
-                                <label for="fotoComunidade">
+                                <label for="imgComunidade">
 
-                                <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}" class="img-fluid fotoComunidade" alt="Foto da comunidade">
+                                <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}" class="img-fluid img-comunidade" alt="Foto da comunidade">
 
                                 </label>
 
-                                <label for="fotoComunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
-                                <input type="file" name="fotoComunidade" id="fotoComunidade" hidden accept="image/*" value="{{old('fotoComunidade')}}">
+                                <label for="imgComunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
+                                <input type="file" name="imgComunidade" id="imgComunidade" hidden accept="image/*" value="{{old('imgComunidade')}}">
                             </div>
 
                             <div class="input-group">
                                 <label for="nicknameComun">Nome da Comunidade: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
-                                <input type="text" name="nomeComunidade" id="nomeComunidade" placeholder="Crie um nome para a comunidade" value="{{old('nomeComunidade')}}">
+                                <input type="text" name="nicknameComun" id="nicknameComun" placeholder="Crie um nome para a comunidade" value="{{old('nicknameComun')}}">
                             </div>
 
                             <div class="input-group">
@@ -76,8 +76,8 @@
                             </div>
 
                             <div class="input-group">
-                                <label for="descComunidade">Biografia: <span class="errorField">@error('descComunidade'){{$message}}@enderror</span></label>
-                            <textarea name="descComunidade" id="descComunidade" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('descComunidade')}}"></textarea>
+                                <label for="biography">Biografia: <span class="errorField">@error('biography'){{$message}}@enderror</span></label>
+                            <textarea name="biography" id="biography" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('biography')}}"></textarea>
                             </div>
 
 
