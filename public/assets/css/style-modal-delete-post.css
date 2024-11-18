@@ -1,0 +1,138 @@
+@font-face{
+    font-family: "Fredoka";
+    src: url('../fonts/Fredoka-VariableFont_wdth,wght.ttf');
+}
+
+@font-face{
+    font-family: "Inter";
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+:root{
+    --color-primary: #F26699;
+    --color-danger: #fd5462;
+    --color-succes: #41f1b6;
+    --color-warning: #ffa927;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: #848bc82e;
+    --color-dark-variant: #677483;
+    --color-primary-variant: #111e88;
+    --color-background: #f6f6f9;
+    --color-toggler: #dce1eb;
+
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 4rem 5rem var(--color-light);
+}
+
+.cont-box-modal-delete-post.active{
+    position: fixed;         /* Cover the whole screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    z-index: 2000;
+}
+
+.cont-box-modal-delete-post .modal-excluir-post{
+    width: 600px; /* Ajuste o tamanho conforme necessário */
+    border: solid 1px #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    top: 50%; /* Posiciona o topo do modal no meio da tela */
+    left: 50%; /* Posiciona a esquerda do modal no meio da tela */
+    transform: translate(-50%, -50%); /* Ajusta o modal para que o centro esteja no meio da tela */
+    max-width: 90%; /* Adapta o modal em telas menores */
+    max-height: 80%; /* Adapta a altura do modal em telas menores */
+    overflow: auto; /* Permite rolagem se o conteúdo exceder a altura */
+   
+}
+
+.modal-excluir-post .cont-modal{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.modal-excluir-post .cont-modal h1{
+    font-family: 'Fredoka';
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    color: #f26699;
+}
+
+.modal-excluir-post .cont-modal .cont-desc{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-excluir-post .cont-modal .cont-desc p{
+    font-family: 'Fredoka';
+    
+    font-weight: normal;
+    text-align: center;
+    color: #003366;
+}
+.modal-excluir-post .cont-modal .cont-btn-escolha {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-excluir-post .cont-modal .cont-btn-escolha form button, .modal-excluir-post .cont-modal .cont-btn-escolha button{
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d02b39;
+    font-family: 'Fredoka';
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+.modal-excluir-post .cont-modal .cont-btn-escolha button{
+    background-color: #a0a0a0;
+    color: white;
+}
+.modal-excluir-post .cont-modal .cont-btn-escolha form button:hover, .cont-destroy-perfil  button:hover{
+    background-color: #9f101c;
+    transform: scale(1.01);
+}
+
+.modal-excluir-post .cont-modal .cont-btn-escolha button:hover{
+    background-color: #817f7f;
+    transform: scale(1.04);
+
+}
+
+.modal-excluir-post .cont-modal .cont-btn-escolha form button:active, .modal-excluir-post .cont-modal .cont-btn-escolha button, .cont-destroy-perfil  button{
+    border: none;
+    outline: none;
+}

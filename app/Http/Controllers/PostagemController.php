@@ -72,13 +72,15 @@ class PostagemController extends Controller
     }
 
     public function destroy($idPostagem){
-       
+       dd($idPostagem);
         if (Auth::check()) {
             $userAuth = Auth::user();
 
             $perfilAuth =$userAuth->perfils;
 
             if (Postagem::where('idPerfil', $perfilAuth->idPerfil)->where('idPostagem', $idPostagem)->exists()) {
+
+                
                 $postagem = Postagem::where('idPerfil', $perfilAuth->idPerfil)->where('idPostagem', $idPostagem)->first();
                 
 

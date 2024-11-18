@@ -127,7 +127,7 @@
     object-fit: fill;
 }
 
-.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios{
+.modal-analise-post .cont-modal-post-analise .cont-conteudo-analise .cont-graficos, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios,  .cont-card-comentarios {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -226,7 +226,7 @@
 }
 
 /*Modal de comentários*/
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .card-comentario{
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .card-comentario,.cont-card-comentarios .card-comentario{
     display: flex;
     width: 100%;
     justify-content: start;
@@ -234,7 +234,7 @@
     height: auto;
     padding: 10px;
 }
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-foto-perfil{
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-foto-perfil, .cont-card-comentarios .chat-scroll .card-comentario .cont-foto-perfil{
     display: flex;
     
     height: 10%;
@@ -242,7 +242,7 @@
     margin-right: 10px;
     align-items: center;
 }
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios {
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios, .cont-info-comentarios .cont-card-comentarios {
     overflow-y: auto; /* Ativa a barra de rolagem vertical */
     padding-right: 10px; /* Adiciona espaço para evitar que o texto fique sob a barra */
     position: relative;
@@ -270,14 +270,14 @@
 .chat-scroll::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .card-comentario .cont-foto-perfil img{
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .card-comentario .cont-foto-perfil img, .cont-card-comentarios .card-comentario .cont-foto-perfil img{
     width: 50px;
     height: 50px;
     border-radius:100% ;
     object-fit: fill;
 }
 
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat{
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat, .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat{
     display: flex;
     width: 90%;
     flex-direction: column;
@@ -286,17 +286,22 @@
     align-items: start;
 }
 
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll{
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll, .cont-card-comentarios .chat-scroll{
     margin-bottom: 50px;
 }
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat h6{
+
+.cont-card-comentarios .chat-scroll{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat h6, .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat h6{
     margin-bottom: 10px;
     font-family: 'Inter';
     color: var(--color-dark);
     font-weight: bold;
     text-align: justify;
 }
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat p{
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat p, .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat p{
     font-family: 'Inter';
     color: var(--color-dark);
     text-align: justify;

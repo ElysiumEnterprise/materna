@@ -9,7 +9,7 @@
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
 
 @section('cont-home')
-<div class="cont-box-modal">
+    <div class="cont-box-modal">
         <dialog class='modal-excluir'>
             <div class="cont-modal">
                 <h1>Tem Certeza?</h1>

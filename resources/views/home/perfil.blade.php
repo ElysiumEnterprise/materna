@@ -13,7 +13,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
+    <link rel="stylesheet" href="{{url('assets/css/style-modal-analise.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{{url('assets/css/style-modal-delete-post.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style-perfil.css')}}">
 
     
@@ -93,7 +95,7 @@
           @if($user->perfils->postagems->isNotEmpty())  
           <div class="photos">
             @foreach($user->perfils->postagems as $postagem)
-            <button type="button" onclick="abrirInfoPost('{{$postagem->idPostagem}}', '{{$postagem->fotoPost}}')">
+            <button type="button" onclick="abrirInfoPost('{{$postagem->idPostagem}}', '{{$postagem->fotoPost}}', `{{ route('store.comentario', ['idPostagem' => ':idPostagem']) }}`)">
               <img src="{{url('assets/img/file-posts/'.$postagem->fotoPost)}}" alt="Photo" />
             </button>
             
@@ -140,10 +142,13 @@
     <div class="box-modal-post-perfil">
       <dialog class="modal-post-perfil">
         <div class="cont-header-modal">
-          
+          <button type="button" onclick="abrirModalDeletePost()">
+            <i class="fa-solid fa-trash"></i>
+          </button>
           <button type="button" onclick="fecharModalPostPerfil()">
             <i class="fa-solid fa-xmark"></i>
           </button>
+          
         </div>
         <div class="cont-info-post">
           <!-- Container da imagem do lado esquerdo -->
@@ -175,10 +180,13 @@
                 <h6>Comentários</h6>
                 <!-- Aqui serão as sections vinda do banco de dados de todos os comentários dessa postagem -->
                 <div class="cont-card-comentarios">
-
+                    <div class="chat-scroll">
+                            <!-- Comentários serão carregados aqui -->
+                    </div>
                 </div>
                 <form action="" method="post" class="form-comentar">
-                  <input type="text" name="txtComentario" id="txtComentario">
+                  @csrf
+                  <input type="text" name="inputComentarioModal" required id="inputComentarioModal">
                   <button type="submit">
                     <span class="material-symbols-outlined">send</span>
                   </button>
@@ -194,7 +202,7 @@
         <dialog class="modal-deletar-post">
             <div class="cont-modal">
                 <p>Tem certeza que deseja deletar esse anúncio? Todos os comentários, curtidas e Visualizações serão perdidas ao executar essa ação!</p>
-                <form action="" method="post" class="form-delete">
+                <form action="" method="POST" class="form-delete-post">
                     @csrf
                     @method('DELETE')
                     <div class="cont-btn">
@@ -204,6 +212,24 @@
                 </form>
             </div>
             
+        </dialog>
+    </div>
+    <div class="cont-box-modal-delete-post box-modal">
+        <dialog class='modal-excluir-post'>
+            <div class="cont-modal">
+                <h1>Tem Certeza?</h1>
+                <div class="cont-desc">
+                    <p>Você perderá todos os comentários, curtidas e visualizações dessa postagem!</p>
+                </div>
+                <div class="cont-btn-escolha">
+                    <form action="" method="POST" class="form-delete-post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Excluir</button>
+                    </form>
+                    <button type="button" onclick="fecharModalDeletePost()">Cancelar</button>
+                </div>
+            </div>
         </dialog>
     </div>
 </div>
