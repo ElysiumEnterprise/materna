@@ -43,20 +43,23 @@
 
                     <div class="modal-body">
                         <div class="cont-form">
-                            <form action="{{route('criacao.comunidade'')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('criacao.comunidade')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="cont-img-comunidade">
                                 
-                                <label for="imgComunidade">
-                                <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}" class="img-fluid img-perfil" alt="Foto da comunidade">
+                                <label for="fotoComunidade">
+
+                                <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}" class="img-fluid fotoComunidade" alt="Foto da comunidade">
+
                                 </label>
-                                <label for="imgComunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
-                                <input type="file" name="imgPerfil" id="imgPerfil" hidden accept="image/*" value="{{old('imgComunidade')}}">
+
+                                <label for="fotoComunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
+                                <input type="file" name="fotoComunidade" id="fotoComunidade" hidden accept="image/*" value="{{old('fotoComunidade')}}">
                             </div>
 
                             <div class="input-group">
-                                <label for="nickname">Nome da Comunidade: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
-                                <input type="text" name="nickname" id="nickname" placeholder="Crie um nome para a comunidade" value="{{old('nickname')}}">
+                                <label for="nicknameComun">Nome da Comunidade: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
+                                <input type="text" name="nomeComunidade" id="nomeComunidade" placeholder="Crie um nome para a comunidade" value="{{old('nomeComunidade')}}">
                             </div>
 
                             <div class="input-group">
@@ -73,8 +76,8 @@
                             </div>
 
                             <div class="input-group">
-                                <label for="biography">Biografia: <span class="errorField">@error('biography'){{$message}}@enderror</span></label>
-                            <textarea name="biography" id="biography" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('biography')}}"></textarea>
+                                <label for="descComunidade">Biografia: <span class="errorField">@error('descComunidade'){{$message}}@enderror</span></label>
+                            <textarea name="descComunidade" id="descComunidade" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('descComunidade')}}"></textarea>
                             </div>
 
 
@@ -83,7 +86,7 @@
                     </div>
 
                     <div class="modal-footer">
-                    <button type="button" class="btn criar">Criar</button>
+                    <button type="submit" class="btn criar">Criar</button>
                     </div>
 
                     <span class="close">&times;</span>
@@ -246,5 +249,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{url('assets/js/modal-comunidades.js')}}"></script>
+<script src="{{url('assets/js/cadastro/cadastro-comunidade.js')}}"></script>
 @endsection
 

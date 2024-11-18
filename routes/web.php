@@ -295,4 +295,4 @@ Route::get('/criar-comunidade', function(){
     return view('comunidades');
 })->name('comunidades');
 
-Route::post('/criar-comunidade', [ComunidadeController::class, 'store'])->name('criacao.comunidade');
+Route::post('/criar-comunidade', [ComunidadeController::class, 'cadastrarComunidade'])->name('criacao.comunidade');
