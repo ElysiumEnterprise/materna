@@ -13,10 +13,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="{{url('assets/css/style-modal-analise.css')}}">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="{{url('assets/css/style-modal-delete-post.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style-perfil.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/style-modal-analise.css')}}">
 
     
     
@@ -141,8 +142,8 @@
 
     <div class="box-modal-post-perfil">
       <dialog class="modal-post-perfil">
-        <div class="cont-header-modal">
-          <button type="button" onclick="abrirModalDeletePost()">
+        <div class="cont-header-modal header-post-info">
+          <button type="button" class="btn-deletar" onclick="abrirModalDeletePost()">
             <i class="fa-solid fa-trash"></i>
           </button>
           <button type="button" onclick="fecharModalPostPerfil()">
@@ -177,7 +178,7 @@
             </div>
             <!-- Container de comentários -->
               <div class="cont-comentarios">
-                <h6>Comentários</h6>
+                <h6 class="txtTituloComentario">Comentários</h6>
                 <!-- Aqui serão as sections vinda do banco de dados de todos os comentários dessa postagem -->
                 <div class="cont-card-comentarios">
                     <div class="chat-scroll">
@@ -222,11 +223,9 @@
                     <p>Você perderá todos os comentários, curtidas e visualizações dessa postagem!</p>
                 </div>
                 <div class="cont-btn-escolha">
-                    <form action="" method="POST" class="form-delete-post">
-                        @csrf
-                        @method('DELETE')
+                    
                         <button type="submit">Excluir</button>
-                    </form>
+                    
                     <button type="button" onclick="fecharModalDeletePost()">Cancelar</button>
                 </div>
             </div>

@@ -135,9 +135,7 @@ Route::get('/home/preferencias', function(){
     return view('home.preferencias');
 });
 
-Route::get('/home/salvos', function(){
-    return view('home.salvos');
-});
+Route::get('/home/salvos', [CurtidasController::class, 'mostrarPostagensCurtidas']);
 
 
 //Formulário de cadastro

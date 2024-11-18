@@ -402,7 +402,7 @@
     overflow-y: auto;
 }
 
-.modal-post-perfil .cont-info-post .cont-lado-direito .cont-comentarios h6{
+.modal-post-perfil .cont-info-post .cont-lado-direito .cont-comentarios .txtTituloComentario{
     font-family: 'Inter';
     color: #d5527b;
     text-align: center;

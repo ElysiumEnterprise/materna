@@ -90,4 +90,17 @@ class CurtidasController extends Controller
         }
     }
 
+    public function mostrarPostagensCurtidas(){
+
+        if (Auth::check()) {
+            $userAuth = Auth::user();
+
+            $curtidas = Curtidas::with(['postagem'])->where('idUsuario', $userAuth->idUsuario)->get();
+
+            return view('home.salvos', compact('curtidas'));
+        }else{
+            return redirect()->route('/')->with('status', 'Você precisa estar logado para executar essa ação!');
+        }
+    }
+
    }

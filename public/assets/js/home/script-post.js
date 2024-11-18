@@ -54,7 +54,7 @@ function renderComentarios(data) {
                 <img src="/assets/img/foto-perfil/${comentario.perfils.fotoPerfil}" class="img-fluid img-foto-perfil" alt="Foto do perfil">
             </div>
             <div class="cont-info-chat">
-                <h6>${comentario.perfils.nickname}</h6>
+                <h6 class = 'txtNickComentario'>${comentario.perfils.nickname}</h6>
                 <p>${comentario.conteudo}</p>
             </div>`
 
@@ -128,7 +128,7 @@ function renderNovosComentarios(comentario) {
                 <img src="/assets/img/foto-perfil/${comentario.perfils.fotoPerfil}" class="img-fluid img-foto-perfil" alt="Foto do perfil">
             </div>
             <div class="cont-info-chat">
-                <h6>${comentario.perfils.nickname}</h6>
+                <h6 class = 'txtNickComentario'>${comentario.perfils.nickname}</h6>
                 <p>${comentario.conteudo}</p>
             </div>`
 

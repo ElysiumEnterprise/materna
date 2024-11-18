@@ -85,6 +85,24 @@
     align-items: center;
 }
 
+.header-post-info{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
+.header-post-info .btn-deletar{
+    
+    cursor: pointer;
+    
+
+    margin-right: 10px;
+}
+.header-post-info .btn-deletar i{
+    color: var(--color-danger);
+}
+
 .modal-analise-post .cont-modal-post-analise .cont-header-modal button, .box-modal .modal-comentarios-post .cont-modal-comentarios .cont-header-modal button{
     display: flex;
     background-color: transparent;
@@ -274,6 +292,7 @@
     width: 50px;
     height: 50px;
     border-radius:100% ;
+    margin-right: 10px;
     object-fit: fill;
 }
 
@@ -294,7 +313,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat h6, .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat h6{
+.box-modal .modal-comentarios-post .cont-modal-comentarios .cont-info-comentarios .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat h6, .cont-card-comentarios .chat-scroll .card-comentario .cont-info-chat .txtNickComentario{
     margin-bottom: 10px;
     font-family: 'Inter';
     color: var(--color-dark);

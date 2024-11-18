@@ -7,16 +7,37 @@
 font-family: "Inter";
 src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 }
+.cont-status{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}
 
+.cont-status i{
+    color: var(--color-primary);
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.cont-status p{
+    font-size: 20px;
+    color: var(--color-dark);
+    font-family: 'Inter';
+
+}
 .cont-salvos{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 112%;
+    width: 100%;
     min-height: 100%;
     margin-top: 3%;
     margin-bottom: 2%;
+    padding-left: 300px;
 }
 
 .cont-titulo{
@@ -26,7 +47,15 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     justify-content: center;
     align-items: center;
 }
-
+.cont-posts-curtidos{
+    
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    height: auto;
+    justify-content: end;
+    align-items: center;
+}
 .cont-titulo h2{
     font-family: 'Fredoka';
     font-size: 36px;
@@ -37,16 +66,18 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
 
 .cont-img{
     margin-top: 20px;
-    width: 100%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 20px;
+    
 }
 
 .img-salvos{
     width: 230px;
+    height: 230px;
+    object-fit: fill;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     border-radius: 8px;
