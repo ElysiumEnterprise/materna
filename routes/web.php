@@ -289,3 +289,10 @@ Route::get('/mostrar-postagem/{idPostagem}', [PostagemController::class, 'showPo
 Route::get('/mostrar-comentarios-post/{idPostagem}',[ComentariosController::class, 'show'])->name('show.chat.post');
 
 Route::get('/comunidades', [ComunidadeController::class, 'showComunidades'])->name('comunidades');
+
+
+Route::get('/criar-comunidade', function(){
+    return view('comunidades');
+})->name('comunidades');
+
+Route::post('/criar-comunidade', [ComunidadeController::class, 'store'])->name('criacao.comunidade');

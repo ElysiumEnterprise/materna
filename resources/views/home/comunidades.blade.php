@@ -43,9 +43,10 @@
 
                     <div class="modal-body">
                         <div class="cont-form">
-                            <form action="" method="post">
+                            <form action="{{route('criacao.comunidade'')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="cont-img-comunidade">
+                                
                                 <label for="imgComunidade">
                                 <img src="{{url('assets/img/foto-perfil/user-icon-default.png')}}" class="img-fluid img-perfil" alt="Foto da comunidade">
                                 </label>
