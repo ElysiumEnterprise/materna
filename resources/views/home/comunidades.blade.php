@@ -53,13 +53,13 @@
 
                                 </label>
 
-                                <label for="imgComunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
-                                <input type="file" name="imgComunidade" id="imgComunidade" hidden accept="image/*" value="{{old('imgComunidade')}}">
+                                <label for="img-comunidade" class="btn-mudar-img">Inserir foto da comunidade</label>
+                                <input type="file" name="img-comunidade" id="img-comunidade" hidden accept="image/*" value="{{old('img-comunidade')}}">
                             </div>
 
                             <div class="input-group">
                                 <label for="nicknameComun">Nome da Comunidade: <span class="errorField">@error('nickname'){{$message}}@enderror {{session('errorNickEqual')}}</span></label>
-                                <input type="text" name="nicknameComun" id="nicknameComun" placeholder="Crie um nome para a comunidade" value="{{old('nicknameComun')}}">
+                                <input type="text" name="nickname" id="nickname" placeholder="Crie um nome para a comunidade" value="{{old('nickname')}}">
                             </div>
 
                             <div class="input-group">
@@ -77,17 +77,18 @@
 
                             <div class="input-group">
                                 <label for="biography">Biografia: <span class="errorField">@error('biography'){{$message}}@enderror</span></label>
-                            <textarea name="biography" id="biography" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('biography')}}"></textarea>
+                            <textarea name="bio" id="bio" placeholder="Conte sobre sua comunidade para outras pessoas!" value="{{old('bio')}}"></textarea>
                             </div>
 
+                            <div class="modal-footer">
+                                <button type="submit" class="btn criar">Criar</button>
+                            </div>
 
                             </form>
                         </div>
                     </div>
 
-                    <div class="modal-footer">
-                    <button type="submit" class="btn criar">Criar</button>
-                    </div>
+                    
 
                     <span class="close">&times;</span>
                     
