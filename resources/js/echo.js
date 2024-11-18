@@ -67,6 +67,9 @@ setInterval(()=>{
 }, 1000)
 
 function buscarMensagens(idPerfilReceptor) {
+    //Armazena os IDS das mensagens 
+
+    const mensagensExibidas = new Set();
     $.ajax({
         url: `/home/mensagens/buscar-novas/${idPerfilReceptor}?ultimoIdMensagem=${ultimoIdMensagem}`,
         method: 'GET',
@@ -74,25 +77,32 @@ function buscarMensagens(idPerfilReceptor) {
             // Para evitar duplicação, armazene os IDs das mensagens já mostradas
             if(data.mensagens.length > 0){
                 data.mensagens.forEach(mensagem =>{
-                    console.log(idPerfilAuth)
-                    console.log(mensagem.emissores[0].idPerfil)
-                    const classePosicao = mensagem.emissores[0].idPerfil === idPerfilAuth ? 'message__self' : 'message__other';
-                    const fotoPerfilPath = `/assets/img/foto-perfil/${mensagem.emissores[0].fotoPerfil}`;
-                        const novaMensagem = `<div class="card-mensagem ${classePosicao}">
-                                        <div class="cont-header">
-                                            <p>${mensagem.emissores[0].nickname}</p>
+                    if (!mensagensExibidas.has(mensagem.idMensagem)) {
+                        console.log(idPerfilAuth)
+                        console.log(mensagem.emissores[0].idPerfil)
+                        const classePosicao = mensagem.emissores[0].idPerfil === idPerfilAuth ? 'message__self' : 'message__other';
+                        const fotoPerfilPath = `/assets/img/foto-perfil/${mensagem.emissores[0].fotoPerfil}`;
+                            const novaMensagem = `<div class="card-mensagem ${classePosicao}">
+                                            <div class="cont-header">
+                                                <p>${mensagem.emissores[0].nickname}</p>
+                                            </div>
+                                            <div class="cont-desc">
+                                                <strong>${mensagem.conteudoMensagem}</strong>
+                                                <img src="${fotoPerfilPath}" class="img-fluid3" >
+                                            </div>
+                                                
                                         </div>
-                                        <div class="cont-desc">
-                                            <strong>${mensagem.conteudoMensagem}</strong>
-                                            <img src="${fotoPerfilPath}" class="img-fluid3" >
-                                        </div>
-                                            
-                                    </div>
-    `;
-                        
-                        document.querySelector('.chat__messages_card').innerHTML +=novaMensagem; 
-                        // Atualiza o último ID exibido
-                         ultimoIdMensagem = Math.max(ultimoIdMensagem, mensagem.idMensagem)
+        `;
+                            
+                            document.querySelector('.chat__messages_card').innerHTML +=novaMensagem; 
+                            // Atualiza o último ID exibido
+                            ultimoIdMensagem = Math.max(ultimoIdMensagem, mensagem.idMensagem);
+
+                            //Armazena o ID da mensagem exibida
+
+                            mensagensExibidas.add(mensagem.idMensagem);
+                    }
+                    
                 })
                 
             
