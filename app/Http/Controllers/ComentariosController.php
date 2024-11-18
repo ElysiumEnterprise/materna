@@ -32,6 +32,8 @@ class ComentariosController extends Controller
                 'conteudo' => $request->inputComentarioModal,
             ]);
 
+            
+
             $comentarioJSON = Comentarios::with(['perfils'])->where('idComentario', $comentario->idComentario)->first();
 
             return response()->json([
