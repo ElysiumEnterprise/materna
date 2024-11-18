@@ -159,34 +159,34 @@
 
   <!-- Modal de Comentários -->
   <div class="box-modal-comentarios box-modal">
-                            <dialog class="modal-comentarios-post">
-                                <div class="cont-modal-comentarios">
-                                    <div class="cont-header-modal">
-                                        <button type="button" onclick="fecharModalComentarios()">
-                                            <i class="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </div>
-                                    <div class="cont-info-comentarios">
-                                        <div class="cont-img">
-                                            <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post">
-                                        </div>
-                                        <div class="cont-card-comentarios">
-                                            <div class="chat-scroll">
-                                                <!-- Comentários serão carregados aqui -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cont-form">
-                                        <form action="" method="post" class="form-comentar">
-                                            @csrf
-                                            <input type="text" name="comentario" required id="inputComentarioModal" placeholder="Digite seu comentário...">
-                                            <button type="submit"><span class="material-symbols-outlined">send</span></button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </dialog>
+        <dialog class="modal-comentarios-post">
+            <div class="cont-modal-comentarios">
+                <div class="cont-header-modal">
+                    <button type="button" onclick="fecharModalComentarios()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="cont-info-comentarios">
+                    <div class="cont-img">
+                        <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post">
+                    </div>
+                    <div class="cont-card-comentarios">
+                        <div class="chat-scroll">
+                            <!-- Comentários serão carregados aqui -->
                         </div>
                     </div>
+                </div>
+                <div class="cont-form">
+                    <form action="" method="post" class="form-comentar">
+                        @csrf
+                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário...">
+                        <button type="submit"><span class="material-symbols-outlined">send</span></button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+    </div>
+</div>
 
 <script>
 function curtirPost(button, postId) {

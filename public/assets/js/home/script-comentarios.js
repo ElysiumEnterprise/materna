@@ -18,6 +18,8 @@ function abrirModalComentarios(idPostagem, urlTemplate, urlImg) {
 
     formComentar.action =url;
 
+    console.log(formComentar)
+
     boxModalComentarios.classList.add('active');
     modalComentarios.show();
 
@@ -62,18 +64,19 @@ formComentar.addEventListener('submit', function (e) {
     //Evitar o caregamento da página
     e.preventDefault();
 
-    const formData = new FormData(this); //Obtém os dados do formulário
+    const formData = new FormData(this);
 
     const actionUrl = this.action; //Pegar a URL do formuçário presente
-
     //Enviar os dados via ajax
     fetch(actionUrl,{
         method: 'POST',
         body: formData,
         headers:{
             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            
         },
     }).then(response=>response.json()).then(data=>{
+        console.log(data)
         if (data.status === 'Comentário enviado') {
             //Adiciona o comentário ao modal
 
