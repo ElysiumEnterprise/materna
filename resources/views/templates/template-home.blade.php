@@ -100,10 +100,10 @@
 
                         <li class="side-item">
                             <a href="/home/salvos">
-                                <i class="fa-solid fa-floppy-disk" style="color: #ffb6c1"></i>
+                                <i class="fa-solid fa-heart" style="color: #ffb6c1"></i>
 
                                 <span class="item-description">
-                                    Itens Salvos
+                                   Curtidas
                                 </span>
 
                             </a>
