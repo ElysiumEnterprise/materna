@@ -9,7 +9,7 @@
 @section('cont-home')
 <div class="cont-salvos">
     <div class="cont-titulo">
-        <h2>Itens Salvos</h2>
+        <h2>Curtidas</h2>
     </div>
     @if($curtidas->isNotEmpty())
         <div class="cont-posts-curtidos">
