@@ -59,9 +59,6 @@
                                         </button>
                                 </div>
                             </div>
-                            <div class="legenda-perfil">
-                                <strong>{{ $post->perfils->nickname }}</strong>: {{ $post->legenda }}
-                            </div>
                         </section>
                     @endforeach
                     
@@ -166,10 +163,11 @@
                     <button type="button" onclick="fecharModalComentarios()">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
+                    <h4 id="nomePerfilModal"></h4> <!-- Local para o nome do perfil -->
                 </div>
                 <div class="cont-info-comentarios">
                     <div class="cont-img">
-                        <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post" style="height: 450px; width: auto; object-fit: cover; border-radius: 8px; display: block; margin: 0 auto;">
+                        <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post" style="height: 560px; width: auto; object-fit: fill; border-radius: 8px; display: block; margin: 0 auto;">
                         
                     </div>
                     <div class="cont-card-comentarios">

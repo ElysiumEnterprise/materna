@@ -1,12 +1,17 @@
 const formComentar = document.querySelector('.form-comentar');
-function abrirModalComentarios(idPostagem, urlTemplate, urlImg) {
+function abrirModalComentarios(idPostagem, urlTemplate, urlImg, nomePerfil) {
     const boxModalComentarios = document.querySelector('.box-modal-comentarios');
     const modalComentarios = document.querySelector('.modal-comentarios-post');
     
 
     const imgPost = document.querySelector('.img-post-comentario');
 
+
+
     imgPost.src = `/assets/img/file-posts/${urlImg}`;
+    
+    const nomePerfilModal = document.getElementById('nomePerfilModal');
+    nomePerfilModal.textContent = nomePerfil; // Exibir o nome no modal
 
     fetch(`/mostrar-comentarios-post/${idPostagem}`).then(response => response.json()).then(data=>{
         renderComentarios(data)
