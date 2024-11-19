@@ -659,10 +659,16 @@ main table tbody tr:last-child td{
         padding: 0 1rem;
     }
 
-    main .recent-orders{
-        position: relative;
-        margin: 3rem 0 0 0;
-        width: 100%;
+    
+    main .insights,
+    main .recent-orders,
+    main .right .recent-updates {
+        margin-bottom: 2rem; /* Adiciona um espaço abaixo de cada seção */
+    }
+
+    /* Se "Atualizações Recentes" estiver dentro de um container diferente, ajuste o seletor */
+    .container-atualizacoes {
+        clear: both; /* Força a seção a iniciar em uma nova linha */
     }
 
     main .recent-orders table{
@@ -670,10 +676,7 @@ main table tbody tr:last-child td{
         margin: 0;
     }
 
-    .right{
-        width: 94%;
-        margin: 0 auto 4rem;
-    }
+    
 
     .right .top{
         position: fixed;
