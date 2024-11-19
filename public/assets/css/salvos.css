@@ -14,6 +14,11 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     height: 300px;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
+}
+
+.txt-status{
+    margin-top: 25px;
 }
 
 .cont-status i{

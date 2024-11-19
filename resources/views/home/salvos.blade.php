@@ -25,7 +25,7 @@
     @else
         <div class="cont-status">
             <i class="fa-solid fa-circle-exclamation"></i>
-            <p>Você ainda não gerou nenhum anúncio</p>
+            <p class="txt-status">Você ainda não curtiu nenhuma postagem</p>
         </div>
     @endif
 
