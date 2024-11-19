@@ -127,17 +127,13 @@ class MensagensController extends Controller
                 $q->where('idPerfilReceptor', $idPerfilEmissor);
             });
         })->where('statusLeitura', false)
-        ->orderBy('created_at', 'asc')
+        ->orderBy('idMensagem', 'asc')
         ->get();
 
-        if ($ultimoIdMensagem !== 'null') {
-            $mensagens->where('idMensagem', '>', $ultimoIdMensagem);
+        if ($mensagens->isNotEmpty()) {
+            $mensagensIds = $mensagens->pluck('idMensagem');
+            Mensagen::whereIn('idMensagem', $mensagensIds)->update(['statusLeitura' => true]);
         }
-
-    
-        $mensagensIds = $mensagens->pluck('idMensagem');
-
-        Mensagen::whereIn('idMensagem', $mensagensIds)->update(['statusLeitura' => true]);
     
             return response()->json(['mensagens' => $mensagens]);
         } catch (\Exception $e) {

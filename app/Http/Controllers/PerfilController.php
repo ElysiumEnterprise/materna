@@ -188,4 +188,15 @@ class PerfilController extends Controller
 
         
     }
+
+    public function showPerfilsContato(){
+        $userAuth = Auth::user();
+
+        $perfilAuth = $userAuth->perfils;
+
+        $perfils = Perfil::with(['usuarios'])->where('idPerfil', '!=', $perfilAuth->idPerfil)->get();
+
+        return view('home.contatos', compact('perfils'));
+
+    }
 }

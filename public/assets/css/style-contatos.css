@@ -131,3 +131,19 @@ src: url('../fonts/Inter-VariableFont_opsz,wght.ttf');
     color: black;
     text-align: justify;
  }
+
+ .side-item img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: fill;
+ }
+
+ .right1 h2{
+    font-family: 'Fredoka';
+    color: #f26699;
+    text-align: center;
+    justify-content: center;
+    align-items:center ;
+    margin-bottom: 10px;
+ }

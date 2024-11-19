@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="{{url('assets/css/style-notificacoes.css')}}">
-<link rel="stylesheet" href="{{url('assets/css/style-contato.css')}}">
+<link rel="stylesheet" href="{{url('assets/css/style-contatos.css')}}">
 @endsection
 
 
@@ -26,43 +26,20 @@
                     
                     
                     <div class="right1">
+                    <h2>Mensagens</h2>
                         <div class="contato">
                              <ul id="side_items">
-                                <li class="side-item">
-                                  <a href="{{route('mensagens.perfil', 28)}}">
-                                    <img src="{{ url('assets/img/jj.jpg') }}" alt="" class="img-assunto">
-                                        <span class="item-description">
-                                        Johnson & Johnson
-                                        </span>
-                                    </a>
-                                </li>
-                    
-                                <li class="side-item">
-                                   <a>
-                                    <img src="{{ url('assets/img/foto6.jpg') }}" alt="" class="img-assunto"> 
-                                        <span class="item-description">
-                                            Mensagens
-                                        </span>
-                                    </a>
-                                </li>
-                    
-                                <li class="side-item">
-                                    <a>
-                                    <img src="{{ url('assets/img/foto7.jpg') }}" alt="" class="img-assunto">
-                                        <span class="item-description">
-                                            Comunidades
-                                        </span>
-                                    </a>
-                                </li>
-                    
-                                <li class="side-item">
-                                    <a>
-                                    <img src="{{ url('assets/img/foto2.jpg') }}" alt="" class="img-assunto">
-                                        <span class="item-description">
-                                            Notificações
-                                        </span>
-                                    </a>
-                                </li>
+                                @foreach($perfils as $perfil)
+                                    <li class="side-item">
+                                    <a href="{{route('mensagens.perfil', $perfil->idPerfil)}}">
+                                        <img src="{{ url('assets/img/foto-perfil/'.$perfil->fotoPerfil) }}" alt="" class="img-assunto img-fluid">
+                                            <span class="item-description">
+                                            {{$perfil->usuarios->nome}}
+                                            </span>
+                                        </a>
+                                    </li>
+                                @endforeach
+                                
 
                         
                         </div>

@@ -41,14 +41,19 @@
                        
 
                         <div class="chat__messages_card">
+                            @php
+                                // Calcula o maior ID de mensagem para inicialização
+                                $ultimoIdMensagem = 0;
+                            @endphp
                             @foreach($mensagens as $mensagem)
                             
                                 @foreach ($mensagem->emissores as $emissor)
                                 @php
                                     // Verifica se o emissor é o usuário autenticado
                                     $classePosicao = ($emissor->idPerfil === auth()->user()->perfils->idPerfil) ? 'message__self' : 'message__other';
+                                    $ultimoIdMensagem = max($ultimoIdMensagem, $mensagem->idMensagem); // Atualiza o maior ID
                                 @endphp
-                                <div class="card-mensagem {{$classePosicao}}">
+                                <div class="card-mensagem {{$classePosicao}}" data-id="{{ $mensagem->idMensagem }}">
                                     <div class="cont-header">
                                         <p>{{ $emissor->nickname }}</p>
                                     </div>
@@ -112,9 +117,17 @@
 
 @section('scripts')
     
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     
+    <script>
+    // Inicializa o maior ID com o valor calculado pelo PHP
+    let ultimoIdMensagem = {{ $ultimoIdMensagem }};
+    </script>
     @vite(['resources/js/app.js'])
+    
+    
+
 
 
 @endsection

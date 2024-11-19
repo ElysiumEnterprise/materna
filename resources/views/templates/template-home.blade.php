@@ -62,7 +62,7 @@
                         </li>
             
                         <li class="side-item">
-                            <a href="/home/quem">
+                            <a href="{{route('escolha.contatos')}}">
                                 <i class="fa-solid fa-envelope" style="color: #ffb6c1;"></i>
                                 <span class="item-description">
                                     Mensagens
