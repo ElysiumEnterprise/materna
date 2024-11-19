@@ -64,7 +64,7 @@ window.Echo.connector.pusher.connection.bind('connected', () => {
 });
 setInterval(()=>{
     buscarMensagens(idPerfilReceptor)
-}, 1000)
+}, 5000)
 
 function buscarMensagens(idPerfilReceptor) {
     //Armazena os IDS das mensagens 
@@ -128,7 +128,7 @@ function buscarMensagens(idPerfilReceptor) {
         error: function(error) {
             console.error("Erro ao buscar novas mensagens:", error);
         }
-    })
+    }, [])
 }
 
 
