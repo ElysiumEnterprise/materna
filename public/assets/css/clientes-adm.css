@@ -209,7 +209,7 @@
 
 .cont-buscador form{
     min-width: 250px;
-    background-color: var(--color-primary);
+    background-color: #bababa;
     border-radius: 50px 50px;
 }
 .cont-buscador form input, input::-webkit-input-placeholder{
@@ -372,9 +372,7 @@
         width: 90%;
     }
 
-    .cont-buscador{
-        width: 10px;
-    }
+    
     .cont-filtro{
         display: flex;
         margin-top: 10px;
