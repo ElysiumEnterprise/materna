@@ -169,6 +169,14 @@ Route::get('/home/mensagens/{idPerfil}', [MensagensController::class, 'escolherP
 
 Route::post('/home/mensagens/enviar', [MensagensController::class, 'enviarMensagem'])->name('enviar.mensagem');
 
+// escolher contato
+Route::get('/home/quem', function(){
+    return view('home.contatos');
+});
+
+Route::get('/home/preferencias', function(){
+    return view('home.preferencias');
+});
 
 
 // caso o usuário não esteja autenticado, ele seja redirecionado para a página de login.
