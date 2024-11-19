@@ -74,7 +74,17 @@ class Postagem extends Model
         });
     }
 
-   
+    // Relacionamento com a Comunidade
+    public function comunidade()
+    {
+        return $this->belongsTo(Comunidades::class, 'idComunidade');
+    }
+
+    // Relacionamento com o Criador da Postagem
+    public function perfilCriador()
+    {
+        return $this->belongsTo(Perfil::class, 'idPerfilCriador');
+    }
     
     use HasFactory;
     

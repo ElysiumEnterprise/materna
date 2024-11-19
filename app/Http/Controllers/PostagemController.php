@@ -129,4 +129,18 @@ class PostagemController extends Controller
         }
 
     }
+
+    public function mostrarPostagens()
+    {
+    // Obter as postagens, caso existam
+    $postagens = Postagem::all();
+
+    if ($postagens->isEmpty()) {
+        // Tratar o caso onde não há postagens
+        return view('home.comunidades', ['mensagem' => 'Nenhuma postagem encontrada.']);
+    }
+
+    return view('home.comunidades', compact('postagens'));
+    }
+
 }

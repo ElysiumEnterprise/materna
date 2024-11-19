@@ -294,3 +294,21 @@ Route::get('/criar-comunidade', function(){
 })->name('comunidades');
 
 Route::post('/criar-comunidade', [ComunidadeController::class, 'cadastrarComunidade'])->name('criacao.comunidade');
+
+
+
+// Rota para mostrar todas as comunidades de um perfil
+Route::get('/perfil/{idPerfil}/comunidades', [ComunidadeController::class, 'showComunidadesdoPerfil'])
+    ->name('comunidades.perfil');
+
+// Rota para ingressar em uma comunidade
+Route::post('/comunidade/{idComunidade}/ingressar/{idPerfil}', [ComunidadeController::class, 'ingressarComunidade'])
+    ->name('comunidade.ingressar');
+
+// Rota para exibir o formulário de criação de uma comunidade
+Route::get('/comunidade/criar', [ComunidadeController::class, 'mostrarFormularioCriacao'])
+    ->name('comunidade.criar');
+
+// Rota para salvar a nova comunidade
+Route::post('/comunidade/criar', [ComunidadeController::class, 'salvarComunidade'])
+    ->name('comunidade.salvar');

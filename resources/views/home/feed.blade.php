@@ -169,7 +169,8 @@
                 </div>
                 <div class="cont-info-comentarios">
                     <div class="cont-img">
-                        <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post">
+                        <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post" style="height: 450px; width: auto; object-fit: cover; border-radius: 8px; display: block; margin: 0 auto;">
+                        
                     </div>
                     <div class="cont-card-comentarios">
                         <div class="chat-scroll">
@@ -178,10 +179,11 @@
                     </div>
                 </div>
                 <div class="cont-form">
-                    <form action="" method="post" class="form-comentar">
+                    <form action="" method="post" class="form-comentar" style="display: flex; align-items: center; gap: 10px; padding-left:20px;">
                         @csrf
-                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário...">
-                        <button type="submit"><span class="material-symbols-outlined">send</span></button>
+                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário..."  style="flex: 1; padding-rigt: 30%; border: 1px solid #ccc; border-radius: 5px;">
+                        
+                        <button type="submit"  style="padding: 10px 20px; cursor: pointer;" ><span class="material-symbols-outlined">send</span></button>
                     </form>
                 </div>
             </div>

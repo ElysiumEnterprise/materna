@@ -16,5 +16,8 @@ class Postagens extends Model
     {
         return $this->belongsToMany(Categoria::class, 'categoria_posts', 'idPostagem', 'idCategoria');
     }
+
+
+
 }
 
