@@ -10,7 +10,7 @@ const ctx = document.getElementById('myChart').getContext('2d');
             labels:  ['Mães', 'Anunciantes'],
             datasets: [{
                 label: 'Quantidade',
-                data: [countCadMaes, countCadMaes],
+                data: [countCadMaes, countCadAnunciantes],
                 backgroundColor: [
                     
                     'rgb(255, 99, 132)',

@@ -84,7 +84,7 @@
                     </div>
                 </section>
                 <section class='card-analise-grafico'>
-                    <h4>Análise Geral do Anúncio</h4>
+                    <h4>Análise Geral dos Anúncios</h4>
                     <div class="grafico">
 
                         <canvas id="myChart3" width="200px" height="200px"></canvas>
@@ -109,6 +109,7 @@
                     <button type="button" onclick="fecharModalPostAnalise()">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
+                    <h4 id="nomePerfilModal"></h4> <!-- Local para o nome do perfil -->
                 </div>
                 <div class="cont-conteudo-analise">
                     <div class="cont-img-post">

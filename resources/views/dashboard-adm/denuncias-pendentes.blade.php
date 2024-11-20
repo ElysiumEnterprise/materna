@@ -32,8 +32,8 @@
                             <div class="cont-info">
                                 <p>{{$denuncia->detalheDenuncia}}</p>
                                 <div class="cont-btn-escolhas">
-                                    <button type="button" class="btn-check" onclick="abrirModalAceitarDenuncia('{{$denuncia->idDenuncia}}', `{{route('aceitar.denuncia', ['idDenuncia' => ':idDenuncia'])}}`)"><i class="fa-solid fa-check"></i></button>
-                                    <button type="button" onclick="abrirModalRecusarDenuncia('{{$denuncia->idDenuncia}}', `{{route('recusar.denuncia', ['idDenuncia' => ':idDenuncia'])}}`)" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                                    <button type="button" title="Validar Denúncia" class="btn-check" onclick="abrirModalAceitarDenuncia('{{$denuncia->idDenuncia}}', `{{route('aceitar.denuncia', ['idDenuncia' => ':idDenuncia'])}}`)"><i class="fa-solid fa-check"></i></button>
+                                    <button type="button" title="Recusar Denúncia" onclick="abrirModalRecusarDenuncia('{{$denuncia->idDenuncia}}', `{{route('recusar.denuncia', ['idDenuncia' => ':idDenuncia'])}}`)" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                                 </div>
                             </div>
                             

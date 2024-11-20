@@ -43,22 +43,22 @@
                         </a>
                         <div class="cont-btn-acoes">
                             @if($user->isSuspenso == 1)
-                                <button type="button" class="btn-ativar" onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><img src="{{url('assets/img/icons/user-ativado.png')}}" alt=""></button>
+                                <button type="button" title="Ativar" class="btn-ativar" onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><img src="{{url('assets/img/icons/user-ativado.png')}}" alt=""></button>
                             @else
-                                <button type="button" class="btn-ativar-disabled" disabled onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><img src="{{url('assets/img/icons/user-ativado.png')}}" alt=""></button>
+                                <button type="button" title="Ativar" class="btn-ativar-disabled" disabled onclick="abrirModalAtivar('{{$user->idUsuario}}', `{{route('ativar-user', ['idUsuario' => ':idUsuario'])}}`)"><img src="{{url('assets/img/icons/user-ativado.png')}}" alt=""></button>
                             @endif
 
                             @if($user->isSuspenso == 1)
 
-                            <button type="button" class="btn-suspender-disabled" disabled onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
+                            <button type="button" title="Suspender" class="btn-suspender-disabled" disabled onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
                             <img src="{{url('assets/img/icons/user-bloqueado.png')}}" alt="">
                             </button>
                             @else
-                            <button type="button" class="btn-suspender" onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
+                            <button type="button" title="Suspender" class="btn-suspender" onclick="abrirModalSuspender('{{$user->idUsuario}}', `{{route('suspender-user', ['idUsuario' => ':idUsuario'])}}`)">
                             <img src="{{url('assets/img/icons/user-bloqueado.png')}}" alt="">
                             </button>
                             @endif
-                            <button type="button" class="btn-deletar" onclick="abrirModalDeletar('{{$user->idUsuario}}', `{{route('user.destroy.adm', ['idUsuario' => ':idUsuario'])}}`)"><i class="fa-solid fa-trash"></i></button>
+                            <button type="button" title="Deletar" class="btn-deletar" onclick="abrirModalDeletar('{{$user->idUsuario}}', `{{route('user.destroy.adm', ['idUsuario' => ':idUsuario'])}}`)"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </section>
                     <hr>
