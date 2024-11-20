@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="{{url('assets/css/style-feed.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style-modal-analise.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/style-perfil.css')}}">
 @endsection
 
 <!-- Conteúdo da Página aqui Sugiro que crie uma div para guardar e organizar o conteúdo  -->
@@ -167,10 +168,12 @@
                 </div>
                 <div class="cont-info-comentarios">
                     <div class="cont-img">
-                        <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post" style="height: 560px; width: auto; object-fit: fill; border-radius: 8px; display: block; margin: 0 auto;">
+                        <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post" style="height: 560px; width: auto; object-fit: cover; border-radius: 8px; display: block; margin: 0 auto; margin-bottom:20%;">
                         
                     </div>
+                       <!-- Container das informações da postagem -->
                     <div class="cont-card-comentarios">
+                      
                         <div class="chat-scroll">
                             <!-- Comentários serão carregados aqui -->
                         </div>
@@ -179,9 +182,9 @@
                 <div class="cont-form">
                     <form action="" method="post" class="form-comentar" style="display: flex; align-items: center; gap: 10px; padding-left:20px;">
                         @csrf
-                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário..."  style="flex: 1; padding-rigt: 30%; border: 1px solid #ccc; border-radius: 5px;">
+                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário..."  style="flex: 1; border-radius: 15px; border: 1px solid black; padding: 8px; outline: none; font-size: 16px; width: 70%; bac">
                         
-                        <button type="submit"  style="padding: 10px 20px; cursor: pointer;" ><span class="material-symbols-outlined">send</span></button>
+                        <button type="submit" style= " border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; align-self: center;" ><span class="material-symbols-outlined">send</span></button>
                     </form>
                 </div>
             </div>

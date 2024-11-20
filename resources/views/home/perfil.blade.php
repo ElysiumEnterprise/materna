@@ -97,7 +97,7 @@
           <div class="photos">
             @foreach($user->perfils->postagems as $postagem)
             <button type="button" onclick="abrirInfoPost('{{$postagem->idPostagem}}', '{{$postagem->fotoPost}}', `{{ route('store.comentario', ['idPostagem' => ':idPostagem']) }}`)">
-              <img src="{{url('assets/img/file-posts/'.$postagem->fotoPost)}}" alt="Photo" />
+              <img src="{{url('assets/img/file-posts/'.$postagem->fotoPost)}}" alt="Photo"  class="img-quadrada" />
             </button>
             
             
@@ -154,7 +154,7 @@
         <div class="cont-info-post">
           <!-- Container da imagem do lado esquerdo -->
           <div class="cont-img-post">
-              <img src="" class="img-fluid img-modal-post" alt="">
+              <img src="" class="img-fluid img-modal-post" alt="" style=" border-radius: 5px;">
           </div>
           <!-- Container das informações da postagem -->
            <div class="cont-lado-direito">
@@ -180,16 +180,16 @@
               <div class="cont-comentarios">
                 <h6 class="txtTituloComentario">Comentários</h6>
                 <!-- Aqui serão as sections vinda do banco de dados de todos os comentários dessa postagem -->
-                <div class="cont-card-comentarios">
+                <div class="cont-card-comentarios" >
                     <div class="chat-scroll">
                             <!-- Comentários serão carregados aqui -->
                     </div>
                 </div>
-                <form action="" method="post" class="form-comentar">
+                <form action="" method="post" class="form-comentar  style= display: flex; align-items: center; gap: 10px;">
                   @csrf
-                  <input type="text" name="inputComentarioModal" required id="inputComentarioModal">
-                  <button type="submit">
-                    <span class="material-symbols-outlined">send</span>
+                  <input type="text" name="inputComentarioModal"   placeholder="Escreva seu comentário... " style="flex: 1; border-radius: 15px; border: 1px; padding: 8px; outline: none; font-size: 16px; width: 70%;" >
+                  <button type="submit" style= " border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; align-self: center;">
+                    <span class="material-symbols-outlined" >send</span>
                   </button>
                 </form>
               </div>

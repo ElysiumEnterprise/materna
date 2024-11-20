@@ -410,16 +410,16 @@
 
 .modal-post-perfil .cont-info-post .cont-lado-direito .cont-comentarios form{
     display: flex;
-    width: 100%;
-    position: fixed;
+    width: 47%;
+    /*position: fixed;*/
     justify-content: start;
     align-items: start;
-    background-color: #f0f0f0;
+    /*background-color: #f0f0f0;*/
     padding: 8px 10px;
     position: fixed;
     bottom: 18px;
-    width: 50%;
-    border-radius: 10px 10px 10px 10px
+    width:47%;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .modal-post-perfil .cont-info-post .cont-lado-direito .cont-comentarios form input{
@@ -442,3 +442,4 @@
 .modal-post-perfil .cont-info-post .cont-lado-direito .cont-comentarios form button >span{
     font-size: 1.8rem;
 }
+
