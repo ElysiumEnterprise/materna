@@ -34,6 +34,7 @@
         <!-- terminou -->
 
                 <div class="cont-post">
+                <div class="linha"></div>
                     @foreach ($postagens as $post)
                        
                         <section class="card-post" data-post-id="{{$post->idPostagem}}">
@@ -59,8 +60,11 @@
                                             <i class="fa-regular fa-comment"></i>
                                         </button>
                                 </div>
+                                
                             </div>
+                            
                         </section>
+                        
                     @endforeach
                     
 
@@ -167,15 +171,15 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <h4 id="nomePerfilModal"></h4> <!-- Local para o nome do perfil -->
-                </div>
-                <div class="cont-info-comentarios">
+                </div>                <div class="cont-info-comentarios">
                     <div class="cont-img">
                         <img src="" class="img-fluid img-post-comentario" alt="" id="img-modal-post" style="height: 560px; width: auto; object-fit: cover; border-radius: 8px; display: block; margin: 0 auto; margin-bottom:20%;">
                         
                     </div>
+                    
                        <!-- Container das informações da postagem -->
                     <div class="cont-card-comentarios">
-                      
+                  
                         <div class="chat-scroll">
                             <!-- Comentários serão carregados aqui -->
                         </div>
@@ -184,11 +188,12 @@
                 <div class="cont-form">
                     <form action="" method="post" class="form-comentar" style="display: flex; align-items: center; gap: 10px; padding-left:20px;">
                         @csrf
-                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário..."  style="flex: 1; border-radius: 15px; border: 1px solid black; padding: 8px; outline: none; font-size: 16px; width: 70%; bac">
+                        <input type="text" name="inputComentarioModal" required id="inputComentarioModal" placeholder="Digite seu comentário..."  style="flex: 1; border-radius: 15px; border: 1px solid black; padding: 8px; outline: none; font-size: 16px; width: 70%;">
                         
                         <button type="submit" style= " border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; align-self: center;" ><span class="material-symbols-outlined">send</span></button>
                     </form>
                 </div>
+                
             </div>
         </dialog>
     </div>

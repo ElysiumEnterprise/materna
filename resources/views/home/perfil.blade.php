@@ -154,7 +154,7 @@
         <div class="cont-info-post">
           <!-- Container da imagem do lado esquerdo -->
           <div class="cont-img-post">
-              <img src="" class="img-fluid img-modal-post" alt="" style=" border-radius: 5px;">
+              <img src="" class="img-fluid img-modal-post" alt="" style=" border-radius: 2%; margin-bottom: 20%;">
           </div>
           <!-- Container das informações da postagem -->
            <div class="cont-lado-direito">
@@ -187,7 +187,7 @@
                 </div>
                 <form action="" method="post" class="form-comentar  style= display: flex; align-items: center; gap: 10px;">
                   @csrf
-                  <input type="text" name="inputComentarioModal"   placeholder="Escreva seu comentário... " style="flex: 1; border-radius: 15px; border: 1px; padding: 8px; outline: none; font-size: 16px; width: 70%;" >
+                  <input type="text" name="inputComentarioModal"   placeholder="Escreva seu comentário... " style="flex: 1; border-radius: 15px; border: 1px solid black; padding: 8px; outline: none; font-size: 16px; width: 70%;" >
                   <button type="submit" style= " border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; align-self: center;">
                     <span class="material-symbols-outlined" >send</span>
                   </button>
